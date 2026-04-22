@@ -55,6 +55,13 @@
             "icon": "https://cdn-icons-png.flaticon.com/128/1144/1144760.png",
             "action": "navigateToUserProfile",
             "enabled": true
+        },
+        {
+            "id": "try-on",
+            "name": "Virtual Try-On",
+            "icon": "https://acme9614.github.io/html_web_pages/assets/virtual.png",
+            "action": "navigateToARVirtualTryOn",
+            "enabled": true
         }
     ]
 }
