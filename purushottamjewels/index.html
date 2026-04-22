@@ -71,17 +71,6 @@ overflow-y-auto">
         </div>
 
         <!-- Drawer Content -->
-        <!-- <div class="p-6 space-y-4 text-[#6b2c2c]">
-            <a href="#" onclick="navigateToScheme()" class="block text-lg hover:text-yellow-600">Scheme</a>
-            <a href="#" onclick="navigateToBankDetails()" class="block text-lg hover:text-yellow-600">Bank</a>
-            <a href="#" onclick="navigateToKyc()" class="block text-lg hover:text-yellow-600">KYC</a>
-            <a href="#" onclick="navigateToRate()" class="block text-lg hover:text-yellow-600">Rate</a>
-            <a href="#" onclick="navigateTransactionHistory()" class="block text-lg hover:text-yellow-600">History</a>
-            <a href="#" onclick="navigateToMyOrder()" class="block text-lg hover:text-yellow-600">Order</a>
-            <a href="#" onclick="navigateToDigitalGold()" class="block text-lg hover:text-yellow-600">Gold</a>
-            <a href="#" onclick="navigateToUserProfile()" class="block text-lg hover:text-yellow-600">Profile</a>
-        </div> -->
-
         <div id="drawerContainer" class="p-6 space-y-4 text-[#6b2c2c]"></div>
 
     </div>
@@ -138,7 +127,7 @@ overflow-y-auto">
     <section class="py-12 px-4 bg-white">
 
         <div class="max-w-3xl mx-auto">
-            <!-- KEEP THIS CONTAINER -->
+            <!-- widgetContainer -->
             <div id="widgetsContainer" class="flex flex-wrap justify-center gap-6 md:gap-12" data-aos="zoom-in">
             </div>
 
@@ -286,7 +275,7 @@ overflow-y-auto">
     </script>
 
     <script>
-        // Drawer (text only)
+        // Drawer Items Display
         window.renderDrawerItem = function (widget) {
             return `
       <a href="#"
@@ -297,7 +286,7 @@ overflow-y-auto">
     `;
         };
 
-        // Grid (card UI)
+        // widget tabs display
         window.renderWidget = function (widget) {
             const isVirtualTryOn = widget.id === "try-on";
 
@@ -313,7 +302,9 @@ overflow-y-auto">
     `;
         };
     </script>
-
+    <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
     <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
 
 </body>

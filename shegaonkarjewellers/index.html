@@ -45,17 +45,6 @@
         </div>
 
         <!-- MENU -->
-        <!-- <nav class="p-4 flex flex-col gap-4">
-            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToScheme()" >Scheme</a>
-            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToBankDetails()" >Bank</a>
-            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToKYC()">KYC</a>
-            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToRate()">Rate</a>
-            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateTransactionHistory()" >History</a>
-            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToMyOrder()" >Order</a>
-            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToDigitalGold()" >Gold</a>
-            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToUserProfile()" >Profile</a>
-        </nav> -->
-
         <div id="drawerContainer" class="p-4 flex flex-col gap-4"></div>
 
     </aside>
@@ -71,16 +60,13 @@
 
     </section>
 
-        <!-- Service Section -->
+    <!-- Service Section -->
     <section class="py-12 px-4 bg-white">
 
         <div class="max-w-3xl mx-auto">
-            <!-- KEEP THIS CONTAINER -->
-        <div id="widgetsContainer"
-             class="flex flex-wrap justify-center gap-6 md:gap-12"
-           >
-        </div>
-
+            <!-- widgets container -->
+            <div id="widgetsContainer" class="flex flex-wrap justify-center gap-6 md:gap-12">
+            </div>
         </div>
 
     </section>
@@ -102,19 +88,21 @@
     </script>
 
     <script>
-         window.renderDrawerItem = function(widget) {
-    return `
+        // Drawer Items Display
+        window.renderDrawerItem = function (widget) {
+            return `
       <a href="#"
          onclick="${widget.action}()"
          class="text-gray-700 hover:text-black transition">
          ${widget.name}
       </a>
     `;
-  };
+        };
 
-window.renderWidget = function(widget) {
-     const isVirtualTryOn = widget.id === "try-on";
-  return `
+        // widget tabs display
+        window.renderWidget = function (widget) {
+            const isVirtualTryOn = widget.id === "try-on";
+            return `
     <div onclick="${widget.action}()"
     class="h-28 w-24 md:w-28 md:h-28 rounded-tl-[50px] rounded-tr-[50px] rounded-bl-[50px]
     flex flex-col items-center justify-center text-center shadow-md text-white cursor-pointer
@@ -124,10 +112,12 @@ window.renderWidget = function(widget) {
       <span class="text-sm font-semibold mt-2">${widget.name}</span>
     </div>
   `;
-};
-</script>
-
-<script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+        };
+    </script>
+    <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
 
 </body>
 
