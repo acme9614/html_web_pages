@@ -19,15 +19,18 @@ const NAVIGATION_MAP = {
   navigateToARVirtualTryOn: "navigateToARVirtualTryOn"
 };
 
-function sendNavigation(action) {
-  if (!action) return;
-  Toaster.postMessage(action);
-}
-
-// Auto-create all functions globally
 Object.keys(NAVIGATION_MAP).forEach(fnName => {
   window[fnName] = function () {
-    sendNavigation(NAVIGATION_MAP[fnName]);
+
+    if (typeof Toaster !== "undefined") {
+      Toaster.postMessage(NAVIGATION_MAP[fnName]);
+    } else {
+      //  Simple error message
+      console.error("Toaster is not defined");
+      //  Show which function triggered
+      console.log(fnName);
+    }
+
   };
 });
 
