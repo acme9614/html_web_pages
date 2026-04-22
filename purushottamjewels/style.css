@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+:root {
+  --font-h: 'Playfair Display', serif;
+  --font-b: 'Nunito Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-b);
+  
+}
+
+.font-heading {
+  font-family: var(--font-h);
+  font-weight: bold;
+}
+
+
+/* branding slider  */
+
+.autoplay-progress svg {
+    --progress: 0;
+    stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+    stroke-dasharray: 125.6;
+    transform: rotate(-90deg);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 1.5rem;
+    /* Tailwind: text-2xl */
+    color: black;
+    font-weight: bolder;
+}
+
+
+/* Pagination */
+
+/* Pagination container */
+.swiper-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Default dots */
+.swiper-pagination-bullet {
+    width: 6px;
+    height: 6px;
+    background: #cfcfcf;
+    opacity: 1;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+/* Active bullet (pill style) */
+.swiper-pagination-bullet-active {
+    width: 22px;
+    height: 6px;
+    border-radius: 999px;
+    background: #caa25d;
+    /* gold color */
+}
+
+.swiper-pagination-bullet-active {
+    width: 22px;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #d4af37, #caa25d);
+    transition: all 0.4s ease;
+}

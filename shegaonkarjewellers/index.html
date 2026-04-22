@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shegaonkar Jewellers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- HEADER -->
+    <header class="bg-white shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+
+            <!-- LEFT: LOGO -->
+            <div class="flex items-center">
+                <img src="assets/Footer_logo.webp" alt="Logo" class="h-20 w-auto">
+            </div>
+
+            <!--Drawer Icon -->
+            <button id="menuBtn" class="flex flex-col gap-1">
+                <span class="w-6 h-0.5 bg-black"></span>
+                <span class="w-6 h-0.5 bg-black"></span>
+                <span class="w-6 h-0.5 bg-black"></span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- OVERLAY -->
+    <div id="overlay" class="fixed inset-0 bg-black/40 opacity-0 invisible transition-all duration-300 z-40">
+    </div>
+
+    <!-- DRAWER -->
+    <aside id="drawer"
+        class="fixed top-0 right-0 w-72 h-full bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50">
+
+        <!-- DRAWER HEADER WITH LOGO -->
+        <div class="flex items-center justify-between p-4 border-b">
+            <img src="assets/Footer_logo.webp" alt="Logo" class="h-20 w-auto">
+            <button id="closeBtn" class="text-2xl leading-none">&times;</button>
+        </div>
+
+        <!-- MENU -->
+        <!-- <nav class="p-4 flex flex-col gap-4">
+            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToScheme()" >Scheme</a>
+            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToBankDetails()" >Bank</a>
+            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToKYC()">KYC</a>
+            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToRate()">Rate</a>
+            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateTransactionHistory()" >History</a>
+            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToMyOrder()" >Order</a>
+            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToDigitalGold()" >Gold</a>
+            <a href="#" class="text-gray-700 hover:text-black" onclick="navigateToUserProfile()" >Profile</a>
+        </nav> -->
+
+        <div id="drawerContainer" class="p-4 flex flex-col gap-4"></div>
+
+    </aside>
+
+    <!-- BANNER SECTION -->
+    <section class="w-full">
+
+        <!-- MOBILE IMAGE -->
+        <img src="assets/mobileView.webp" alt="Banner Mobile" class="w-full  object-cover block md:hidden" />
+
+        <!-- TABLET + DESKTOP IMAGE -->
+        <img src="assets/shegoankrr_banner.webp" alt="Banner Desktop" class="w-full object-cover hidden md:block" />
+
+    </section>
+
+        <!-- Service Section -->
+    <section class="py-12 px-4 bg-white">
+
+        <div class="max-w-3xl mx-auto">
+            <!-- KEEP THIS CONTAINER -->
+        <div id="widgetsContainer"
+             class="flex flex-wrap justify-center gap-6 md:gap-12"
+           >
+        </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-6">
+
+        <div class="max-w-7xl mx-auto px-4 flex justify-center items-center">
+
+            <!-- LOGO -->
+            <img src="assets/Footer_logo.webp" alt="Logo" class="h-44 md:h-auto w-auto">
+
+        </div>
+
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="script.js">
+    </script>
+
+    <script>
+         window.renderDrawerItem = function(widget) {
+    return `
+      <a href="#"
+         onclick="${widget.action}()"
+         class="text-gray-700 hover:text-black transition">
+         ${widget.name}
+      </a>
+    `;
+  };
+
+window.renderWidget = function(widget) {
+     const isVirtualTryOn = widget.id === "try-on";
+  return `
+    <div onclick="${widget.action}()"
+    class="h-28 w-24 md:w-28 md:h-28 rounded-tl-[50px] rounded-tr-[50px] rounded-bl-[50px]
+    flex flex-col items-center justify-center text-center shadow-md text-white cursor-pointer
+    border-4 border-yellow-400 bg-gradient-to-br from-[#c7b3ea] via-[#8965c4] to-[#4b2a8a]">
+      
+      <img class="w-10 h-10 ${isVirtualTryOn ? '' : 'invert'}" src="${widget.icon}" />
+      <span class="text-sm font-semibold mt-2">${widget.name}</span>
+    </div>
+  `;
+};
+</script>
+
+<script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+</body>
+
+</html>

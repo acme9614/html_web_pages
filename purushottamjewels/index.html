@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purushottam Jewels</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="font-sans">
+
+    <!-- HEADER -->
+    <header class="w-full bg-gradient-to-r from-[#a12a4f] via-[#7a1538] to-[#530c23] shadow-md fixed top-0 left-0 z-50">
+
+        <div class="max-w-7xl mx-auto relative flex items-center px-4 py-2">
+
+            <!-- Left: Logo -->
+            <div class="flex items-center">
+                <img src="assets/website_logo-removebg-preview (1).png" alt="Logo"
+                    class="w-16 h-16 md:w-20 md:h-20 object-contain">
+            </div>
+
+            <!-- Center: Title -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 text-center">
+                <h1
+                    class="text-sm md:text-xl font-semibold text-[#fdefd5] whitespace-nowrap leading-snug  font-heading tracking-wide md:tracking-[2px]">
+                    Purushottam Prasad Jewellers
+                </h1>
+            </div>
+
+            <!-- Right: Menu Button -->
+            <div class="ml-auto">
+                <button id="menuBtn" class="text-2xl md:text-3xl text-[#fdefd5]">
+                    ☰
+                </button>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- DRAWER -->
+    <div id="drawer" class="fixed top-0 right-0 h-full 
+w-[90%] md:w-[50%] 
+bg-white transform translate-x-full 
+transition-transform duration-300 z-50 shadow-xl
+overflow-y-auto">
+
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between px-4 py-8 border-b">
+
+            <div class="text-lg font-semibold text-[#530c23]">
+                Purushottam Prasad Jewellers
+            </div>
+
+            <button id="closeBtn" class="text-xl text-[#530c23] !important">
+                ✖
+            </button>
+
+        </div>
+
+        <!-- Drawer Content -->
+        <!-- <div class="p-6 space-y-4 text-[#6b2c2c]">
+            <a href="#" onclick="navigateToScheme()" class="block text-lg hover:text-yellow-600">Scheme</a>
+            <a href="#" onclick="navigateToBankDetails()" class="block text-lg hover:text-yellow-600">Bank</a>
+            <a href="#" onclick="navigateToKyc()" class="block text-lg hover:text-yellow-600">KYC</a>
+            <a href="#" onclick="navigateToRate()" class="block text-lg hover:text-yellow-600">Rate</a>
+            <a href="#" onclick="navigateTransactionHistory()" class="block text-lg hover:text-yellow-600">History</a>
+            <a href="#" onclick="navigateToMyOrder()" class="block text-lg hover:text-yellow-600">Order</a>
+            <a href="#" onclick="navigateToDigitalGold()" class="block text-lg hover:text-yellow-600">Gold</a>
+            <a href="#" onclick="navigateToUserProfile()" class="block text-lg hover:text-yellow-600">Profile</a>
+        </div> -->
+
+        <div id="drawerContainer" class="p-6 space-y-4 text-[#6b2c2c]"></div>
+
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper brandingSwiper w-full mt-[80px]">
+        <div class="swiper-wrapper">
+            <!-- Slide 2 -->
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/Banner1.webp" alt="Desktop Image 1"
+                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div>
+            <!-- Slide 3 -->
+
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/Banner2.webp" alt="Desktop Image 1"
+                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div>
+            <!-- Slide 4 -->
+
+            <!-- <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/Banner3.webp" alt="Desktop Image 1"
+                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div> -->
+
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/Banner4.webp" alt="Desktop Image 1"
+                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div
+            class="swiper-button-next hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+        </div>
+        <div
+            class="swiper-button-prev hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination mt-10"></div>
+
+    </div>
+
+    <!-- Service Section -->
+    <section class="py-12 px-4 bg-white">
+
+        <div class="max-w-3xl mx-auto">
+            <!-- KEEP THIS CONTAINER -->
+            <div id="widgetsContainer" class="flex flex-wrap justify-center gap-6 md:gap-12" data-aos="zoom-in">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="bg-[#fdf8f3] py-14 px-4 md:px-10">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+            <!-- Left Content -->
+            <div data-aos="fade-right" class="order-2">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#530c23] mb-4 relative inline-block">
+                    Our Story
+                    <span class="block w-16 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2 rounded"></span>
+                </h2>
+
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Welcome to <span class="font-semibold text-[#530c23]">Purushottam Prasad Jewellers</span>
+                </p>
+
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Every piece of jewelry tells a story, and so do we.
+                </p>
+
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    Our journey began with a simple passion: to create beautiful, meaningful jewelry that celebrates
+                    life’s special moments. What started as a small dream has grown into a beloved destination for those
+                    seeking quality craftsmanship and timeless designs.
+                </p>
+
+                <p class="text-gray-600 mb-4 leading-relaxed">
+                    We believe that jewelry is more than just an accessory - it's an expression of your unique style, a
+                    keeper of memories, and a treasure to be passed down through generations.
+                </p>
+
+                <!-- Points -->
+                <ul class="space-y-2 mt-4">
+                    <li class="flex items-start gap-2">
+                        <span class="text-yellow-500 text-lg">✔</span>
+                        <span class="text-gray-700">Carefully sourced materials</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-yellow-500 text-lg">✔</span>
+                        <span class="text-gray-700">Expert craftsmanship</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-yellow-500 text-lg">✔</span>
+                        <span class="text-gray-700">Attention to every detail</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="text-yellow-500 text-lg">✔</span>
+                        <span class="text-gray-700">Exceptional customer service</span>
+                    </li>
+                </ul>
+
+                <p class="text-gray-600 mt-6 italic">
+                    Thank you for being part of our story. We're honored to help you create yours.
+                </p>
+            </div>
+
+            <!-- Right Side Design -->
+
+            <!-- Image (Mobile First Top) -->
+            <div data-aos="fade-left" class="relative order-1 md:order-2">
+                <div class="overflow-hidden rounded-2xl">
+                    <img src="assets/story.png" alt="Jewellery Story"
+                        class="w-full h-[300px] md:h-[550px] object-contain transform group-hover:scale-110 transition duration-700" />
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#530c23] text-gray-300 py-12  px-4" data-aos="fade-in">
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <!-- Company Info -->
+            <div>
+                <div class="flex items-start gap-4">
+
+                    <!-- Logo -->
+                    <div class=" rounded-full flex items-center justify-center">
+                        <img src="assets/website_logo-removebg-preview (1).png" alt="Logo"
+                            class="w-28 h-28 md:w-32 md:h-32 object-contain">
+                    </div>
+                </div>
+                <!-- Company Name -->
+                <h2 class="text-[#fdefd5] text-lg md:text-xl font-heading leading-snug tracking-wide md:tracking-[2px]">
+                    Purushottam Prasad Jewellers
+                </h2>
+                <!-- Description -->
+                <p class="mt-5 text-sm leading-relaxed text-white">
+                    Discover exquisite jewelry pieces crafted with passion and precision.
+                    Each piece tells a unique story.
+                </p>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="start md:col-start-2 lg:col-start-3 mt-0 md:mt-10">
+                <h3 class=" text-lg font-semibold text-[#fdefd5] mb-5 relative inline-block">
+                    CONTACT US
+                </h3>
+
+                <ul class="space-y-4 text-sm">
+
+                    <!-- Address -->
+                    <li class="flex items-start gap-3">
+                        <span class="text-white text-lg">📍</span>
+                        <p class="text-sm leading-relaxed text-white">
+                            Chhata bazar gandhi chowk<br>
+                            muzaffarpur bihar 842001
+                        </p>
+                    </li>
+
+                    <!-- Phone -->
+                    <li class="flex items-center gap-3">
+                        <span class="text-yellow-500 text-lg">📞</span>
+                        <p class="text-sm leading-relaxed text-white">+91 9031750614</p>
+                    </li>
+
+                    <!-- Email -->
+                    <li class="flex items-center gap-3">
+                        <span class="text-yellow-500 text-lg">✉️</span>
+                        <p class="text-sm leading-relaxed text-white">info@purushottamjewels.com</p>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- SCRIPT -->
+    <script src="script.js">
+    </script>
+
+    <script>
+        // Drawer (text only)
+        window.renderDrawerItem = function (widget) {
+            return `
+      <a href="#"
+         onclick="${widget.action}()"
+         class="block text-lg text-[#6b2c2c] hover:text-yellow-600 transition">
+         ${widget.name}
+      </a>
+    `;
+        };
+
+        // Grid (card UI)
+        window.renderWidget = function (widget) {
+            const isVirtualTryOn = widget.id === "try-on";
+
+            return `
+      <div onclick="${widget.action}()"
+        class="h-28 w-24 md:w-28 md:h-28 rounded-tr-[50px] rounded-bl-[50px]
+        flex flex-col items-center justify-center text-center shadow-md text-white cursor-pointer
+        border-4 border-yellow-400 bg-gradient-to-r from-[#a12a4f] via-[#7a1538] to-[#530c23]">
+        
+        <img class="w-10 h-10 ${isVirtualTryOn ? '' : 'invert'}" src="${widget.icon}" />
+        <span class="text-sm font-semibold mt-2">${widget.name}</span>
+      </div>
+    `;
+        };
+    </script>
+
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+</body>
+
+</html>
