@@ -4,10 +4,10 @@ const NAVIGATION_MAP = {
   navigateToCatalogues: "navigateToCatalogues",
   navigateToQuickPurchase: "navigateToQuickPurchase",
   navigateToBankDetails: "navigateBankDetails",
-  navigateToKyc: "navigateToKyc",
-  navigateToRate: "navigateToRate",
+  navigateToKyc: "navigateKyc",
+  navigateToRate: "navigateRate",
   navigateSchemeRecords: "navigateSchemeRecords",
-  navigateToCustomerCard: "navigateToCustomerCard",
+  navigateToCustomerCard: "navigateCustomerCard",
   navigateTransactionHistory: "navigateTransactionHistory",
   navigateToMyOrder: "navigateToMyOrder",
   navigateToUserProfile: "navigateToUserProfile",
@@ -16,7 +16,9 @@ const NAVIGATION_MAP = {
   navigateToFeedback: "navigateToFeedback",
   navigateToSetting: "navigateToSetting",
   navigateToHomePage: "navigateToHomePage",
-  navigateToARVirtualTryOn: "navigateToARVirtualTryOn"
+  navigateToARVirtualTryOn: "navigateToARVirtualTryOn",
+  navigateToNotification : "navigateToNotification",
+  navigateToLogout : "navigateToLogout"
 };
 
 Object.keys(NAVIGATION_MAP).forEach(fnName => {
