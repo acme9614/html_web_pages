@@ -2,7 +2,11 @@ const API_URL = "https://acme9614.github.io/html_web_pages/widgets.json";
 
 async function loadWidgets() {
     try {
-        const res = await fetch(API_URL);
+        // Use "no-cache" to always check for updated widgets.json
+        // Prevents mobile from showing old cached data
+        const res = await fetch(API_URL, {
+            cache: "no-cache"
+        });
 
         if (!res.ok) throw new Error("Failed to fetch widgets");
 
@@ -24,13 +28,13 @@ async function loadWidgets() {
             //  skip disabled
             if (widget.enabled === false) return;
 
-            
+
             // GRID (cards)
             if (typeof window.renderWidget === "function") {
                 gridHTML += window.renderWidget(widget);
             }
 
-        
+
             // DRAWER (simple text)
             if (drawerContainer && typeof window.renderDrawerItem === "function") {
                 drawerHTML += window.renderDrawerItem(widget);
