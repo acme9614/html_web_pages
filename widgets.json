@@ -62,13 +62,6 @@
             "icon": "https://acme9614.github.io/html_web_pages/assets/virtual.png",
             "action": "navigateToARVirtualTryOn",
             "enabled": true
-        },
-        {
-            "id": "settings",
-            "name": "Settings",
-            "icon": "https://cdn-icons-png.flaticon.com/128/2099/2099058.png",
-            "action": "navigateToSetting",
-            "enabled": true
         }
     ]
 }

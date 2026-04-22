@@ -12,53 +12,6 @@
        document.body.style.overflow = "auto"; //  FIX
     });
 
-
-
-// Navigate  functions 
-function navigateToScheme() {
-  Toaster.postMessage("navigateScheme");
-}
-
-
-function navigateToBankDetails() {
-  Toaster.postMessage("navigateBankDetails");
-}
-
-function navigateToKyc() {
-  Toaster.postMessage("navigateKyc");
-}
-
-function navigateToRate() {
-  Toaster.postMessage("navigateRate");
-}
-
-
-function navigateTransactionHistory() {
-  Toaster.postMessage("navigateTransactionHistory");
-}
-
-function navigateToMyOrder() {
-  Toaster.postMessage("navigateToMyOrder");
-}
-
-function navigateToUserProfile() {
-  Toaster.postMessage("navigateToUserProfile");
-}
-
-function navigateToDigitalGold() {
-  Toaster.postMessage("navigateToDigitalGold");
-}
-
-function navigateToHomePage() {
-  Toaster.postMessage("navigateToHomePage");
-}
-
-function navigateToARVirtualTryOn() {
-  Toaster.postMessage("navigateToARVirtualTryOn");
-}
-
-
-
 // slider script 
 
 // brandingSwiper 

@@ -1,3 +1,37 @@
+// Navigation functions and message
+const NAVIGATION_MAP = {
+  navigateToScheme: "navigateScheme",
+  navigateToCatalogues: "navigateToCatalogues",
+  navigateToQuickPurchase: "navigateToQuickPurchase",
+  navigateToBankDetails: "navigateBankDetails",
+  navigateToKyc: "navigateToKyc",
+  navigateToRate: "navigateToRate",
+  navigateSchemeRecords: "navigateSchemeRecords",
+  navigateToCustomerCard: "navigateToCustomerCard",
+  navigateTransactionHistory: "navigateTransactionHistory",
+  navigateToMyOrder: "navigateToMyOrder",
+  navigateToUserProfile: "navigateToUserProfile",
+  navigateToDigitalGold: "navigateToDigitalGold",
+  navigateToPanchang: "navigateToPanchang",
+  navigateToFeedback: "navigateToFeedback",
+  navigateToSetting: "navigateToSetting",
+  navigateToHomePage: "navigateToHomePage",
+  navigateToARVirtualTryOn: "navigateToARVirtualTryOn"
+};
+
+function sendNavigation(action) {
+  if (!action) return;
+  Toaster.postMessage(action);
+}
+
+// Auto-create all functions globally
+Object.keys(NAVIGATION_MAP).forEach(fnName => {
+  window[fnName] = function () {
+    sendNavigation(NAVIGATION_MAP[fnName]);
+  };
+});
+
+
 const API_URL = "https://acme9614.github.io/html_web_pages/widgets.json";
 
 async function loadWidgets() {
