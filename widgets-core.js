@@ -1,3 +1,12 @@
+/**
+ * @author Ajit Mane
+ * @description
+ * RF ID #202679
+ * Handles centralized navigation and dynamic widget loading.
+ * Fetches widgets from a common JSON (GitHub Pages) and renders
+ * them in widget section and drawer layouts across all pages.
+ */
+
 // Navigation functions and message
 const NAVIGATION_MAP = {
   navigateToScheme: "navigateScheme",
@@ -21,10 +30,13 @@ const NAVIGATION_MAP = {
   navigateToLogout : "navigateToLogout"
 };
 
+// Loop through all keys and dynamically create global functions on window
+// So we don't need to manually write 20+ functions
 Object.keys(NAVIGATION_MAP).forEach(fnName => {
   window[fnName] = function () {
 
     if (typeof Toaster !== "undefined") {
+      // Send message to mobile app
       Toaster.postMessage(NAVIGATION_MAP[fnName]);
     } else {
       //  Simple error message
@@ -36,7 +48,8 @@ Object.keys(NAVIGATION_MAP).forEach(fnName => {
   };
 });
 
-
+// Central JSON file URL
+// This file controls all widgets for all pages
 const API_URL = "https://acme9614.github.io/html_web_pages/widgets.json";
 
 async function loadWidgets() {
@@ -62,25 +75,27 @@ async function loadWidgets() {
         let gridHTML = "";
         let drawerHTML = "";
 
+        // Loop through all widgets from JSON
         data.widgets.forEach(widget => {
 
-            //  skip disabled
+            //  Skip widget if disabled in JSON
             if (widget.enabled === false) return;
 
 
-            // GRID (cards)
+             // Render card UI 
             if (typeof window.renderWidget === "function") {
                 gridHTML += window.renderWidget(widget);
             }
 
 
-            // DRAWER (simple text)
+             // Render drawer list item
             if (drawerContainer && typeof window.renderDrawerItem === "function") {
                 drawerHTML += window.renderDrawerItem(widget);
             }
 
         });
 
+        // Inject generated HTML into page
         gridContainer.innerHTML = gridHTML;
         if (drawerContainer) drawerContainer.innerHTML = drawerHTML;
 
