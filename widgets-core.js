@@ -105,9 +105,9 @@ function getDisplayName(code) {
         10: "Profile",
         11: "Panchang",
         18: "Catalogues",
-        19: "Quick Purchase",
+        19: "Quick ",
         20: "Feedback",
-        23: "Virtual Try-On"
+        23: "Try-On"
     };
 
     return names[code] || "Unknown";
