@@ -7,7 +7,7 @@
  * Navigation mapping SAME as Flutter (DO NOT CHANGE)
  */
 
-// ================= NAVIGATION (DO NOT CHANGE) =================
+//  NAVIGATION (DO NOT CHANGE) 
 
 const NAVIGATION_MAP = {
   navigateToScheme: "navigateScheme",
@@ -43,7 +43,7 @@ Object.keys(NAVIGATION_MAP).forEach(fnName => {
   };
 });
 
-// ================= ACTION MAPPING (BY WIDGET CODE) =================
+//  ACTION MAPPING (BY WIDGET CODE) 
 
 function mapActionByCode(code) {
   const map = {
@@ -67,7 +67,7 @@ function mapActionByCode(code) {
   return map[code] || "navigateToHomePage";
 }
 
-// ================= ICON MAPPING =================
+//  ICON MAPPING 
 
 function getIcon(code) {
   const icons = {
@@ -81,11 +81,11 @@ function getIcon(code) {
     8: "https://cdn-icons-png.flaticon.com/128/2277/2277956.png",  // History
     9: "https://cdn-icons-png.flaticon.com/128/10040/10040888.png",// Gold
     10:"https://cdn-icons-png.flaticon.com/128/1144/1144760.png",  // Profile
-    11:"https://cdn-icons-png.flaticon.com/128/747/747310.png",    // Panchang
-    18:"https://cdn-icons-png.flaticon.com/128/2991/2991148.png",  // Catalogues
-    19:"https://cdn-icons-png.flaticon.com/128/891/891419.png",    // Quick Purchase
-    20:"https://cdn-icons-png.flaticon.com/128/1828/1828884.png",  // Feedback
-    23:"assets/virtual.png" // Virtual Try-On
+    11:"https://cdn-icons-png.flaticon.com/128/3013/3013143.png",    // Panchang
+    18:"https://cdn-icons-png.flaticon.com/128/29/29341.png",  // Catalogues
+    19:"https://cdn-icons-png.flaticon.com/128/1019/1019709.png",    // Quick Purchase
+    20:"https://cdn-icons-png.flaticon.com/128/1828/1828970.png",  // Feedback
+    23: "https://acme9614.github.io/html_web_pages/assets/virtual.png" // Virtual Try-On
   };
 
   return icons[code] || getDefaultIcon();
@@ -96,13 +96,13 @@ function getDefaultIcon() {
   return "https://cdn-icons-png.flaticon.com/128/1828/1828843.png";
 }
 
-// ================= MAIN FUNCTION =================
+//  MAIN FUNCTION 
 
 async function loadWidgets() {
   try {
     //  Data comes from Flutter
     const apiResponse = window.jewelloData;
-    
+
     if (!apiResponse) {
       console.error("No Flutter data found");
       return;
@@ -149,11 +149,11 @@ async function loadWidgets() {
   }
 }
 
-// ================= AUTO LOAD =================
+//  AUTO LOAD 
 
 document.addEventListener("DOMContentLoaded", loadWidgets);
 
-// ================= FLUTTER ENTRY =================
+//  FLUTTER ENTRY 
 
 // Called from Flutter
 function setJewelloData(data) {
