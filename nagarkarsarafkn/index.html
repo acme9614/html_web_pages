@@ -362,6 +362,15 @@
 
   </footer>
 
+
+  <!-- DEBUG DATA SECTION (after footer) -->
+<div id="flutterDataContainer" style="padding:20px; background:#f9f9f9;">
+  <h2 style="font-weight:bold; margin-bottom:10px;">
+    Data from Flutter 👇
+  </h2>
+  <pre id="flutterData" style="white-space: pre-wrap; font-size:12px;"></pre>
+</div>
+
   <!--  SCRIPT  -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
@@ -420,9 +429,15 @@
     <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
 
 
-    <script>
+   <script>
   function setJewelloData(data) {
-    console.log("Received:", data);
+    console.log("Received from Flutter:", data);
+
+    // ✅ Convert object to formatted JSON
+    const formatted = JSON.stringify(data, null, 2);
+
+    // ✅ Show in UI (after footer)
+    document.getElementById("flutterData").innerText = formatted;
   }
 </script>
 
