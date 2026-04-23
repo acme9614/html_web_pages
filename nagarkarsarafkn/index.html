@@ -362,15 +362,6 @@
 
   </footer>
 
-
-  <!-- DEBUG DATA SECTION (after footer) -->
-<div id="flutterDataContainer" style="padding:20px; background:#f9f9f9;">
-  <h2 style="font-weight:bold; margin-bottom:10px;">
-    Data from Flutter 👇
-  </h2>
-  <pre id="flutterData" style="white-space: pre-wrap; font-size:12px;"></pre>
-</div>
-
   <!--  SCRIPT  -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
@@ -397,7 +388,7 @@
 
     // widgets display style
   window.renderWidget = function (widget,index) {
-      const isVirtualTryOn = widget.id === "try-on";
+      const isVirtualTryOn = widget.id === 23;
        //  alternate animation
       const animation = index % 2 === 0 ? "fade-up" : "fade-down";
     return `
@@ -427,19 +418,6 @@
      This file dynamically renders service tabs and drawer items
      based on widgets.json config, so no need to manually update each page -->
     <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
-
-
-   <script>
-  function setJewelloData(data) {
-    console.log("Received from Flutter:", data);
-
-    // ✅ Convert object to formatted JSON
-    const formatted = JSON.stringify(data, null, 2);
-
-    // ✅ Show in UI (after footer)
-    document.getElementById("flutterData").innerText = formatted;
-  }
-</script>
 
 </body>
 
