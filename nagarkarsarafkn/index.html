@@ -389,7 +389,7 @@
     // widgets display style
   window.renderWidget = function (widget,index) {
       const isVirtualTryOn = widget.id === 23;
-       //  alternate animation
+      //  alternate animation
       const animation = index % 2 === 0 ? "fade-up" : "fade-down";
     return `
       <div onclick="${widget.action}()"
@@ -406,7 +406,9 @@
           <img class="w-8 h-8 ${isVirtualTryOn ? '' : 'invert'}" src="${widget.icon}" />
         </div>
 
-        <p class="mt-2 text-md font-semibold">${widget.name}</p>
+        <p class="mt-2 text-md font-semibold w-20 text-center leading-tight break-words">
+            ${widget.name}
+        </p>
       </div>
     `;
   };
