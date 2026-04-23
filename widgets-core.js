@@ -104,7 +104,7 @@ function getDisplayName(code) {
         9: "Gold",
         10: "Profile",
         11: "Panchang",
-        18: "Catalogues",
+        18: "Catalog",
         19: "Quick ",
         20: "Feedback",
         23: "Try-On"
