@@ -104,10 +104,10 @@ function getDisplayName(code) {
         9: "Gold",
         10: "Profile",
         11: "Panchang",
-        18: "Catalog",
-        19: "Quick ",
+        18: "Catalogues",
+        19: "Quick Purchase",
         20: "Feedback",
-        23: "Try-On"
+        23: "Virtual Try-On"
     };
 
     return names[code] || "Unknown";
@@ -126,7 +126,7 @@ async function loadWidgets() {
         const apiResponse = window.jewelloData;
 
         if (!apiResponse) {
-            console.error("No Flutter data found");
+         console.warn("widgetsContainer not found");
             return;
         }
 
@@ -151,11 +151,11 @@ async function loadWidgets() {
         let gridHTML = "";
         let drawerHTML = "";
 
-        data.widgets.forEach(widget => {
+        data.widgets.forEach((widget, index) => {
             if (!widget.enabled) return;
 
             if (typeof window.renderWidget === "function") {
-                gridHTML += window.renderWidget(widget);
+                gridHTML += window.renderWidget(widget,index);
             }
 
             if (drawerContainer && typeof window.renderDrawerItem === "function") {
