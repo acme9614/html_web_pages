@@ -115,7 +115,7 @@ function getDisplayName(code) {
 
 // Default fallback icon
 function getDefaultIcon() {
-    return "https://cdn-icons-png.flaticon.com/128/1828/1828843.png";
+    return "https://cdn-icons-png.flaticon.com/128/3037/3037255.png";
 }
 
 //  MAIN FUNCTION 
