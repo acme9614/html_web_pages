@@ -2,14 +2,13 @@
  * @author Ajit Mane
  * @description
  * RF ID #202679
- * Dynamic widget loading from Flutter response
- * Uses external config (widgetConfig.js)
+ * Dynamic widget-based dashboard
+ * This page renders user-specific widgets (Scheme, Bank, KYC, etc.)
+ * based on API response received from Flutter WebView.
  */
 
-
-
 // navigation function and message
- const NAVIGATION_MAP = {
+const NAVIGATION_MAP = {
     navigateToScheme: "navigateScheme",
     navigateToCatalogues: "navigateToCatalogues",
     navigateToQuickPurchase: "navigateToQuickPurchase",
@@ -32,7 +31,7 @@
 };
 
 // navigation mapping using widget id
- const ACTION_MAP = {
+const ACTION_MAP = {
     1: "navigateToScheme",
     2: "navigateToBankDetails",
     3: "navigateToRate",
@@ -51,7 +50,7 @@
 };
 
 // Icon mapping using widget id
- const ICON_MAP = {
+const ICON_MAP = {
     1: "https://cdn-icons-png.flaticon.com/128/10150/10150740.png",
     2: "https://cdn-icons-png.flaticon.com/128/2830/2830155.png",
     3: "https://cdn-icons-png.flaticon.com/128/592/592015.png",
@@ -70,7 +69,7 @@
 };
 
 // widget names display into HTML Page 
- const NAME_MAP = {
+const NAME_MAP = {
     1: "Scheme",
     2: "Bank",
     3: "Rate",
@@ -131,7 +130,7 @@ function getDefaultIcon() {
 
 async function loadWidgets() {
     try {
-         // Data injected from Flutter using setJewelloData()
+        // Data injected from Flutter using setJewelloData()
         const apiResponse = window.jewelloData;
 
         // Safety check
@@ -157,7 +156,7 @@ async function loadWidgets() {
             });
         }
 
-      // Sort widgets by sequence (from API)
+        // Sort widgets by sequence (from API)
         widgets.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
 
         // Get UI containers
@@ -167,7 +166,7 @@ async function loadWidgets() {
         let gridHTML = "";
         let drawerHTML = "";
 
-         // Render widgets into HTML using external render functions
+        // Render widgets into HTML using external render functions
         for (let i = 0; i < widgets.length; i++) {
             const widget = widgets[i];
 
@@ -208,7 +207,7 @@ let lastData = null;
 // Example: setJewelloData(jsonData)
 function setJewelloData(data) {
     try {
-         // Prevent duplicate rendering if same data is sent again
+        // Prevent duplicate rendering if same data is sent again
         if (JSON.stringify(data) === JSON.stringify(lastData)) {
             return;
         }
