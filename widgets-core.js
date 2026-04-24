@@ -6,7 +6,8 @@
  * Uses external config (widgetConfig.js)
  */
 
-const { NAVIGATION_MAP, ACTION_MAP, ICON_MAP, NAME_MAP } = window.WidgetConfig || {};
+import { ACTION_MAP, ICON_MAP, NAME_MAP, NAVIGATION_MAP } from "./widgetConfig";
+
 
 // This dynamically creates functions like:
 // navigateToScheme(), navigateToKyc(), etc.
