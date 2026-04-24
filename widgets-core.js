@@ -154,10 +154,10 @@ async function loadWidgets() {
         } else {
             console.warn("No Flutter data → loading static widgets.json");
 
-            const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
-            const data = await response.json();
+            // const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
+            // const data = await response.json();
 
-            widgets = data.widgets || [];
+            // widgets = data.widgets || [];
         }
 
         const gridContainer = document.getElementById("widgetsContainer");
@@ -178,7 +178,36 @@ async function loadWidgets() {
             }
         }
 
-        if (gridContainer) gridContainer.innerHTML = gridHTML;
+      if (gridContainer) {
+    gridContainer.innerHTML = gridHTML;
+
+    // ===== DEBUG: SHOW FLUTTER DATA IN UI =====
+    const SHOW_DEBUG = true; //  make false in production
+
+    if (SHOW_DEBUG && window.jewelloData && Array.isArray(window.jewelloData.data)) {
+
+        let debugHTML = `
+        <div class="w-full mt-6 p-4 bg-black text-green-400 text-xs rounded-lg overflow-auto">
+            <h3 class="text-yellow-300 mb-3 font-bold">Flutter Data (Debug)</h3>
+        `;
+
+        window.jewelloData.data.forEach(item => {
+            debugHTML += `
+                <div class="mb-2 pb-2 border-b border-gray-600">
+                    <p><b>WidgetCode:</b> ${item.WidgetCode}</p>
+                    <p><b>Name:</b> ${item.WidgetName}</p>
+                    <p><b>Sequence:</b> ${item.Sequence}</p>
+                    <p><b>Allocated:</b> ${item.IsAllocated}</p>
+                </div>
+            `;
+        });
+
+        debugHTML += `</div>`;
+
+        //  Append below existing widgets
+        gridContainer.insertAdjacentHTML("beforeend", debugHTML);
+    }
+}
         if (drawerContainer) drawerContainer.innerHTML = drawerHTML;
 
     } catch (error) {
