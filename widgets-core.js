@@ -153,19 +153,19 @@ async function loadWidgets() {
 
         } else {
             console.warn("No Flutter data → loading static widgets.json");
+            //this use in debuging mode
 
-            const gridContainer = document.getElementById("widgetsContainer");
+            //     const gridContainer = document.getElementById("widgetsContainer");
+            //     if (gridContainer) {
+            //         gridContainer.innerHTML = `
+            //     <p style="color:red; text-align:center; font-weight:bold;">
+            //         ⚠️ Data not coming from Flutter (Debug Mode)
+            //     </p>
+            // `;
+            //     }
+            // return; 
 
-            if (gridContainer) {
-                gridContainer.innerHTML = `
-            <p style="color:red; text-align:center; font-weight:bold;">
-                ⚠️ Data not coming from Flutter (Debug Mode)
-            </p>
-        `;
-            }
-
-            return; // 
-
+            // use if data not comes from flutter side use local widget.json file
             // const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
             // const data = await response.json();
 
