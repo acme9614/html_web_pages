@@ -70,3 +70,24 @@
     });
 
 
+// Show toggle button only if widgets > 6
+function checkToggleVisibility() {
+  const container = document.getElementById("widgetsContainer");
+  const toggle = document.getElementById("toggleWrapper");
+
+  if (!container || !toggle) return;
+
+  const widgetCount = container.children.length;
+
+  if (widgetCount > 6) {
+    toggle.classList.remove("hidden");
+  } else {
+    toggle.classList.add("hidden");
+  }
+}
+
+// Run after DOM + widgets load
+window.addEventListener("load", () => {
+  // Small delay to ensure widgets are rendered
+  setTimeout(checkToggleVisibility, 300);
+});
