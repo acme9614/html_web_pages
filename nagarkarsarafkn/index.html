@@ -146,16 +146,6 @@
       <div id="widgetsContainer" class="flex flex-wrap justify-center gap-6 md:gap-12 text-center overflow-hidden transition-all duration-500 max-h-[220px] sm:max-h-none">
 
       </div>
-
-      <!-- Toggle Button (Mobile Only) -->
-      <div id="toggleWrapper" class="hidden text-center mt-4 sm:hidden">
-        <button onclick="toggleWidgets()" class="text-gray-600">
-          <svg id="toggleIcon" class="w-8 h-8 mx-auto transition-transform duration-300" fill="none"
-            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-      </div>
     </div>
 
   </section>
@@ -426,29 +416,6 @@
       </div>
     `;
     };
-
-
-    // ===== Toggle Visibility Logic =====
-function handleToggleVisibility() {
-  const toggle = document.getElementById("toggleWrapper");
-  const items = document.querySelectorAll("#widgetsContainer .service-item");
-
-  if (window.innerWidth < 640 && items.length > 6) {
-    toggle.classList.remove("hidden");
-  } else {
-    toggle.classList.add("hidden");
-  }
-}
-
-// Run AFTER widgets render
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    handleToggleVisibility();
-  }, 500);
-});
-
-// Handle screen resize
-window.addEventListener("resize", handleToggleVisibility);
 
 
   </script>

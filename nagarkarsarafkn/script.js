@@ -69,21 +69,4 @@
 
     });
 
-    //toggle button logic
-    let expanded = false;
-
-function toggleWidgets() {
-  const container = document.getElementById("widgetsContainer");
-  const icon = document.getElementById("toggleIcon");
-
-  if (!expanded) {
-    container.classList.remove("max-h-[220px]");
-    icon.classList.add("rotate-180");
-    expanded = true;
-  } else {
-    container.classList.add("max-h-[220px]");
-    icon.classList.remove("rotate-180");
-    expanded = false;
-  }
-}
 
