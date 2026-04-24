@@ -80,11 +80,11 @@ function toggleWidgets() {
   if (!container) return;
 
   if (!widgetsExpanded) {
-    container.classList.remove("max-h-[14rem]");
+    container.classList.remove("max-h-[13.5rem]");
     arrow.classList.add("rotate-180");
     widgetsExpanded = true;
   } else {
-    container.classList.add("max-h-[14rem]");
+    container.classList.add("max-h-[13.5rem]");
     arrow.classList.remove("rotate-180");
     widgetsExpanded = false;
   }
@@ -99,7 +99,15 @@ function checkToggleVisibility() {
   if (!container || !toggle) return;
 
   const widgetCount = container.children.length;
+  const screenWidth = window.innerWidth;
 
+  // Hide toggle if screen > 527px
+  if (screenWidth > 527) {
+    toggle.classList.add("hidden");
+    return;
+  }
+
+  // Show only if widgets > 6
   if (widgetCount > 6) {
     toggle.classList.remove("hidden");
   } else {
