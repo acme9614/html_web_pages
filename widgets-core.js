@@ -135,7 +135,7 @@ async function loadWidgets() {
         let widgets = []; //  FIX: declare outside
 
         //  FIX: correct API structure
-        if (apiResponse && Array.isArray(apiResponse.data)) {
+        if (apiResponse && Array.isArray(apiResponse)) {
 
             for (const item of apiResponse.data) {
                 if (item.IsAllocated !== 1) continue;
