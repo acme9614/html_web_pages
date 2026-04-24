@@ -137,7 +137,7 @@ async function loadWidgets() {
         //  FIX: correct API structure
         if (apiResponse && Array.isArray(apiResponse)) {
 
-            for (const item of apiResponse.data) {
+            for (const item of apiResponse) {
                 if (item.IsAllocated !== 1) continue;
 
                 widgets.push({
