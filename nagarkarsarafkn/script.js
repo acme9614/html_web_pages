@@ -70,7 +70,28 @@
     });
 
 
-// Show toggle button only if widgets > 6
+// TOGGLE LOGIC (Expand / Collapse)
+let widgetsExpanded = false;
+
+function toggleWidgets() {
+  const container = document.getElementById("widgetsContainer");
+  const arrow = document.getElementById("widgetArrow");
+
+  if (!container) return;
+
+  if (!widgetsExpanded) {
+    container.classList.remove("max-h-[14rem]");
+    arrow.classList.add("rotate-180");
+    widgetsExpanded = true;
+  } else {
+    container.classList.add("max-h-[14rem]");
+    arrow.classList.remove("rotate-180");
+    widgetsExpanded = false;
+  }
+}
+
+
+// SHOW TOGGLE ONLY IF widgets > 6 
 function checkToggleVisibility() {
   const container = document.getElementById("widgetsContainer");
   const toggle = document.getElementById("toggleWrapper");
@@ -86,8 +107,11 @@ function checkToggleVisibility() {
   }
 }
 
-// Run after DOM + widgets load
+
+// WAIT FOR DYNAMIC WIDGETS TO LOAD
 window.addEventListener("load", () => {
-  // Small delay to ensure widgets are rendered
-  setTimeout(checkToggleVisibility, 300);
+  // delay because widgets-core.js renders async
+  setTimeout(() => {
+    checkToggleVisibility();
+  }, 300);
 });
