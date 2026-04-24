@@ -130,65 +130,56 @@ function getDefaultIcon() {
 
 async function loadWidgets() {
     try {
-        // Data injected from Flutter using setJewelloData()
         const apiResponse = window.jewelloData;
 
-        // Safety check
-        if (!apiResponse || !Array.isArray(apiResponse)) {
-            console.warn("No API data received from Flutter");
-            return;
+        let widgets = []; //  FIX: declare outside
+
+        //  FIX: correct API structure
+        if (apiResponse && Array.isArray(apiResponse.data)) {
+
+            for (const item of apiResponse.data) {
+                if (item.IsAllocated !== 1) continue;
+
+                widgets.push({
+                    id: item.WidgetCode,
+                    name: getDisplayName(item.WidgetCode),
+                    icon: getIcon(item.WidgetCode),
+                    action: mapActionByCode(item.WidgetCode),
+                    sequence: item.Sequence
+                });
+            }
+
+            widgets.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
+
+        } else {
+            console.warn("No Flutter data → loading static widgets.json");
+
+            const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
+            const data = await response.json();
+
+            widgets = data.widgets || [];
         }
 
-        const widgets = [];
-
-        // Single loop (optimized):
-        // - Filters only enabled widgets
-        // - Converts API structure → UI structure
-        for (const item of apiResponse) {
-            if (item.IsAllocated !== 1) continue;
-
-            widgets.push({
-                id: item.WidgetCode,
-                name: getDisplayName(item.WidgetCode),
-                icon: getIcon(item.WidgetCode),
-                action: mapActionByCode(item.WidgetCode),
-                sequence: item.Sequence
-            });
-        }
-
-        // Sort widgets by sequence (from API)
-        widgets.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
-
-        // Get UI containers
         const gridContainer = document.getElementById("widgetsContainer");
         const drawerContainer = document.getElementById("drawerContainer");
 
         let gridHTML = "";
         let drawerHTML = "";
 
-        // Render widgets into HTML using external render functions
         for (let i = 0; i < widgets.length; i++) {
             const widget = widgets[i];
 
-            // Render grid item (home screen)
             if (typeof window.renderWidget === "function") {
                 gridHTML += window.renderWidget(widget, i);
             }
 
-            // Render drawer item (side menu)
             if (drawerContainer && typeof window.renderDrawerItem === "function") {
                 drawerHTML += window.renderDrawerItem(widget);
             }
         }
 
-        // Update DOM only once (better performance)
-        if (gridContainer && gridHTML) {
-            gridContainer.innerHTML = gridHTML;
-        }
-
-        if (drawerContainer && drawerHTML) {
-            drawerContainer.innerHTML = drawerHTML;
-        }
+        if (gridContainer) gridContainer.innerHTML = gridHTML;
+        if (drawerContainer) drawerContainer.innerHTML = drawerHTML;
 
     } catch (error) {
         console.error("Widget Load Error:", error);
