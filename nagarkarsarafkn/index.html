@@ -393,7 +393,7 @@
 
     // widgets display style
   window.renderWidget = function (widget,index) {
-      const isVirtualTryOn = widget.id === 23;
+      const isVirtualTryOn = Number(widget.id) === 23;
       //  alternate animation
       const animation = index % 2 === 0 ? "fade-up" : "fade-down";
     return `

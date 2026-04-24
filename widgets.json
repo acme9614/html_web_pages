@@ -1,67 +1,58 @@
 {
     "widgets": [
         {
-            "id": "scheme",
+            "id": 1,
             "name": "Scheme",
             "icon": "https://cdn-icons-png.flaticon.com/128/10150/10150740.png",
-            "action": "navigateToScheme",
-            "enabled": true
+            "action": "navigateToScheme"
         },
         {
-            "id": "bank",
+            "id": 2,
             "name": "Bank",
             "icon": "https://cdn-icons-png.flaticon.com/128/2830/2830155.png",
-            "action": "navigateToBankDetails",
-            "enabled": true
+            "action": "navigateToBankDetails"
         },
         {
-            "id": "kyc",
+            "id": 4,
             "name": "KYC",
             "icon": "https://cdn-icons-png.flaticon.com/128/10457/10457799.png",
-            "action": "navigateToKyc",
-            "enabled": true
+            "action": "navigateToKyc"
         },
         {
-            "id": "rate",
+            "id": 3,
             "name": "Rate",
             "icon": "https://cdn-icons-png.flaticon.com/128/592/592015.png",
-            "action": "navigateToRate",
-            "enabled": true
+            "action": "navigateToRate"
         },
         {
-            "id": "history",
+            "id": 8,
             "name": "History",
             "icon": "https://cdn-icons-png.flaticon.com/128/2277/2277956.png",
-            "action": "navigateTransactionHistory",
-            "enabled": true
+            "action": "navigateTransactionHistory"
         },
         {
-            "id": "order",
+            "id": 7,
             "name": "Order",
             "icon": "https://cdn-icons-png.flaticon.com/128/10597/10597732.png",
-            "action": "navigateToMyOrder",
-            "enabled": true
+            "action": "navigateToMyOrder"
         },
         {
-            "id": "gold",
+            "id": 9,
             "name": "Gold",
             "icon": "https://cdn-icons-png.flaticon.com/128/10040/10040888.png",
-            "action": "navigateToDigitalGold",
-            "enabled": true
+            "action": "navigateToDigitalGold"
         },
         {
-            "id": "profile",
+            "id": 10,
             "name": "Profile",
             "icon": "https://cdn-icons-png.flaticon.com/128/1144/1144760.png",
-            "action": "navigateToUserProfile",
-            "enabled": true
+            "action": "navigateToUserProfile"
         },
         {
-            "id": "try-on",
+            "id": 23,
             "name": "Virtual Try-On",
             "icon": "https://acme9614.github.io/html_web_pages/assets/virtual.png",
-            "action": "navigateToARVirtualTryOn",
-            "enabled": true
+            "action": "navigateToARVirtualTryOn"
         }
     ]
 }
