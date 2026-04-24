@@ -154,10 +154,10 @@ async function loadWidgets() {
         } else {
             console.warn("No Flutter data → loading static widgets.json");
 
-            // const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
-            // const data = await response.json();
+            const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
+            const data = await response.json();
 
-            // widgets = data.widgets || [];
+            widgets = data.widgets || [];
         }
 
         const gridContainer = document.getElementById("widgetsContainer");
