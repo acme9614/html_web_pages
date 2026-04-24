@@ -3,16 +3,18 @@
  * @description
  * RF ID #202679
  * Dynamic widget-based dashboard
+ * This page renders user-specific widgets (Scheme, Bank, KYC, etc.)
+ * based on API response received from Flutter WebView.
  */
 
-//  NAVIGATION 
+// navigation function and message
 const NAVIGATION_MAP = {
     navigateToScheme: "navigateScheme",
     navigateToCatalogues: "navigateToCatalogues",
     navigateToQuickPurchase: "navigateToQuickPurchase",
     navigateToBankDetails: "navigateBankDetails",
     navigateToKyc: "navigateToKyc",
-    navigateToRate: "navigateRate",
+    navigateToRate: "navigateToRate",
     navigateSchemeRecords: "navigateSchemeRecords",
     navigateCustomerCard: "navigateCustomerCard",
     navigateTransactionHistory: "navigateTransactionHistory",
@@ -23,10 +25,12 @@ const NAVIGATION_MAP = {
     navigateToFeedback: "navigateToFeedback",
     navigateToSetting: "navigateToSetting",
     navigateToHomePage: "navigateToHomePage",
-    navigateToARVirtualTryOn: "navigateToARVirtualTryOn"
+    navigateToARVirtualTryOn: "navigateToARVirtualTryOn",
+    navigateToNotification: "navigateToNotification",
+    navigateToLogout: "navigateToLogout"
 };
 
-//  ACTION MAP 
+// navigation mapping using widget id
 const ACTION_MAP = {
     1: "navigateToScheme",
     2: "navigateToBankDetails",
@@ -45,7 +49,7 @@ const ACTION_MAP = {
     23: "navigateToARVirtualTryOn"
 };
 
-//  ICON MAP 
+// Icon mapping using widget id
 const ICON_MAP = {
     1: "https://cdn-icons-png.flaticon.com/128/10150/10150740.png",
     2: "https://cdn-icons-png.flaticon.com/128/2830/2830155.png",
@@ -64,7 +68,7 @@ const ICON_MAP = {
     23: "https://acme9614.github.io/html_web_pages/assets/virtual.png"
 };
 
-//  NAME MAP 
+// widget names display into HTML Page 
 const NAME_MAP = {
     1: "Scheme",
     2: "Bank",
@@ -83,57 +87,90 @@ const NAME_MAP = {
     23: "Virtual Try-On"
 };
 
-//  NAVIGATION FUNCTIONS 
-for (const fnName in NAVIGATION_MAP) {
-    window[fnName] = function () {
-        if (typeof Toaster !== "undefined") {
-            Toaster.postMessage(NAVIGATION_MAP[fnName]);
-        }
-    };
+
+// This dynamically creates functions like:
+// navigateToScheme(), navigateToKyc(), etc.
+// These functions send messages back to Flutter using Toaster.postMessage()
+if (NAVIGATION_MAP) {
+    for (const fnName in NAVIGATION_MAP) {
+        window[fnName] = function () {
+            if (typeof Toaster !== "undefined") {
+                Toaster.postMessage(NAVIGATION_MAP[fnName]);
+            } else {
+                console.error("Toaster not defined:", fnName);
+            }
+        };
+    }
+} else {
+    console.error("NAVIGATION_MAP not found. Check widgetConfig.js load order.");
 }
 
-//  HELPERS 
+// Map widget code → action function name
+// Example: 1 → navigateToScheme
 function mapActionByCode(code) {
     return ACTION_MAP?.[code] || "navigateToHomePage";
 }
 
+// Map widget code → icon URL
 function getIcon(code) {
     return ICON_MAP?.[code] || getDefaultIcon();
 }
 
+// Map widget code → display name
 function getDisplayName(code) {
     return NAME_MAP?.[code] || "Unknown";
 }
 
+// Fallback icon if mapping not found
 function getDefaultIcon() {
     return "https://cdn-icons-png.flaticon.com/128/3037/3037255.png";
 }
 
-//  MAIN RENDER 
+// MAIN FUNCTION
+
 async function loadWidgets() {
     try {
         const apiResponse = window.jewelloData;
 
-        if (!apiResponse || !Array.isArray(apiResponse.data)) {
-            console.warn("⏳ Waiting for Flutter data...");
-            return;
+        let widgets = []; //  FIX: declare outside
+
+        //  FIX: correct API structure
+        if (apiResponse && Array.isArray(apiResponse.data)) {
+
+            for (const item of apiResponse.data) {
+                if (item.IsAllocated !== 1) continue;
+
+                widgets.push({
+                    id: item.WidgetCode,
+                    name: getDisplayName(item.WidgetCode),
+                    icon: getIcon(item.WidgetCode),
+                    action: mapActionByCode(item.WidgetCode),
+                    sequence: item.Sequence
+                });
+            }
+
+            widgets.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
+
+        } else {
+            console.warn("No Flutter data → loading static widgets.json");
+
+            const gridContainer = document.getElementById("widgetsContainer");
+
+            if (gridContainer) {
+                gridContainer.innerHTML = `
+            <p style="color:red; text-align:center; font-weight:bold;">
+                ⚠️ Data not coming from Flutter (Debug Mode)
+            </p>
+        `;
+            }
+
+            return; // 
+
+            // const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
+            // const data = await response.json();
+
+            // widgets = data.widgets || [];
         }
-
-        let widgets = [];
-
-        for (const item of apiResponse.data) {
-            if (item.IsAllocated !== 1) continue;
-
-            widgets.push({
-                id: item.WidgetCode,
-                name: getDisplayName(item.WidgetCode),
-                icon: getIcon(item.WidgetCode),
-                action: mapActionByCode(item.WidgetCode),
-                sequence: item.Sequence
-            });
-        }
-
-        widgets.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
 
         const gridContainer = document.getElementById("widgetsContainer");
         const drawerContainer = document.getElementById("drawerContainer");
@@ -141,39 +178,19 @@ async function loadWidgets() {
         let gridHTML = "";
         let drawerHTML = "";
 
-        widgets.forEach((widget, i) => {
+        for (let i = 0; i < widgets.length; i++) {
+            const widget = widgets[i];
+
             if (typeof window.renderWidget === "function") {
                 gridHTML += window.renderWidget(widget, i);
             }
+
             if (drawerContainer && typeof window.renderDrawerItem === "function") {
                 drawerHTML += window.renderDrawerItem(widget);
             }
-        });
-
-        if (gridContainer) {
-            gridContainer.innerHTML = gridHTML;
-
-            //  DEBUG VIEW 
-            const SHOW_DEBUG = true;
-
-            if (SHOW_DEBUG) {
-                let debugHTML = `<div class="w-full mt-6 p-4 bg-black text-green-400 text-xs rounded-lg">`;
-
-                apiResponse.data.forEach(item => {
-                    debugHTML += `
-                        <div class="mb-2 border-b border-gray-600 pb-2">
-                            <p><b>${item.WidgetName}</b></p>
-                            <p>Code: ${item.WidgetCode}</p>
-                        </div>
-                    `;
-                });
-
-                debugHTML += `</div>`;
-
-                gridContainer.insertAdjacentHTML("beforeend", debugHTML);
-            }
         }
 
+        if (gridContainer) gridContainer.innerHTML = gridHTML;
         if (drawerContainer) drawerContainer.innerHTML = drawerHTML;
 
     } catch (error) {
@@ -181,26 +198,30 @@ async function loadWidgets() {
     }
 }
 
-//  DATA ENTRY FROM FLUTTER 
+// NOTE:
+// If Flutter data is not yet available,
+// this will not render anything until setJewelloData() is called
+document.addEventListener("DOMContentLoaded", loadWidgets);
+
+// Cache last data to prevent unnecessary re-render
 let lastData = null;
 
+// Called from Flutter WebView:
+// Example: setJewelloData(jsonData)
 function setJewelloData(data) {
     try {
-        console.log(" Flutter Data:", data);
-
-        if (typeof data === "string") {
-            data = JSON.parse(data);
+        // Prevent duplicate rendering if same data is sent again
+        if (JSON.stringify(data) === JSON.stringify(lastData)) {
+            return;
         }
 
-        if (JSON.stringify(data) === JSON.stringify(lastData)) return;
-
         lastData = data;
+        // Store data globally for use in loadWidgets()
         window.jewelloData = data;
 
-        // ALWAYS render AFTER data
-        setTimeout(loadWidgets, 100);
-
+        // Render UI
+        loadWidgets();
     } catch (e) {
-        console.error(" setJewelloData Error:", e);
+        console.error("setJewelloData Error:", e);
     }
 }
