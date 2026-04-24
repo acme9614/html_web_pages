@@ -9,7 +9,7 @@
 
 
 // navigation function and message
-export const NAVIGATION_MAP = {
+ const NAVIGATION_MAP = {
     navigateToScheme: "navigateScheme",
     navigateToCatalogues: "navigateToCatalogues",
     navigateToQuickPurchase: "navigateToQuickPurchase",
@@ -32,7 +32,7 @@ export const NAVIGATION_MAP = {
 };
 
 // navigation mapping using widget id
-export const ACTION_MAP = {
+ const ACTION_MAP = {
     1: "navigateToScheme",
     2: "navigateToBankDetails",
     3: "navigateToRate",
@@ -51,7 +51,7 @@ export const ACTION_MAP = {
 };
 
 // Icon mapping using widget id
-export const ICON_MAP = {
+ const ICON_MAP = {
     1: "https://cdn-icons-png.flaticon.com/128/10150/10150740.png",
     2: "https://cdn-icons-png.flaticon.com/128/2830/2830155.png",
     3: "https://cdn-icons-png.flaticon.com/128/592/592015.png",
@@ -70,7 +70,7 @@ export const ICON_MAP = {
 };
 
 // widget names display into HTML Page 
-export const NAME_MAP = {
+ const NAME_MAP = {
     1: "Scheme",
     2: "Bank",
     3: "Rate",
