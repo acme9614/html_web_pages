@@ -142,7 +142,8 @@ async function loadWidgets() {
 
                 widgets.push({
                     id: item.WidgetCode,
-                    name: getDisplayName(item.WidgetCode),
+                    // name: getDisplayName(item.WidgetCode),
+                    name: item.WidgetName || getDisplayName(item.WidgetCode),
                     icon: getIcon(item.WidgetCode),
                     action: mapActionByCode(item.WidgetCode),
                     sequence: item.Sequence
@@ -201,12 +202,17 @@ async function loadWidgets() {
 // NOTE:
 // If Flutter data is not yet available,
 // this will not render anything until setJewelloData() is called
-document.addEventListener("DOMContentLoaded", () => {
-    // Run fallback ONLY if Flutter data not available
-    if (!window.jewelloData) {
-        loadWidgets();
-    }
-});
+
+// when html development is programming mode then uncomment this line 
+document.addEventListener("DOMContentLoaded", loadWidgets);
+
+// for production use this 
+// document.addEventListener("DOMContentLoaded", () => {
+//     // Run fallback ONLY if Flutter data not available
+//     if (!window.jewelloData) {
+//         loadWidgets();
+//     }
+// });
 
 // Cache last data to prevent unnecessary re-render
 let lastData = null;
