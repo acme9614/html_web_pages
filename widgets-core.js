@@ -149,7 +149,7 @@ async function loadWidgets() {
                 });
             }
 
-            widgets.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
+            // widgets.sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
 
         } else {
             console.warn("No Flutter data → loading static widgets.json");
@@ -166,10 +166,10 @@ async function loadWidgets() {
             // return; 
 
             // use if data not comes from flutter side use local widget.json file
-            // const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
-            // const data = await response.json();
+            const response = await fetch("https://acme9614.github.io/html_web_pages/widgets.json");
+            const data = await response.json();
 
-            // widgets = data.widgets || [];
+            widgets = data.widgets || [];
         }
 
         const gridContainer = document.getElementById("widgetsContainer");
