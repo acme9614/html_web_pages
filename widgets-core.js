@@ -201,7 +201,12 @@ async function loadWidgets() {
 // NOTE:
 // If Flutter data is not yet available,
 // this will not render anything until setJewelloData() is called
-// document.addEventListener("DOMContentLoaded", loadWidgets);
+document.addEventListener("DOMContentLoaded", () => {
+    // Run fallback ONLY if Flutter data not available
+    if (!window.jewelloData) {
+        loadWidgets();
+    }
+});
 
 // Cache last data to prevent unnecessary re-render
 let lastData = null;
