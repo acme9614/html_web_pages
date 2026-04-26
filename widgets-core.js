@@ -13,7 +13,7 @@ const NAVIGATION_MAP = {
     navigateToCatalogues: "navigateToCatalogues",
     navigateToQuickPurchase: "navigateToQuickPurchase",
     navigateToBankDetails: "navigateBankDetails",
-    navigateToKyc: "navigateToKyc",
+    navigateToKyc: "navigateKyc",
     navigateToRate: "navigateRate",
     navigateSchemeRecords: "navigateSchemeRecords",
     navigateCustomerCard: "navigateCustomerCard",
