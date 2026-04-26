@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kevabox Jewellers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div>
+    <header class="bg-white text-gray-900 relative flex items-center justify-center px-4 md:px-10 py-3 shadow"
+      data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+      <!-- Hamburger Icon -->
+      <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none"
+        aria-label="Open Menu">
+        <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu" class="w-10 h-10"
+          loading="lazy" />
+      </button>
+
+      <!-- Centered Logo -->
+      <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+        <img src="assets/logo.jpg" alt="Logo" class="h-16" />
+      </div>
+    </header>
+
+    <!-- Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto drawer-close">
+      <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+        <!-- Drawer Logo -->
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <img src="assets/logo.jpg" alt="Logo" class="h-auto md:h-16" />
+        </div>
+        <!-- Close Drawer Button -->
+        <button id="close-drawer" class="text-black rounded text-2xl font-bold" aria-label="Close Menu">
+          ✕
+        </button>
+      </div>
+
+      <!-- Drawer Navigation Links -->
+      <div id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-black">
+        <!-- drawer items display dynamically from flutter response -->
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  </div>
+
+  <!-- brnading section  -->
+  <section class="w-full">
+    <!-- Mobile Banner -->
+    <div class="block md:hidden" data-aos="fade-up" data-aos-duration="800">
+      <img src="assets/banner-mobile.jpg" alt="Branding Banner Mobile" class="w-full h-auto" />
+    </div>
+
+    <!-- Tablet & Desktop Banner -->
+    <div class="hidden md:block" data-aos="fade-up" data-aos-duration="800">
+      <img src="assets/banner.jpg" alt="Branding Banner Desktop" class="w-full h-auto" />
+    </div>
+  </section>
+
+  <!-- Services  -->
+  <section class="flex flex-col items-center justify-center py-8 px-4" id="services">
+    <div id="widgetsContainer" class="grid grid-cols-3 md:grid-cols-5 gap-8 w-full max-w-6xl">
+      <!-- widgets display from flutter response -->
+    </div>
+
+    <!-- Toggle Button for Mobile -->
+  <div class="sm:hidden mt-4 text-center">
+  <button onclick="toggleBoxes()" class="text-gray-600">
+    <svg id="arrowIcon" class="w-8 h-8 mx-auto transition-transform duration-300"
+      fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+  <h2 id="toggleText" class="mt-1 text-lg font-medium text-gray-700">
+    Show More
+  </h2>
+</div>
+  </section>
+
+  <!-- about us  -->
+
+  <section class="py-12">
+    <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
+      <!-- Image -->
+      <div data-aos="fade-down" data-aos-duration="1000">
+        <img src="//kevabox.com/cdn/shop/files/Slide_Image_1.jpg?v=1719923814&width=1500" alt="Kevabox Story"
+          class="w-full h-auto rounded-lg shadow-lg" />
+      </div>
+
+      <!-- Text -->
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="text-3xl font-Philosopher mb-4">OUR STORY</h2>
+        <p class="text-gray-700 leading-relaxed">
+          Kevabox is a subsidiary of Civacart Retail PVT LTD. Kevabox is a
+          modernistic initiative by City Gold and Diamonds, with a legacy
+          spanning over 25 years of unbridled customer satisfaction across
+          multiple store locations in Kerala and Karnataka.
+          <br /><br />
+          We absolutely felt it was the right time to present our delectable
+          collection of ornaments crafted out of gold, silver, platinum with
+          diamonds and other gems to you, using cutting edge technology, for
+          your purchasing ease. Our journey at City Gold and Diamonds has
+          brought us to this point in time as the people’s favourite brand of
+          jewellery when it comes to shopping for sparkling finery, immersing
+          in an inclusive eShop where we can evolve our business practices to
+          this next level for a new generation with all this latest technology
+          available at their fingertips.
+          <br /><br />
+          We will continue to place our customer’s thoughts and demands as our
+          cornerstone of all merchandising policy on Kevabox, the same way we
+          uphold these values at our physical store locations of City Gold and
+          Diamonds.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MULTICOLUMN SECTION -->
+  <section class="py-6 bg-white">
+    <div class="container mx-auto px-4 grid md:grid-cols-3 gap-8 text-center">
+      <!-- OUR VISION -->
+      <div class="p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-2" data-aos="zoom-in"
+        data-aos-duration="800">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border">
+          <img src="assets/our-vision.jpg" alt="Our Vision" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="text-xl font-Philosopher mb-2">OUR VISION</h3>
+        <p class="text-gray-600 text-sm">
+          Aliquam Erat Volutpat. Integer Pharetra Ultricies Iaculis. Eaeget
+          Porta Augue. Suspendisse Consectetur Dolor Non Mauris Malesuada, Ut
+          Elementum Purus Semper.
+        </p>
+      </div>
+
+      <!-- OUR MISSION -->
+      <div class="p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-2" data-aos="zoom-in"
+        data-aos-duration="1000">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border">
+          <img src="assets/our-mission.jpg" alt="Our Mission" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="text-xl font-Philosopher mb-2">OUR MISSION</h3>
+        <p class="text-gray-600 text-sm">
+          Aliquam Erat Volutpat. Integer Pharetra Ultricies Iaculis. Eaeget
+          Porta Augue. Suspendisse Consectetur Dolor Non Mauris Malesuada, Ut
+          Elementum Purus Semper.
+        </p>
+      </div>
+
+      <!-- OUR VALUES -->
+      <div class="p-6 rounded-lg shadow hover:shadow-lg transition transform hover:-translate-y-2" data-aos="zoom-in"
+        data-aos-duration="1200">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden border">
+          <img src="assets/our-values.jpg" alt="Our Values" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="text-xl font-Philosopher mb-2">OUR VALUES</h3>
+        <p class="text-gray-600 text-sm">
+          Aliquam Erat Volutpat. Integer Pharetra Ultricies Iaculis. Eaeget
+          Porta Augue. Suspendisse Consectetur Dolor Non Mauris Malesuada, Ut
+          Elementum Purus Semper.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white text-black py-20">
+    <div class="container mx-auto px-12 flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
+      <!-- Left: Logo -->
+      <div class="flex flex-col items-center">
+        <img src="assets/logo.jpg" alt="Kevabox Logo" class="mb-2 h-16 w-auto" />
+        <p class="text-sm text-black">© 2025 Kevabox. All rights reserved.</p>
+      </div>
+
+      <!-- Right: Contact Info -->
+      <div class="text-center md:text-start">
+        <h4 class="text-lg font-semibold mb-2">Contact Us</h4>
+        <p class="text-black text-sm leading-relaxed">
+          FORUM FIZA MALL, PANDESHWAR, <br />
+          MANGALORE, Dakshina Kannada, Karnataka <br />
+          <strong>Phone:</strong> +91 9690666655 <br />
+          <strong>Email:</strong> kevaboxmlr@gmail.com
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+
+  <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+  <script>
+window.renderDrawerItem = function (widget) {
+  return `
+    <a href="#"
+       onclick="${widget.action}()"
+       class="hover:text-[#19425E] font-medium transition">
+       ${widget.name}
+    </a>
+  `;
+};
+
+
+window.renderWidget = function (widget, index) {
+
+  const isVirtualTryOn = Number(widget.id) === 23;
+
+  return `
+    <div onclick="${widget.action}()"
+         class="tab-item flex flex-col items-center gap-3 cursor-pointer"
+         data-aos="fade-up">
+
+      <div class="hexagon hexagon-hover w-20 h-20 bg-[#19425E]
+                  flex items-center justify-center shadow-lg
+                  transition-all duration-300 hover:scale-110">
+
+        <img class="w-10 h-10 ${isVirtualTryOn ? '' : 'invert'}"
+             src="${widget.icon}" />
+
+      </div>
+
+      <span class="text-sm md:text-lg font-medium text-gray-700 text-center">
+        ${widget.name}
+      </span>
+
+    </div>
+  `;
+};
+</script>
+
+  <script>
+    AOS.init({
+      once: false,
+      duration: 1000,
+    });
+  </script>
+</body>
+
+</html>
