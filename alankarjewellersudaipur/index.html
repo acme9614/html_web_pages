@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>alankarjewellersudaipur</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Navigation Arrows */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: #fff;
+      /* Arrow color */
+      background: rgba(0, 0, 0, 0.4);
+      /* Semi-transparent background */
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Adjust arrow icon size */
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Pagination Dots */
+    .swiper-pagination-bullet {
+      background: #fff;
+      /* Default dot color */
+      opacity: 0.6;
+      transition: all 0.3s ease;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #701e3e;
+      /* Active dot color (Tailwind yellow-400) */
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <div>
+    <header class="bg-white text-gray-900 relative flex items-center justify-center px-4 md:px-10 py-3 shadow"
+      data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
+      <!-- Hamburger Icon -->
+      <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none "
+        aria-label="Open Menu">
+        <img src="assets/drawer.png" alt="menu" class="w-10 h-10" loading="lazy" />
+      </button>
+
+      <!-- Centered Logo -->
+      <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+        <img src="assets/logo.jpg" alt="Logo" class="h-12 md:h-16" />
+      </div>
+    </header>
+
+    <!-- Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto drawer-close">
+      <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+        <!-- Drawer Logo -->
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <img src="assets/logo.jpg" alt="Logo" class="h-auto md:h-16" />
+        </div>
+        <!-- Close Drawer Button -->
+        <button id="close-drawer" class="text-black rounded text-2xl font-bold" aria-label="Close Menu">
+          ✕
+        </button>
+      </div>
+
+      <!-- Drawer Navigation Links -->
+      <div id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-black">
+        <!-- drawer items display dynamically -->
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  </div>
+
+  <!-- branding section  -->
+  <section class="w-full">
+    <div class="swiper" data-aos="fade-up" data-aos-duration="800">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <img src="assets/banner.jpg" alt="Branding Banner 1"
+            class="w-full h-[230px] md:h-[80vh] lg:h-[100vh] object-cover" />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <img src="assets/banner2.jpg" alt="Branding Banner 2"
+            class="w-full h-[230px] md:h-[80vh] lg:h-[100vh] object-cover" />
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <img src="assets/banner3.jpg" alt="Branding Banner 3"
+            class="w-full h-[230px] md:h-[80vh] lg:h-[100vh] object-cover" />
+        </div>
+        <!-- Slide 4 -->
+        <div class="swiper-slide">
+          <img src="assets/banner4.jpg" alt="Branding Banner 3"
+            class="w-full h-[230px] md:h-[80vh] lg:h-[100vh] object-cover" />
+        </div>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div
+        class="hidden md:flex swiper-button-prev absolute top-1/2 -translate-y-1/2 left-4 z-10 w-10 h-10 bg-black/40 text-white rounded-full items-center justify-center hover:bg-black/70 transition">
+      </div>
+
+      <div
+        class="hidden md:flex swiper-button-next absolute top-1/2 -translate-y-1/2 right-4 z-10 w-10 h-10 bg-black/40 text-white rounded-full items-center justify-center hover:bg-black/70 transition">
+      </div>
+
+      <!-- Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- about  -->
+  <section class="bg-white py-10 px-4 md:px-8">
+    <div class="max-w-4xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1200">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#701e3e] mb-4" id="heading">
+        Our Legacy: A Story Woven in Gold
+      </h2>
+      <p class="text-lg text-gray-600 leading-relaxed" id="para">
+        The timeless legacy of elegance, trust, and authenticity stands as the core of Alankar Jewellers Udaipur. Amidst
+        the growing competition in the market, we continue to uphold our roots with the unwavering support of our
+        pillars: quality craftsmanship, customer trust, and transparency. Alankar Jewellers has earned the distinction
+        of being the preferred choice for every special moment, from everyday wear to the most intricately designed
+        pieces for the most significant milestones of your life. With a reputation built over the years, Alankar
+        Jewellers remains a symbol of excellence, making us the most cherished brand in Udaipur and beyond.
+      </p>
+    </div>
+  </section>
+
+  <!-- Service  -->
+  <section class="py-10 px-4" id="para">
+    <div id="widgetsContainer"
+      class="max-w-6xl mx-auto grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-8 justify-items-center">
+      <!-- widgets display from dynamically flutter response -->
+    </div>
+
+    <!-- Show More Button (mobile only) -->
+    <div id="showMoreBtn" class="mt-4 text-center md:hidden">
+      <button class="flex flex-col items-center mx-auto text-[#8B2D3A] font-semibold text-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mt-1" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+        Show More
+      </button>
+    </div>
+  </section>
+  <!-- about us  -->
+  <section class="bg-white py-4 px-4 md:px-8">
+    <div class="max-w-5xl mx-auto space-y-12">
+      <!-- Story -->
+      <div data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="text-2xl md:text-4xl font-bold text-[#701e3e] mb-4 text-center" id="heading">
+          It all began in 1951...
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed" id="para">
+          In the narrow lanes of Udaipur, where tradition whispers through every stone and the scent of sandalwood
+          lingers in the air, a young man named Shri Ramchandra Sarraf started something quietly beautiful. With hands
+          skilled in heritage craftsmanship and a heart full of devotion, he began creating jewelry, not for showrooms,
+          but for people. For brides, for families, for stories. Each piece he made carried not just gold, but emotion.
+        </p>
+        <!-- <p
+            class="text-lg text-gray-600 leading-relaxed mt-4 text-center font-semibold"
+            id="para"
+          >
+            Alankar Jewellers — where tradition meets innovation, and every
+            piece tells a story worth passing on.
+          </p> -->
+      </div>
+
+      <!-- Mission -->
+      <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <h2 class="text-2xl md:text-4xl font-bold text-[#701e3e] mb-4 text-center" id="heading">
+          1980 – A Dream Finds a Name
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed text-center" id="para">
+          The work spoke for itself. Word spread, and love for his craft grew. That’s when Alankar Jewellers was born.
+          With a simple promise to offer jewelry that felt personal, pure, and timeless. Not mass-produced, but
+          handcrafted. Not flashy, but full of soul. Slowly, families began to trust us with their milestones.
+          Engagements. Weddings. Anniversaries. It wasn’t just a store anymore. It was becoming part of their legacy.
+        </p>
+      </div>
+
+      <!-- 1995 -->
+      <div class="pb-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <h2 class="text-2xl md:text-4xl font-bold text-[#701e3e] mb-4 text-center" id="heading">
+          1995 – A Son Steps In, A Legacy Grows
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed text-center" id="para">
+          As the years passed, Mr Mohan Makhija & Mr Suresh Makhija stepped in to carry the torch. He didn’t just
+          inherit a business, he inherited a purpose. To hold onto everything that made Alankar special, while building
+          something even more meaningful. Under his gentle guidance, the store expanded, the designs grew richer, and
+          the love from the people only deepened.
+
+
+        </p>
+      </div>
+
+
+      <!-- 2009 -->
+      <div class="pb-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+        <h2 class="text-2xl md:text-4xl font-bold text-[#701e3e] mb-4 text-center" id="heading">
+          2009 – The Next Generation, The Same Heart
+        </h2>
+        <p class="text-lg text-gray-600 leading-relaxed text-center" id="para">
+          The timeless legacy of elegance, trust, and authenticity stands as the core of Alankar Jewellers Udaipur.
+          Amidst the growing competition in the market, we continue to uphold our roots with the unwavering support of
+          our pillars: quality craftsmanship, customer trust, and transparency. Alankar Jewellers has earned the
+          distinction of being the preferred choice for every special moment, from everyday wear to the most intricately
+          designed pieces for the most significant milestones of your life. With a reputation built over years, Alankar
+          Jewellers remains a symbol of excellence, making us the most cherished brand in Udaipur and beyond.
+
+
+
+
+        </p>
+      </div>
+
+
+      <!-- 2016 -->
+      <div class="pb-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+
+        <h1 class="text-3xl md:text-4xl font-bold text-[#701e3e] mb-4 text-center !mb-10" id="heading">
+          Today – Still a Part of Your Stories
+        </h1>
+        <h2 class="text-xl md:text-3xl font-bold text-[#701e3e] mb-4 text-center" id="heading">
+          2016 – Shifted to the heart of the city
+        </h2>
+
+
+        <p class="text-lg text-gray-600 leading-relaxed text-center" id="para">
+          Today, Alankar isn’t just a name you find on a shopboard. It’s the place where a father quietly picks out
+          bangles for his daughter. Where generations come together to relive old memories and create new ones. It’s
+          where jewelry is chosen not just for how it looks, but for how it feels warm, familiar, and eternal.
+
+
+
+
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer  -->
+  <footer class="bg-[#F8E5CD] px-4 py-8 mx-auto" data-aos="fade-up" data-aos-duration="1000">
+    <!-- Logo -->
+    <div class="flex justify-center mb-6">
+      <img src="assets/logo.jpg" alt="alankarjewellersudaipur Logo" class="w-72 md:w-96" />
+    </div>
+
+    <!-- Address Info -->
+    <div class="text-center mb-6">
+      <h3 class="font-semibold text-2xl py-2 text-[#701e3e]">ADDRESS</h3>
+      <p class="mt-1 text-lg text-[#5C5C5C] font-semibold">
+        <a href="#" class="hover:underline font-muli text-lg">
+          8th St, Hajareshwar Colony,<br />
+          Udaipur, Rajasthan 313001
+        </a>
+      </p>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="flex flex-col items-center gap-2 text-center">
+      <p class="text-lg text-[#5C5C5C] font-semibold">
+        Contact: +91 0294 252 3867
+      </p>
+      <p class="text-lg text-[#5C5C5C] font-semibold">
+        Email: email@email.com
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button with Inner Border -->
+  <button id="backToTopBtn"
+    class="hidden fixed bottom-6 right-6 z-50 bg-[#701E3E] text-white p-3 rounded-full shadow-lg transition-opacity duration-300 ring-inset ring-2 ring-yellow-600">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="size-6 font-bold">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+  <script>
+
+
+    window.renderDrawerItem = function (widget) {
+      return `
+    <a href="#"
+       onclick="${widget.action}()"
+       class="hover:text-[#701e3e] font-medium transition">
+       ${widget.name}
+    </a>
+  `;
+    };
+
+    window.renderWidget = function (widget, index) {
+
+      const isVirtualTryOn = Number(widget.id) === 23;
+      const animation = index % 2 === 0 ? "fade-up" : "fade-down";
+
+      return `
+    <div onclick="${widget.action}()"
+         class="cursor-pointer flex flex-col items-center"
+         data-aos="${animation}">
+
+      <div class="w-16 h-16 rounded-full flex items-center justify-center bg-[#701e3e] diamond-circle
+                  transition-all duration-300 hover:scale-110">
+
+        <img class="w-10 h-10 ${isVirtualTryOn ? '' : 'invert'}"
+             src="${widget.icon}" />
+
+      </div>
+
+      <span class="mt-3 text-sm md:text-lg font-semibold text-gray-800 text-center">
+        ${widget.name}
+      </span>
+
+    </div>
+  `;
+    };
+  </script>
+
+  <script>
+    AOS.init({
+      once: false,
+      duration: 1000,
+    });
+  </script>
+</body>
+
+</html>
