@@ -14,7 +14,7 @@ const NAVIGATION_MAP = {
     navigateToQuickPurchase: "navigateToQuickPurchase",
     navigateToBankDetails: "navigateBankDetails",
     navigateToKyc: "navigateToKyc",
-    navigateToRate: "navigateToRate",
+    navigateToRate: "navigateRate",
     navigateSchemeRecords: "navigateSchemeRecords",
     navigateCustomerCard: "navigateCustomerCard",
     navigateTransactionHistory: "navigateTransactionHistory",
