@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DP Jewellers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <section>
+    <header class="text-gray-900 flex items-center justify-between px-4 md:px-10 md:py-5 shadow-lg">
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+        <img src="assets/footer-logo.jpg" alt="DP Jewellers Logo" class="h-16" />
+      </div>
+
+      <h1 class="text-center font-bold m-0 xl:m-2 py-3 xl:py-0 table-row text-[clamp(1.5rem,3vw,2rem)] text-[#602222]">
+        DP ABHUSHAN LIMITED
+      </h1>
+
+      <!-- Hamburger Icon -->
+      <button id="menu-toggle" class="focus:outline-none" aria-label="Open Menu">
+        <svg class="w-10 h-10 text-[#133235]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </header>
+
+    <!-- Left Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+      <div class="flex justify-between items-center px-4 py-4 border-b">
+        <!-- Logo -->
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <img src="assets/footer-logo.jpg" alt="DP Jewellers Logo" class="h-16" />
+        </div>
+        <button id="close-drawer" class="text-gray-500 hover:text-black" aria-label="Close Menu">
+          ✕
+        </button>
+      </div>
+      <div id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-[#133235]">
+        <!-- drawer widgets display from flutter api response -->
+      </div>
+
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  </section>
+
+  <!-- swipers sliders  -->
+  <section>
+    <!--  Full Width Swiper Banner Slider with Logo -->
+    <div class="w-full" id="brandSwiper">
+      <div class="swiper brandSwiper w-full relative">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative">
+            <img src="assets/brand.jpg" alt="Logo"
+              class="absolute top-4 right-4 w-10 h-10 md:w-12 md:h-12 object-contain z-10" />
+            <img src="assets/slider6.jpg" alt="Brand 1"
+              class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] object-fill" />
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative">
+            <img src="assets/brand.jpg" alt="Logo"
+              class="absolute top-4 right-4 w-10 h-10 md:w-12 md:h-12 object-contain z-10" />
+            <img src="assets/slider4.jpg" alt="Brand 2"
+              class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] object-fill" />
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative">
+            <img src="assets/brand.jpg" alt="Logo"
+              class="absolute top-4 right-4 w-10 h-10 md:w-12 md:h-12 object-contain z-10" />
+            <img src="assets/slider5.jpg" alt="Brand 3"
+              class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] object-fill" />
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-next hidden lg:flex"></div>
+        <div class="swiper-button-prev hidden lg:flex"></div>
+
+        <!-- Pagination Dots -->
+        <div class="swiper-pagination absolute bottom-4 left-0 right-0 mx-auto text-center z-10"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section>
+    <img src="assets/banner-top.jpg" alt="Brand 1" class="w-full" />
+
+    <!-- Services Grid -->
+    <div id="widgetsContainer" class="flex flex-wrap justify-center gap-1 md:gap-2 lg:gap-4 lg:px-80 py-5">
+      <!-- // widgets display dynamically from flutter api response -->
+
+    </div>
+
+    <!-- Show More text: only on mobile -->
+    <div class="flex flex-col items-center mt-4 md:hidden cursor-pointer" id="showMoreBtn">
+      <span class="text-[#6B0328] text-3xl">▼</span>
+      <span class="text-[#6B0328] font-semibold">Show More</span>
+    </div>
+
+  </section>
+
+  <!-- About Section -->
+  <section class="text-center" id="about">
+    <h2 class="text-xl md:text-4xl uppercase text-[#602222] py-6" data-aos="fade-down">
+      Discover the story behind <br />
+      DP JEWELLERS
+    </h2>
+
+    <!-- Top Banner Image -->
+    <img src="assets/about-banner.jpg" alt="About Banner" class="w-full" data-aos="zoom-in" />
+
+    <div class="max-w-5xl text-lg md:text-2xl mx-auto space-y-4 text-gray-700 px-4 py-8 font-amiko">
+      <p data-aos="fade-up" data-aos-delay="100">
+        "D. P. Jewellers" the venture of D. P. Abhushan Ltd. a partnership firm converted into a limited company in 2017
+        and registered in company act 2013.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="200">
+        The journey of D. P. Jewellers began in 1940 from Ratlam, a small city of Madhya Pradesh. The founding father of
+        D. P. Jewellers - Late Shri Dhulchand Ji Kataria set out in days of struggle and valor when India was fighting
+        for their rights with britishers to lay the foundation stone of DP’s journey. He is always celebrated for his
+        vision, strategies and efforts in making Ratlam the "Gold City" of India. His legacy was continued by his son
+        Late Shri Panna Lal ji Kataria. Over the years, the brand has been recognized by its two main pillars purity and
+        transparency by being the most trustworthy and honest jewellers.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="300">
+        In the last 86 years, D. P. Jewellers has grown into a retail chain with branches in Ratlam, Indore, Udaipur,
+        Bhopal, Ujjain, Bhilwara, Kota, Banswara, Ajmer & Neemuch under the skillful management of Late Shri Manhorlal
+        ji Kataria and Shri Ratanlal ji Kataria, sons of Late Shri Pannalalji Kataria. The current managing generation
+        lead by Shri Santosh Ji Kataria, Shri Anil Ji Kataria & Shri Vikas Ji Kataria is also working tirelessly to
+        stand up to the trust of millions of customers from across the world to Cater to an ever-growing loyal customer
+        base, with dedication and love for the age old legacy.
+      </p>
+      <p data-aos="fade-up" data-aos-delay="400">
+        The Young generation always believe in fair and transparent business and these are the simple principles that
+        have helped us achieve market leadership in all areas in which we are present. The young generation has set up a
+        new definition of D. P. Jewellers as a
+      </p>
+
+      <p class="text-dp font-semibold text-xl italic mt-4" data-aos="zoom-in-up" data-aos-delay="500">
+        “Definitely Promising Jewellers”
+      </p>
+    </div>
+  </section>
+
+  <!-- WHY DP JEWELLERS SECTION -->
+  <section class="w-full px-4 md:px-12 py-10 bg-white text-center">
+    <h2 class="text-xl md:text-4xl uppercase text-[#602222] pb-10" data-aos="fade-up">
+      Why DP Jewellers?
+    </h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 text-center relative">
+      <!-- Item 1 -->
+      <div class="relative flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+        <img src="assets/icon1.png" alt="Classic Designer Collection" class="mb-3 w-16 h-16" />
+        <h3 class="text-sm font-semibold text-[#602222]">CLASSIC DESIGNER COLLECTION</h3>
+        <span class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"></span>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="relative flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+        <img src="assets/icon2.png" alt="100% Satisfaction" class="mb-3 w-16 h-16" />
+        <h3 class="text-sm font-semibold text-[#602222]">100% SATISFACTION</h3>
+        <span class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"></span>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="relative flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+        <img src="assets/icon3.png" alt="Transparency" class="mb-3 w-16 h-16" />
+        <h3 class="text-sm font-semibold text-[#602222]">TRANSPARENCY</h3>
+        <span class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"></span>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="relative flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="400">
+        <img src="assets/icon4.png" alt="Guaranteed Exchange" class="mb-3 w-16 h-16" />
+        <h3 class="text-sm font-semibold text-[#602222]">100% GUARANTEED <br /> EXCHANGE</h3>
+        <span class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"></span>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="relative flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="500">
+        <img src="assets/icon5.png" alt="Best Price Guaranteed" class="mb-3 w-16 h-16" />
+        <h3 class="text-sm font-semibold text-[#602222]">BEST PRICE <br /> GUARANTEED</h3>
+        <span class="hidden sm:block absolute top-0 right-0 h-full w-px bg-gray-300"></span>
+      </div>
+
+      <!-- Item 6 (no border needed) -->
+      <div class="relative flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="600">
+        <img src="assets/icon6.png" alt="Trustworthy" class="mb-3 w-16 h-16" />
+        <h3 class="text-sm font-semibold text-[#602222]">TRUSTWORTHY</h3>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- footer -->
+  <footer class="bg-[#F5D9BF]">
+    <div class="w-full px-4 py-6 md:py-16 text-black">
+      <div class="max-w-8xl mx-auto grid md:grid-cols-2 gap-10 items-between">
+        <!-- Logo: start on left -->
+        <div class="flex flex-col gap-4 mt-4 md:mt-0 md:ml-8 lg:ml-44">
+          <a href="#" class="flex justify-start items-center space-x-2">
+            <img src="assets/footer-logo.jpg" alt="dpjewellers" class="h-32 w-auto" />
+          </a>
+        </div>
+
+        <!-- Contact Details: end on right -->
+        <div class="flex flex-col   text-start space-y-3 lg:ml-56">
+          <p class="font-playfair font-semibold  text-2xl">Contact us</p>
+          <p class="text-start text-lg">
+            DP Abhushan Ltd.<br>
+            3rd Floor, 1 Gopal Goshala<br>
+            Dwarkapuri, Ratlam - 457001 (M.P.)<br><br>
+            <span class="block">Ph.: 07412-408899</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+  <script>
+     window.renderDrawerItem = function (widget) {
+    return `
+      <a href="#"
+         onclick="${widget.action}()"
+         class="hover:text-[#a7704a]">
+         ${widget.name}
+      </a>
+    `;
+  };
+
+    // widget tabs display (DP style)
+    window.renderWidget = function (widget, index) {
+
+      const isVirtualTryOn = Number(widget.id) === 23;
+      const animation = index % 2 === 0 ? "fade-up" : "fade-down";
+
+      return `
+      <div onclick="${widget.action}()"
+        class="flex flex-col items-center cursor-pointer pb-4"
+        data-aos="${animation}">
+
+        <div class="w-[120px] h-[25px] bg-[#E7BA5C] rounded-t-full shadow-lg"></div>
+
+        <div class="w-[110px] h-[140px] bg-[#6B0328] clip-banner shadow-lg 
+          flex flex-col items-center justify-center
+          transition-all duration-300 hover:scale-105">
+
+          <img class="w-14 h-14 my-3 ${isVirtualTryOn ? '' : 'invert'}" src="${widget.icon}" />
+
+          <p class="text-white font-semibold text-center px-1">
+            ${widget.name}
+          </p>
+
+        </div>
+
+      </div>
+    `;
+    };
+  </script>
+
+</body>
+
+</html>
