@@ -1,0 +1,34 @@
+@media (min-width: 640px) {
+  .mobile-only-toggle {
+    display: none !important;
+  }
+}
+
+
+
+/* services tabs bottom shape  */
+.clip-banner {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+}
+
+
+/* Swiper Arrow Customization */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-size: 20px;
+  font-weight: bold;
+  /* background-color: transparent; */
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.swiper-pagination-bullet {
+  background-color: white;
+  opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #2661ce;
+}

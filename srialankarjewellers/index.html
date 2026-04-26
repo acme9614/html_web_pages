@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Alankar Jewellers & Sons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div>
+    <header class="bg-white shadow-md text-gray-900 relative flex items-center justify-start px-4 md:px-10"
+      data-aos="fade-down">
+      <!-- Centered Logo -->
+      <div class="text-2xl font-bold text-[#133235] flex items-center gap-2 py-4">
+        <img src="assets/logo.png" alt="Logo" class="h-16" />
+      </div>
+
+      <!-- Hamburger Icon using Image -->
+      <button id="menu-toggle" class="absolute right-4 top-1/2 -translate-y-1/2 focus:outline-none"
+        aria-label="Open Menu">
+        <img src="https://cdn-icons-png.flaticon.com/128/12804/12804141.png" alt="menu" class="w-16 h-16"
+          loading="lazy" />
+      </button>
+    </header>
+
+    <!-- Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+      <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+        <!-- Drawer Logo -->
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <img src="assets/logo.png" alt="Logo" class="h-16" />
+        </div>
+        <!-- Close Drawer Button -->
+        <button id="close-drawer" class="text-black rounded text-2xl font-bold" aria-label="Close Menu">
+          ✕
+        </button>
+      </div>
+
+      <!-- Drawer Navigation Links -->
+      <div id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-black">
+        <!-- draweritems display dynamically from flutter response -->
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  </div>
+
+  <!-- brnading section  -->
+  <section class="w-full relative">
+    <div class="swiper mySwiper" data-aos="fade-up" data-aos-duration="300">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <img src="assets/banner1.png" alt="Banner 1" class="w-full h-auto" />
+        </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <img src="assets/banner2.png" alt="Banner 2" class="w-full h-auto" />
+        </div>
+        <!-- Slide 3 -->
+        <div class="swiper-slide">
+          <img src="assets/banner3.png" alt="Banner 3" class="w-full h-auto" />
+        </div>
+      </div>
+      <!-- Pagination -->
+      <div class="swiper-pagination !bottom-5"></div>
+      <!-- Navigation Buttons -->
+      <div class="swiper-button-prev !text-white !bg-black/50 rounded-full p-2 shadow-md"></div>
+      <div class="swiper-button-next !text-white !bg-black/50 rounded-full p-2 shadow-md"></div>
+    </div>
+  </section>
+
+
+
+
+  <!-- <source src="assets/branding-video.webm" type="video/webm"> -->
+
+  <!-- title info  -->
+  <div class="max-w-3xl mx-auto px-7 sm:px-8 md:px-20 py-6 text-center">
+    <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold tracking-wide text-gray-800 font-serif leading-relaxed">
+      <span class="text-gray-700 font-light italic">
+        Crafting timeless elegance with exquisite gold, diamond, and platinum
+        jewelry, blending tradition with modern artistry.
+      </span>
+    </h2>
+  </div>
+
+  <!-- Services -->
+  <section class="">
+    <!-- Services Grid -->
+    <div id="widgetsContainer"
+      class="flex flex-wrap justify-center mx-auto gap-4 md:gap-4 lg:gap-4 w-full sm:w-[60%]  md:w-[80%] lg:w-[80%] py-5">
+
+      <!-- widgets display dynamically from flutter response -->
+    </div>
+  </section>
+
+
+  <!-- about us  -->
+  <!-- Our Story Section -->
+  <section class="md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+      <div class="md:w-1/2 md:order-2" data-aos="fade-down" data-aos-duration="1000">
+        <h2 class="text-4xl font-bold text-yellow-800 mb-6">Our Story</h2>
+        <p class="text-lg text-gray-700 mb-4 leading-relaxed">
+          Founded over a century ago in Ranchi,
+          <span class="font-semibold text-yellow-800">Sri Alankar Jewellers & Sons</span>
+          has been synonymous with timeless craftsmanship and luxurious
+          designs. Our legacy is built on the art of combining traditional
+          techniques with modern innovation.
+        </p>
+        <p class="text-lg text-gray-700 leading-relaxed">
+          From exquisite bridal sets to everyday masterpieces, our commitment
+          is to create jewelry that not only adorns you but also connects you
+          with a rich cultural legacy.
+        </p>
+      </div>
+
+      <div class="md:w-1/2" data-aos="fade-down" data-aos-duration="1000">
+        <img src="https://www.srialankarjewellers.com/images/1.png" alt="Our Story"
+          class="w-full shadow-xl border-4 border-yellow-100" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Innovation & R&D Section -->
+  <section class="py-6 md:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12" data-aos="fade-up" data-aos-duration="1000">
+        <h2 class="text-4xl font-bold text-yellow-800 mb-2">
+          Innovation &amp; R&amp;D
+        </h2>
+        <p class="text-gray-600 text-lg">
+          Pioneering new designs and techniques in jewelry craftsmanship.
+        </p>
+      </div>
+      <div class="flex flex-col md:flex-row items-center gap-10">
+        <div class="md:w-1/2 md:order-2" data-aos="fade-up" data-aos-duration="1000">
+          <img src="https://www.srialankarjewellers.com/images/9.png" alt="Innovation & R&D"
+            class="w-full shadow-2xl border-4 border-yellow-100" />
+        </div>
+        <div class="md:w-1/2 md:order-1" data-aos="fade-up" data-aos-duration="1000">
+          <h3 class="text-3xl font-semibold text-yellow-800 mb-6">
+            Research &amp; Development
+          </h3>
+          <p class="text-lg text-gray-700 mb-4 leading-relaxed">
+            At Sri Alankar Jewellers & Sons, innovation is at the heart of what we
+            do. Our dedicated R&amp;D team explores both ancient techniques
+            and modern technologies to create jewelry that is both timeless
+            and contemporary.
+          </p>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            We continuously invest in new tools, techniques, and quality
+            controls to ensure every piece meets the highest standards.
+            Passion and tradition fuel every design we create.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- policy  -->
+  <section class="bg-white py-10">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+
+        <!-- Block 1 -->
+        <div class="flex flex-col items-center space-y-3" data-aos="fade-up">
+          <img src="https://cdn-icons-png.flaticon.com/128/636/636600.png" class="w-12 h-12" alt="Craftsmanship Icon" />
+          <h6 class="text-lg font-semibold font-serif text-gray-800">Timeless Craftsmanship</h6>
+          <p class="text-sm text-gray-600  italic">Jewels that reflect tradition & heritage</p>
+        </div>
+
+        <!-- Block 2 -->
+        <div class="flex flex-col items-center space-y-3" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://cdn-icons-png.flaticon.com/128/927/927567.png" class="w-12 h-12" alt="Emotions Icon" />
+          <h6 class="text-lg font-semibold font-serif text-gray-800">Jewellery with Emotions</h6>
+          <p class="text-sm text-gray-600  italic">Every piece tells a story of love & legacy</p>
+        </div>
+
+        <!-- Block 3 -->
+        <div class="flex flex-col items-center space-y-3" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://cdn-icons-png.flaticon.com/128/5462/5462889.png" class="w-12 h-12" alt="Trust Icon" />
+          <h6 class="text-lg font-semibold font-serif text-gray-800">A Bond of Trust</h6>
+          <p class="text-sm text-gray-600  italic">Serving generations with honesty & purity</p>
+        </div>
+
+        <!-- Block 4 -->
+        <div class="flex flex-col items-center space-y-3" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://cdn-icons-png.flaticon.com/128/2549/2549594.png" class="w-12 h-12" alt="Gift Icon" />
+          <h6 class="text-lg font-semibold font-serif text-gray-800">Celebrate Every Occasion</h6>
+          <p class="text-sm text-gray-600  italic">Perfect jewellery for life’s precious moments</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="font-[Inter]">
+    <!-- Footer Contact Section -->
+    <div class="w-full px-4 py-6 md:py-10 bg-[#F7F7F7]">
+      <div class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-2 items-start">
+        <!-- Social Icons -->
+        <div class="flex flex-col items-center justify-center h-full gap-4 mt-4 md:mt-0 md:mb-10">
+          <!-- Center: Logo -->
+          <div class="w-full md:w-2/3 text-start md:text-center mb-5 md:mb-0">
+            <a href="#" class="flex items-center justify-start md:justify-center space-x-2">
+              <img src="assets/logo.png" alt="Logo" class="h-16  md:w-[300px] object-contain" />
+            </a>
+
+
+          </div>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="space-y-3 text-black">
+
+          <p class="font-semibold text-xl mb-6">Contact Us</p>
+          <p>
+            <span class="text-xl"> 🏚️ Address: AC Market, GEL Church Complex, Mahatma Gandhi Main Rd, Kanka, Ranchi,
+              Jharkhand 834001 </span><br> <br>
+            <span class="text-xl"> 📧 Email: srialankarjewellers@yahoo.co.in</span> <br> <br>
+            <span class="text-xl"> 📞 Phone: 0651 233 0312 </span>
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+  <script>
+window.renderDrawerItem = function (widget) {
+  return `
+    <a href="#"
+       onclick="${widget.action}()"
+       class="hover:text-[#8B5E3C] transition font-medium">
+       ${widget.name}
+    </a>
+  `;
+};
+
+
+window.renderWidget = function (widget, index) {
+
+  const isVirtualTryOn = Number(widget.id) === 23;
+  const animation = index % 2 === 0 ? "fade-up" : "fade-down";
+
+  return `
+    <div onclick="${widget.action}()"
+         class="flex flex-col items-center cursor-pointer pb-4"
+         data-aos="${animation}">
+
+      <div class="w-[100px] h-[22px] md:w-[120px] md:h-[25px] bg-[#E7BA5C] rounded-t-full shadow-lg"></div>
+
+      <div class="w-[90px] h-[110px] md:w-[100px] md:h-[110px] 
+                  bg-[#6B0328] clip-banner shadow-lg 
+                  flex flex-col items-center justify-center
+                  transition-all duration-300 hover:scale-105">
+
+        <img class="w-10 h-10 my-3 ${isVirtualTryOn ? '' : 'invert'}" src="${widget.icon}" />
+
+        <p class="text-white font-semibold text-center">
+          ${widget.name}
+        </p>
+
+      </div>
+
+    </div>
+  `;
+};
+
+</script>
+
+</body>
+
+</html>
