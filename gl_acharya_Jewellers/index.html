@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GL Acharya Jewellers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header Section with Bell Icon -->
+  <div class="relative">
+    <!-- Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 h-full w-1/2 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300">
+      <div class="flex items-center justify-between p-4  gap-4 border-b">
+        <a href="#" class="flex items-center space-x-2">
+          <img src="assets/head-logo.jpg" alt="GL Acharya Logo" class="h-16 w-[150px] object-contain" />
+        </a>
+        <button onclick="closeDrawer()" class="text-xl">✖</button>
+      </div>
+
+      <div id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-[#2C2C2C]">
+        <!-- drawer items display dynamically from flutter response -->
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" onclick="closeDrawer()"></div>
+
+    <!-- Header -->
+    <div class="bg-white w-full relative shadow-sm">
+      <div class="max-w-screen-xl mx-auto px-4 relative">
+        <div class="h-20 flex items-center justify-start relative">
+          <!-- Left: Menu Icon -->
+          <div class="z-50">
+            <button id="menuButton" onclick="openDrawer()" class="text-3xl text-black focus:outline-none">
+              ☰
+            </button>
+          </div>
+
+          <!-- Center: Logo -->
+          <div class="absolute left-48 lg:left-36 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <a href="#" class="flex items-center space-x-2">
+              <img src="assets/head-logo.jpg" alt="GL Acharya Logo" class="h-16 w-[150px] object-contain" />
+            </a>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Full Width Swiper Banner Slider with Logo -->
+  <div class="w-full" id="brandSwiper">
+    <div class="swiper brandSwiper w-full relative">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide relative">
+          <!-- <img
+              src="assets/BHIMA BOY.png"
+              alt="Logo"
+              class="absolute top-4 right-4 w-10 h-10 md:w-16 md:h-16 object-contain z-10"
+            /> -->
+          <img src="assets/slider1.png" alt="Brand 1"
+            class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] object-fill" />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide relative">
+          <!-- <img
+              src="assets/BHIMA BOY.png"
+              alt="Logo"
+              class="absolute top-4 right-4 w-10 h-10 md:w-16 md:h-16 object-contain z-10"
+            /> -->
+          <img src="assets/slider2.png" alt="Brand 2"
+            class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] object-fill" />
+        </div>
+
+
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-next hidden lg:flex"></div>
+      <div class="swiper-button-prev hidden lg:flex"></div>
+
+      <!-- Pagination Dots -->
+      <div class="swiper-pagination absolute bottom-4 left-0 right-0 mx-auto text-center z-10"></div>
+    </div>
+  </div>
+
+  <!-- servies  -->
+  <div class="flex flex-col items-center justify-center md:py-10 font-['Roboto'] pt-5">
+    <!-- Grid Container -->
+    <div id="widgetsContainer"
+      class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-4 md:gap-3 lg:gap-6 overflow-hidden transition-all duration-500 max-h-[7.2rem] sm:max-h-none">
+      <!-- widgets display dynamically from flutter response data -->
+
+    </div>
+
+    <!-- Toggle Button for Mobile -->
+    <div class="sm:hidden mt-4">
+      <button onclick="toggleBoxes()" class="animate-bounce text-gray-600">
+        <svg id="arrowIcon" class="w-8 h-8 mx-auto transition-transform duration-300" fill="none" stroke="currentColor"
+          stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- about us  -->
+  <section class="max-w-6xl mx-auto px-6 py-2  md:py-10 text-center">
+    <h2 class="heading text-3xl md:text-5xl font-semibold text-gray-900 mb-6" data-aos="fade-down"
+      data-aos-duration="1000">
+      LEGACY OF TRUST, PURITY AND EXQUISITE DESIGNS
+    </h2>
+
+    <p class="text-lg md:text-xl text-gray-700 font-base md:font-medium leading-relaxed uppercase" data-aos="fade-up"
+      data-aos-delay="100" data-aos-duration="1000">
+      "G L Acharya: A Journey of Six Decades"
+    </p>
+    <br /><br />
+    <!-- Decorative Quote Box -->
+    <div class="border-l-4 border-[#bfa25f] pl-4 md:pl-6 text-gray-600 italic text-lg max-w-7xl mx-auto pb-8"
+      data-aos="zoom-in" data-aos-delay="200" data-aos-duration="1200">
+      Established in 1957 by Sri G L Acharya in the agricultural town of
+      Puttur. G L Acharya Jewellers has had a long memorable journey of Trust,
+      Purity, Innovative Designs and Customer Delight. With these values as
+      our foundation, we have evolved from a humble 100sft. shop to a
+      momentous group of four showrooms in Puttur, Hassan, Sullia and
+      Kushalnagar G L Acharya Jewellers has crossed several milestones in its
+      journey till date. We started the concept of ‘Ready-to-Wear’ jewellery
+      in the Dakshina Kannada, region which was traditionally a market where
+      jewellery was just ‘Made-to-Order’. Our innovative marketing campaigns
+      and schemes have been very successful in attracting, informing and
+      delighting the customers. Most of them have also inspired our
+      competitors to adopt similar campaigns. We were the first institution in
+      the district to introduce BIS Hallmarked Jewellery assuring buyers of
+      quality which was at par with international purity standards.
+
+      <br />
+      <br />
+
+      <span class="font-medium">
+        "Vision: To be the market leader and among the leading jewellers.
+        <br />
+        Mission: To provide exclusive craftsmanship, high quality jewellery
+        and delighted customer service at better price than the competition.
+        Values: Stakeholders’ trust, finest craftsmanship, honesty and
+        integrity"
+      </span>
+    </div>
+
+    <!-- CTA Button -->
+    <a href="#"
+      class="inline-block px-6 py-3 border-2 border-[#bfa25f] text-[#bfa25f] rounded-full font-medium hover:bg-[#bfa25f] hover:text-white transition duration-300"
+      data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+      Explore Our Craft
+    </a>
+  </section>
+
+  <!-- collection swiper -->
+  <section class="bg-white px-4 pb-8">
+    <!-- title -->
+    <div class="text-center py-4 flex items-center justify-center gap-4" data-aos="fade-down" data-aos-delay="200">
+      <p class="heading text-lg md:text-3xl text-gray-700  leading-relaxed">
+        Invest In Gold : A Smart Move To Secure Your Financial Future
+      </p>
+    </div>
+
+    <!-- Slider -->
+    <div class="w-full mx-auto py-4" data-aos="zoom-in" data-aos-delay="400">
+      <div class="swiper branding-image-slider">
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="assets/branding2.jpg" alt="Brand 1"
+              class="w-[90%] h-[200px] md:h-[300px] lg:h-[500px] rounded-lg object-fill" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="assets/branding3.jpg" alt="Brand 2"
+              class="w-[90%] h-[200px] md:h-[300px] lg:h-[500px] rounded-lg object-fill" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="assets/branding4.jpg" alt="Brand 3"
+              class="w-[90%] h-[200px] md:h-[300px] lg:h-[500px] rounded-lg object-fill" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer  -->
+  <footer>
+    <div class="w-full px-4 py-6 md:py-10 bg-white text-black">
+      <div class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-2 items-center">
+        <div class="flex flex-col gap-4 mt-4 md:mt-0 md:mb-10">
+          <!-- Center: Logo -->
+          <div class="w-2/3">
+            <a href="#" class="flex justify-start md:justify-center items-center space-x-2">
+              <img src="assets/head-logo.jpg" alt="GL Acharya jewellers" class="h-10 md:h-16 w-auto" />
+            </a>
+          </div>
+
+
+        </div>
+
+        <!-- Contact Details -->
+        <div class="space-y-3">
+          <p class="font-playfair font-semibold text-xl">Contact us</p>
+          <p>
+            GL Acharya Jewellers Puttur <br />Gl Complex, Main Road,
+            Puttur – 574 201,<br /> <br>
+
+            <span class="block">
+              Phone: 08251-230360 / 231360
+              <br>
+              Whatsapp: +918748877360
+              <br>
+              Email: glacharya.puttur@gmail.com
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn"
+    class="hidden fixed bottom-6 right-6 z-50 bg-yellow-600 hover:bg-yellow-800 text-white p-3 rounded-full shadow-lg transition-opacity duration-300">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="size-6 font-bold">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+  <script>
+
+    // drawer items
+    window.renderDrawerItem = function (widget) {
+      return `
+    <a href="#"
+       onclick="${widget.action}()"
+       class="font-medium hover:text-[#8B5E3C] transition">
+       ${widget.name}
+    </a>
+  `;
+    };
+
+    // display widgets dynamically
+    window.renderWidget = function (widget, index) {
+
+      const isVirtualTryOn = Number(widget.id) === 23;
+
+      return `
+    <div onclick="${widget.action}()"
+      class="w-24 h-28 md:w-28 md:h-28 
+      rounded-tr-[40px] rounded-tl-[40px] rounded-br-[40px] 
+      bg-[#A06F5B] flex flex-col items-center justify-center text-center 
+      shadow-md text-white cursor-pointer
+      transition-all duration-300 hover:scale-105"
+      data-aos="zoom-in">
+
+      <img class="w-10 h-10 ${isVirtualTryOn ? '' : 'invert'}" src="${widget.icon}" />
+
+      <span class="text-sm font-semibold mt-2">
+        ${widget.name}
+      </span>
+
+    </div>
+  `;
+    };
+  </script>
+
+</body>
+
+</html>
