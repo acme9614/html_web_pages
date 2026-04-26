@@ -47,26 +47,39 @@ AOS.init({
   once: false,
 });
 
-
 const showMoreBtn = document.getElementById("showMoreBtn");
 let expanded = false;
 
-setTimeout(() => {
+function handleTabs() {
   const widgets = document.querySelectorAll("#widgetsContainer > div");
+  const isMobile = window.innerWidth < 768;
 
-  // 👉 CONDITION: hide button if widgets <= 6
+  //  Desktop: show all, hide button
+  if (!isMobile) {
+    widgets.forEach(el => el.style.display = "flex");
+    showMoreBtn.style.display = "none";
+    return;
+  }
+
+  //  Mobile
   if (widgets.length <= 6) {
     showMoreBtn.style.display = "none";
     return;
   }
 
+  showMoreBtn.style.display = "flex";
 
-  // 👉 toggle logic
-  showMoreBtn.addEventListener("click", () => {
+  //  Initial state (IMPORTANT FIX)
+  widgets.forEach((el, index) => {
+    el.style.display = index < 6 ? "flex" : "none";
+  });
+
+  //  Toggle click
+  showMoreBtn.onclick = () => {
     expanded = !expanded;
 
     widgets.forEach((el, index) => {
-      if (index > 5) {
+      if (index >= 6) {
         el.style.display = expanded ? "flex" : "none";
       }
     });
@@ -75,6 +88,11 @@ setTimeout(() => {
     showMoreBtn.children[1].textContent = expanded
       ? "Show Less"
       : "Show More";
-  });
+  };
+}
 
-}, 500);
+//  Run after widgets render
+setTimeout(handleTabs, 500);
+
+//  Also handle resize (VERY IMPORTANT)
+window.addEventListener("resize", handleTabs);
