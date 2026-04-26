@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jakhurajewellers</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- Google Fonts: Cormorant -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div>
+    <header class="bg-black text-gray-900 relative flex items-center justify-center px-4 md:px-10 py-3"
+      data-aos="fade-down">
+      <!-- Hamburger Icon using Image -->
+      <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none"
+        aria-label="Open Menu">
+        <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu" class="w-10 h-10 invert"
+          loading="lazy" />
+      </button>
+
+      <!-- Centered Logo -->
+      <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+        <img src="assets/logo.jpg" alt="Logo" class="h-14" />
+      </div>
+    </header>
+
+    <!-- Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+      <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+        <!-- Drawer Logo -->
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <img src="assets/logo.jpg" alt="Logo" class="h-14" />
+        </div>
+        <!-- Close Drawer Button -->
+        <button id="close-drawer" class="text-gray-500 hover:text-black text-2xl" aria-label="Close Menu">
+          ✕
+        </button>
+      </div>
+
+      <!-- Drawer Navigation Links -->
+      <div id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-[#133235]">
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  </div>
+
+  <!-- Slider -->
+  <section class="relative">
+    <div class="swiper brandSwiper w-full h-[100vh] lg:h-[80vh]">
+      <div class="swiper-wrapper">
+        <!-- Slide1 -->
+        <div class="swiper-slide relative bg-left lg:bg-center bg-cover bg-no-repeat"
+          style="background-image: url('assets/slider1.jpg')">
+          <!-- Overlay Box - Desktop -->
+          <div
+            class="hidden lg:block absolute top-1/4 right-28 transform -translate-y-1/2 bg-black/30 p-8 max-w-xl shadow-lg"
+            data-aos="fade-right">
+            <h2
+              class="text-6xl font-semibold mb-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)] bg-clip-text text-transparent">
+              NOOR
+            </h2>
+            <p class="text-2xl text-white mb-4">
+              Timeless Silver Collection by Jakhura Jewellers
+            </p>
+            <div class="text-xl text-white mb-6">
+              Let your inner glow shine through with handcrafted silver
+              jewellery from our Noor Collection. Timeless designs, made to
+              illuminate every moment.
+            </div>
+            <div class="flex gap-4">
+              <a href="#"
+                class="text-black font-medium px-4 py-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)]">
+                Explore the NOOR Collection
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile: Dark Backdrop Content -->
+          <div
+            class="lg:hidden absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center px-6 text-white"
+            data-aos="fade-up">
+            <h2
+              class="text-5xl font-semibold mb-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)] bg-clip-text text-transparent">
+              NOOR
+            </h2>
+            <p class="text-xl mb-3">
+              Timeless Silver Collection by Jakhura Jewellers
+            </p>
+            <div class="text-lg mb-5">
+              Let your inner glow shine through with handcrafted silver
+              jewellery from our Noor Collection. Timeless designs, made to
+              illuminate every moment.
+            </div>
+            <div class="flex gap-4 flex-wrap justify-center">
+              <a href="#"
+                class="text-black font-medium px-4 py-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)]">
+                Explore the NOOR Collection
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2  -->
+        <div class="swiper-slide relative bg-center bg-cover bg-no-repeat"
+          style="background-image: url('assets/slider2.jpg')">
+          <!-- Overlay Box - Desktop -->
+          <div
+            class="hidden lg:block absolute top-24 left-28 transform -translate-y-1/2 bg-black/30 p-8 max-w-xl shadow-lg"
+            data-aos="fade-right">
+            <h2
+              class="text-5xl font-semibold mb-4 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)] bg-clip-text text-transparent">
+              925 Sterling Silver, Delivered to Your Door
+            </h2>
+            <p class="text-2xl text-white mb-4">
+              Explore Our Complete Gold Jewellery Collection In-Store
+            </p>
+            <div class="text-xl text-white mb-6">
+              The journey of Jakhura Jewellers begins since 1997. Our first
+              shop has reached up to 26 years of its way and many more years
+              to complete (Inshallah).
+            </div>
+            <div class="flex gap-4">
+              <a href="#"
+                class="text-black font-medium px-4 py-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)]">
+                Shop Silver
+              </a>
+
+              <a href="#"
+                class="text-black font-medium px-4 py-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)]">
+                Visit Store For Gold
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile: Dark Backdrop Content -->
+          <div
+            class="lg:hidden absolute inset-0 bg-black/70 flex flex-col justify-center items-center text-center px-6 text-white"
+            data-aos="fade-up">
+            <h2
+              class="text-3xl font-semibold mb-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)] bg-clip-text text-transparent">
+              925 Sterling Silver, Delivered to Your Door
+            </h2>
+            <p class="text-xl mb-3">
+              Explore Our Complete Gold Jewellery Collection In-Store
+            </p>
+            <div class="text-lg mb-5">
+              The journey of Jakhura Jewellers begins since 1997. Our first
+              shop has reached up to 26 years of its way and many more years
+              to complete (Inshallah).
+            </div>
+            <div class="flex gap-4 flex-wrap justify-center">
+              <a href="#"
+                class="text-black font-medium px-4 py-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)]">
+                Shop Silver
+              </a>
+              <a href="#"
+                class="text-black font-medium px-4 py-2 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)]">
+                Visit Store For Gold
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Arrows -->
+      <div id="customPrev"
+        class="hidden md:block absolute left-5 top-1/2 -translate-y-1/2 text-4xl bg-white/70 text-gray-700 p-4 rounded-[100%] cursor-pointer hover:bg-[#151B26] hover:text-white z-10">
+        &#10094;
+      </div>
+      <div id="customNext"
+        class="hidden md:block absolute right-5 top-1/2 -translate-y-1/2 text-4xl bg-white/70 text-gray-700 p-4 rounded-[100%] cursor-pointer hover:bg-[#151B26] hover:text-white z-10">
+        &#10095;
+      </div>
+    </div>
+  </section>
+
+  <!-- servies  -->
+  <div class="flex flex-col items-center justify-center py-6 md:py-10 font-['Roboto']">
+    <!-- Grid Container -->
+    <div id="widgetsContainer"
+      class="flex flex-wrap justify-center gap-2 sm:gap-4 md:gap-2 lg:gap-4 sm:px-20 md:px-36 lg:px-96 py-5 max-h-[13.9rem] overflow-hidden sm:max-h-none">
+      <!-- //widgets display dynamic from flutter data pass -->
+
+    </div>
+
+    <!-- Toggle Button for Mobile -->
+    <div class="sm:hidden mt-4">
+      <button onclick="toggleBoxes()" class="animate-bounce text-gray-600">
+        <svg id="arrowIcon" class="w-8 h-8 mx-auto transition-transform duration-300" fill="none" stroke="currentColor"
+          stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- About  -->
+  <section class="font-[Cormorant]">
+    <!-- Our Story Section -->
+    <div class="py-5 bg-white">
+      <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+        <h2 class="text-4xl md:text-6xl font-semibold mb-4">Our Story</h2>
+        <p class="text-black max-w-5xl text-xl font-semibold mx-auto text-center">
+          Jakhura Jewellers began as a family-owned boutique with a simple
+          vision — to craft jewellery that carries meaning, beauty, and
+          cultural significance. What started as a small local store has grown
+          into a trusted brand for jewellery lovers across India. Over the
+          years, we’ve stayed true to our roots while evolving with modern
+          styles and customer needs. Our legacy is built on trust,
+          craftsmanship, and the joy we bring to every customer who wears a
+          piece of Jakhura.
+        </p>
+      </div>
+    </div>
+
+    <!-- Heading Section -->
+    <div class="py-5 md:py-12">
+      <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl md:max-w-4xl mx-auto font-semibold leading-snug">
+          Timeless silver and gold jewellery designed to celebrate every
+          moment of your life.
+        </h2>
+      </div>
+    </div>
+
+    <!-- Banner Grid Section -->
+    <div class="py-5 bg-white">
+      <div class="container mx-auto px-4 md:px-14 grid md:grid-cols-2 gap-8">
+        <!-- Image 1 -->
+        <div class="relative overflow-hidden shadow-lg group" data-aos="fade-up">
+          <img src="https://jakhurajewellers.com/cdn/shop/files/model-4255850_1920-min.jpg?v=1747727734&width=1500"
+            alt="Jewellery Model"
+            class="w-full h-auto md:h-[600px] object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+        </div>
+
+        <!-- Image 2 -->
+        <div class="relative overflow-hidden shadow-lg group" data-aos="fade-up" data-aos-delay="150">
+          <img
+            src="https://jakhurajewellers.com/cdn/shop/files/closeup-shot-golden-necklaces-purple-textile_665346-47119.jpg?v=1747728105&width=1500"
+            alt="Golden Necklaces"
+            class="w-full h-auto md:h-[600px] object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-12 bg-white font-[Cormorant]">
+      <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 items-center" data-aos="fade-up">
+        <!-- Text First on Desktop, Second on Mobile -->
+        <div class="order-1 md:order-2 text-start max-w-xl space-y-6">
+          <h2 class="text-4xl md:text-5xl font-semibold text-gray-900">
+            What We Offer
+          </h2>
+          <p class="text-black max-w-6xl text-xl font-semibold mx-auto">
+            At Jakhura Jewellers, we offer a beautiful mix of tradition and
+            modern style through our silver and gold jewellery collections.
+            Our silver jewellery, available online, includes everything from
+            elegant earrings and delicate rings to classic bangles and
+            pendants — perfect for everyday wear or special gifts. You can
+            browse and shop our full range anytime, right from the comfort of
+            your home. If you're looking for something truly timeless, our
+            gold jewellery collection is available exclusively in-store. From
+            bridal sets to festive pieces, each item is carefully handcrafted
+            to reflect the beauty of Indian tradition
+          </p>
+          <a href="#"
+            class="inline-block bg-black text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-gray-800 transition">
+            Shop Now
+          </a>
+        </div>
+
+        <!-- Image Second on Desktop, First on Mobile -->
+        <div class="order-2 md:order-1">
+          <img
+            src="https://jakhurajewellers.com/cdn/shop/files/beautiful-luxury-tika-indian-traditional-jewellery_136354-257.jpg?v=1747741845&width=1500"
+            alt="Traditional Jewellery" class="w-full h-[450px] object-contain" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="font-[Inter]">
+    <!-- Footer Contact Section -->
+    <div class="w-full px-4 py-6 md:py-10 bg-black">
+      <div class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-2 items-start">
+        <!-- Social Icons -->
+        <div class="flex flex-col items-center justify-center h-full gap-4 mt-4 md:mt-0 md:mb-10">
+          <!-- Center: Logo -->
+          <div class="md:w-2/3 text-center mb-5 md:mb-0">
+            <a href="#" class="flex items-center justify-center space-x-2">
+              <img src="assets/logo.jpg" alt="Jakhura Logo" class="h-16 w-[200px] md:w-[300px] object-contain" />
+            </a>
+            <p class="text-lg text-white mt-2 md:my-4">Phone : +91 - 90750 77177</p>
+            <p class="text-lg text-white mb-2">jakhurajewellers@gmail.com</p>
+          </div>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="space-y-3 text-white">
+          <p class="font-semibold text-xl">Our Branches</p>
+          <p>
+            <span class="font-semibold text-[#f1b522]">Branch 1:</span>
+            Doodh Bazaar Branch, Tiwari Complex,<br />
+            Dhoodh Bazaar, Nashik
+          </p>
+
+          <p>
+            <span class="font-semibold text-[#f1b522]">Branch 2:</span>
+            Pakhal Road Branch, Aman Apartment,<br />
+            Opp. Savitribai Phule School,<br />
+            Pakhal Road, Nashik
+          </p>
+
+          <p>
+            <span class="font-semibold text-[#f1b522]">Branch 3:</span>
+            Hari Akruti Branch, Hari Akruti 2,<br />
+            Opp. Sagar Samrat Sweets,<br />
+            Pakhal Road, Nashik
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn"
+    class="hidden fixed bottom-6 right-6 z-50 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)] text-black p-3 rounded-full shadow-lg transition-opacity duration-300 ">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="size-6 font-bold">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+
+  <script>
+    window.renderDrawerItem = function (widget) {
+      return `
+    <a href="#"
+       onclick="${widget.action}()"
+       class="hover:text-[#a7704a]">
+       ${widget.name}
+    </a>
+  `;
+    };
+
+
+    // widget tabs display
+    window.renderWidget = function (widget, index) {
+
+      const isVirtualTryOn = Number(widget.id) === 23;
+
+      // alternate animation (optional)
+      const animation = index % 2 === 0 ? "zoom-in" : "fade-up";
+
+      return `
+      <div onclick="${widget.action}()"
+        class="w-24 h-24 md:w-28 md:h-28 
+        rounded-tr-[40px] rounded-tl-[40px] rounded-br-[40px]
+        bg-gradient-to-br from-[#87600d] via-[#fce79d] to-[#b68f35]
+        flex flex-col items-center justify-center text-center 
+        shadow-md text-black cursor-pointer
+        transition-all duration-300 hover:scale-105 hover:shadow-lg"
+        data-aos="${animation}">
+
+        <img class="w-10 h-10 ${isVirtualTryOn ? 'invert' : ''}" src="${widget.icon}" />
+
+        <span class="text-xs md:text-sm font-semibold mt-2 w-20 leading-tight break-words">
+          ${widget.name}
+        </span>
+
+      </div>
+    `;
+    };
+  </script>
+
+</body>
+
+</html>
