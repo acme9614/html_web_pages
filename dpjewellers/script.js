@@ -60,12 +60,6 @@ setTimeout(() => {
     return;
   }
 
-  // 👉 show only first 6 initially
-  widgets.forEach((el, index) => {
-    if (index > 5) {
-      el.style.display = "none";
-    }
-  });
 
   // 👉 toggle logic
   showMoreBtn.addEventListener("click", () => {
