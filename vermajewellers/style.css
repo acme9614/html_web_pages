@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+  /* Updated Pagination Style */
+  .swiper-pagination-bullet {
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    opacity: 0.6;
+    border-radius: 0;
+    display: inline-block;
+    margin: 0 4px;
+    border-radius: 10px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #1A3E63;
+    opacity: 1;
+  }
+
+   /* Responsive for medium screens and up */
+  @media (max-width: 375px) {
+    .swiper-pagination-bullet {
+      width: 20px;
+      height: 4px;
+      margin: 0 5px;
+    }
+  }
+
+
+/* branding slider  */
+
+ .autoplay-progress svg {
+        --progress: 0;
+        stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+        stroke-dasharray: 125.6;
+        transform: rotate(-90deg);
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 1.5rem; /* Tailwind: text-2xl */
+        color: black;
+        font-weight: bolder;
+      }
+
+
+
+  /* about us font      */
+
+     .font-josefin {
+    font-family: 'Josefin Sans', sans-serif;
+  }
