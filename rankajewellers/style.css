@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* brandingSlider  */
+.swiper-pagination-bullet {
+  background-color: #d1d5db !important;
+  opacity: 1 !important;
+  width: 10px !important;
+  height: 10px !important;
+  margin: 0 6px !important;
+  border-radius: 9999px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #bd9452 !important;
+}
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 16px;
+}
+
+/* about  */
+
+.font-playfair {
+  font-family: "Playfair Display", serif;
+}
+.font-muli {
+  font-family: "Muli", sans-serif;
+}

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ranka Jewellers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Muli:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div>
+      <header
+        class="bg-[#F2E9E9] text-gray-900 relative flex items-center justify-center px-4 md:px-10"
+        data-aos="fade-down"
+      >
+        <!-- Hamburger Icon using Image -->
+        <button
+          id="menu-toggle"
+          class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none"
+          aria-label="Open Menu"
+        >
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png"
+            alt="menu"
+            class="w-10 h-10"
+            loading="lazy"
+          />
+        </button>
+
+        <!-- Centered Logo -->
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <img src="assets/logo.jpg" alt="Logo" class="h-28" />
+        </div>
+      </header>
+
+      <!-- Drawer -->
+      <div
+        id="drawer"
+        class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto"
+      >
+        <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+          <!-- Drawer Logo -->
+          <div
+            class="text-2xl font-bold text-[#133235] flex items-center gap-2"
+          >
+            <img src="assets/logo.jpg" alt="Logo" class="h-16" />
+          </div>
+          <!-- Close Drawer Button -->
+          <button
+            id="close-drawer"
+            class="text-black rounded text-2xl font-bold"
+            aria-label="Close Menu"
+          >
+            ✕
+          </button>
+        </div>
+
+        <!-- Drawer Navigation Links -->
+        <nav id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-black">
+          <!-- drawer widgets display from flutter repsonse -->
+        </nav>
+      </div>
+
+      <!-- Overlay -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"
+      ></div>
+    </div>
+
+    <!-- BrandingSwiper  -->
+    <div class="relative w-full">
+      <div class="swiper" id="BrandingSwiper">
+        <div class="swiper-wrapper lg:h-[80vh]">
+          <!-- Slide 1 -->
+          <div class="swiper-slide relative lg:h-auto">
+            <!-- Desktop Image -->
+            <img
+              src="assets/slide1.jpg"
+              class="w-full md:h-[400px] lg:h-full object-fill hidden md:block"
+              alt="Slide 1 Desktop"
+            />
+            <!-- Mobile Image -->
+            <img
+              src="assets/slide1_mobile.jpg"
+              class="w-full h-[70vh] object-fill block md:hidden"
+              alt="Slide 1 Mobile"
+            />
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="swiper-slide relative lg:h-auto">
+            <img
+              src="assets/slide2.jpg"
+              class="w-full md:h-[400px] lg:h-full object-fill hidden md:block"
+              alt="Slide 2 Desktop"
+            />
+            <img
+              src="assets/slide2_mobile.jpg"
+              class="w-full h-[70vh] object-fill block md:hidden"
+              alt="Slide 2 Mobile"
+            />
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="swiper-slide relative lg:h-auto">
+            <img
+              src="assets/slide3.jpg"
+              class="w-full md:h-[400px] lg:h-full object-fill hidden md:block"
+              alt="Slide 3 Desktop"
+            />
+            <img
+              src="assets/slide3_mobile.jpg"
+              class="w-full h-[70vh] object-fill block md:hidden"
+              alt="Slide 3 Mobile"
+            />
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="swiper-slide relative lg:h-auto">
+            <img
+              src="assets/slide4.jpg"
+              class="w-full md:h-[400px] lg:h-full object-fill hidden md:block"
+              alt="Slide 4 Desktop"
+            />
+            <img
+              src="assets/slide4_mobile.jpg"
+              class="w-full h-[70vh] object-fill block md:hidden"
+              alt="Slide 4 Mobile"
+            />
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- Arrows -->
+        <div
+          class="swiper-button-prev !text-white font-bold w-12 h-12 bg-black/40 hover:!bg-[#C09B4B] hover:!text-white p-2 shadow-xl hidden md:flex"
+        ></div>
+        <div
+          class="swiper-button-next !text-white font-bold w-12 h-12 bg-black/40 hover:!bg-[#C09B4B] hover:!text-white p-2 shadow-xl hidden md:flex"
+        ></div>
+      </div>
+    </div>
+
+    <!-- widgets section   -->
+    <section class="max-w-4xl mx-auto py-8 font-playfair">
+      <div
+        id="widgetsContainer"
+        class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-3"
+        data-aos="zoom-in"
+      >
+    <!-- widgets display dynamically from flutter response -->
+    </div>
+
+      <!-- Show More Button: Visible only on mobile -->
+      <div class="flex justify-center mt-4 sm:hidden">
+        <button id="toggleBtn" class="text-sm flex flex-col items-center gap-1">
+          <svg
+            id="toggleIcon"
+            class="w-10 h-10 text-[#F9A825] transition-transform"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+          <span id="toggleText" class="text-black"> Show More</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- about  -->
+    <section class="md:py-10">
+      <div class="max-w-6xl mx-auto px-4">
+        <!-- Page Header -->
+        <header class="mb-10" data-aos="fade-down">
+          <h1
+            class="text-4xl text-[#746855] text-center font-bold font-playfair"
+          >
+            About Us
+          </h1>
+        </header>
+
+        <!-- Section 1 -->
+        <section class="mb-12" data-aos="fade-up">
+          <h2
+            class="text-xl md:text-2xl font-semibold font-muli text-[#746855] mb-4 uppercase"
+          >
+            The Ranka Legacy
+          </h2>
+          <p class="text-base leading-relaxed font-muli text-[#746855]">
+            Ranka Jewellers, a 143 year old establishment, is the unparalleled
+            supremo of the jewellery business spread across 12 stores in Pune &
+            Thane. Built on trust, tradition, and purity, Ranka is known for
+            their innovative and ethnic designs that are always up to date with
+            trends, transparency and quality.
+            <br />
+            <br />
+            The Ranka Group has also been pioneers and trend setters for signing
+            Bollywood celebrities as brand ambassadors. Vidya Balan was the
+            first celebrity, followed by Twinkle Khanna and Dimple Kapadia.
+            Today, Ranka Jewellers is one of the largest and most successful
+            brands in the jewellery industry. It is set with values infused by
+            the founders, which forms the backbone of the entire group.
+            <br />
+            <br />
+            The young and dynamic group of directors are the sixth generation
+            steering the Ranka Group. Their clear vision to continue the
+            heritage of making the best quality of precious jewelry, to provide
+            excellent customer care, and to make a difference in society has
+            enabled Ranka to expand its business in all corners of Pune and
+            Pimpri Chinchwad.
+          </p>
+        </section>
+
+        <!-- Section 3 with image -->
+        <section
+          class="mb-12 grid md:grid-cols-2 gap-8 items-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div>
+            <img
+              src="//rankajewellers.in/cdn/shop/files/Aboutus_rings.png?v=1648207052"
+              alt="Rings"
+            />
+          </div>
+          <div>
+            <h2 class="text-xl md:text-2xl font-semibold mb-4 text-[#746855]">
+              The Brand Speaks
+            </h2>
+            <p class="text-base leading-relaxed text-[#746855]">
+              Our selection of brand ambassadors for our jewellery chain
+              personifies the value of trust, style, and legacy of excellence
+              that we carry along with us. For 4 successful years it was ‘the
+              one of a kind’ Vidya Balan, a national award winner with several
+              other accolades to her credit. Vidya’s aura, her steadfast
+              attitude, confidence, and grace truly resembled the legacy of
+              Ranka which is why she became the face of Ranka.
+              <br />
+              <br />
+              Following this eventful partnership, we signed up the
+              mother-daughter duo- the elegant Dimple Kapadia and the feisty
+              Twinkle Khanna in 2015. While Dimple has proved her mettle with a
+              series of versatile roles in movies spanning over 4 decades,
+              Twinkle on the other hand is a multi- faceted celebrity, a
+              successful interior designer and an out of the box author. Both
+              these stars represent the vibrance of Ranka and its timelessness.
+            </p>
+          </div>
+        </section>
+
+        <!-- Banner Image -->
+        <section class="mb-8" data-aos="zoom-in">
+          <img
+            src="https://rankajewellers.in/cdn/shop/files/founder_images.jpg?v=1648271235"
+            alt="Jewellers in Pune"
+            class="w-full md:h-[500px] object-cover"
+          />
+        </section>
+      </div>
+    </section>
+
+    <!-- Promise Section -->
+    <section class="md:py-8" data-aos="fade-up">
+      <!-- Page Header -->
+      <header class="mb-8" data-aos="fade-down">
+        <h1 class="text-3xl md:text-4xl text-[#746855] text-center font-bold font-playfair">
+          Ranka Promises
+        </h1>
+        <p class="text-[#746855] text-center font-muli py-2">
+          Your Satisfaction, Our Promise
+        </p>
+      </header>
+
+      <div
+        class="max-w-7xl mx-auto px-4 grid grid-cols-3 sm:grid-cols-3 md:grid-cols-7 lg:grid-cols-7 gap-4 text-center"
+      >
+        <!-- 1. BIS Hallmarked Jewellery -->
+        <div data-aos="zoom-in" data-aos-delay="200">
+          <img
+            src="assets/icon1.svg"
+            alt="BIS Hallmarked"
+            class="mx-auto h-16 mb-2"
+          />
+          <h4 class="text-sm font-semibold leading-snug">
+            BIS<br />Hallmarked<br />Jewellery
+          </h4>
+        </div>
+
+        <!-- 2. 100% Exchange -->
+        <div data-aos="zoom-in" data-aos-delay="300">
+          <img
+            src="assets/icon2.svg"
+            alt="Exchange Rate"
+            class="mx-auto h-16 mb-2"
+          />
+          <h4 class="text-sm font-semibold leading-snug">
+            100% exchange<br />rate on<br />gold/diamonds
+          </h4>
+        </div>
+
+        <!-- 3. Jewellery Insurance -->
+        <div data-aos="zoom-in" data-aos-delay="400">
+          <img
+            src="assets/icon3.svg"
+            alt="Jewellery Insurance"
+            class="mx-auto h-16 mb-2"
+          />
+          <h4 class="text-sm font-semibold leading-snug">
+            Jewellery<br />Insurance<br />on demand
+          </h4>
+        </div>
+
+        <!-- 4. Lifetime Buyback -->
+        <div data-aos="zoom-in" data-aos-delay="500">
+          <img
+            src="assets/icon4.svg"
+            alt="Lifetime Buyback"
+            class="mx-auto h-16 mb-2"
+          />
+          <h4 class="text-sm font-semibold leading-snug">
+            Assured<br />Lifetime<br />buyback
+          </h4>
+        </div>
+
+        <!-- 5. 1000+ Designs -->
+        <div data-aos="zoom-in" data-aos-delay="600">
+          <img src="assets/icon5.svg" alt="Designs" class="mx-auto h-16 mb-2" />
+          <h4 class="text-sm font-semibold leading-snug">
+            1000+<br />Designs<br />per category
+          </h4>
+        </div>
+
+        <!-- 6. 100% Transparency -->
+        <div data-aos="zoom-in" data-aos-delay="700">
+          <img
+            src="assets/icon6.svg"
+            alt="Transparency"
+            class="mx-auto h-16 mb-2"
+          />
+          <h4 class="text-sm font-semibold leading-snug">
+            100%<br />Transparency<br />in payment
+          </h4>
+        </div>
+
+        <!-- 7. Legacy Since 1879 -->
+        <div
+          class="col-span-3 flex justify-center md:col-span-1 mb-8 md:mb-0"
+          data-aos="zoom-in"
+          data-aos-delay="800"
+        >
+          <div>
+            <img
+              src="assets/icon7.svg"
+              alt="Legacy"
+              class="mx-auto h-16 mb-2"
+            />
+            <h4 class="text-sm font-semibold leading-snug">
+              A legacy of<br />trust since<br />1879
+            </h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+  <footer class="bg-[#F2E9E9] px-4 py-8  mx-auto">
+    <!-- Logo -->
+    <div class="flex justify-center mb-6">
+      <img 
+        src="https://rankajewellers.in/cdn/shop/files/RANKALOGO_EMPIRE_ESTATE_1_2_small.png?v=1665315526" 
+        alt="Ranka Logo" 
+        class=""
+      />
+    </div>
+
+    <!-- Address Info -->
+    <div class="text-center mb-6">
+      <h3 class="font-semibold text-lg font-muli">ADDRESS</h3>
+      <p class="mt-1 text-lg">
+        <a href="#" class="hover:underline font-muli text-lg">
+          Empire Estate, CTS 4510, 1, Old Mumbai - Pune Highway,<br/>
+          Chinchwad, Pune, Maharashtra. 411019
+        </a><br/><br>
+        Hours: Tuesday to Sunday 10:30am - 8pm. Closed on Monday
+      </p>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="flex items-start justify-center gap-4 text-sm">
+     
+
+      <!-- Text -->
+      <div>
+     
+        <p class="text-lg text-center">
+          Contact : 
+          8956527691
+          (020) 46201100 (Pimpri Chinchwad Store)
+        </p>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Back to Top Button with Inner Border -->
+    <button
+      id="backToTopBtn"
+      class="hidden fixed bottom-6 right-6 z-50 bg-red-600 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 ring-inset ring-2 ring-yellow-600"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-6 font-bold"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 18.75 7.5-7.5 7.5 7.5"
+        />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m4.5 12.75 7.5-7.5 7.5 7.5"
+        />
+      </svg>
+    </button>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+       <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+    <script>
+
+        // Drawer render
+  window.renderDrawerItem = function (widget) {
+    return `
+      <a href="#"
+        onclick="${widget.action}()"
+        class="block text-black hover:text-[#C09B4B] transition">
+        ${widget.name}
+      </a>
+    `;
+  };
+
+
+  // Tabs render
+  window.renderWidget = function (widget, index) {
+    const isVirtualTryOn = Number(widget.id) === 23;
+    return `
+      <div  onclick="${widget.action}()"
+        class="relative w-[110px] h-[110px] flex flex-col items-center justify-center cursor-pointer 
+        rounded-full text-center transition-all duration-300
+        ${index > 5 ? "hidden sm:flex extra-tab" : ""}"
+        data-aos="zoom-in">
+
+        <svg class="w-full" viewBox="0 0 300 300">
+          <defs>
+            <pattern id="pattern${index}" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="10" fill="#f9a825"/>
+            </pattern>
+            <radialGradient id="grad${index}">
+              <stop offset="0%" stop-color="#c62828"/>
+              <stop offset="100%" stop-color="#8e0000"/>
+            </radialGradient>
+          </defs>
+
+          <circle cx="150" cy="150" r="145" fill="url(#pattern${index})"/>
+          <circle cx="150" cy="150" r="125" fill="url(#grad${index})"/>
+          <circle cx="150" cy="150" r="110" fill="none" stroke="white" stroke-width="3"/>
+        </svg>
+
+        <img src="${widget.icon}" 
+          class="absolute top-10 left-1/2 w-10 h-10 -translate-x-1/2 -translate-y-1/2 ${isVirtualTryOn ? '' : 'invert'}" />
+
+        <p class="text-sm mt-1">${widget.name}</p>
+      </div>
+    `;
+  };
+
+    </script>
+  </body>
+</html>
