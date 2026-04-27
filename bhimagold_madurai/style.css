@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+   #about {
+        font-family: "Raleway", sans-serif;
+      }
+
+/* main-slider  */
+.carousel-container {
+  width: 100%;
+  margin: auto;
+}
+/* Arrow icon styling (pseudo-element) */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px !important;
+  font-weight: bold;
+  color: black;
+}
+
+/* pagination  */
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #888;
+}
+
+.swiper-pagination-bullet-active {
+  background: #eeaa5e; /* your theme color */
+}
+
+/* about  */
+.active-tab {
+  color: #d3a65e;
+  font-weight: 600;
+  border-bottom: 4px solid #d3a65e;
+  padding-bottom: 4px;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* scheme-section  */
+
+#scheme-section {
+  font-family: "Quicksand", sans-serif;
+}
+.gold-border {
+  background: linear-gradient(to right, #d6a84f, #906731);
+}
+
+/* footer  */
+
+#footer {
+  font-family: "Quiche Sans", sans-serif;
+}

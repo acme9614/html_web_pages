@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bhima Gold Madurai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- ✅ Google Font: Quiche Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Quiche+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="overflow-x-hidden">
+  <!-- header  -->
+  <div class="relative">
+    <!-- Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 h-full w-1/2 bg-black shadow-lg z-50 transform -translate-x-full transition-transform duration-300 overflow-y-auto">
+      <div class="flex items-center justify-between gap-4 p-4 border-b">
+        <img class="h-12 w-auto" src="assets/logo.svg" alt="bhima-logo" />
+        <button onclick="closeDrawer()" class="text-xl">✖</button>
+      </div>
+      <ul id="drawerContainer" class="p-4 space-y-3">
+        <!-- drawer items display dynamically from flutter response -->
+      </ul>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" onclick="closeDrawer()"></div>
+
+    <!-- Header -->
+    <div class="bg-black w-full relative">
+      <div class="max-w-screen mx-auto px-4 relative">
+        <div class="h-20 flex items-center justify-start relative">
+          <!-- Left: Menu Icon -->
+          <div class="z-50">
+            <button id="menuButton" onclick="openDrawer()" class="text-3xl text-white focus:outline-none">
+              ☰
+            </button>
+          </div>
+
+          <!-- Center: Logo -->
+          <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <a href="#" class="flex items-center space-x-2">
+              <img src="assets/logo.svg" alt="Logo" width="128" height="38" class="object-contain" />
+              <!-- <img
+                  src="https://www.bhimagold.com/images/bhima_stamp2.png"
+                  alt="Bhima Stamp"
+                  width="53"
+                  height="38"
+                  class="object-contain"
+                /> -->
+              <!-- <img
+                  src="https://www.bhimagold.com/images/bhima_boy5.png"
+                  alt="Bhima Boy"
+                  width="53"
+                  height="53"
+                  class="object-contain"
+                /> -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- main slider  -->
+  <div class="relative carousel-container" id="hero">
+    <div class="swiper mainSlider w-full h-[200px] md:h-[300px] lg:h-[600px]">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide w-full h-full flex items-center justify-center">
+          <img src="assets/slide1.png" alt="Slide 1" class="w-full h-full object-fill" />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide w-full h-full flex items-center justify-center">
+          <img src="assets/slide2.jpeg" alt="Slide 2" class="w-full h-full object-fill" />
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide w-full h-full flex items-center justify-center">
+          <img src="assets/slide3.jpeg" alt="Slide 3" class="w-full h-full object-fill" />
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="swiper-slide w-full h-full flex items-center justify-center">
+          <img src="assets/slide4.jpeg" alt="Slide 3" class="w-full h-full object-fill" />
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="swiper-slide w-full h-full flex items-center justify-center">
+          <img src="assets/slide5.jpg" alt="Slide 3" class="w-full h-full object-fill" />
+        </div>
+
+        <!-- Slide 6 -->
+        <div class="swiper-slide w-full h-full flex items-center justify-center">
+          <img src="assets/slide6.jpg" alt="Slide 3" class="w-full h-full object-fill" />
+        </div>
+
+        <!-- Slide 7 -->
+        <div class="swiper-slide w-full h-full flex items-center justify-center">
+          <img src="assets/slide7.jpg" alt="Slide 3" class="w-full h-full object-fill" />
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-next text-black bg-[#CFDFCF] px-3 py-2"></div>
+      <div class="swiper-button-prev text-black bg-[#CFDFCF] px-2 py-2"></div>
+    </div>
+  </div>
+
+  <!-- services  -->
+  <div class="flex flex-col items-center justify-center pt-8 md:py-10" data-aos="zoom-in">
+    <!-- Grid Container -->
+    <div id="widgetsContainer"
+      class="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-3 md:gap-3 lg:gap-6 overflow-hidden max-h-[15.5rem] sm:max-h-none">
+      <!-- widgets diplay dynamically from flutter response -->
+
+    </div>
+
+    <!-- Toggle Button for Mobile -->
+    <div class="sm:hidden mt-4">
+      <button onclick="toggleBoxes()" class="text-gray-600">
+        <svg id="arrowIcon" class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- about us  -->
+  <section class="max-w-5xl mx-auto px-4 py-10" id="about">
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-6" data-aos="fade-down">
+      About Us
+    </h1>
+
+    <!-- Centered Tab Buttons -->
+    <div class="flex justify-center space-x-8 mb-8" data-aos="fade-up" data-aos-delay="100">
+      <div id="tab-company-btn" class="cursor-pointer active-tab" onclick="showTab('company')">
+        Our Company Profile
+      </div>
+      <div id="tab-chairman-btn" class="cursor-pointer hover:text-[#D3A65E]" onclick="showTab('chairman')">
+        Chairman's Profile
+      </div>
+    </div>
+
+    <!-- Tab Content Area -->
+    <div class="space-y-8 text-justify text-gray-700 leading-relaxed">
+      <!-- Company Profile Tab -->
+      <div id="tab-company" data-aos="fade-up">
+        <p>
+          Bhima Jewellery is having a legacy of 92 plus years of providing
+          purest and trust worthy service to its customers which has been
+          started by its Mentor and Founder Mr. Lakshmi Narayana Bhattar
+          popularly known as BHIMA BHATTAR. The legacy is carried forward by
+          our groups chairman Dr. B. Govindan. With the able and unmatched
+          guidance and enthusiastic leadership qualities of our chairman along
+          with the Managing Directors have made sure the legacy of our founder
+          is still intact with the best of the service in the industry to its
+          most valued treasures “The Customers”.
+          <br />
+          With the innovative ideas and caring attitude our Chairman have
+          moved ahead with the legacy to open up new ventures in locations
+          untamed by the industry with the standards, purity and customer
+          service as the main focus. Bhima Group opened up their master
+          showroom at Trivandrum under the tag name BHIMA JEWELLERY in the
+          year 1992 at heart of Trivandrum city. With the corporate office at
+          Trivandrum the management team has given a new look to the venture
+          and an advanced customer service and modern outlook of marketing has
+          been introduced in the market.
+          <br />
+          BHIMA under the guidance of Dr. B Govindan has been an organization
+          which showcases the true sculpture of service whether it is towards
+          employees or customers. For employees all the basic needs have been
+          fulfilled namely transportation and food, also included is the
+          lodging facility for all the employees who are in need of the
+          facilities to avoid any inconvenience to the employees. For
+          customers Bhima is providing 100 % hallmarked pure gold to all the
+          customers at affordable prices to make sure the value for money is
+          there for the customers. BHIMA provides 100% GIA & IGI certified
+          Diamond Jewellery to the customers which mark the quality which
+          satisfies the customers for the value of their money.
+          <br />
+          As BHIMA has considered all its employees as one big family it has
+          been kept under strict rule that all the statutory needs of the
+          employees are taken care of namely EPF, ESIC, Insurance with
+          includes both medical as well as personal accidents and as a part of
+          management initiative a welfare board has been initiated at branch
+          level to make sure that all the basic and urgent needs of the
+          employees have been taken care of. As per our Chairman, our
+          employees and their experience is the strength and the backbone of
+          our business, hence it’s the managements role to safeguard our
+          people (our employees).
+
+          <br />
+          With our new initiative and futuristic ideas from our board we are
+          hereby submitting our nomination for this year’s National Jewelry
+          Award’s contention of Best Retail Single Store Award – South.
+        </p>
+        <br />
+
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#D3A65E] uppercase text-start my-4" data-aos="fade-up">
+            <span class="border-b-4 border-[#D3A65E] pb-1">The Beginning</span>
+          </h2>
+          <p class="text-justify leading-[1.9] text-gray-800 text-base" data-aos="fade-up">
+            To provide quality gems, jewellery and lifestyle products that
+            people cherish.
+          </p>
+        </div>
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#D3A65E] uppercase text-start my-4" data-aos="fade-up">
+            <span class="border-b-4 border-[#D3A65E] pb-1">OUR VISION</span>
+          </h2>
+          <p class="text-justify leading-[1.9] text-gray-800 text-base" data-aos="fade-up">
+            At Bhima, our vision is to be:
+            <br />
+            The world's finest jeweller,who the best understands,satisfies and
+            exceeds products,service and aspirational needs of our
+            customers,earning and retaining their loyalty and of their future
+            generations.
+            <br />
+
+            The most valuable jeweller in the world in the eyes of our
+            employees, our suppliers,our shareholder,and our community.
+            <br />
+
+            A progressive company that continuously improves adapts to
+            situations,and is an extraordinary place to work in.
+            <br />
+
+            the leader and innovator in all our area of operation.
+            <br />
+
+            pure in what we sell,and in our thoughts,words and actions.
+          </p>
+        </div>
+      </div>
+
+      <!-- Chairman's Profile Tab -->
+      <div id="tab-chairman" class="hidden" data-aos="fade-up">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#D3A65E] uppercase text-start my-4 uppercase"
+            data-aos="fade-up">
+            <span class="border-b-4 border-[#D3A65E] pb-1">The Beginning</span>
+          </h2>
+          <p class="text-justify leading-[1.9] text-gray-800 text-base" data-aos="fade-up">
+            <span class="text-xl font-bold">Dr. B. Govindan</span> was born on
+            1st Jun 1944 as the 3rd son of late Sri. Bhima Bhattar, the
+            founder father of Bhima Jewellery and Smt. Vanaja Bhima Bhattar at
+            Alleppey, Kerala. He is a Commerce Graduate from S.D. College,
+            Alleppey and has a Doctorate in Gemology from University of
+            Colombo.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#D3A65E] uppercase text-start my-4" data-aos="fade-up">
+            <span class="border-b-4 border-[#D3A65E] pb-1">THE RISE</span>
+          </h2>
+          <p class="text-justify leading-[1.9] text-gray-800 text-base" data-aos="fade-up">
+            Right from a young age, Dr. Govindan saw the gold market go
+            through its many phases, from the period of gold control to the
+            prosperous peaks in the market and along the way picked up
+            precious pointers that would become invaluable later.
+            <br />
+            Joining the family business at the age of 18 as a Sales and
+            Marketing Executive for Bhima & Bros, Alleppey,
+            <span class="text-xl font-bold">Dr. B. Govindan</span> is today
+            the Chairman of Bhima Group, a Rs 1600 Crore company.
+            <br />
+            Bhima is essentially a family run concern, and
+            <span class="text-xl font-bold">Dr. B. Govindan</span> has been
+            instrumental in spearheading the growth of the company from a
+            single outlet retail store to a multi-outlet organisation with
+            outlets in Trivandrum(Ker), Nagercoil(TN), Madurai(TN),
+            Adoor(Ker), Marthandam(TN), Attingal(Ker), Salem(TN), and
+            Pathanamthitta(Kerala) and UAE in Gulf Countries. Today it has
+            many firsts and accomplishments under its belt.
+            <br />
+            His keen eye, quick business sense and perfectionist nature
+            combined to give him an edge over the others in the market and
+            emerge the market leader. Bhima has been one of the few businesses
+            that has been passed down through generations over 90 years and
+            has still managed to retain market leadership all through the
+            years.
+            <br />
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-[#D3A65E] uppercase text-start my-4" data-aos="fade-up">
+            <span class="border-b-4 border-[#D3A65E] pb-1 uppercase">The Golden Era</span>
+          </h2>
+          <p class="text-justify leading-[1.9] text-gray-800 text-base" data-aos="fade-up">
+            The inimitable skill and acumen of
+            <span class="text-xl font-bold"> Dr. B. Govindan</span> in the
+            business field and his passion for the jewellery community as a
+            whole led to him achieving many firsts in the field.
+            <br />
+            Bhima Jewellery bagged the first ISO-9001certified Jewellery in
+            India in 2001. Bhima is the first BIS certified jewellery showroom
+            in Kerala. It is the first jewellery store in Kerala which
+            introduced the barcode system and rate card, which helps people
+            know the right price of gold. It is also the first jewellery
+            retail outlet to house an ATM in its premises. Bhima Jewellery is
+            the highest VAT paying jeweller from a single outlet. It has been
+            retaining its position of the Highest Sales Tax paying jewellery
+            showroom award in the Kerala State for several years and also
+            maintains the top position in the Grand Kerala Shopping Festival
+            (GKSF), conducted by the Dept. of Tourism, Govt of Kerala.
+            <br />
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- help desk  -->
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 " data-aos="fade-down">
+    <!-- Help Center -->
+    <div class="flex items-start justify-center gap-4 bg-white p-6">
+      <div class="w-14 h-14 flex items-center justify-center rounded-full">
+        <!-- Icon placeholder -->
+        <img src="https://cdn-icons-png.flaticon.com/128/1067/1067566.png" alt="" />
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold">
+          <a href="#" class="hover:text-yellow-600">Help Center</a>
+        </h3>
+        <p class="text-sm mt-1 leading-relaxed">
+          Call our <span class="font-medium">Support</span><br />
+          +91 90921 07222, +91 90921 07333, +91 90921 07444<br />
+          between <strong>10 AM to 7 PM</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Secured Payment -->
+    <div class="flex items-start gap-4 bg-white p-6">
+      <div class="w-14 h-14 flex items-center justify-center rounded-full">
+        <!-- Icon placeholder -->
+        <img src="https://cdn-icons-png.flaticon.com/128/11530/11530382.png" alt="" />
+      </div>
+      <div>
+        <h3 class="text-lg font-semibold">
+          <a href="#" class="hover:text-green-600">100% Secured Payment</a>
+        </h3>
+        <p class="text-sm mt-1">
+          Don't worry, we provide platform for secured payments.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer  -->
+  <footer class="bg-[#000000] opacity-90">
+    <div class="w-full px-4 py-6 md:py-10 text-white">
+      <div class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-2 items-center">
+        <div class="flex flex-col gap-4 mt-4 md:mt-0 md:mb-10">
+          <!-- Center: Logo -->
+          <div class="w-2/3">
+            <a href="#" class="flex justify-start md:justify-center items-center space-x-2">
+              <img src="assets/logo.svg" alt="bhima logo" class="h-24 w-auto" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="space-y-3">
+          <p class="font-playfair font-semibold text-xl">Contact us</p>
+          <p class="font-marcellus text-lg">
+            Bhima Jewellery
+            <br />
+            No.137, West Masi Street,
+            <br />
+            Madurai, Tamil Nādu India<br />
+            <br />
+
+            <span class="block">
+              Email us: Info@thebhimajewellery.com <br />
+              Call us : 90921 07222 / 90921 07333 / 90921 07444
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- back to-top btn  -->
+  <button id="scrollTopBtn"
+    class="fixed bottom-6 right-6 z-50 w-10 h-10 bg-[#956D38] text-white text-xl rounded-full shadow-lg hover:scale-110 hover:shadow-2xl transition-all duration-300 ease-in-out opacity-0 pointer-events-none flex items-center justify-center">
+    ⬆
+  </button>
+
+  <!-- SwiperJS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- AOS Animation JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: false,
+    });
+  </script>
+  <script src="script.js"></script>
+  <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+
+  <script>
+    // drawer items display
+    window.renderDrawerItem = function (widget) {
+      return `
+    <a href="#"
+       onclick="${widget.action}()"
+       class="block text-lg text-white hover:text-yellow-600 transition">
+       ${widget.name}
+    </a>
+  `;
+    };
+
+    // widgets display
+    window.renderWidget = function (widget) {
+      const isVirtualTryOn = Number(widget.id) === 23;
+
+      return `
+    <div onclick="${widget.action}()"
+       class="w-28 h-28 rounded-tr-[50px] rounded-bl-[50px] bg-[#D3A65E] flex flex-col items-center justify-center text-center shadow-md text-white hover:bg-[#B38842] cursor-pointer"">
+      
+      <img class="w-10 h-10 ${isVirtualTryOn ? 'invert' : ''}" src="${widget.icon}" />
+      <span class="text-xs md:text-sm lg:text-base md:font-semibold text-black mt-2 w-20 leading-tight break-words">
+        ${widget.name}
+      </span>
+    </div>
+  `;
+    };
+
+  </script>
+
+</body>
+
+</html>
