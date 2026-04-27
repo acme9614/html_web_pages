@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Swiper Arrow Customization */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: black;
+  padding: 10px;
+  border-radius: 100%;
+}
+
+.swiper-pagination-bullet {
+  background-color: white;
+  opacity: 0.8;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #2661ce; /* Tailwind yellow-400 */
+}

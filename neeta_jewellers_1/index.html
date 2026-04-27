@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neeta Jewellers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- SwiperJS CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header Section with Bell Icon -->
+  <div class="relative">
+    <!-- Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 h-full w-1/2 bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 overflow-y-auto">
+      <div class="flex items-center justify-between p-4 border-b">
+        <h2 class="text-lg font-bold">Menu</h2>
+        <button onclick="closeDrawer()" class="text-xl">✖</button>
+      </div>
+      
+      <ul id="drawerContainer" class="p-4 space-y-3">
+        <!-- drawer items display dynamically from flutter response -->
+      </ul>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" onclick="closeDrawer()"></div>
+
+    <!-- Header -->
+    <div class="bg-white w-full relative shadow-sm">
+      <div class="max-w-screen-xl mx-auto px-4 relative">
+        <div class="h-20 flex items-center justify-start relative">
+          <!-- Left: Menu Icon -->
+          <div class="z-50">
+            <button id="menuButton" onclick="openDrawer()" class="text-3xl text-black focus:outline-none">
+              ☰
+            </button>
+          </div>
+
+          <!-- Center: Logo -->
+          <div class="absolute left-36 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <a href="#" class="flex items-center space-x-2">
+              <img src="assets/neeta-jewello-logo.png" alt="Neeta Logo" class="h-16 w-auto object-contain" />
+            </a>
+          </div>
+
+          <!-- Right: Bell Icon -->
+          <div class="absolute right-4 top-1/2 transform -translate-y-1/2">
+            <div class="relative z-50">
+              <button class="relative focus:outline-none">
+                <i class="far fa-bell text-black text-3xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Full Width Swiper Banner Slider with Logo -->
+  <div class="w-full" id="brandSwiper">
+    <div class="swiper brandSwiper w-full relative">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide relative">
+          <!-- <img
+              src="assets/BHIMA BOY.png"
+              alt="Logo"
+              class="absolute top-4 right-4 w-10 h-10 md:w-16 md:h-16 object-contain z-10"
+            /> -->
+          <img src="assets/slider1.jpg" alt="Brand 1"
+            class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] object-fill" />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide relative">
+          <!-- <img
+              src="assets/BHIMA BOY.png"
+              alt="Logo"
+              class="absolute top-4 right-4 w-10 h-10 md:w-16 md:h-16 object-contain z-10"
+            /> -->
+          <img src="assets/slider2.jpg" alt="Brand 2"
+            class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] object-fill" />
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide relative">
+          <!-- <img
+              src="assets/BHIMA BOY.png"
+              alt="Logo"
+              class="absolute top-4 right-4 w-10 h-10 md:w-16 md:h-16 object-contain z-10"
+            /> -->
+          <img src="assets/slider3.jpg" alt="Brand 3"
+            class="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] object-fill" />
+        </div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="swiper-button-next hidden lg:flex"></div>
+      <div class="swiper-button-prev hidden lg:flex"></div>
+
+      <!-- Pagination Dots -->
+      <div class="swiper-pagination absolute bottom-4 left-0 right-0 mx-auto text-center z-10"></div>
+    </div>
+  </div>
+
+  <!-- price tag  -->
+  <div class="flex items-center justify-center py-4">
+    <div class="bg-[#A06F5B] text-white px-16 py-2 rounded-full flex items-center space-x-4 shadow-md">
+      <span class="text-sm font-medium">18KT (750)</span>
+      <span class="text-sm font-bold">₹7229<span class="text-xs font-normal">/gm</span></span>
+    </div>
+  </div>
+
+  <!-- services  -->
+  <section class="bg-white py-4 px-4">
+    <!-- First Row -->
+    <div id="widgetsContainer" class="max-w-6xl mx-auto grid grid-cols-4 gap-4 justify-center place-items-center">
+   
+    </div>
+
+
+    <!-- Toggle Button -->
+    <div class="flex justify-center mt-2">
+  <button onclick="toggleCards()" id="toggleButton"
+    class="flex flex-col items-center justify-center text-center text-[#8D5B46] hover:text-black transition">
+
+    <!-- Arrow -->
+    <svg class="w-6 h-6 mx-auto animate-bounce block"
+      fill="none" stroke="currentColor" stroke-width="2"
+      viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+
+    <!-- Text -->
+    <span class="block w-full text-sm font-medium mt-1 text-center">
+      Show More
+    </span>
+
+  </button>
+</div>
+  </section>
+
+  <!-- collection swiper  -->
+  <section class="bg-white px-4 pb-8">
+    <!-- Header -->
+    <div class="text-center py-4 flex items-center justify-center gap-4">
+      <p class="text-lg">
+        Invest In Gold : A Smart Move To Secure Your Financial Future
+      </p>
+    </div>
+
+    <!-- Slider -->
+    <div class="w-full mx-auto px-4 py-4">
+      <div class="swiper branding-image-slider">
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="assets/slider1.jpg" alt="Brand 1"
+              class="w-[90%] md:w-[90%] h-[200px] md:h-[300px] lg:w-[90%] lg:h-[400px] rounded-lg object-fill" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="assets/slider2.jpg" alt="Brand 2"
+              class="w-[90%] md:w-[90%] h-[200px] md:h-[300px] lg:w-[90% lg:h-[400px] rounded-lg object-fill" />
+          </div>
+          <div class="swiper-slide flex justify-center items-center">
+            <img src="assets/slider3.jpg" alt="Brand 3"
+              class="w-[90%] md:w-[90%] h-[200px] md:h-[300px] lg:w-[90%] lg:h-[400px] rounded-lg object-fill" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SwiperJS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+  <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+  <script>
+  //  DRAWER ITEMS 
+  window.renderDrawerItem = function (widget) {
+    return `
+      <li>
+        <a href="#"
+          onclick="${widget.action}()"
+          class="block text-[#2C2C2C] font-medium hover:text-[#8B5E3C] transition">
+          ${widget.name}
+        </a>
+      </li>
+    `;
+  };
+
+
+  //  WIDGET CARDS   
+window.renderWidget = function (widget, index) {
+  const isVirtualTryOn = Number(widget.id) === 23;
+
+  return `
+    <div onclick="${widget.action}()"
+      data-index="${index}"
+      class="flex flex-col items-center justify-center 
+      bg-[#8D5B46] text-white rounded-tl-[20px] rounded-tr-[20px] rounded-bl-[20px] 
+      w-24 h-24 md:w-28 md:h-28 text-center cursor-pointer"
+      style="${index >= 4 ? 'display:none;' : ''}">
+      
+      <img class="w-10 h-10 ${isVirtualTryOn ? '' : 'invert'}" src="${widget.icon}" />
+      <span class="text-xs md:text-sm md:font-semibold mt-2 w-20 leading-tight break-words">
+        ${widget.name}
+      </span>
+    </div>
+  `;
+};
+</script>
+
+</body>
+
+</html>
