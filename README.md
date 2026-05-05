@@ -7,21 +7,6 @@ Each web page is organized inside its own folder, while shared logic is maintain
 
 ## 🏗️ Project Structure
 
-**html_web_pages/**
-│
-├── widgets.json          # Common widget configuration
-├── widgets-core.js       # Shared logic for all pages
-│
-├── **test1/**
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-│
-├── **test2/**
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-
 ## <img width="478" height="324" alt="project_strature" src="https://github.com/user-attachments/assets/7df9ef74-b9be-48e6-8b3e-4b9a70515ac3" />
 
 ## 🎯 Goal
