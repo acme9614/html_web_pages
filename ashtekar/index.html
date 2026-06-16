@@ -260,54 +260,49 @@
     const animation = index % 2 === 0 ? "zoom-in-up" : "zoom-in-down";
 
     return `
-      <div onclick="${widget.action}()"
-           class="flex flex-col items-center justify-center cursor-pointer transition-all duration-300
-                  ${index > 5 ? "hidden sm:flex extra-tab" : ""}"
-           data-aos="${animation}">
+     <div onclick="${widget.action}()"
+     class="flex flex-col items-center justify-center cursor-pointer
+            ${index > 5 ? "hidden sm:flex extra-tab" : ""}"
+     data-aos="${animation}">
 
-        <div class="group relative w-[120px] h-[145px] flex flex-col items-center">
+    <div class="relative w-[120px] h-[145px] flex flex-col items-center">
 
-          <!-- Outer Glow -->
-          <div class="absolute inset-0 bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-500
-                      opacity-20 blur-2xl rounded-[35px] scale-90
-                      group-hover:scale-110 group-hover:opacity-50 transition-all duration-500">
-          </div>
+        <!-- Outer Glow (static) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-500
+                    opacity-20 blur-2xl rounded-[35px] scale-90">
+        </div>
 
-          <!-- Main Card -->
-          <div class="relative w-[100px] h-[100px] rounded-[30px]
-                      bg-gradient-to-br from-white to-yellow-50
-                      border border-yellow-200 shadow-xl
-                      flex items-center justify-center overflow-hidden
-                      transition-all duration-500
-                      group-hover:-translate-y-3 group-hover:scale-105">
+        <!-- Main Card -->
+        <div class="relative w-[100px] h-[100px] rounded-[30px]
+                    bg-gradient-to-br from-white to-yellow-50
+                    border border-yellow-200 shadow-xl
+                    flex items-center justify-center overflow-hidden">
 
-            <!-- Shine Effect -->
-            <div class="absolute inset-0 bg-gradient-to-r
-                        from-transparent via-white/50 to-transparent
-                        -translate-x-full group-hover:translate-x-full
-                        transition-all duration-700">
+            <!-- Static Shine -->
+            <div class="absolute inset-0 bg-gradient-to-r 
+                        from-transparent via-white/30 to-transparent">
             </div>
 
             <!-- Inner Icon Box -->
             <div class="w-[72px] h-[72px] rounded-[22px]
                         bg-gradient-to-br from-yellow-400 to-orange-400
-                        flex items-center justify-center shadow-md
-                        group-hover:rotate-6 transition-all duration-500">
+                        flex items-center justify-center shadow-md">
 
-              <img src="${widget.icon}"
-                   alt="${widget.name}"
-                   class="w-9 h-9 object-contain
-                   ${isVirtualTryOn ? "invert brightness-0" : "brightness-0 invert"}" />
+                <img src="${widget.icon}"
+                     alt="${widget.name}"
+                     class="w-9 h-9 object-contain
+                     ${isVirtualTryOn ? "invert brightness-0" : "brightness-0 invert"}" />
             </div>
-          </div>
-
-          <!-- Label -->
-          <p class="mt-4 text-[15px] font-semibold tracking-wide
-                    text-gray-800 group-hover:text-orange-500 transition-all duration-300 text-center">
-            ${widget.name}
-          </p>
         </div>
-      </div>
+
+        <!-- Label -->
+        <p class="mt-4 text-[15px] font-semibold tracking-wide
+                  text-gray-800 text-center">
+            ${widget.name}
+        </p>
+
+    </div>
+</div>
     `;
   };
 </script>
