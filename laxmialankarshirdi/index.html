@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laxmi Alankar Jewellers</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 bg-white transition-all duration-500 shadow-sm"
+        data-aos="fade-down" data-aos-duration="1000">
+        <div class="max-w-7xl mx-auto px-3 lg:px-12 py-4 flex items-center justify-between">
+
+            <!-- Logo + Brand -->
+            <div class="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Logo" class="w-12 h-12 object-contain">
+                <h2 class="text-2xl md:text-3xl font-semibold text-black">
+                    Laxmi Alankar Jewellers
+                </h2>
+            </div>
+
+            <!-- Drawer Button -->
+            <button onclick="openDrawer()" id="menuBtn"
+                class="w-12 h-12 flex items-center justify-center rounded-full border border-gray-300 transition duration-500">
+
+                <svg xmlns="http://www.w3.org/2000/svg" id="menuIcon" class="w-7 h-7 text-black" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- DRAWER -->
+    <div id="drawer"
+      class="fixed top-0 left-0 -translate-x-full w-[70%] md:w-[50%] lg:w-[50%] h-screen bg-white shadow-2xl z-50 transition-transform duration-500 overflow-y-auto">
+
+        <!-- Drawer Header -->
+        <div class="flex items-center justify-between px-6 py-5 border-b">
+
+            <!-- Only Logo -->
+            <img src="assets/logo.png" alt="Logo" class="w-14 h-14 object-contain">
+
+            <!-- Close Button -->
+            <button onclick="closeDrawer()" class="text-6xl text-gray-700 hover:text-black transition">
+                &times;
+            </button>
+
+        </div>
+
+        <!-- Drawer Links -->
+        <nav id="drawerContainer" class="flex flex-col px-6 py-8 space-y-6 text-xl"></nav>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" onclick="closeDrawer()" class="fixed inset-0 bg-black/40 hidden z-40"></div>
+
+    <!-- HERO SECTION -->
+    <section id="hero" data-navbg="white" class="relative min-h-screen flex items-center overflow-hidden pt-24">
+
+        <div class="absolute top-0 left-0 w-full h-full -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-14">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+                <!-- Left Content -->
+                <div class="space-y-5  md:order-1" data-aos="fade-right" data-aos-duration="1200">
+                    <h1 class="text-4xl md:text-7xl leading-tight font-semibold text-gray-900">
+                        Maharashtrian & Shirdi’s
+                        <span class="italic block text-yellow-700">
+                            Cultural Jewellery
+                        </span>
+                    </h1>
+                </div>
+
+                <!-- Right Image -->
+                <div class="flex justify-center lg:justify-end  md:order-2" data-aos="zoom-in" data-aos-duration="1200">
+                    <div
+                        class="w-[350px] md:w-[380px] h-[450px] rounded-t-[160px] rounded-b-[20px] overflow-hidden shadow-xl">
+                        <img src="assets/unnamed.jpg" alt="Jewellery"
+                            class="w-full h-full object-cover hover:scale-105 transition duration-500" />
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Services section  -->
+    <section class="bg-white">
+       <div id="widgetsContainer"
+    class="flex flex-wrap justify-center mx-auto gap-2 md:gap-4 lg:gap-4 w-full md:w-[70%] lg:w-[70%] py-5">
+</div>
+
+<!-- More Button -->
+<div id="moreBtn" onclick="toggleServices()"
+    class="w-full flex md:hidden justify-center mt-4">
+
+    <div class="flex flex-col items-center cursor-pointer py-3">
+        <span id="moreText" class="text-sm font-semibold text-gray-800 font-sans">
+            Show More
+        </span>
+
+        <svg id="moreArrow"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 text-gray-800 transition-transform duration-300 mt-1"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+
+            <path stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7" />
+        </svg>
+    </div>
+</div>
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+    <section id="about" data-navbg="#f8f6f2" class="py-14 bg-gradient-to-r from-[#f8f6f2] to-[#efe7dd]">
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+            <div class="text-center mb-10" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-4xl md:text-6xl font-semibold text-gray-900">
+                    About Us
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+
+                <!-- Left Image -->
+                <div data-aos="fade-right" data-aos-duration="1200">
+                    <div class="rounded-t-[140px] rounded-b-[20px] overflow-hidden shadow-xl">
+                        <img src="assets/about.jpg" alt="About Jewellery"
+                            class="w-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="space-y-5" data-aos="fade-left" data-aos-duration="1200">
+
+                    <h3 class="text-4xl md:text-5xl font-semibold text-gray-900">
+                        Laxmi Alankar Jewellers
+                    </h3>
+
+                    <p class="text-gray-700 text-lg md:text-xl leading-relaxed">
+                        Laxmi Alankar Jewellers is a trusted name in jewellery, proudly serving
+                        customers in Shirdi since 1990.
+                    </p>
+
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        Our mission is to provide high-quality jewellery that blends tradition
+                        with modern design.
+                    </p>
+
+                    <div class="pt-3 space-y-4 text-lg md:text-xl">
+
+                        <p class="text-gray-900 text-xl font-medium">
+                            We focus on:
+                        </p>
+
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-700 text-sm">✓</span>
+                            <p class="text-gray-700">Authenticity and purity in every product</p>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-700 text-sm">✓</span>
+                            <p class="text-gray-700">Transparent pricing and fair value</p>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-700 text-sm">✓</span>
+                            <p class="text-gray-700">Personalized customer service</p>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="w-8 h-8 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-700 text-sm">✓</span>
+                            <p class="text-gray-700">Traditional & modern elegant designs</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- COLLECTION SECTION -->
+    <section id="collections" data-navbg="white" class="py-10 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+            <div class="text-center mb-10" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-4xl md:text-6xl font-semibold text-gray-900">
+                    Collections
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="100" onclick="openImage(this.querySelector('img').src)">
+                    <img src="assets/item1.jpg" class="w-full object-cover">
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="200" onclick="openImage(this.querySelector('img').src)">
+                    <img src="assets/item2.jpg" class="w-full object-cover">
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="300" onclick="openImage(this.querySelector('img').src)">
+                    <img src="assets/item3.jpg" class="w-full object-cover">
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="400" onclick="openImage(this.querySelector('img').src)">
+                    <img src="assets/item4.jpg" class="w-full object-cover">
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="500" onclick="openImage(this.querySelector('img').src)">
+                    <img src="assets/item5.jpg" class="w-full object-cover">
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl cursor-pointer shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="600" onclick="openImage(this.querySelector('img').src)">
+                    <img src="assets/item6.jpg" class="w-full object-cover">
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- IMAGE MODAL -->
+        <div id="imageModal" class="fixed inset-0 bg-black/90 hidden items-center justify-center z-50 px-4">
+            <span onclick="closeImage()" class="absolute top-5 right-8 text-white text-4xl cursor-pointer">
+                &times;
+            </span>
+
+            <img id="modalImage" class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl" />
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="bg-[#e9e2db] py-14 px-6 md:px-20">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+
+    <!-- Brand Section -->
+    <div>
+      <h2 class="text-2xl md:text-3xl font-serif text-[#1d2340] mb-6">
+        Laxmi Alankar Jewellers
+      </h2>
+      <p class="text-gray-700 text-xl md:text-2xl leading-relaxed max-w-sm">
+        Trusted jewellery destination in Shirdi since 1990.
+      </p>
+    </div>
+
+    <!-- Contact Section -->
+    <div>
+      <h2 class="text-2xl md:text-3xl font-serif text-[#1d2340] mb-6">
+        Contact Us
+      </h2>
+
+      <div class="space-y-4 text-gray-800 text-lg">
+
+        <div class="flex items-center gap-3">
+          <span class="text-xl">📧</span>
+          <p class="md:text-xl">laxmijewellers1984@gmail.com</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <span class="text-xl">📞</span>
+          <p class="md:text-2xl">+91 8888805151</p>
+        </div>
+
+        <div class="flex items-start gap-3">
+          <span class="text-xl">📍</span>
+          <p class="md:text-2xl">
+            Sonar Lane, Palkhi Road,<br />
+            Shirdi - 423109
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Opening Hours -->
+    <div>
+      <h2 class="text-2xl md:text-3xl font-serif text-[#1d2340] mb-6">
+        Opening Hours
+      </h2>
+
+      <div class="text-gray-800 text-xl space-y-3">
+        <p class="md:text-2xl">Monday - Sunday</p>
+        <p class="md:text-2xl">10:30 AM – 9:00 PM</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Line -->
+  <div class="border-t border-gray-300 mt-10 pt-6 text-center text-gray-600 text-lg md:text-2xl">
+    © 2026 Laxmi Alankar Jewellers. All rights reserved.
+  </div>
+</footer>
+
+    <script src="script.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+     <!-- This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page  -->
+        <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+    <script>
+    window.renderDrawerItem = function (widget) {
+        return `
+            <a href="#"
+               onclick="${widget.action}(); closeDrawer();"
+               class="text-xl text-gray-800 hover:text-yellow-700 transition duration-300">
+               ${widget.name}
+            </a>
+        `;
+    };
+
+    window.renderWidget = function (widget, index) {
+        const isVirtualTryOn = Number(widget.id) === 23;
+
+        return `
+            <div onclick="${widget.action}()"
+                 class="service-card relative flex flex-col items-center cursor-pointer pb-4
+                 ${index > 5 ? "hidden md:flex extra-service" : ""}"
+                 data-aos="fade-up">
+
+                <img src="assets/shape.png" class="w-[115px] md:w-[130px] object-contain">
+
+                <div class="absolute top-7 flex flex-col items-center">
+                    <img class="w-8 h-8 md:w-10 md:h-10 my-1 ${isVirtualTryOn ? "" : "invert"}"
+                         src="${widget.icon}">
+                    <p class="text-white text-sm font-semibold font-sans text-center w-[80px]">
+                        ${widget.name}
+                    </p>
+                </div>
+            </div>
+        `;
+    };
+</script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            offset: 120
+        });
+    </script>
+
+</body>
+
+</html>

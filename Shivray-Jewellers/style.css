@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff7ef;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Cinzel', serif;
+}
+
+.gold-text {
+    background: linear-gradient(to right, #ffb300, #ffd95a, #ffb300);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-bg {
+    background:
+        linear-gradient(rgba(0, 0, 0, .65), rgba(0, 0, 0, .65)),
+        url('assets/Banner.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Better mobile support */
+    background-attachment: scroll;
+}
+
+.glass {
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, .15);
+}
+
+.shine-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-card::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(120deg,
+            transparent,
+            rgba(255, 255, 255, .3),
+            transparent);
+    transform: rotate(25deg);
+    transition: .8s;
+}
+
+.shine-card:hover::before {
+    left: 100%;
+}
+
+.collection-card:hover img {
+    transform: scale(1.1);
+}
+
+.collection-card img {
+    transition: 1s;
+}
+
+.btn-gold {
+    background: linear-gradient(to right, #ff9900, #ffcc00);
+    color: #111;
+    font-weight: 700;
+    transition: .4s;
+}
+
+.btn-gold:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 170, 0, .5);
+}
+
+.fort-border {
+    border-bottom: 10px solid #2a1a10;
+    position: relative;
+}
+
+.fort-border::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(90deg,
+            #2a1a10 0,
+            #2a1a10 20px,
+            #3d2b1f 20px,
+            #3d2b1f 40px);
+}
+
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(to right, #ff9900, #ffd000);
+    z-index: 9999;
+}
+
+.floating {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.glow {
+    box-shadow: 0 0 30px rgba(255, 174, 0, .5);
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    border-radius: 50px;
+    background: linear-gradient(to right, #ff9900, #ffd000);
+}
+
+.custom-bg {
+    background:
+        linear-gradient(rgba(255, 247, 239, .95), rgba(255, 247, 239, .95)),
+        url('https://www.transparenttextures.com/patterns/arabesque.png');
+}
+
+.glass-scroll {
+    background: #501724;
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 193, 7, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* hero section image decoration */
+.hero-image-shadow {
+    position: relative;
+}
+
+.hero-image-shadow::before {
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgba(255, 183, 0, 0.18);
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .7;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}

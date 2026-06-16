@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>शिवराय ज्वेलर्स</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-500" id="navbar">
+
+        <div class="container mx-auto px-4 md:px-6 py-2">
+
+            <!-- Glass Navbar -->
+            <div id="glassNavbar"
+                class="glass rounded-full px-5 md:px-6 py-1 flex items-center justify-between transition-all duration-500">
+
+                <!-- Logo -->
+                <img src="assets/logo.png" alt="Shivray Logo" class="w-[70px] object-contain">
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center gap-10 text-white font-medium">
+
+                    <a href="#home" class="hover:text-yellow-400 transition">
+                        Home
+                    </a>
+
+                    <a href="#about" class="hover:text-yellow-400 transition">
+                        About
+                    </a>
+
+                    <a href="#contact" class="hover:text-yellow-400 transition">
+                        Contact
+                    </a>
+
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="md:hidden text-white text-3xl focus:outline-none">
+
+                    ☰
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Mobile Drawer Overlay -->
+        <div id="drawerOverlay"
+            class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden opacity-0 transition-all duration-300">
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer"
+            class="fixed top-0 left-[-100%] w-[280px] h-full bg-[#501724] backdrop-blur-xl z-50 shadow-2xl transition-all duration-500">
+
+            <!-- Drawer Header -->
+            <div class="flex items-center justify-between px-6 py-2 border-b border-white/10">
+
+                <!-- Logo -->
+                <img src="assets/logo.png" alt="Shivray Logo" class="w-[120px] object-contain">
+
+                <!-- Close Button -->
+                <button id="closeDrawer" class="text-white text-3xl leading-none hover:text-red-400 transition">
+
+                    ×
+
+                </button>
+
+            </div>
+
+            <!-- Drawer Menu -->
+            <nav id="drawerContainer" class="flex flex-col p-6 text-white space-y-6"></nav>
+
+        </div>
+
+    </header>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
+
+        <div class="absolute inset-0 bg-black/50"></div>
+
+        <div class="container mx-auto px-6 pt-24 relative z-10">
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left -->
+                <div class="flex justify-center hero-image-shadow" data-aos="zoom-in">
+
+
+                    <!-- <img src="assets/herosection.png"
+                        class="w-[500px] floating glow rounded-full" alt="Jewellery"> -->
+
+                    <img src="assets/herosection.png" class="w-full max-w-[500px] relative z-10" alt="Jewellery">
+                </div>
+
+                <!-- Right -->
+                <div data-aos="fade-right">
+
+                    <p class="text-yellow-400 text-lg mb-5 tracking-widest font-['Noto_Sans_Devanagari']">
+                        २००६ पासून विश्वासाची परंपरा
+                    </p>
+
+                    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-8">
+
+                        Shivray
+                        <span class="gold-text block">
+                            Jewellers
+                        </span>
+
+                    </h1>
+
+                    <p class="text-gray-200 text-lg leading-9 mb-10 max-w-2xl">
+
+                        छत्रपती शिवाजी महाराजांच्या विचारांनी प्रेरित,
+                        शिवराय ज्वेलर्स परंपरा,
+                        शुद्धता, उत्कृष्ट कारागिरी
+                        आणि आधुनिक लक्झरी दागिन्यांचे
+                        आकर्षक कलेक्शन घेऊन आले आहेत.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Services section  -->
+    <section class="bg-white">
+        <!-- Services Grid -->
+        <div id="widgetsContainer"
+            class="flex flex-wrap justify-center mx-auto gap-0 md:gap-4 lg:gap-4 w-full md:w-[70%] lg:w-[70%] py-5">
+        </div>
+
+        <!-- Show More text: only on mobile -->
+        <div class="flex flex-col items-center mt-4 md:hidden cursor-pointer" id="showMoreBtn">
+            <span class="text-[#6B0328] text-3xl">▼</span>
+            <span class="text-[#6B0328] font-semibold">Show More</span>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="pt-16 md:pt-24 lg:pt-28 bg-gradient-to-b from-[#f7e2c2] to-[#f3d3a5] overflow-hidden">
+
+        <div class="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10">
+
+            <!-- Title -->
+            <div class="text-center mb-4">
+
+                <h2
+                    class="section-title text-2xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#5c1232] leading-tight">
+                    ॥ विश्वासाचे आणि परंपरेचे नाते ॥
+                </h2>
+
+            </div>
+
+            <!-- Content -->
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 xl:gap-20 items-center">
+
+                <!-- Image -->
+                <div data-aos="fade-right" class="flex justify-center">
+
+                    <img src="assets/logo.png" class="w-full
+                    max-w-[500px]
+                    xl:max-w-[620px]
+                    object-contain" alt="Shivray Jewellers">
+
+                </div>
+
+                <!-- Content -->
+                <div data-aos="fade-left">
+
+                    <p class="text-[#8b1e00]
+                    text-md
+                    md:text-2xl
+                    font-medium
+                    leading-[1.9]
+                    text-justify">
+
+                        शिवराय ज्वेलर्स म्हणजे केवळ सोन्याचे दुकान नसून
+                        शुद्धता आणि विश्वासाचे एक अतूट नाते आहे.
+
+                        आमची सुपर गोकाक लाँग आणि शॉर्ट मंगळसूत्रे
+                        प्रत्येक स्त्रीच्या दागिन्यांच्या संग्रहात
+                        मानाचे स्थान भूषवतात.
+
+                        उत्कृष्ट कारागिरीने घडवलेली
+                        सुपर गोकाक कंगन आणि बांगड्या
+                        तुमच्या हातांची शोभा द्विगुणित करतात.
+
+                        आम्ही दर्जेदार <span class="font-['Noto_Sans_Devanagari']">२३</span> कॅरेट कास्टिंग रिंग्स
+                        बनवण्यात विशेष नैपुण्य प्राप्त केले आहे,
+
+                        ज्या आधुनिक लुकसोबतच
+                        गुंतवणुकीसाठीही उत्तम आहेत.
+
+                        तसेच, तुमची स्वतःची वेगळी ओळख निर्माण करण्यासाठी
+                        आम्ही कस्टमाइज्ड फॅन्सी ज्वेलरी
+                        अगदी मनासारखी तयार करून देतो.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Next Content -->
+        <div class="mt-12 md:mt-16 lg:mt-20 px-4">
+
+            <div class="max-w-[1200px] mx-auto text-center">
+
+                <!-- Top -->
+                <p class="text-[#8b1e00]
+                  text-md
+                    md:text-2xl
+                font-medium
+                leading-[1.9]">
+
+                    तुमच्या आयुष्यातील सुवर्ण क्षणांना अधिक तेजस्वी बनवण्यासाठी
+                    <span class="font-bold text-[#5c1232]">
+                        ‘शिवराय ज्वेलर्स’
+                    </span>
+                    सज्ज आहे.
+
+                    आमची स्पेशालिटी असलेल्या
+                    सुपर गोकाक मंगळसूत्र,
+                    कंगन आणि बांगड्यांच्या अफाट कलेक्शनने
+                    तुमच्या सौंदर्याला चार चाँद लावा.
+
+                    <span class="font-['Noto_Sans_Devanagari']">२३</span> कॅरेटमधील कास्टिंग रिंग्स
+                    आणि आपल्या मागणीनुसार तयार केलेली
+                    कस्टमाइज्ड फॅन्सी ज्वेलरी
+                    ही आमची खासियत आहे.
+
+                    आजच भेट द्या आणि अनुभवा
+                    कारागिरीचा हा अप्रतिम नमुना!
+
+                </p>
+
+                <!-- Collection -->
+                <div class="mt-10">
+
+                    <h3 class="text-[#5c1232]
+                    text-2xl
+                    sm:text-4xl
+                    md:text-4xl
+                    lg:text-5xl
+                    font-bold
+                    mb-5">
+                        गोकाक स्पेशल कलेक्शन:
+                    </h3>
+
+                    <p class="text-[#8b1e00]
+                      text-md
+                    md:text-2xl
+                    font-medium
+                    leading-[1.8]">
+
+                        पारंपरिक आणि ट्रेंडी अशा दोन्ही प्रकारच्या <br>
+                        सुपर गोकाक लाँग-शॉर्ट
+                        मंगळसूत्रांची विस्तृत श्रेणी.
+
+                    </p>
+
+                </div>
+
+                <!-- Beauty -->
+                <div class="mt-10">
+
+                    <h3 class="text-[#5c1232]
+                    text-2xl
+                    sm:text-4xl
+                    md:text-4xl
+                    lg:text-5xl
+                    font-bold
+                    mb-5">
+                        सौंदर्याचा अविष्कार:
+                    </h3>
+
+                    <p class="text-[#8b1e00]
+                    text-md
+                    md:text-2xl
+                    font-medium
+                    leading-[1.8]">
+
+                        गोकाक कंगन आणि बांगड्या, <br>
+                        ज्या प्रत्येक समारंभासाठी
+                        परफेक्ट आहेत.
+
+                    </p>
+
+                </div>
+
+                <!-- Custom -->
+                <div class="mt-10">
+
+                    <h3 class="text-[#5c1232]
+                    text-2xl
+                    sm:text-4xl
+                    md:text-4xl
+                    lg:text-5xl
+                    font-bold
+                    mb-5">
+                        कस्टमायझेशन सुविधा:
+                    </h3>
+
+                    <p class="text-[#8b1e00]
+                     text-md
+                    md:text-2xl
+                    font-medium
+                    leading-[1.8]">
+
+                        तुमच्या स्वप्नातील दागिन्याला
+                        प्रत्यक्षात उतरवण्यासाठी <br class="hidden md:block">
+                        कस्टमाइज्ड फॅन्सी ज्वेलरीची
+                        विशेष सोय.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bottom Fort Image -->
+        <div class="w-full mt-10">
+
+            <img src="assets/fortBorder.png" class="w-full object-cover" alt="Fort Border">
+
+        </div>
+
+    </section>
+
+    <!-- Hallmark Information Section -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-[#f7e2c2] to-[#f3d3a5] pt-14 pb-0 ">
+
+        <div class="relative max-w-5xl mx-auto">
+
+            <!-- Heading -->
+            <div class="text-center mb-10" data-aos="fade-down">
+
+                <h2 class="text-2xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#5c1232] leading-tight">
+                    शुद्ध सोन्यांची पहिली पसंती
+                    <br>
+
+                    <span class="text-2xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-[#5c1232] leading-tight">
+
+                        २००६ पासून
+
+                    </span>
+
+                </h2>
+
+                <!-- Decorative Line -->
+                <div class="flex items-center justify-center gap-3 mt-6">
+
+                    <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+
+                    <div
+                        class="w-40 sm:w-72 md:w-[500px] h-[4px] rounded-full bg-gradient-to-r from-orange-400 to-orange-600">
+                    </div>
+
+                    <span class="w-3 h-3 rounded-full bg-orange-500"></span>
+
+                </div>
+
+            </div>
+
+            <!-- Content Box -->
+            <div class="p-6 sm:p-10 md:p-14 text-md md:text-2xl text-[#8b1e00]" data-aos="fade-up">
+
+                <div class="space-y-5 text-center">
+
+                    <p class="leading-relaxed font-semibold">
+                        <span class="font-['Noto_Sans_Devanagari']">२००६</span>
+                        पासून प्रामाणिकपणे सेवेत
+                    </p>
+
+                    <p class="leading-relaxed font-medium">
+                        आमच्याकडे सर्व प्रकारचे सोने व चांदी दागिने
+                        <br class="hidden sm:block">
+
+                        <span class="font-['Noto_Sans_Devanagari']">
+                            २२ / २३ / २४
+                        </span>
+
+                        कॅरेट दागिने
+
+                    </p>
+
+                    <p class="font-bold">
+                        <span class="font-['Noto_Sans_Devanagari']">१००%</span>
+                        Hallmark व HUID
+                    </p>
+
+                    <p class="leading-relaxed font-medium">
+                        प्राप्त दागिने मिळतील.
+                    </p>
+
+                    <p class="leading-relaxed font-medium">
+                        शिवराय ज्वेलर्स मधील जुने दागिने देऊन,
+                        <br class="hidden sm:block">
+
+                        नवीन दागिने खरेदी केल्यास
+                        <span class="font-['Noto_Sans_Devanagari']">१००%</span>
+
+                        <br class="hidden sm:block">
+
+                        वजनाला वजन.
+
+                    </p>
+
+                    <p class="font-bold">
+                        कोणत्याही प्रकारची तूट नाही...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bottom Fort Image -->
+        <div class="w-full">
+
+            <img src="assets/fortBorder.png" alt="Fort Border" class="w-full object-cover object-bottom">
+
+        </div>
+
+    </section>
+    <!-- Shivray Legacy Section -->
+    <section class="relative py-16 md:py-24 bg-gradient-to-b from-[#f7e2c2] to-[#f3d3a5] overflow-hidden">
+
+        <div class="max-w-[900px] mx-auto px-4 sm:px-6">
+
+            <!-- Title -->
+            <div class="text-center mb-6 md:mb-8">
+
+                <h2 class="text-[#5c1232]
+                text-2xl sm:text-4xl md:text-4xl lg:text-5xl
+                font-bold
+                leading-tight">
+                    ॥ घरोघरी शिवराय ॥
+                </h2>
+
+            </div>
+
+            <!-- Image -->
+            <div class="flex justify-center mb-8 md:mb-10" data-aos="zoom-in">
+
+                <div class="bg-[#c89b3c]
+                p-2 md:p-3
+                shadow-[0_10px_40px_rgba(0,0,0,0.25)]">
+
+                    <img src="assets/main-image.png" alt="छत्रपती शिवाजी महाराज" class="w-full
+                    max-w-[280px]
+                    sm:max-w-[340px]
+                    md:max-w-[420px]
+                    object-cover">
+
+                </div>
+
+            </div>
+
+            <!-- Content -->
+            <div class="text-center
+            text-[#a13216]
+                text-md
+                    md:text-2xl
+            font-medium
+            leading-[2]" data-aos="fade-up">
+
+                <p class="mb-4 md:mb-5">
+
+                    शुद्धता, पारदर्शकता आणि शिवरायांचा वारसा:
+                    शिवराय ज्वेलर्स, कुंडलमध्ये कुंडलवासीयांनी
+                    विश्वासाने नाव घेतलेले ज्वेलर्स.
+
+                    आमची अनेक वर्षांची परंपरा
+                    आणि केवळ सोने-चांदीचे दागिने
+                    नव्हे तर ज्याची आठवणही जपली जाईल
+                    अशी नाती निर्माण करण्याची भावना
+                    यातून आमचे वेगळेपण दिसून येते.
+
+                </p>
+
+                <p class="mb-4 md:mb-5">
+
+                    आपल्या महाराष्ट्राचे आराध्य दैवत,
+                    छत्रपती शिवाजी महाराज यांचे विचार
+                    आणि प्रेरणा आम्हाला सतत मार्गदर्शन करतात.
+
+                    म्हणूनच आम्ही
+                    “घरोघरी शिवराय”
+                    हा विशेष उपक्रम सुरू केला आहे.
+
+                </p>
+
+                <p class="mb-4 md:mb-5">
+
+                    आमची नेमकी भावना काय आहे?
+
+                    आमचा असा विश्वास आहे की,
+                    प्रत्येक हिंदू कुटुंबात शिवरायांचे
+                    तेजस्वी स्मरण कायम राहिले पाहिजे.
+
+                    महाराजांच्या प्रतिमेकडे पाहिल्यावर
+                    आपल्या कार्याला प्रेरणा मिळते
+                    आणि “कधीही झुकायचे नाही”
+                    ही जिद्द जागृत होते.
+
+                </p>
+
+                <p class="mb-4 md:mb-5">
+
+                    महाराजांच्या आदर्शांचा
+                    प्रत्येक परिवारात प्रसार व्हावा
+                    यासाठी आम्ही कटिबद्ध आहोत.
+
+                    सुरुवात:
+                    <span class="font-['Noto_Sans_Devanagari']">२००६</span> पासून हा उपक्रम अविरत सुरू आहे.
+
+                </p>
+
+                <p class="font-semibold">
+
+                    आजपर्यंत आम्ही तब्बल
+                    <span class="font-['Noto_Sans_Devanagari']">१,०००</span> हुन अधिक
+                    छत्रपती शिवाजी महाराजांच्या प्रतिमा
+                    भेट स्वरूपात दिल्या आहेत.
+
+                </p>
+
+                <h3 class="mt-6 md:mt-8
+                text-xl
+                sm:text-2xl
+                md:text-3xl
+                font-bold
+                text-[#c65b10]">
+                    जय भवानी... जय शिवराय...
+                </h3>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-[#501724] text-white overflow-hidden w-full">
+
+        <div class="max-w-[1400px]
+    mx-auto
+    px-6
+    md:px-10
+    py-10">
+
+            <!-- Main Footer -->
+            <div class="grid
+        grid-cols-1
+        md:grid-cols-3
+        text-start
+        gap-10">
+
+                <!-- Logo -->
+                <div class="flex flex-col items-start">
+
+                    <h2 class="text-3xl md:text-4xl font-bold gold-text mb-2">
+                        Shivray
+                    </h2>
+
+                    <p class="text-gray-300
+                text-[14px]
+                md:text-[15px]
+                leading-6
+                max-w-[260px]">
+
+                        Inspired by trust,
+                        tradition and Maharashtrian pride.
+
+                    </p>
+
+                </div>
+
+                <!-- Links -->
+                <div class="flex flex-col items-start">
+
+                    <h3 class="text-yellow-400
+                text-lg
+                font-semibold
+                mb-3">
+
+                        Quick Links
+
+                    </h3>
+
+                    <ul class="flex
+                flex-col
+                items-start
+                gap-2
+                text-gray-300
+                text-[14px]
+                md:text-[15px]">
+
+                        <li>
+                            <a href="#home" class="hover:text-yellow-400 transition">
+
+                                Home
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about" class="hover:text-yellow-400 transition">
+
+                                About
+
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact" class="hover:text-yellow-400 transition">
+
+                                Contact
+
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <!-- Contact -->
+                <div class="flex flex-col items-strat">
+
+                    <h3 class="text-yellow-400
+    text-lg
+    font-semibold
+    mb-4">
+
+                        Contact
+
+                    </h3>
+
+                    <div class="text-gray-300
+    text-[14px]
+    md:text-[15px]
+    leading-7
+    space-y-3">
+
+                        <!-- Address -->
+                        <div class="flex items-start gap-3">
+
+                            <i class="ri-map-pin-2-fill
+            text-yellow-400
+            text-lg
+            mt-1"></i>
+
+                            <p class="max-w-[250px] text-left">
+
+                                CS-179, Tilak Chowk,
+                                Kurduwadi 413208
+
+                            </p>
+
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="flex items-center gap-3">
+
+                            <i class="ri-phone-fill
+            text-yellow-400
+            text-lg"></i>
+
+                            <a href="tel:+919922019911" class="hover:text-yellow-400 transition">
+
+                                +91 9922019911
+
+                            </a>
+
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-center gap-3">
+
+                            <i class="ri-mail-fill
+            text-yellow-400
+            text-lg"></i>
+
+                            <a href="mailto:shivrayjewllers@gmail.com"
+                                class="hover:text-yellow-400 transition break-all">
+
+                                shivrayjewllers@gmail.com
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <!-- This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page  -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+    <script>
+
+        // AOS
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
+
+
+    </script>
+
+</body>
+
+</html>
