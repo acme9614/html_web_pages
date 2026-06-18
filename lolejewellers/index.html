@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lole Jewellers</title>text-gray-200
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="font-sans">
+
+    <!-- HEADER -->
+    <header class="w-full bg-[#B78373] shadow-md fixed top-0 left-0 z-50">
+
+        <div class="max-w-7xl mx-auto relative flex items-center px-4 py-2">
+
+            <!-- Left: Logo -->
+            <div class="flex items-center">
+                <img src="assets/Logo.jpeg" alt="Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain">
+            </div>
+
+            <!-- Center: Title -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 text-center">
+                <h1
+                    class="text-sm md:text-3xl font-semibold text-[#fff4eb] whitespace-nowrap leading-snug  tracking-wide md:tracking-[2px]">
+                    LOLE JEWELLERS
+                </h1>
+            </div>
+
+            <!-- Right: Menu Button -->
+            <div class="ml-auto">
+                <button id="menuBtn" class="text-2xl md:text-3xl text-[#fff4eb]">
+                    ☰
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- DRAWER -->
+    <div id="drawer" class="fixed top-0 left-0 h-full 
+w-[90%] md:w-[50%] 
+bg-[#fff] transform -translate-x-full 
+transition-transform duration-300 z-50 shadow-xl
+overflow-y-auto">
+
+        <!-- Drawer Header -->
+        <div class="relative flex items-center px-4 py-8 border-b border-[#B78373]/30">
+
+            <img src="assets/Logo.jpeg" alt="Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain">
+
+            <button id="closeBtn"
+                class="absolute right-4 top-1/2 -translate-y-1/2 text-[#B78373] text-5xl font-bold cursor-pointer">
+                &times;
+            </button>
+
+        </div>
+
+        <!-- Drawer Content -->
+        <div id="drawerContainer" class="p-6 space-y-4"></div>
+
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper brandingSwiper w-full mt-[80px]">
+        <div class="swiper-wrapper">
+            <!-- Slide 2 -->
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/banner.png" alt="Desktop Image 1"
+                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div>
+            <!-- Slide 3 -->
+
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/banner3.png" alt="Desktop Image 1"
+                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div>
+            <!-- Slide 4 -->
+
+            <!-- <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/Banner3.webp" alt="Desktop Image 1"
+                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div> -->
+
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/banner4.png" alt="Desktop Image 1"
+                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div
+            class="swiper-button-next hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+        </div>
+        <div
+            class="swiper-button-prev hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination mt-10"></div>
+
+    </div>
+
+    <!-- Service Section -->
+    <section class="py-12 px-4 bg-white">
+
+        <div class="max-w-5xl mx-auto">
+            <!-- widgetContainer -->
+            <div id="widgetsContainer" class="flex flex-wrap justify-center gap-1 md:gap-8" data-aos="zoom-in">
+            </div>
+             <!-- Show More / Show Less -->
+        <div class="flex justify-center mt-6 md:hidden">
+            <button id="toggleBtn"
+                class="px-6 py-2 bg-[#B78373] text-white rounded-full font-semibold shadow-md">
+                Show More
+            </button>
+        </div>
+        </div>  
+
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="bg-[#B78373] py-14 px-4 md:px-10">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+
+            <!-- Left Content -->
+            <div data-aos="fade-right" class="order-2">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#fff] mb-4 relative inline-block">
+                    Our Journey
+                    <span class="block w-16 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2 rounded"></span>
+                </h2>
+
+                <p class="text-xl text-white mb-4 font-semibold leading-relaxed">
+                    A Legacy of <span class="font-semibold text-[#fff]">Trust Since 1996</span>
+                </p>
+
+                <p class="text-lg text-gray-200 mb-4 leading-relaxed">
+                    Lole Jewellers began its journey in 1996 with a humble 4-feet counter. With a strong commitment to
+                    customer trust, transparent dealings, and quality service, we have grown from a 150 sq.ft. jewellery
+                    shop to a 750 sq.ft. modern showroom.
+                    Today, Lole Jewellers offers an exquisite collection of Gold, Silver, Diamond, and Gemstone
+                    Jewellery,
+                    blending traditional craftsmanship with innovative and contemporary designs.
+                    For us, jewellery is not just an ornament; it is a part of our customers’ most precious moments.
+                    Therefore, we believe in providing every customer with purity, transparency, and a trustworthy
+                    experience.
+                </p>
+            </div>
+
+            <!-- Right Side Design -->
+
+            <!-- Image (Mobile First Top) -->
+            <div data-aos="fade-left" class="relative order-1 md:order-2">
+                <div class="overflow-hidden rounded-2xl">
+                    <img src="assets/about1.jpg" alt="Jewellery Story"
+                        class="w-full h-[300px] md:h-[550px] object-contain transform group-hover:scale-110 transition duration-700" />
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-[#fdf8f3]">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+
+            <!-- Why Choose Us Card -->
+            <div class="bg-[#B78373] rounded-3xl shadow-xl p-8" data-aos="fade-right">
+
+                <h2 class="text-3xl font-bold text-white mb-6 relative inline-block">
+                    Why Choose Us
+                    <span class="block w-14 h-1 bg-yellow-300 mt-2 rounded-full"></span>
+                </h2>
+
+                <ul class="space-y-5 mt-6">
+
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
+                            ✓
+                        </div>
+                        <span class="text-white leading-relaxed">HUID BIS Hallmarked Jewellery</span>
+                    </li>
+
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
+                            ✓
+                        </div>
+                        <span class="text-white leading-relaxed">Transparent pricing according to carat purity</span>
+                    </li>
+
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
+                            ✓
+                        </div>
+                        <span class="text-white leading-relaxed">Best value for old gold exchange</span>
+                    </li>
+
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
+                            ✓
+                        </div>
+                        <span class="text-white leading-relaxed">Customised jewellery designs</span>
+                    </li>
+
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
+                            ✓
+                        </div>
+                        <span class="text-white leading-relaxed">Wide range from everyday jewellery to premium
+                            collections</span>
+                    </li>
+
+                    <li class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
+                            ✓
+                        </div>
+                        <span class="text-white leading-relaxed">Humble and personalised customer service</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Vision Card -->
+            <div class="bg-white rounded-3xl shadow-xl p-8 border border-[#e6d4cb]" data-aos="fade-left">
+
+                <h2 class="text-3xl font-bold text-[#8D5A4B] mb-6 relative inline-block">
+                    Our Vision
+                    <span class="block w-14 h-1 bg-[#B78373] mt-2 rounded-full"></span>
+                </h2>
+
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    After successfully serving customers offline for years, we are now expanding into the digital world
+                    with an online jewellery shopping experience.
+                </p>
+
+                <p class="text-gray-600 leading-relaxed text-lg mt-4">
+                    Our vision is not just to build a big jewellery brand, but to create India’s most trusted and
+                    admired
+                    jewellery brand and take <span class="font-semibold text-[#8D5A4B]">Lole Jewellers</span> towards
+                    the
+                    milestone of becoming an IPO-ready company in the future.
+                </p>
+
+                <div class="mt-6 p-4 rounded-xl bg-[#fdf3ef] border-l-4 border-[#B78373]">
+                    <p class="italic text-[#8D5A4B] font-medium">
+                        Trust is our legacy. Quality is our promise. Customer relationships are our greatest treasure.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#B78373] text-gray-300 py-12 px-4" data-aos="fade-in">
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-center">
+
+            <!-- Company Info -->
+            <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
+
+                <!-- Logo -->
+                <div class="rounded-full flex items-center justify-center">
+                    <img src="assets/Logo.jpeg" alt="Logo" class="w-28 h-28 md:w-32 md:h-32 object-contain">
+                </div>
+
+                <!-- Company Name -->
+                <h2
+                    class="text-white text-lg md:text-xl font-semibold leading-snug tracking-wide md:tracking-[2px] mt-3">
+                    LOLE JEWELLERS
+                </h2>
+
+            </div>
+
+            <!-- Empty Middle Space (for balanced layout) -->
+            <div class="hidden lg:block"></div>
+
+            <!-- Contact Us -->
+            <div class="text-center md:text-left">
+                <h3 class="text-lg font-semibold text-white mb-5 relative inline-block">
+                    CONTACT US
+                </h3>
+
+                <ul class="space-y-4 text-sm">
+
+                    <!-- Address -->
+                    <li class="flex items-start gap-3 justify-center md:justify-start">
+                        <span class="text-white text-lg">📍</span>
+                        <p class="leading-relaxed text-white text-lg">
+                            Lole Jewellers (Mahalaxmi Jewellers)<br>
+                            Jawahar Nagar,<br>
+                            Ichalkaranji 416115
+                        </p>
+                    </li>
+
+                    <!-- Phone -->
+                    <li class="flex items-center gap-3 justify-center md:justify-start">
+                        <span class="text-yellow-500 text-lg">📞</span>
+                        <p class="leading-relaxed text-white text-lg">8888702277</p>
+                    </li>
+
+                    <!-- Email -->
+                    <li class="flex items-center gap-3 justify-center md:justify-start">
+                        <span class="text-yellow-500 text-lg">✉️</span>
+                        <p class="leading-relaxed text-white text-lg">lolejewellers@gmail.com</p>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- SCRIPT -->
+    <script src="script.js">
+    </script>
+
+    <script>
+        // Drawer Items Display
+        window.renderDrawerItem = function (widget) {
+            return `
+      <a href="#"
+         onclick="${widget.action}()"
+         class="block text-lg text-[#B78373] font-semibold">
+         ${widget.name}
+      </a>
+    `;
+        };
+
+        // widget tabs display
+window.renderWidget = function (widget, index) {
+    const isVirtualTryOn = Number(widget.id) === 23;
+
+    return `
+    <div onclick="${widget.action}()"
+         class="relative flex flex-col items-center cursor-pointer pb-4
+         ${index > 5 ? "hidden md:flex extra-tab" : "flex"}"
+         data-aos="fade-up">
+
+        <!-- Background Shape -->
+        <img src="assets/shape.png"
+             class="w-[110px] md:w-[130px] object-contain"
+             alt="${widget.name}">
+
+        <!-- Content over image -->
+        <div class="absolute top-2 flex flex-col items-center">
+
+            <img class="w-8 h-8 md:w-10 md:h-10 my-3
+                ${isVirtualTryOn ? "" : "invert"}"
+                src="${widget.icon}"
+                alt="${widget.name}" />
+
+            <p class="text-white text-xs md:text-sm font-semibold text-center w-[70px]">
+                ${widget.name}
+            </p>
+
+        </div>
+    </div>
+    `;
+};
+    </script>
+    <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+</body>
+
+</html>
