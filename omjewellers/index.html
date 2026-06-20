@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OM JEWELLERS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- AOS CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div>
+        <header class="bg-[#895093] shadow-md text-gray-900 relative flex items-center justify-start px-4 md:px-10"
+            data-aos="fade-down">
+            <!-- Centered Logo -->
+            <div class="text-2xl font-bold text-[#133235] flex items-center gap-2 py-4">
+                <img src="assets/LOGO.jpeg" alt="Logo" class="h-12 md:h-16" />
+            </div>
+
+            <!-- Hamburger Icon using Image -->
+            <button id="menu-toggle" class="absolute right-4 top-1/2 -translate-y-1/2 focus:outline-none"
+                aria-label="Open Menu">
+                <img src="https://cdn-icons-png.flaticon.com/128/12804/12804141.png" alt="menu" class="w-16 h-16 invert"
+                    loading="lazy" />
+            </button>
+        </header>
+
+        <!-- Drawer -->
+        <div id="drawer"
+            class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+            <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+                <!-- Drawer Logo -->
+                <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+                    <img src="assets/LOGO.jpeg" alt="Logo" class="h-16" />
+                </div>
+                <!-- Close Drawer Button -->
+                <button id="close-drawer" class="text-[#895093] rounded text-2xl font-bold" aria-label="Close Menu">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Drawer Navigation Links -->
+            <div id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-[#895093]">
+                <!-- draweritems display dynamically from flutter response -->
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    </div>
+
+    <!-- branding section  -->
+    <section class="w-full relative">
+        <div class="swiper mySwiper" data-aos="fade-up" data-aos-duration="300">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="assets/banner.jpeg" alt="Banner 1" class="w-full h-[150px] md:h-auto" />
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="assets/banner2.jpeg" alt="Banner 2" class="w-full h-[150px] md:h-auto" />
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img src="assets/banner3.jpeg" alt="Banner 3" class="w-full h-[150px] md:h-auto" />
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <img src="assets/banner4.jpeg" alt="Banner 3" class="w-full h-[150px] md:h-auto" />
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="swiper-pagination !bottom-0"></div>
+            <!-- Navigation Buttons -->
+            <div class="swiper-button-prev hidden md:flex shadow-md"></div>
+            <div class="swiper-button-next hidden md:flex shadow-md"></div>
+        </div>
+    </section>
+
+    <!-- Services  -->
+    <section class="flex flex-col items-center justify-center py-10 px-4" id="services">
+
+        <div class="max-w-5xl mx-auto">
+            <!-- widgetContainer -->
+            <div id="widgetsContainer" class="flex flex-wrap justify-center gap-0 md:gap-8" data-aos="zoom-in">
+            </div>
+
+            <!-- Toggle Button for Mobile -->
+            <div class="sm:hidden mt-4 text-center">
+                <button onclick="toggleBoxes()" class="text-gray-600">
+                    <svg id="arrowIcon" class="w-8 h-8 mx-auto transition-transform duration-300" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <h2 id="toggleText" class="mt-1 text-lg font-medium text-gray-700">
+                    Show More
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-12 md:py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-16">
+
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+
+                <!-- Left Side -->
+                <div data-aos="fade-right">
+                    <p
+                        class="text-[#895093] uppercase tracking-[2px] md:tracking-[4px] text-base md:text-xl font-semibold mb-4">
+                        About Us
+                    </p>
+
+                    <h2
+                        class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-snug md:leading-tight mb-6 md:mb-8">
+                        Tradition, Trust & Timeless Craftsmanship
+                    </h2>
+
+                    <div class="w-16 md:w-20 h-1 bg-[#895093] rounded-full mb-6 md:mb-8"></div>
+
+                    <p class="text-gray-600 text-sm sm:text-base md:text-[17px leading-relaxed">
+                        Om Jewellers is a BIS certified Indian jewellery group in Balinge established in 1991.
+                        Started with 916 hallmark jewellery, offering exclusive varieties of every item at affordable
+                        prices.
+                    </p>
+                </div>
+
+                <!-- Right Side -->
+                <div class="space-y-6 md:space-y-8" data-aos="fade-left">
+
+                    <div class="border-l-4 border-[#895093] pl-4 md:pl-6">
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base md:text-[17px]">
+                            Shop for giftable gold items, high-quality, best-value jewellery for Indian women.
+                            Easy exchange, purity guaranteed, exclusive designs, and affordable pricing.
+                        </p>
+                    </div>
+
+                    <div class="border-l-4 border-[#895093] pl-4 md:pl-6">
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base md:text-[17px]">
+                            Our customers are satisfied with our best quality and staff service.
+                            We also provide jewellery insurance on items.
+                        </p>
+                    </div>
+
+                    <div class="border-l-4 border-[#895093] pl-4 md:pl-6">
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base md:text-[17px]">
+                            Om Jewellers has the latest designer and traditional collection of gold, silver,
+                            and diamond jewellery, including antique varieties.
+                        </p>
+                    </div>
+
+                    <div class="border-l-4 border-[#895093] pl-4 md:pl-6">
+                        <p class="text-gray-700 leading-relaxed text-sm sm:text-base md:text-[17px]">
+                            We offer opportunities to invest through monthly gold saving schemes.
+                            Our mission is to design jewellery that is affordable to everyone and loved by consumers.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Collection Section -->
+    <section class="py-12 md:py-20 bg-[#faf7fb]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-16">
+
+            <!-- Heading -->
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold text-[#895093]">
+                    Our Collection
+                </h2>
+                <div class="w-20 h-1 bg-[#895093] mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Collection Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+
+                <!-- Item 1 -->
+                <div class="text-center" data-aos="fade-right">
+                    <img src="assets/item1.jpg" onclick="openModal(this.src)"
+                        class="w-full h-64 object-fill rounded-xl cursor-pointer hover:scale-105 transition duration-300" />
+                    <p class="mt-3 text-lg font-medium text-[#895093]">Thushi Gold</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="text-center" data-aos="zoom-in">
+                    <img src="assets/item4.jpg" onclick="openModal(this.src)"
+                        class="w-full h-64 object-fill rounded-xl cursor-pointer hover:scale-105 transition duration-300" />
+                    <p class="mt-3 text-lg font-medium text-[#895093]">Ladies Rings</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="text-center" data-aos="zoom-in">
+                    <img src="assets/item7.jpg" onclick="openModal(this.src)"
+                        class="w-full h-64 object-fill rounded-xl cursor-pointer hover:scale-105 transition duration-300" />
+                    <p class="mt-3 text-lg font-medium text-[#895093]">Gokak Zube</p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="text-center" data-aos="fade-left">
+                    <img src="assets/item5.jpg" onclick="openModal(this.src)"
+                        class="w-full h-64 object-fill rounded-xl cursor-pointer hover:scale-105 transition duration-300" />
+                    <p class="mt-3 text-lg font-medium text-[#895093]">Vedani</p>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="text-center" data-aos="fade-right">
+                    <img src="assets/item8.jpg" onclick="openModal(this.src)"
+                        class="w-full h-64 object-fill rounded-xl cursor-pointer hover:scale-105 transition duration-300" />
+                    <p class="mt-3 text-lg font-medium text-[#895093]">Gokak Bangles</p>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="text-center" data-aos="zoom-in">
+                    <img src="assets/item9.jpg" onclick="openModal(this.src)"
+                        class="w-full h-64 object-fill rounded-xl cursor-pointer hover:scale-105 transition duration-300" />
+                    <p class="mt-3 text-lg font-medium text-[#895093]">Gokak Necklase</p>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="text-center" data-aos="zoom-in">
+                    <img src="assets/item2.jpg" onclick="openModal(this.src)"
+                        class="w-full h-64 object-fill rounded-xl cursor-pointer hover:scale-105 transition duration-300" />
+                    <p class="mt-3 text-lg font-medium text-[#895093]">Mala Gold</p>
+                </div>
+
+                <!-- Item 8 -->
+                <div class="text-center" data-aos="fade-left">
+                    <img src="assets/item6.jpg" onclick="openModal(this.src)"
+                        class="w-full h-64 object-fill rounded-xl cursor-pointer hover:scale-105 transition duration-300" />
+                    <p class="mt-3 text-lg font-medium text-[#895093]">Gokak Tops</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Popup Modal -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 hidden items-center justify-center z-50">
+
+        <!-- Close Button -->
+        <button onclick="closeModal()" class="absolute top-6 right-8 text-white text-4xl font-bold">
+            ✕
+        </button>
+
+        <!-- Image -->
+        <img id="modalImage" class="max-w-[90%] max-h-[90%] rounded-xl shadow-lg" />
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#895093] text-gray-300 py-12  px-4" data-aos="fade-in">
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <!-- Company Info -->
+            <div>
+                <div class="flex items-start gap-4">
+
+                    <!-- Logo -->
+                    <div class=" rounded-full flex items-center justify-center">
+                        <img src="assets/LOGO.jpeg" alt="Logo" class="w-28 h-28 md:w-32 md:h-32 object-contain">
+                    </div>
+                </div>
+                <!-- Company Name -->
+                <h2
+                    class="text-white text-lg md:text-2xl font-heading leading-snug tracking-wide md:tracking-[2px] uppercase">
+                    Om Jewellers
+                </h2>
+                <!-- Description -->
+                <p class="mt-5 text-sm sm:text-base md:text-[17px] leading-relaxed text-white">
+                    Discover exquisite jewelry pieces crafted with passion and precision.
+                    Each piece tells a unique story.
+                </p>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="start md:col-start-2 lg:col-start-3 mt-0 md:mt-10">
+                <h3 class=" text-xl font-semibold text-white mb-5 relative inline-block">
+                    CONTACT US
+                </h3>
+
+                <ul class="space-y-4 text-sm">
+
+                    <!-- Address -->
+                    <li class="flex items-start gap-3">
+                        <span class="text-white text-lg">📍</span>
+                        <p class="text-sm sm:text-base md:text-[17px] leading-relaxed text-white">
+                            Main road Balinge , Tal -Karveer , Kolhapur - 416010, Maharashtra, India
+                        </p>
+                    </li>
+
+                    <!-- Phone -->
+                    <li class="flex items-center gap-3">
+                        <span class="text-yellow-500 text-lg">📞</span>
+                        <p class="text-sm sm:text-base md:text-[17px] leading-relaxed text-white">+91 7083732727</p>
+                    </li>
+
+                    <!-- Email -->
+                    <li class="flex items-center gap-3">
+                        <span class="text-yellow-500 text-lg">✉️</span>
+                        <p class="text-sm sm:text-base md:text-[17px] leading-relaxed text-white">omjewellerskop@gmail.com</p>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+    <script>
+
+        //   services 
+        AOS.init({
+            duration: 700,
+            once: false,
+        });
+
+        window.renderDrawerItem = function (widget) {
+            return `
+    <a href="#"
+       onclick="${widget.action}()"
+       class=" font-medium">
+       ${widget.name}
+    </a>
+  `;
+        };
+
+
+        window.renderWidget = function (widget, index) {
+            const isVirtualTryOn = Number(widget.id) === 23;
+
+            return `
+    <div onclick="${widget.action}()"
+         class="tab-item cursor-pointer"
+         data-aos="fade-up">
+
+      <div class="relative w-28 h-28 md:w-32 md:h-32 rounded-2xl overflow-hidden 
+                  hover:scale-105 transition-all duration-300">
+
+        <!-- Background Shape -->
+        <img src="assets/shape.jpg" 
+             alt="service bg"
+             class="w-full h-full object-cover" />
+
+        <!-- Transparent Overlay -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 p-2">
+          <!-- Icon -->
+          <img class="w-8 h-8 md:w-10 md:h-10 ${isVirtualTryOn ? '' : 'invert'}"
+               src="${widget.icon}" />
+
+          <!-- Name -->
+          <span class="text-xs md:text-sm font-medium text-white text-center leading-tight w-[70px]">
+            ${widget.name}
+          </span>
+        </div>
+
+      </div>
+    </div>
+  `;
+        };
+
+    </script>
+</body>
+
+</html>
