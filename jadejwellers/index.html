@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajureshwar Jewellers</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+
+    <!-- App Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md shadow-lg py-4 md:py-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="flex items-center justify-between">
+
+                <!-- Logo -->
+                <div class="flex items-center min-w-0" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="font-whisper font-semibold text-[#c36]
+                           text-[28px]
+                           sm:text-[38px]
+                           md:text-[45px]
+                           lg:text-[45px]
+                           ">
+                        Rajureshwar Jewellers
+                    </h1>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center gap-10" data-aos="fade-down" data-aos-duration="1200">
+                    <a href="#" class="nav-link relative text-[#c36] text-lg font-semibold  ">
+                        Home
+                    </a>
+
+                    <a href="#about" class="nav-link relative text-[#c36] text-lg font-semibold  ">
+                        About
+                    </a>
+
+                    <a href="#collection" class="nav-link relative text-[#c36] text-lg font-semibold  ">
+                        Collections
+                    </a>
+
+                    <a href="#contact" class="nav-link relative text-[#c36] text-lg font-semibold  ">
+                        Contact
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuBtn" class="lg:hidden text-[#c36] flex-shrink-0">
+                    <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg"
+                        class="h-7 w-7 sm:h-8 sm:w-8 transition-transform duration-300" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+
+                        <!-- Hamburger Icon -->
+                        <path id="menuPath" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="lg:hidden bg-white shadow-xl overflow-hidden max-h-0 opacity-0 transition-all duration-500 ease-in-out">
+            <div id="drawerContainer" class="p-6 space-y-4 flex flex-col"></div>
+
+        </div>
+    </header>
+
+    <!-- Swiper -->
+    <div class="swiper brandingSwiper w-full mt-[75px] md:mt-[70px]">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/banner1.jpg" alt="Desktop Image 1"
+                        class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div>
+
+            <!-- 
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/banner2.jpg" alt="Desktop Image 1"
+                        class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div> -->
+
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/banner3.jpg" alt="Desktop Image 1"
+                        class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div
+            class="swiper-button-next hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+        </div>
+        <div
+            class="swiper-button-prev hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination mt-10"></div>
+
+    </div>
+
+    <!-- widgets section   -->
+    <section class="max-w-3xl mx-auto py-8 font-playfair">
+        <div id="widgetsContainer" class="flex flex-wrap justify-center gap-3" data-aos="zoom-in">
+            <!-- widgets display dynamically from flutter response -->
+        </div>
+
+        <!-- Show More Button: Visible only on mobile -->
+        <div class="flex justify-center mt-4 sm:hidden">
+            <button id="toggleBtn" class="text-sm flex flex-col items-center gap-1">
+                <svg id="toggleIcon" class="w-10 h-10 text-[#F9A825] transition-transform"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+
+                <span id="toggleText" class="text-black">
+                    Show More
+                </span>
+            </button>
+        </div>
+    </section>
+    <!-- about section -->
+    <section id="about" class=" bg-[#fff9f9]">
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Heading -->
+            <div class="text-center mb-12">
+
+                <h2 class="text-4xl md:text-5xl font-bold text-[#c36] mt-3">
+                    About
+                </h2>
+
+                <div class="w-28 h-1 bg-[#c36] mx-auto mt-5 rounded-full"></div>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+                <!-- Left Image -->
+                <div class="relative group">
+                    <img src="assets/about.jpg"
+                        class="rounded-[40px] shadow-2xl w-full h-[500px] object-cover transition duration-700 group-hover:scale-105">
+                </div>
+
+                <!-- Content -->
+                <div>
+
+                    <h3 class="text-3xl font-bold mb-6">
+                        RAJURESHWAR JEWELLERS
+                    </h3>
+
+                    <p class="text-gray-600 leading-8 mb-6">
+                        Established in 1940 by Kisanrao Ambadas Jade, Rahureshwar Jewellers has grown into a trusted
+                        name in the jewellery industry. With a legacy of purity and transparency, our brand has been
+                        built on strong customer trust and excellence in craftsmanship. Under the leadership of Ashok
+                        Kisan Jade, we have expanded our presence and continue to offer the finest gold and silver
+                        jewellery.
+                    </p>
+
+                    <p class="text-gray-600 leading-8 mb-8">
+                        For over eight decades, we have been committed to delivering intricate designs, superior
+                        quality, and unmatched service. Our dedication to traditional artistry, combined with modern
+                        innovation, allows us to create timeless jewellery pieces that celebrate every special moment.
+                        Whether it’s a wedding, festival, or a personal milestone, Rahureshwar Jewellers ensures that
+                        every piece tells a story of elegance and trust.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- collection -->
+    <section id="collection" class=" bg-[#fff9f9]">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+
+            <!-- Heading -->
+            <div class="text-center mb-8 ">
+
+                <h2 class="text-4xl md:text-5xl font-bold text-[#c36] mt-3">
+                    Collection
+                </h2>
+
+                <div class="w-28 h-1 bg-[#c36] mx-auto mt-5 rounded-full"></div>
+            </div>
+
+            <!-- First Row -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+
+                <div class="collection-item">
+                    <img src="assets/item1.jpg" class="gallery-img" />
+                </div>
+
+                <div class="collection-item">
+                    <img src="assets/item2.jpg" class="gallery-img" />
+                </div>
+
+                <div class="collection-item">
+                    <img src="assets/item3.jpg" class="gallery-img" />
+                </div>
+
+                <div class="collection-item">
+                    <img src="assets/item4.jpg" class="gallery-img" />
+                </div>
+
+            </div>
+
+            <!-- Second Row -->
+            <div class="grid grid-cols-2 gap-6 lg:w-1/2 mx-auto">
+
+                <div class="collection-item">
+                    <img src="assets/item5.jpg" class="gallery-img" />
+                </div>
+
+                <div class="collection-item">
+                    <img src="assets/item6.jpg" class="gallery-img" />
+                </div>
+
+            </div>
+
+            <div id="imageModal" class="fixed inset-0 bg-black/80 hidden z-[9999] flex items-center justify-center p-4">
+
+                <button id="closeModal" class="absolute top-6 right-6 text-white text-5xl">
+                    &times;
+                </button>
+
+                <img id="modalImg" class="max-w-[90%] max-h-[90vh] rounded-3xl shadow-2xl">
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-[#9b194a] text-white">
+
+        <!-- Top Section -->
+        <div class="max-w-7xl mx-auto px-6 py-10">
+
+            <div class="flex flex-col lg:flex-row justify-evenly gap-12">
+
+                <!-- Company -->
+                <div class="lg:w-[30%]">
+                    <h2 class="font-whisper text-4xl font-bold mb-3">
+                        Rajureshwar Jewellers
+                    </h2>
+
+                    <p class="text-white leading-7 text-sm">
+                        Ashok Jade and sons Rajureshwar jewellers Established in 1940 by Kisanrao Ambadas Jade,
+                        Rahureshwar Jewellers has grown into a trusted name in the jewellery industry. With a legacy of
+                        purity and transparency,
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="lg:w-[20%]">
+                    <h3 class="text-lg font-semibold mb-4">
+                        Quick Links
+                    </h3>
+
+                    <ul class="space-y-3 text-sm">
+                        <li>
+                            <a href="#" class="text-white hover:text-[#D4AF37] transition duration-300">
+                                Home
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#about" class="text-white hover:text-[#D4AF37] transition duration-300">
+                                About Us
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#collection" class="text-white hover:text-[#D4AF37] transition duration-300">
+                                Collection
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#contact" class="text-white hover:text-[#D4AF37] transition duration-300">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="lg:w-[35%]">
+                    <h3 class="text-lg font-semibold  mb-4">
+                        Contact Us
+                    </h3>
+
+                    <div class="space-y-4 text-sm text-white">
+
+                        <!-- Main Branch -->
+                        <div class="flex items-start gap-3">
+                            <span class="text-[#D4AF37] mt-1">📍</span>
+
+                            <div>
+                                <p class="font-medium mb-1">
+                                    Main Branch
+                                </p>
+
+                                <p class="leading-6">
+                                    WARD NO. 1, SAKHARKHERDA,
+                                    MAIN ROAD, BULDHANA - 443202,
+                                    MAHARASHTRA
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Branch 2 -->
+                        <div class="flex items-start gap-3">
+                            <span class="text-[#D4AF37] mt-1">📍</span>
+
+                            <div>
+                                <p class="font-medium mb-1">
+                                    Branch 2
+                                </p>
+
+                                <p class="leading-6">
+                                    In Front Of Ashirwad Medical,
+                                    D P Road, Chikhali - 443201
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Mobile -->
+                        <div class="flex items-center gap-3">
+                            <span class="text-[#D4AF37]">📞</span>
+
+                            <a href="tel:9423762054" class="text-white hover:text-[#D4AF37] transition duration-300">
+                                +91 9423762054
+                            </a>
+                        </div>
+
+                        <!-- Emails -->
+                        <div class="flex items-start gap-3">
+                            <span class="text-[#D4AF37] mt-1">✉️</span>
+
+                            <div class="space-y-1">
+                                <a href="mailto:rajureshwarjwellers@gmail.com"
+                                    class="block text-white hover:text-[#D4AF37] transition duration-300 break-all">
+                                    rajureshwarjwellers@gmail.com
+                                </a>
+
+                                <a href="mailto:info@jadejwellers.in"
+                                    class="block text-white hover:text-[#D4AF37] transition duration-300 break-all">
+                                    info@jadejwellers.in
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </footer>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            once: true
+        });
+    </script>
+
+    <script>
+        // Drawer Items Display
+        window.renderDrawerItem = function (widget) {
+            return `
+      <a href="#"
+         onclick="${widget.action}()"
+         class="text-[#c36] font-semibold"> 
+         ${widget.name}
+      </a>
+    `;
+        };
+
+
+        // Tabs render
+        window.renderWidget = function (widget, index) {
+            const isVirtualTryOn = Number(widget.id) === 23;
+            return `
+      <div  onclick="${widget.action}()"
+        class="relative w-[110px] h-[110px] flex flex-col items-center justify-center cursor-pointer 
+        rounded-full text-center transition-all duration-300
+        ${index > 5 ? "hidden sm:flex extra-tab" : ""}"
+        data-aos="zoom-in">
+
+        <svg class="w-full" viewBox="0 0 300 300">
+          <defs>
+            <pattern id="pattern${index}" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="10" fill="#f9a825"/>
+            </pattern>
+            <radialGradient id="grad${index}">
+              <stop offset="0%" stop-color="#c36"/>
+              <stop offset="100%" stop-color="#c36"/>
+            </radialGradient>
+          </defs>
+
+          <circle cx="150" cy="150" r="145" fill="url(#pattern${index})"/>
+          <circle cx="150" cy="150" r="125" fill="url(#grad${index})"/>
+          <circle cx="150" cy="150" r="110" fill="none" stroke="white" stroke-width="3"/>
+        </svg>
+
+        <img src="${widget.icon}" 
+          class="absolute top-10 left-1/2 w-10 h-10 -translate-x-1/2 -translate-y-1/2 ${isVirtualTryOn ? '' : 'invert'}" />
+
+        <p class="text-sm mt-1">${widget.name}</p>
+      </div>
+    `;
+        };
+    </script>
+    <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+</body>
+
+</html>
