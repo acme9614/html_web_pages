@@ -1,0 +1,226 @@
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Scrollbar (from Design 3) */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #fef2f2;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #dc2626;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #991b1b;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #fef2f2;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #dc2626, #991b1b);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #b91c1c, #7f1d1d);
+        }
+
+        /* Preloader (from Design 3) */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-ring {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #fee2e2;
+            border-top: 4px solid #dc2626;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Pulse Ring Animation (from Design 3) */
+        .pulse-ring {
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(220, 38, 38, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+            }
+        }
+
+        /* Nav Link Underline */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #dc2626;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 30%, #b91c1c 60%, #dc2626 100%);
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4a843, #f0d68a, #c9952e);
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #d4a843, #f0d68a, #c9952e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Card Hover */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(185, 28, 28, 0.15);
+        } */
+
+        /* Float Animation */
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Ornament */
+        .ornament::before,
+        .ornament::after {
+            content: '✦';
+            color: #d4a843;
+            margin: 0 12px;
+            font-size: 0.8em;
+        }
+
+        /* Counter Section (from Design 2) */
+        .counter-section {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+        }
+
+        .counter-value {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Icon bounce on hover */
+        .icon-bounce {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .icon-bounce:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Fade up animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Marquee */
+        .marquee {
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Magnetic button */
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .magnetic-btn:hover {
+            transform: scale(1.05);
+        }
+
+
+
+        .ring-icon {
+            filter: brightness(0) saturate(100%) invert(20%) sepia(95%) saturate(2500%) hue-rotate(350deg) brightness(90%) contrast(90%);
+        }
+
+        /* services hover  */
+        .group:hover .ring-icon {
+            filter: brightness(0) invert(1);
+        }
