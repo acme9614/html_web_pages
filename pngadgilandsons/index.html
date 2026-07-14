@@ -436,7 +436,7 @@
                 <!-- Left Image -->
                 <div class="fade-up">
                     <div class="relative overflow-hidden rounded-[40px] shadow-2xl">
-                        <img src="./assets/about.webp" alt="P N Gadgil & Sons" class="w-full h-[650px] object-cover" />
+                        <img src="./assets/about.jpg" alt="P N Gadgil & Sons" class="w-full h-[650px] object-cover" />
 
                         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent">
                         </div>
@@ -809,14 +809,16 @@
            data-aos="${animation}"
            >
             
-        <div onclick="${widget.action}()" class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-brand-50 to-brand-100
+        <div onclick="${widget.action}()" class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-brand-50 to-brand-100
                    flex items-center justify-center mb-4 cursor-pointer shadow-lg
                    transition-all duration-500 hover:from-brand-600 hover:to-brand-700">
 
           <img class="w-8 h-8 object-contain transition-all duration-500 hover:brightness-0 hover:invert  ${isVirtualTryOn ? 'invert' : ''}" src="${widget.icon}" />
         </div>
 
-          <h3 class="font-semibold text-gray-800 transition">${widget.name}</h3>
+          <p class="mt-2 text-xs md:text-sm lg:text-base font-semibold w-20 text-center leading-tight break-words">
+            ${widget.name}
+        </p>
       </div>
     `;
         };
