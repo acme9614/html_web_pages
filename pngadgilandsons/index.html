@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P N Gadgil & Sons Jewellers - Since 1832</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fef2f2', 100: '#fee2e2', 200: '#fecaca', 300: '#fca5a5',
+                            400: '#f87171', 500: '#ef4444', 600: '#dc2626', 700: '#b91c1c',
+                            800: '#991b1b', 900: '#7f1d1d', 950: '#450a0a',
+                        },
+                        gold: { 400: '#d4a843', 500: '#c9952e', 600: '#b8860b' }
+                    },
+                    fontFamily: {
+                        playfair: ['Playfair Display', 'serif'],
+                        inter: ['Inter', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Scrollbar (from Design 3) */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #fef2f2;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #dc2626;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #991b1b;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #fef2f2;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #dc2626, #991b1b);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #b91c1c, #7f1d1d);
+        }
+
+        /* Preloader (from Design 3) */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: #fff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-ring {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #fee2e2;
+            border-top: 4px solid #dc2626;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Pulse Ring Animation (from Design 3) */
+        .pulse-ring {
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        @keyframes pulseRing {
+            0% {
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(220, 38, 38, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0);
+            }
+        }
+
+        /* Nav Link Underline */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #dc2626;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Gradient */
+        .hero-gradient {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 30%, #b91c1c 60%, #dc2626 100%);
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #d4a843, #f0d68a, #c9952e);
+        }
+
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #d4a843, #f0d68a, #c9952e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Card Hover */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(185, 28, 28, 0.15);
+        } */
+
+        /* Float Animation */
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Ornament */
+        .ornament::before,
+        .ornament::after {
+            content: '✦';
+            color: #d4a843;
+            margin: 0 12px;
+            font-size: 0.8em;
+        }
+
+        /* Counter Section (from Design 2) */
+        .counter-section {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 50%, #991b1b 100%);
+        }
+
+        .counter-value {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Icon bounce on hover */
+        .icon-bounce {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .icon-bounce:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        /* Fade up animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Marquee */
+        .marquee {
+            animation: marquee 25s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Magnetic button */
+        .magnetic-btn {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .magnetic-btn:hover {
+            transform: scale(1.05);
+        }
+
+
+
+        .ring-icon {
+            filter: brightness(0) saturate(100%) invert(20%) sepia(95%) saturate(2500%) hue-rotate(350deg) brightness(90%) contrast(90%);
+        }
+
+        /* services hover  */
+        .group:hover .ring-icon {
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+
+<body id="top" class="bg-white text-gray-800 overflow-x-hidden">
+
+    <!-- ========== PRELOADER (from Design 3) ========== -->
+    <div class="preloader" id="preloader">
+        <div class="text-center">
+            <div class="preloader-ring mx-auto mb-6"></div>
+            <h2 class="font-cinzel text-2xl font-bold text-brand-700">P N Gadgil & Sons</h2>
+            <p class="text-gray-400 text-sm mt-2 tracking-widest">SINCE 1832</p>
+        </div>
+    </div>
+
+    <!-- ========== TOP BAR (from Design 1) ========== -->
+    <div class="bg-brand-900 text-white text-xs py-2">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:18002330888">1800 233 0888</a>
+                </span>
+
+                <span class="flex items-center gap-2">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:contact@pngsl.com">contact@pngsl.com</a>
+                </span>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="hidden sm:inline">🏆 India's Most Trusted Jeweller Since 1832</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== NAVIGATION / APPBAR (from Design 1) ========== -->
+    <nav class="bg-white shadow-md sticky top-0 z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo with Pulse Ring Animation (from Design 3) -->
+                <div class="flex items-center gap-3">
+                    <div class="relative">
+                        <div class="w-full h-12  overflow-hidden shadow-lg">
+                            <img src="./assets/logo.png" alt="P N Gadgil & Sons Logo"
+                                class="w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <h1 class="font-playfair font-bold text-xl text-brand-900 leading-tight">P N Gadgil & Sons</h1>
+                        <p class="text-[10px] text-gold-600 font-medium tracking-widest uppercase">Jewellers Since 1832
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#top" class="nav-link font-medium text-gray-700 hover:text-brand-700 transition">Home</a>
+                    <a href="#services"
+                        class="nav-link font-medium text-gray-700 hover:text-brand-700 transition">Services</a>
+                    <a href="#about" class="nav-link font-medium text-gray-700 hover:text-brand-700 transition">About
+                        Us</a>
+                    <a href="#contact"
+                        class="nav-link font-medium text-gray-700 hover:text-brand-700 transition">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden text-gray-700 hover:text-brand-700 transition" id="mobileMenuBtn">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden bg-white border-t max-h-[80vh] overflow-hidden" id="mobileMenu">
+            <div id="drawerContainer" class="px-4 py-4 space-y-3 max-h-[60vh] overflow-y-auto">
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION (from Design 1) ========== -->
+    <section class="hero-gradient relative overflow-hidden lg:min-h-[90vh] flex items-center">
+
+        <!-- Branding Banner Slider -->
+        <div class="swiper brandingSwiper w-full">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <img src="./assets/banner1.png" alt="Banner 1" class="w-full h-auto object-cover" />
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./assets/banner2.png" alt="Banner 2" class="w-full h-auto object-cover" />
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./assets/banner3.jpg" alt="Banner 3" class="w-full h-auto object-cover" />
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./assets/banner4.jpg" alt="Banner 4" class="w-full h-auto object-cover" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./assets/banner5.jpg" alt="Banner 4" class="w-full h-auto object-cover" />
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="./assets/banner6.jpg" alt="Banner 4" class="w-full h-auto object-cover" />
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Wave Divider -->
+        <div class="absolute bottom-0 left-0 right-0 z-20">
+            <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+                    fill="white" />
+            </svg>
+        </div>
+
+    </section>
+
+    <!-- ========== SHOP BY CATEGORY (from Design 1) ========== -->
+    <section id="services" class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8 fade-up">
+                <p class="text-brand-600 font-semibold tracking-widest uppercase text-sm mb-3 ornament">Our Services
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div id="widgetsContainer" class="flex flex-wrap justify-center gap-4 md:gap-12 text-center">
+                    <!-- dynamic widget render -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT US SECTION ========== -->
+    <section id="about" class="py-8 bg-gradient-to-b from-white to-red-50 relative overflow-hidden">
+
+        <!-- Decorative Shapes -->
+        <div
+            class="absolute top-0 right-0 w-96 h-96 bg-brand-100 rounded-full -translate-y-1/2 translate-x-1/2 opacity-40">
+        </div>
+
+        <div
+            class="absolute bottom-0 left-0 w-72 h-72 bg-brand-100 rounded-full translate-y-1/2 -translate-x-1/2 opacity-40">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+            <!-- Heading -->
+            <div class="text-center mb-20 fade-up">
+                <p class="text-brand-600 font-semibold tracking-widest uppercase text-sm mb-3 ornament">About Us
+                </p>
+
+                <h2 class="font-cinzel text-4xl md:text-6xl font-bold text-gray-900">
+                    P N Gadgil & Sons
+                </h2>
+
+                <div class="w-28 h-1 bg-brand-600 mx-auto rounded-full mt-6"></div>
+
+                <p class="max-w-3xl mx-auto mt-8 text-gray-600 text-lg leading-relaxed">
+                    With the legacy of six generations, P N Gadgil & Sons has become one of
+                    Maharashtra's most trusted and reputed jewellery brands, built on
+                    trust, transparency, craftsmanship and warm customer relationships.
+                </p>
+            </div>
+
+            <!-- About Layout -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                <!-- Left Image -->
+                <div class="fade-up">
+                    <div class="relative overflow-hidden rounded-[40px] shadow-2xl">
+                        <img src="./assets/about.webp" alt="P N Gadgil & Sons" class="w-full h-[650px] object-cover" />
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent">
+                        </div>
+
+                        <div class="absolute bottom-8 left-8 text-white">
+                            <h3 class="font-cinzel text-3xl font-bold">
+                                Since 1832
+                            </h3>
+                            <p class="text-white/80">
+                                Six Generations of Excellence
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content -->
+                <div class="space-y-8 fade-up">
+
+                    <div class="bg-white rounded-3xl p-8 shadow-lg border border-red-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-16 h-14 bg-brand-600 rounded-2xl text-white flex items-center justify-center font-bold text-sm">
+                                1832
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-gray-900">
+                                The Beginning
+                            </h3>
+                        </div>
+
+                        <p class="text-gray-600 leading-relaxed">
+                            Founded in Sangli by Ganesh Narayan Gadgil, P N Gadgil began
+                            its journey with a commitment to quality, craftsmanship and
+                            trust, laying the foundation for one of India's most
+                            respected jewellery brands.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-8 shadow-lg border border-red-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-16 h-14 bg-brand-600 rounded-2xl text-white flex items-center justify-center font-bold text-sm">
+                                1958
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-gray-900">
+                                Expansion to Pune
+                            </h3>
+                        </div>
+
+                        <p class="text-gray-600 leading-relaxed">
+                            The fourth generation expanded the business to Pune,
+                            introducing the brand to a wider audience and establishing
+                            a legacy of superior service and transparency.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-3xl p-8 shadow-lg border border-red-100">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-16 h-14 bg-brand-600 rounded-2xl text-white flex items-center justify-center font-bold text-sm">
+                                Today
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-gray-900">
+                                A Legacy of Excellence
+                            </h3>
+                        </div>
+
+                        <p class="text-gray-600 leading-relaxed">
+                            With over 1.5 million satisfied customers across 25 cities and
+                            33 showrooms in Maharashtra, Karnataka and Gujarat, P N Gadgil
+                            & Sons continues to lead with innovation, timeless designs and
+                            unmatched customer service.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ========== FOOTER (from Design 1) ========== -->
+    <footer id="contact"
+        class="bg-gradient-to-br from-brand-950 via-brand-900 to-black text-white relative overflow-hidden">
+
+        <!-- Decorative Background -->
+        <div class="absolute top-0 left-0 w-72 h-72 bg-brand-700/10 rounded-full -translate-x-1/2 -translate-y-1/2">
+        </div>
+
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-600/10 rounded-full translate-x-1/2 translate-y-1/2">
+        </div>
+
+        <!-- Top Border -->
+        <div class="h-1 bg-gradient-to-r from-transparent via-gold-500 to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8 relative z-10">
+
+            <!-- Main Content -->
+            <div class="grid lg:grid-cols-[1.2fr_1fr] gap-12 lg:gap-20 mb-12 items-start">
+
+                <!-- Company Info -->
+                <div class="max-w-lg">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img src="./assets/logo.png" alt="P N Gadgil & Sons" class="h-14 w-auto object-contain" />
+
+                        <div>
+                            <h3 class="font-cinzel text-2xl font-bold text-white">
+                                P N Gadgil & Sons
+                            </h3>
+
+                            <p class="text-gold-400 text-xs tracking-[0.35em] uppercase mt-1">
+                                Since 1832
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-white/65 leading-8 text-[16px] mb-6">
+                        With a legacy spanning over six generations, P N Gadgil &
+                        Sons continues to redefine elegance through timeless
+                        jewellery, unmatched craftsmanship, and enduring customer
+                        relationships.
+                    </p>
+
+                    <!-- Social Icons -->
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/PNGGoldandsilver" target="_blank" rel="noopener noreferrer"
+                            class="w-11 h-11 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-brand-600 hover:border-brand-500 hover:-translate-y-1 transition-all duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/pngadgilandsons/" target="_blank" rel="noopener noreferrer"
+                            class="w-11 h-11 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-brand-600 hover:border-brand-500 hover:-translate-y-1 transition-all duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/channel/UCXkiy2LETyMfRIt_pGttu-A" target="_blank"
+                            rel="noopener noreferrer"
+                            class="w-11 h-11 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-brand-600 hover:border-brand-500 hover:-translate-y-1 transition-all duration-300">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                        <a href="https://x.com/Pngandsons" target="_blank" rel="noopener noreferrer"
+                            class="w-11 h-11 rounded-full bg-white/10 border border-white/10 flex items-center justify-center hover:bg-brand-600 hover:border-brand-500 hover:-translate-y-1 transition-all duration-300">
+
+                            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X"
+                                class="w-4 h-4 invert" />
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="max-w-md lg:ml-auto w-full">
+
+                    <h4 class="text-2xl font-bold mb-8 text-white">
+                        Contact Us
+                    </h4>
+
+                    <div class="space-y-4">
+
+                        <div
+                            class="flex gap-4 bg-white/5 backdrop-blur-sm rounded-2xl px-5 py-4 border border-white/10">
+                            <i class="fas fa-building text-brand-400 mt-1"></i>
+
+                            <div>
+                                <p class="text-white font-medium mb-2">
+                                    Corporate Office & Registered Office
+                                </p>
+
+                                <p class="text-white/70 text-sm leading-6">
+                                    P. N. Gadgil & Sons Limited
+                                </p>
+
+                                <p class="text-white/60 text-xs mt-1">
+                                    CIN : U36911PN2017PLC173262
+                                </p>
+
+                                <p class="text-white/70 text-sm leading-6 mt-3">
+                                    Abhiruchi Mall, S. No. 59/1-C,
+                                    Wadgaon (BK), Sinhagad Road,
+                                    Pune – 411041, Maharashtra.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            class="grid md:grid-cols-2 gap-10 bg-white/5 backdrop-blur-sm rounded-2xl px-5 py-5 border border-white/10">
+
+                            <!-- Email Id -->
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-at text-brand-400 mt-1"></i>
+
+                                <div>
+                                    <p class="text-white font-medium">
+                                        Email Id
+                                    </p>
+
+                                    <a href="mailto:info@pngsl.com"
+                                        class="text-white/70 text-sm hover:text-gold-400 transition break-all">
+                                        info@pngsl.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Office Phone -->
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-phone text-brand-400 mt-1"></i>
+
+                                <div>
+                                    <p class="text-white font-medium">
+                                        Office Phone
+                                    </p>
+
+                                    <div class="text-white/70 text-sm space-y-1">
+                                        <a href="tel:02024612000" class="block hover:text-gold-400 transition">
+                                            020-24612000
+                                        </a>
+
+                                        <a href="tel:02067520200" class="block hover:text-gold-400 transition">
+                                            020-67520200
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // Preloader (from Design 3)
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Mobile Menu Toggle
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+
+            const isOpen = !mobileMenu.classList.contains('hidden');
+
+            if (isOpen) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('shadow-xl');
+            } else {
+                navbar.classList.remove('shadow-xl');
+            }
+        });
+
+        // Counter Animation (from Design 2)
+        const counterValues = document.querySelectorAll('.counter-value');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 60;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            if (target === 50) {
+                                counter.textContent = target + 'L+';
+                            } else if (target === 2500) {
+                                counter.textContent = target + '+';
+                            } else {
+                                counter.textContent = target + '+';
+                            }
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current) + (target === 50 ? 'L+' : '+');
+                        }
+                    }, 30);
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterValues.forEach(counter => counterObserver.observe(counter));
+
+        // Fade Up Animation on Scroll
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Heart Toggle
+        document.querySelectorAll('.fa-heart, .far.fa-heart').forEach(heart => {
+            heart.parentElement.addEventListener('click', function () {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = '#dc2626';
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = '';
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+    <script>
+        // Drawer Items Display
+        window.renderDrawerItem = function (widget) {
+            return `
+      <a href="#"
+         onclick="${widget.action}()"
+       class="block py-2 text-gray-700 hover:text-brand-700 font-medium">
+         ${widget.name}
+      </a>
+    `;
+        };
+
+
+        window.renderWidget = function (widget, index) {
+            const isVirtualTryOn = Number(widget.id) === 23;
+            //  alternate animation
+            const animation = index % 2 === 0 ? "fade-up" : "fade-down";
+            return `
+      <div
+           class="service-item"
+           data-aos="${animation}"
+           >
+            
+        <div onclick="${widget.action}()" class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-brand-50 to-brand-100
+                   flex items-center justify-center mb-4 cursor-pointer shadow-lg
+                   transition-all duration-500 hover:from-brand-600 hover:to-brand-700">
+
+          <img class="w-8 h-8 object-contain transition-all duration-500 hover:brightness-0 hover:invert  ${isVirtualTryOn ? 'invert' : ''}" src="${widget.icon}" />
+        </div>
+
+          <h3 class="font-semibold text-gray-800 transition">${widget.name}</h3>
+      </div>
+    `;
+        };
+    </script>
+
+    <script>
+        new Swiper(".brandingSwiper", {
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true,
+            },
+        });
+    </script>
+</body>
+
+</html>
