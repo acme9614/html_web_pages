@@ -223,3 +223,21 @@ function setJewelloData(data) {
         console.error("setJewelloData Error:", e);
     }
 }
+
+// Called from Flutter WebView:
+// Example: setJewelloAppImages(jsonData)
+function setJewelloAppImages(data) {
+    try {
+        window.jewelloAppImages = data || [];
+
+        console.log(
+            "Flutter Images Response:",
+            window.jewelloAppImages
+        );
+    } catch (e) {
+        console.error(
+            "setJewelloAppImages Error:",
+            e
+        );
+    }
+}
