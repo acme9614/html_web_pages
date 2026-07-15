@@ -126,8 +126,7 @@ function getDefaultIcon() {
     return "https://cdn-icons-png.flaticon.com/128/3037/3037255.png";
 }
 
-// MAIN FUNCTION
-
+//widgets function
 async function loadWidgets() {
     try {
         const apiResponse = window.jewelloData;
@@ -186,6 +185,58 @@ async function loadWidgets() {
     }
 }
 
+// jewello app banners function
+function loadBannerImages() {
+    const swiperWrapper = document.querySelector(".brandingSwiper .swiper-wrapper");
+
+    if (!swiperWrapper) return;
+
+    const flutterImages = window.jewelloAppImages || [];
+
+    // If Flutter images are available
+    if (flutterImages.length > 0) {
+        let bannerHtml = "";
+
+        flutterImages.forEach((img, index) => {
+            bannerHtml += `
+                <div class="swiper-slide">
+                    <img
+                        src="${img}"
+                        alt="Banner ${index + 1}"
+                        class="w-full h-auto object-cover"
+                        onerror="this.src='./assets/banner1.png'"
+                    />
+                </div>
+            `;
+        });
+
+        swiperWrapper.innerHTML = bannerHtml;
+
+        // Reinitialize swiper
+        if (window.brandingSwiperInstance) {
+            window.brandingSwiperInstance.destroy(true, true);
+        }
+
+        window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+            loop: true,
+            speed: 1000,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            effect: "fade",
+            fadeEffect: {
+                crossFade: true,
+            },
+        });
+    }
+}
+
+
 // NOTE:
 // If Flutter data is not yet available,
 // this will not render anything until setJewelloData() is called
@@ -230,16 +281,15 @@ function setJewelloData(data) {
 // Example: setJewelloAppImages(jsonData)
 function setJewelloAppImages(data) {
     try {
-        window.jewelloAppImages = data || [];
+        window.jewelloAppImages = Array.isArray(data) ? data : [];
 
         console.log(
             "Flutter Images Response:",
             window.jewelloAppImages
         );
+
+        loadBannerImages();
     } catch (e) {
-        console.error(
-            "setJewelloAppImages Error:",
-            e
-        );
+        console.error("setJewelloAppImages Error:", e);
     }
 }
