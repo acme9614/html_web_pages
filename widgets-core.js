@@ -219,6 +219,8 @@ function setJewelloData(data) {
 
         // Render UI
         loadWidgets();
+        console.log(lastData);
+        
     } catch (e) {
         console.error("setJewelloData Error:", e);
     }
