@@ -10,9 +10,8 @@ function closeDrawer() {
   document.getElementById("menuButton").classList.remove("hidden");
 }
 
-// mainSlider
-
-const swiper = new Swiper(".mainSlider", {
+//this change for use dynamic banners if flutter sends
+ window.brandingSwiperInstance = new Swiper('.brandingSwiper', {
   autoplay: {
     delay: 3000, 
     disableOnInteraction: false, 
