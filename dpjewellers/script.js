@@ -20,8 +20,8 @@ overlay.addEventListener("click", () => {
 
 
 
-// brandSwiper
-const brandSwiper = new Swiper(".brandSwiper", {
+//this change for use dynamic banners if flutter sends
+ window.brandingSwiperInstance = new Swiper('.brandingSwiper', {
   loop: true,
   autoplay: {
     delay: 3000,
