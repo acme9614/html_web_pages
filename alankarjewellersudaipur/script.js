@@ -23,8 +23,8 @@
       closeDrawer.click();
     });
 
-
- const swiper = new Swiper('.swiper', {
+//this change for use dynamic banners if flutter sends
+ window.brandingSwiperInstance = new Swiper('.brandingSwiper', {
     loop: true,
     autoplay: {
       delay: 3000,
