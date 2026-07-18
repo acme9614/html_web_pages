@@ -105,7 +105,7 @@ function initializeBrandingSwiper() {
   }
 
   // Initialize Swiper
-  window.brandingSwiperInstance = new Swiper("brandingSwiper", {
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
     loop: true,
     autoplay: {
       delay: 4000,
