@@ -72,3 +72,32 @@ window.addEventListener("load", () => {
 
 //  Handle resize
 window.addEventListener("resize", handleTabs);
+
+// branding banners
+function initializeBrandingSwiper() {
+
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+    loop: true,
+    speed: 800,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+}
+
+// Initial load
+initializeBrandingSwiper();
+
+// Called after Flutter replaces banners
+window.onBannerImagesLoaded = function () {
+  initializeBrandingSwiper();
+};

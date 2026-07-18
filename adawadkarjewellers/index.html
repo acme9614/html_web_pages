@@ -9,6 +9,7 @@
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -55,10 +56,27 @@
   </div>
 
   <!-- brnading section  -->
+
   <section class="w-full">
-    <!-- Banner -->
-    <div data-aos="fade-up" data-aos-duration="800">
-      <img src="assets/Banner.jpg" alt="Branding Banner Desktop" class="w-full h-auto" />
+    <div class="swiper brandingSwiper" data-aos="fade-up" data-aos-duration="800">
+
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <img src="assets/Banner.jpg" alt="Banner" class="w-full h-auto" />
+        </div>
+
+        <!-- Add more static banners if needed -->
+        <!--
+      <div class="swiper-slide">
+        <img src="assets/Banner2.jpg" class="w-full h-auto" />
+      </div>
+      -->
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+
     </div>
   </section>
 
@@ -292,6 +310,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
