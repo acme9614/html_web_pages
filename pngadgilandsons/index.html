@@ -541,45 +541,45 @@
 
     <script>
 
+        //this change for use dynamic banners if flutter sends
 
+        function initializeBrandingSwiper() {
 
-function initializeBrandingSwiper() {
+            // Destroy previous instance if it exists
+            if (window.brandingSwiperInstance) {
+                window.brandingSwiperInstance.destroy(true, true);
+            }
 
-    // Destroy previous instance if it exists
-    if (window.brandingSwiperInstance) {
-        window.brandingSwiperInstance.destroy(true, true);
-    }
+            // Initialize Swiper
+            window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+                loop: true,
+                speed: 1000,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true,
+                },
+            });
+        }
 
-    // Initialize Swiper
-    window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
-        loop: true,
-        speed: 1000,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        effect: "fade",
-        fadeEffect: {
-            crossFade: true,
-        },
-    });
-}
+        // Initial load (static banners)
+        initializeBrandingSwiper();
 
-// Initial load (static banners)
-initializeBrandingSwiper();
-
-// Called by widgets-core.js after Flutter replaces the banners
-window.onBannerImagesLoaded = function () {
-    initializeBrandingSwiper();
-};
+        // Called by widgets-core.js after Flutter replaces the banners
+        window.onBannerImagesLoaded = function () {
+            initializeBrandingSwiper();
+        };
 
     </script>
 
