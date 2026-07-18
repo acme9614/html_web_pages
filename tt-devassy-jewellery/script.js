@@ -20,10 +20,16 @@
 
 
 // BrandingSlider 
+    function initializeBrandingSwiper() {
 
- const swiper = new Swiper(".BrandingSwiper", {
-      loop: true,
-     
+  // Destroy previous instance
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  // Create new Swiper
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+        loop: true,
       grabCursor: true,
       speed : 1500,
       cubeEffect: {
@@ -40,12 +46,28 @@
         el: ".swiper-pagination",
         clickable: true,
       },
-    });
+  });
 
-    document.getElementById('prevBtn').addEventListener('click', () => swiper.slidePrev());
-    document.getElementById('nextBtn').addEventListener('click', () => swiper.slideNext());
+  // Custom navigation buttons
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
 
+  if (prevBtn) {
+    prevBtn.onclick = () => window.brandingSwiperInstance.slidePrev();
+  }
 
+  if (nextBtn) {
+    nextBtn.onclick = () => window.brandingSwiperInstance.slideNext();
+  }
+}
+
+// Initial load
+initializeBrandingSwiper();
+
+// Called after Flutter dynamically replaces banners
+window.onBannerImagesLoaded = function () {
+  initializeBrandingSwiper();
+};
     
   // services 
 
