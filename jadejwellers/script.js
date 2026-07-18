@@ -34,8 +34,8 @@ menuBtn.addEventListener("click", () => {
 });
 
 
-// brandingSwiper 
-const swiper = new Swiper(".brandingSwiper", {
+//this change for use dynamic banners if flutter sends
+window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
         effect: "coverflow",
         spaceBetween: 30,
         centeredSlides: true,
