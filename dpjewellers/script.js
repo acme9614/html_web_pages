@@ -21,22 +21,40 @@ overlay.addEventListener("click", () => {
 
 
 //this change for use dynamic banners if flutter sends
- window.brandingSwiperInstance = new Swiper('.brandingSwiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  slidesPerView: 1,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+
+function initializeBrandingSwiper() {
+
+  // Destroy previous instance
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  // Initialize this page's swiper
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
+
+// Initial page load (static banners)
+initializeBrandingSwiper();
+
+// Called by widgets-core.js after Flutter updates the banners
+window.onBannerImagesLoaded = function () {
+  initializeBrandingSwiper();
+};
 
 
 // desktopTabs javscript start

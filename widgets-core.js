@@ -212,27 +212,10 @@ function loadBannerImages() {
 
         swiperWrapper.innerHTML = bannerHtml;
 
-        // Reinitialize swiper
-        if (window.brandingSwiperInstance) {
-            window.brandingSwiperInstance.destroy(true, true);
+        // Notify current HTML page that banners are updated
+        if (typeof window.onBannerImagesLoaded === "function") {
+            window.onBannerImagesLoaded();
         }
-
-        window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
-            loop: true,
-            speed: 1000,
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            effect: "fade",
-            fadeEffect: {
-                crossFade: true,
-            },
-        });
     }
 }
 
@@ -271,7 +254,7 @@ function setJewelloData(data) {
         // Render UI
         loadWidgets();
         console.log(lastData);
-        
+
     } catch (e) {
         console.error("setJewelloData Error:", e);
     }

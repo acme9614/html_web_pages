@@ -24,21 +24,39 @@
     });
 
 //this change for use dynamic banners if flutter sends
- window.brandingSwiperInstance = new Swiper('.brandingSwiper', {
+
+function initializeBrandingSwiper() {
+
+  // Destroy previous instance if already exists
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  // Initialize Swiper for this page
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
     loop: true,
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
     },
     pagination: {
-      el: '.swiper-pagination',
+      el: ".swiper-pagination",
       clickable: true,
     },
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
+}
+
+// Initial load (static banners)
+initializeBrandingSwiper();
+
+// Called by widgets-core.js after Flutter replaces the banners
+window.onBannerImagesLoaded = function () {
+  initializeBrandingSwiper();
+};
 
 
 

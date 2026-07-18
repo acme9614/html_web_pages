@@ -34,34 +34,46 @@ menuBtn.addEventListener("click", () => {
 });
 
 
-//this change for use dynamic banners if flutter sends
-window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+function initializeSwiper() {
+
+    if (window.brandingSwiperInstance) {
+        window.brandingSwiperInstance.destroy(true, true);
+    }
+
+    window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
         effect: "coverflow",
         spaceBetween: 30,
         centeredSlides: true,
         loop: true,
         autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
+            delay: 3000,
+            disableOnInteraction: false,
         },
         coverflowEffect: {
-          rotate: 30,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
+            rotate: 30,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
         },
         pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
+            el: ".swiper-pagination",
+            clickable: true,
         },
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
-       
-      });
+    });
+}
 
+// Default initialization
+initializeSwiper();
+
+// Called by widgets-core.js after Flutter banners arrive
+window.onBannerImagesLoaded = function () {
+    initializeSwiper();
+};
 
     //   collections
 

@@ -11,22 +11,40 @@ function closeDrawer() {
 }
 
 //this change for use dynamic banners if flutter sends
- window.brandingSwiperInstance = new Swiper('.brandingSwiper', {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  slidesPerView: 1,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+
+function initializeBrandingSwiper() {
+
+  // Destroy old instance if it exists
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  // Create Swiper
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    slidesPerView: 1,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
+
+// Initial load (static banners)
+initializeBrandingSwiper();
+
+// Called automatically after Flutter banners replace the HTML
+window.onBannerImagesLoaded = function () {
+  initializeBrandingSwiper();
+};
 
 
 // services
