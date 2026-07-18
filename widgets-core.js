@@ -178,7 +178,20 @@ async function loadWidgets() {
         }
 
         if (gridContainer) gridContainer.innerHTML = gridHTML;
-        if (drawerContainer) drawerContainer.innerHTML = drawerHTML;
+        if (drawerContainer) {
+            drawerContainer.innerHTML = drawerHTML;
+             //added for setting widget display after the all widgets display
+            drawerContainer.insertAdjacentHTML(
+                "beforeend",
+                `
+        <a href="javascript:void(0)"
+           onclick="navigateToSetting()"
+           class="hover:text-[#701e3e] font-medium transition">
+            <span>Settings</span>
+        </a>
+        `
+            );
+        }
 
     } catch (error) {
         console.error("Widget Load Error:", error);
