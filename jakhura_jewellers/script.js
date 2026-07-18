@@ -47,6 +47,14 @@ initializeBrandingSwiper();
 
 // Called automatically by widgets-core.js after Flutter replaces banners
 window.onBannerImagesLoaded = function () {
+    // Remove hero height because Flutter banners are normal images
+  const swiperContainer = document.querySelector(".brandingSwiper");
+
+  if (swiperContainer) {
+    swiperContainer.classList.remove("h-[100vh]");
+    swiperContainer.classList.remove("lg:h-[80vh]");
+    swiperContainer.classList.add("h-auto");
+  }
   initializeBrandingSwiper();
 };
 
