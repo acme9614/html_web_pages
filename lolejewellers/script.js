@@ -12,11 +12,18 @@
        document.body.style.overflow = "auto"; //  FIX
     });
 
-// slider script 
+// Branding Swiper
 
-// brandingSwiper 
-const swiper = new Swiper(".brandingSwiper", {
-        effect: "coverflow",
+function initializeBrandingSwiper() {
+
+  // Destroy previous instance
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  // Initialize Swiper
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+     effect: "coverflow",
         spaceBetween: 30,
         centeredSlides: true,
         loop: true,
@@ -39,8 +46,16 @@ const swiper = new Swiper(".brandingSwiper", {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-       
-      });
+  });
+}
+
+// Initial load (static banners)
+initializeBrandingSwiper();
+
+// Called by widgets-core.js after Flutter replaces the banners
+window.onBannerImagesLoaded = function () {
+  initializeBrandingSwiper();
+};
 
 // animation 
  AOS.init({
