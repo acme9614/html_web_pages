@@ -19,3 +19,53 @@ function closeDrawer() {
 menuBtn.addEventListener("click", openDrawer);
 closeBtn.addEventListener("click", closeDrawer);
 overlay.addEventListener("click", closeDrawer);
+
+
+// banners script
+function initializeBrandingSwiper() {
+
+    if (window.brandingSwiperInstance) {
+        window.brandingSwiperInstance.destroy(true, true);
+    }
+
+    window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+        loop: true,
+        speed: 800,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+}
+
+// Initial Static Banner
+initializeBrandingSwiper();
+
+// Called after Flutter replaces the banners
+window.onBannerImagesLoaded = function () {
+
+    // Force Flutter banners to behave like desktop banners
+    document
+        .querySelectorAll(".brandingSwiper .swiper-slide img")
+        .forEach((img) => {
+
+            img.classList.remove(
+                "hidden",
+                "block",
+                "md:block",
+                "md:hidden"
+            );
+
+            img.classList.add(
+                "block",
+                "w-full",
+                "object-cover"
+            );
+        });
+
+    initializeBrandingSwiper();
+};

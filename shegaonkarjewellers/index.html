@@ -7,6 +7,7 @@
     <title>Shegaonkar Jewellers</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body class="bg-gray-100">
@@ -51,13 +52,26 @@
 
     <!-- BANNER SECTION -->
     <section class="w-full">
+        <div class="swiper brandingSwiper">
 
-        <!-- MOBILE IMAGE -->
-        <img src="assets/mobileView.webp" alt="Banner Mobile" class="w-full  object-cover block md:hidden" />
+            <div class="swiper-wrapper">
 
-        <!-- TABLET + DESKTOP IMAGE -->
-        <img src="assets/shegoankrr_banner.webp" alt="Banner Desktop" class="w-full object-cover hidden md:block" />
+                <div class="swiper-slide">
+                    <!-- Desktop -->
+                    <img src="assets/shegoankrr_banner.webp" alt="Banner Desktop"
+                        class="w-full object-cover hidden md:block" />
 
+                    <!-- Mobile -->
+                    <img src="assets/mobileView.webp" alt="Banner Mobile" class="w-full object-cover block md:hidden" />
+                </div>
+
+                <!-- Add more local banners here if needed -->
+
+            </div>
+
+            <div class="swiper-pagination"></div>
+
+        </div>
     </section>
 
     <!-- Service Section -->
@@ -83,6 +97,7 @@
 
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- SCRIPT -->
     <script src="script.js">
     </script>
