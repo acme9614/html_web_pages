@@ -72,3 +72,53 @@ window.addEventListener("load", () => {
 
 //  Handle resize
 window.addEventListener("resize", handleTabs);
+
+// branding banners 
+
+
+function initializeBrandingSwiper() {
+
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+    loop: true,
+    speed: 800,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+  });
+}
+
+// Initial load
+initializeBrandingSwiper();
+
+// Called after Flutter replaces banners
+window.onBannerImagesLoaded = function () {
+
+    // Force Flutter banners to use the desktop layout on all devices
+  document
+    .querySelectorAll(".brandingSwiper .swiper-slide img")
+    .forEach((img) => {
+      img.classList.remove(
+        "hidden",
+        "block",
+        "md:block",
+        "md:hidden"
+      );
+
+      img.classList.add(
+        "block",
+        "w-full",
+        "h-auto",
+        "object-fill"
+      );
+    });
+  initializeBrandingSwiper();
+};

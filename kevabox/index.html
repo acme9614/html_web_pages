@@ -9,6 +9,7 @@
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -54,17 +55,29 @@
   </div>
 
   <!-- brnading section  -->
-  <section class="w-full">
-    <!-- Mobile Banner -->
-    <div class="block md:hidden" data-aos="fade-up" data-aos-duration="800">
-      <img src="assets/banner-mobile.jpg" alt="Branding Banner Mobile" class="w-full h-auto" />
+<section class="w-full">
+  <div class="swiper brandingSwiper" data-aos="fade-up" data-aos-duration="800">
+
+    <div class="swiper-wrapper">
+
+      <!-- Desktop Banner -->
+      <div class="swiper-slide">
+        <img src="assets/banner.jpg"
+             alt="Branding Banner"
+             class="w-full h-auto hidden md:block" />
+        <img src="assets/banner-mobile.jpg"
+             alt="Branding Banner Mobile"
+             class="w-full h-auto block md:hidden" />
+      </div>
+      
+      <!-- Optional additional local banners -->
+
     </div>
 
-    <!-- Tablet & Desktop Banner -->
-    <div class="hidden md:block" data-aos="fade-up" data-aos-duration="800">
-      <img src="assets/banner.jpg" alt="Branding Banner Desktop" class="w-full h-auto" />
-    </div>
-  </section>
+    <div class="swiper-pagination"></div>
+
+  </div>
+</section>
 
   <!-- Services  -->
   <section class="flex flex-col items-center justify-center py-8 px-4" id="services">
@@ -193,6 +206,7 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <!-- AOS JS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="script.js"></script>
