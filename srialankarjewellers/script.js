@@ -96,21 +96,39 @@ function navigateToARVirtualTryOn() {
 
 
 // branding slider 
-const swiper = new Swiper(".mySwiper", {
-  loop: true,
-  autoplay: {
-    delay: 4000,
-    disableOnInteraction: false,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-});
+//this change for use dynamic banners if flutter sends
+function initializeBrandingSwiper() {
+
+  // Destroy previous instance if it exists
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  // Initialize Swiper
+  window.brandingSwiperInstance = new Swiper("brandingSwiper", {
+    loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+}
+
+// Initial load (static banners)
+initializeBrandingSwiper();
+
+// Called by widgets-core.js after Flutter replaces the banners
+window.onBannerImagesLoaded = function () {
+  initializeBrandingSwiper();
+};
 
 //   services 
 AOS.init({
