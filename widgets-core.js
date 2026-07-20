@@ -185,8 +185,7 @@ async function loadWidgets() {
                 "beforeend",
                 `
         <a href="javascript:void(0)"
-           onclick="navigateToSetting()"
-           class="hover:text-[#701e3e] font-medium transition">
+           onclick="navigateToSetting()">
             <span>Settings</span>
         </a>
         `
