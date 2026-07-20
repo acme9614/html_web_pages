@@ -52,7 +52,7 @@ window.onBannerImagesLoaded = function () {
 
     // Change margin-top when dynamic banners are loaded
     bannerSection.classList.remove("mt-[98px]");
-    bannerSection.classList.add("pt-[300px]");
+    bannerSection.classList.add("pt-[100px]");
 
     // Force Flutter banners to behave like desktop banners
     document
