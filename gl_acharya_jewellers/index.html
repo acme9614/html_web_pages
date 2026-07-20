@@ -44,27 +44,52 @@
     <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40" onclick="closeDrawer()"></div>
 
     <!-- Header -->
-    <div class="bg-white w-full relative shadow-sm">
-      <div class="max-w-screen-xl mx-auto px-4 relative">
-        <div class="h-20 flex items-center justify-start relative">
-          <!-- Left: Menu Icon -->
-          <div class="z-50">
-            <button id="menuButton" onclick="openDrawer()" class="text-3xl text-black focus:outline-none">
-              ☰
-            </button>
-          </div>
+   <div class="bg-white w-full shadow-sm">
+  <div class="max-w-screen-xl mx-auto px-4">
+    <div class="h-20 flex items-center justify-between">
 
-          <!-- Center: Logo -->
-          <div class="absolute left-48 lg:left-36 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <a href="#" class="flex items-center space-x-2">
-              <img src="assets/head-logo.jpg" alt="GL Acharya Logo" class="h-16 w-[150px] object-contain" />
-            </a>
-          </div>
+      <!-- Left -->
+      <button
+        id="menuButton"
+        onclick="openDrawer()"
+        class="text-3xl text-black p-1">
+        ☰
+      </button>
 
+      <!-- Center Logo -->
+      <a href="#" class="absolute left-1/2 -translate-x-1/2">
+        <img
+          src="assets/head-logo.jpg"
+          alt="GL Acharya Logo"
+          class="h-14 sm:h-16 w-auto max-w-[140px] sm:max-w-[160px] object-contain">
+      </a>
 
-        </div>
+      <!-- Right Actions -->
+      <div class="flex items-center gap-1 sm:gap-2">
+
+        <button
+          aria-label="Notifications"
+          onclick="navigateToNotification()"
+          class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full hover:bg-gray-100">
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png"
+            class="w-5 h-5 sm:w-6 sm:h-6">
+        </button>
+
+        <button
+          aria-label="Logout"
+          onclick="navigateToLogout()"
+          class="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full hover:bg-gray-100">
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/9208/9208320.png"
+            class="w-5 h-5 sm:w-6 sm:h-6">
+        </button>
+
       </div>
+
     </div>
+  </div>
+</div>
   </div>
 
   <!--  Full Width Swiper Banner Slider with Logo -->
