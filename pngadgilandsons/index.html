@@ -503,15 +503,31 @@
 
     <script>
         // Drawer Items Display
-        window.renderDrawerItem = function (widget) {
-            return `
+     window.renderDrawerItem = function (widget) {
+
+  let html = "";
+
+  // Add Notification before Settings
+  if (widget.name === "Settings") {
+    html += `
       <a href="#"
-         onclick="${widget.action}()"
-       class="block py-2 text-gray-700 hover:text-brand-700 font-medium">
-         ${widget.name}
+         onclick="navigateToNotification()"
+         class="block py-2 text-gray-700 hover:text-brand-700 font-medium">
+         Notification
       </a>
     `;
-        };
+  }
+
+  html += `
+    <a href="#"
+       onclick="${widget.action}()"
+       class="block py-2 text-gray-700 hover:text-brand-700 font-medium">
+       ${widget.name}
+    </a>
+  `;
+
+  return html;
+};
 
 
         window.renderWidget = function (widget, index) {

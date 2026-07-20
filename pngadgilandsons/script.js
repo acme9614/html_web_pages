@@ -11,6 +11,7 @@ const mobileMenu = document.getElementById('mobileMenu');
 const menuIcon = document.getElementById('menuIcon');
 
 mobileMenuBtn.addEventListener('click', () => {
+     addNotificationMenu();
     mobileMenu.classList.toggle('hidden');
 
     const isOpen = !mobileMenu.classList.contains('hidden');
@@ -60,3 +61,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+
+function addNotificationMenu() {
+    const drawer = document.getElementById("drawerContainer");
+    if (!drawer) return;
+
+    // Prevent duplicate insertion
+    if (drawer.querySelector("#notificationMenu")) return;
+
+    const settings = [...drawer.querySelectorAll("a")]
+        .find(a => a.textContent.trim() === "Settings");
+
+    if (!settings) return;
+
+    settings.insertAdjacentHTML(
+        "beforebegin",
+        `
+        <a id="notificationMenu"
+           href="#"
+           onclick="navigateToNotification()"
+           class="${settings.className}">
+            Notification
+        </a>
+        `
+    );
+}
