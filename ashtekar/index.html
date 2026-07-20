@@ -33,9 +33,28 @@
             </nav>
 
             <!-- Drawer Icon (Mobile + Tablet Only) -->
-            <button id="menuBtn" class="lg:hidden text-3xl">
-                ☰
-            </button>
+            <!-- Notification AND Logout Icon Display In Mobile and Tablet View -->
+            <div class="flex items-center gap-2 lg:hidden">
+
+                <!-- Notifications -->
+                <button aria-label="Notifications" onclick="navigateToNotification()"
+                    class="p-2 rounded-full hover:bg-gray-100 transition">
+                    <img src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png" alt="Notifications"
+                        class="w-5 h-5">
+                </button>
+
+                <!-- Logout -->
+                <button aria-label="Logout" onclick="navigateToLogout()"
+                    class="p-2 rounded-full hover:bg-gray-100 transition">
+                    <img src="https://cdn-icons-png.flaticon.com/128/9208/9208320.png" alt="Logout" class="w-5 h-5">
+                </button>
+
+                <!-- Drawer Menu -->
+                <button id="menuBtn" class="text-3xl leading-none p-1" aria-label="Menu">
+                    ☰
+                </button>
+
+            </div>
         </div>
 
         <!-- Drawer Menu -->
@@ -48,7 +67,7 @@
                 <button id="closeBtn" class="text-3xl">&times;</button>
             </div>
             <!-- Dynamic Drawer Navigation Links -->
-           <nav id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-black"></nav>
+            <nav id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-black"></nav>
         </div>
 
         <!-- Overlay -->
@@ -76,7 +95,8 @@
 
         <!-- services  -->
         <section id="tabsWrapper" class="max-w-4xl mx-auto py-8 font-playfair">
-             <div id="widgetsContainer" class="flex flex-wrap justify-center gap-1 md:gap-2 lg:gap-4 px-0 lg:px-20 py-5"></div>
+            <div id="widgetsContainer" class="flex flex-wrap justify-center gap-1 md:gap-2 lg:gap-4 px-0 lg:px-20 py-5">
+            </div>
             <!-- Show More Button: Visible only on mobile -->
             <div class="flex justify-center mt-4 sm:hidden">
                 <button id="toggleBtn" class="text-sm flex flex-col items-center gap-1">
@@ -243,23 +263,23 @@
         <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
 
         <script>
-  // Drawer item renderer
-  window.renderDrawerItem = function (widget) {
-    return `
+            // Drawer item renderer
+            window.renderDrawerItem = function (widget) {
+                return `
       <a href="#"
          onclick="${widget.action}(); closeDrawer();"
          class="text-base text-gray-800 hover:text-[#701e3e] font-medium transition duration-300 border-b border-gray-100 pb-2">
          ${widget.name}
       </a>
     `;
-  };
+            };
 
-  // Service tabs renderer
-  window.renderWidget = function (widget, index) {
-    const isVirtualTryOn = Number(widget.id) === 23;
-    const animation = index % 2 === 0 ? "zoom-in-up" : "zoom-in-down";
+            // Service tabs renderer
+            window.renderWidget = function (widget, index) {
+                const isVirtualTryOn = Number(widget.id) === 23;
+                const animation = index % 2 === 0 ? "zoom-in-up" : "zoom-in-down";
 
-    return `
+                return `
      <div onclick="${widget.action}()"
      class="flex flex-col items-center justify-center cursor-pointer
             ${index > 5 ? "hidden sm:flex extra-tab" : ""}"
@@ -304,8 +324,8 @@
     </div>
 </div>
     `;
-  };
-</script>
+            };
+        </script>
 
 
         <script>
