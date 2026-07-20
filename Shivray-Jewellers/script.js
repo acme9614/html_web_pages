@@ -53,6 +53,8 @@ const drawerLinks = document.querySelectorAll(".drawer-link");
 
 // Open Drawer
 menuBtn.addEventListener("click", () => {
+    // Add Notification before Settings
+    addNotificationMenu();
 
     mobileDrawer.classList.remove("left-[-100%]");
     mobileDrawer.classList.add("left-0");
@@ -216,3 +218,29 @@ setTimeout(handleTabs, 500);
 
 //  Also handle resize (VERY IMPORTANT)
 window.addEventListener("resize", handleTabs);
+
+// add notification. before setting in drawer
+function addNotificationMenu() {
+    const drawer = document.getElementById("drawerContainer");
+    if (!drawer) return;
+
+    // Prevent duplicate insertion
+    if (drawer.querySelector("#notificationMenu")) return;
+
+    const settings = [...drawer.querySelectorAll("a")]
+        .find(a => a.textContent.trim() === "Settings");
+
+    if (!settings) return;
+
+    settings.insertAdjacentHTML(
+        "beforebegin",
+        `
+        <a id="notificationMenu"
+           href="#"
+           onclick="navigateToNotification()"
+           class="${settings.className}">
+            Notification
+        </a>
+        `
+    );
+}

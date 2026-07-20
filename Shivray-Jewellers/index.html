@@ -76,28 +76,24 @@
 
         <!-- Mobile Drawer -->
         <div id="mobileDrawer"
-            class="fixed top-0 left-[-100%] w-[280px] h-full bg-[#501724] backdrop-blur-xl z-50 shadow-2xl transition-all duration-500">
+            class="fixed top-0 left-[-100%] w-[280px] h-screen bg-[#501724] backdrop-blur-xl z-50 shadow-2xl transition-all duration-500 flex flex-col">
 
             <!-- Drawer Header -->
-            <div class="flex items-center justify-between px-6 py-2 border-b border-white/10">
+            <div class="flex items-center justify-between px-6 py-2 border-b border-white/10 flex-shrink-0">
 
-                <!-- Logo -->
                 <img src="assets/logo.png" alt="Shivray Logo" class="w-[120px] object-contain">
 
-                <!-- Close Button -->
                 <button id="closeDrawer" class="text-white text-3xl leading-none hover:text-red-400 transition">
-
                     ×
-
                 </button>
 
             </div>
 
-            <!-- Drawer Menu -->
-            <nav id="drawerContainer" class="flex flex-col p-6 text-white space-y-6"></nav>
+            <!-- Scrollable Menu -->
+            <nav id="drawerContainer" class="flex-1 overflow-y-auto p-6 text-white space-y-6">
+            </nav>
 
         </div>
-
     </header>
     <!-- Hero Section -->
     <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden">
