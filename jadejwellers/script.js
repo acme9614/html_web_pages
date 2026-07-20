@@ -9,7 +9,7 @@ menuBtn.addEventListener("click", () => {
     if (isClosed) {
         // Open drawer
         mobileMenu.classList.remove("max-h-0", "opacity-0");
-        mobileMenu.classList.add("max-h-96", "opacity-100");
+        mobileMenu.classList.add("max-h-96", "opacity-100", "text-[#c36]", "font-semibold");
 
         // Change to X icon
         menuPath.setAttribute(
@@ -75,9 +75,9 @@ window.onBannerImagesLoaded = function () {
     initializeSwiper();
 };
 
-    //   collections
+//   collections
 
-    const modal = document.getElementById("imageModal");
+const modal = document.getElementById("imageModal");
 const modalImg = document.getElementById("modalImg");
 const closeModal = document.getElementById("closeModal");
 
@@ -111,22 +111,22 @@ const toggleIcon = document.getElementById("toggleIcon");
 let expanded = false;
 
 if (toggleBtn && toggleText && toggleIcon) {
-  toggleBtn.addEventListener("click", () => {
+    toggleBtn.addEventListener("click", () => {
 
-    //  fetch elements at click time
-    const extraTabs = document.querySelectorAll(".extra-tab");
+        //  fetch elements at click time
+        const extraTabs = document.querySelectorAll(".extra-tab");
 
-    expanded = !expanded;
+        expanded = !expanded;
 
-    extraTabs.forEach((el) => {
-      if (expanded) {
-        el.classList.remove("hidden");
-      } else {
-        el.classList.add("hidden");
-      }
+        extraTabs.forEach((el) => {
+            if (expanded) {
+                el.classList.remove("hidden");
+            } else {
+                el.classList.add("hidden");
+            }
+        });
+
+        toggleText.textContent = expanded ? "Show Less" : "Show More";
+        toggleIcon.classList.toggle("rotate-180", expanded);
     });
-
-    toggleText.textContent = expanded ? "Show Less" : "Show More";
-    toggleIcon.classList.toggle("rotate-180", expanded);
-  });
 }
