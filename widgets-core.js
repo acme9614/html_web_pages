@@ -184,12 +184,12 @@ async function loadWidgets() {
             drawerContainer.insertAdjacentHTML(
                 "beforeend",
                 `
-    <a href="#"
-       onclick="navigateToSetting()"
-       class="${drawerContainer.firstElementChild?.className || ""}">
-        Settings
-    </a>
-    `
+                <a href="#"
+                onclick="navigateToSetting()"
+                class="${drawerContainer.firstElementChild?.className || ""}">
+                    Settings
+                </a>
+                `
             );
         }
 
