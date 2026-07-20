@@ -21,38 +21,57 @@
 <body id="#" class="bg-white">
 
   <!--  HEADER  -->
-  <header id="header" class="fixed top-0 left-0 w-full z-50 bg-[#bda1a2] transition-all duration-300 ">
+  <header id="header" class="fixed top-0 left-0 w-full z-50 bg-[#bda1a2] transition-all duration-300">
 
-    <div class="flex items-center justify-between px-4 md:px-10 lg:px-40 py-7">
+    <div class="flex items-center justify-between px-4 md:px-8 lg:px-16 xl:px-40 py-4 md:py-6">
 
-      <!-- Logo -->
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center shadow-md">
+      <!-- Left Section -->
+      <div class="flex items-center min-w-0 flex-1">
+
+        <!-- Menu -->
+        <button id="menuBtn" class="cursor-pointer flex flex-col justify-center gap-1 mr-3 flex-shrink-0">
+          <span class="w-6 h-[2px] bg-black"></span>
+          <span class="w-6 h-[2px] bg-black"></span>
+          <span class="w-6 h-[2px] bg-black"></span>
+        </button>
+
+        <!-- Logo -->
+        <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center shadow-md flex-shrink-0">
           <i class="fas fa-gem text-white text-sm"></i>
         </div>
-        <!-- <h1 class="text-lg md:text-xl font-heading text-[#6b2c2c] ">
-          Nagarkar Gold & Pearls
-        </h1> -->
-        <a href="#">
-          <h1 class="cursor-pointer text-lg md:text-xl font-heading text-[#6b2c2c]">
+
+        <!-- Store Name -->
+        <a href="#" class="ml-3 min-w-0">
+          <h1 class="font-heading text-[#6b2c2c]
+                   text-sm sm:text-base md:text-lg lg:text-xl
+                   truncate whitespace-nowrap">
             Nagarkar Gold & Pearls
           </h1>
         </a>
+
       </div>
 
-      <!-- Hamburger -->
-      <div id="menuBtn" class="cursor-pointer space-y-1 ">
-        <div class="w-6 h-[2px] bg-black"></div>
-        <div class="w-6 h-[2px] bg-black"></div>
-        <div class="w-6 h-[2px] bg-black"></div>
+      <!-- Right Section -->
+      <div class="flex items-center gap-3 sm:gap-4 md:gap-5 ml-4 flex-shrink-0">
+
+        <!-- Notification -->
+        <button class="text-[#6b2c2c] hover:text-black transition" onclick="navigateToNotification()">
+          <i class="fas fa-bell text-lg sm:text-xl"></i>
+        </button>
+
+        <!-- Logout -->
+        <button class="text-[#6b2c2c] hover:text-black transition" onclick="navigateToLogout()">
+          <i class="fas fa-right-from-bracket text-lg sm:text-xl"></i>
+        </button>
+
       </div>
 
     </div>
-  </header>
 
+  </header>
   <!--  DRAWER  -->
   <div id="drawer"
-    class="fixed top-0 right-0 w-[320px] h-full bg-[#f4f1ea] z-50 transform translate-x-full transition-all duration-300 ease-in-out">
+    class="fixed top-0 right-0 w-[320px] h-full bg-[#f4f1ea] z-50 transform translate-x-full transition-all duration-300 ease-in-out flex flex-col">
 
     <!-- Close Button -->
     <div class="flex justify-end p-6">
@@ -60,7 +79,7 @@
     </div>
 
     <!-- Menu -->
-    <div id="drawerContainer" class="flex flex-col px-10 space-y-6 text-lg overflow-y-auto h-full pb-10">
+    <div id="drawerContainer" class="flex-1 flex flex-col px-10 space-y-6 text-lg overflow-y-auto pb-10">
       <!-- Dynamic Drawer Items from widgets-core.js -->
     </div>
   </div>
@@ -146,7 +165,7 @@
       <div id="widgetsContainer" class="flex flex-wrap justify-center gap-6 md:gap-12 text-center
         
       ">
-       <!-- overflow-hidden transition-all duration-500 
+        <!-- overflow-hidden transition-all duration-500 
   max-h-[13.5rem] md:max-h-none -->
       </div>
 

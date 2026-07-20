@@ -9,13 +9,14 @@
   --font-b: 'Nunito Sans', sans-serif;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
 body {
   font-family: var(--font-b);
-  
+
 }
 
 .font-heading {
@@ -75,4 +76,12 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#drawerContainer {
+  -webkit-overflow-scrolling: touch;
 }
