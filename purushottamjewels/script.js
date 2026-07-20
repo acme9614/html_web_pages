@@ -1,16 +1,19 @@
- const menuBtn = document.getElementById('menuBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const drawer = document.getElementById('drawer');
+const menuBtn = document.getElementById('menuBtn');
+const closeBtn = document.getElementById('closeBtn');
+const drawer = document.getElementById('drawer');
 
-    menuBtn.addEventListener('click', () => {
-      drawer.classList.remove('translate-x-full');
-       document.body.style.overflow = "hidden"; //  FIX
-    });
+menuBtn.addEventListener('click', () => {
+  // Add Notification before Settings
+  addNotificationMenu();
 
-    closeBtn.addEventListener('click', () => {
-      drawer.classList.add('translate-x-full');
-       document.body.style.overflow = "auto"; //  FIX
-    });
+  drawer.classList.remove('translate-x-full');
+  document.body.style.overflow = "hidden"; //  FIX
+});
+
+closeBtn.addEventListener('click', () => {
+  drawer.classList.add('translate-x-full');
+  document.body.style.overflow = "auto"; //  FIX
+});
 
 //this change for use dynamic banners if flutter sends
 function initializeBrandingSwiper() {
@@ -57,9 +60,35 @@ window.onBannerImagesLoaded = function () {
 };
 
 // animation 
- AOS.init({
-    duration: 1000,
-    once: false,
+AOS.init({
+  duration: 1000,
+  once: false,
 
-    easing: 'ease-in-out'
-  });
+  easing: 'ease-in-out'
+});
+
+
+function addNotificationMenu() {
+  const drawer = document.getElementById("drawerContainer");
+  if (!drawer) return;
+
+  // Prevent duplicate insertion
+  if (drawer.querySelector("#notificationMenu")) return;
+
+  const settings = [...drawer.querySelectorAll("a")]
+    .find(a => a.textContent.trim() === "Settings");
+
+  if (!settings) return;
+
+  settings.insertAdjacentHTML(
+    "beforebegin",
+    `
+        <a id="notificationMenu"
+           href="#"
+           onclick="navigateToNotification()"
+           class="${settings.className}">
+            Notification
+        </a>
+        `
+  );
+}
