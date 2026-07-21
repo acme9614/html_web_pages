@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+#services {
+  font-family: "Playfair Display", serif;
+ 
+}
+
+/* Custom fonts */
+.font-monotype {
+  font-family: "Monotype Corsiva", "Times New Roman", serif;
+}
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+/* about store flip card  */
+.flip-container {
+  perspective: 2000px;
+}
+
+.flip-card {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  backface-visibility: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
