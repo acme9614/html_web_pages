@@ -144,7 +144,7 @@ window.renderWidget = function (widget, index) {
     return `
         <div onclick="${widget.action}()"
              class="relative flex flex-col items-center cursor-pointer pb-4
-             ${index > 5 ? "hidden md:flex extra-tab" : ""}"
+             ${index > 5 ? "extra-tab" : ""}"
              data-aos="fade-up">
 
             <img src="assets/shape.png"
@@ -173,48 +173,58 @@ const showMoreBtn = document.getElementById("showMoreBtn");
 let expanded = false;
 
 function handleTabs() {
+
     const widgets = document.querySelectorAll("#widgetsContainer > div");
     const isMobile = window.innerWidth < 768;
 
-    //  Desktop: show all, hide button
+    expanded = false;
+
     if (!isMobile) {
-        widgets.forEach(el => el.style.display = "flex");
+        widgets.forEach(widget => {
+            widget.style.display = "flex";
+        });
+
         showMoreBtn.style.display = "none";
         return;
     }
 
-    //  Mobile
     if (widgets.length <= 6) {
+        widgets.forEach(widget => {
+            widget.style.display = "flex";
+        });
+
         showMoreBtn.style.display = "none";
         return;
     }
 
     showMoreBtn.style.display = "flex";
 
-    //  Initial state (IMPORTANT FIX)
-    widgets.forEach((el, index) => {
-        el.style.display = index < 6 ? "flex" : "none";
+    widgets.forEach((widget, index) => {
+        widget.style.display = index < 6 ? "flex" : "none";
     });
 
-    //  Toggle click
-    showMoreBtn.onclick = () => {
+    showMoreBtn.children[0].textContent = "▼";
+    showMoreBtn.children[1].textContent = "Show More";
+
+    showMoreBtn.onclick = function () {
+
         expanded = !expanded;
 
-        widgets.forEach((el, index) => {
+        widgets.forEach((widget, index) => {
             if (index >= 6) {
-                el.style.display = expanded ? "flex" : "none";
+                widget.style.display = expanded ? "flex" : "none";
             }
         });
 
         showMoreBtn.children[0].textContent = expanded ? "▲" : "▼";
-        showMoreBtn.children[1].textContent = expanded
-            ? "Show Less"
-            : "Show More";
+        showMoreBtn.children[1].textContent =
+            expanded ? "Show Less" : "Show More";
     };
 }
-
 //  Run after widgets render
-setTimeout(handleTabs, 500);
+window.addEventListener("load", () => {
+    setTimeout(handleTabs, 500);
+});
 
 //  Also handle resize (VERY IMPORTANT)
 window.addEventListener("resize", handleTabs);
