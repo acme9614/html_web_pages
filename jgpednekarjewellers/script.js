@@ -60,6 +60,15 @@ function initializeSwiper() {
   });
 }
 
+// Default initialization
+initializeSwiper();
+
+// Called by widgets-core.js after Flutter banners arrive
+window.onBannerImagesLoaded = function () {
+    initializeSwiper();
+};
+
+
 AOS.init({
   duration: 600,
   once: false
