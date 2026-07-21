@@ -19,18 +19,37 @@ overlay.addEventListener("click", () => {
 });
 
 
-const swiper = new Swiper(".brandSwiper", {
-  loop: true,
-  speed: 1500,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-  navigation: {
-    nextEl: "#customNext",
-    prevEl: "#customPrev",
-  },
-});
+// branding slider 
+//this change for use dynamic banners if flutter sends
+function initializeBrandingSwiper() {
+
+  // Destroy previous instance
+  if (window.brandingSwiperInstance) {
+    window.brandingSwiperInstance.destroy(true, true);
+  }
+
+  // Initialize Swiper
+  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+    loop: true,
+    speed: 1500,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: "#customNext",
+      prevEl: "#customPrev",
+    },
+  });
+}
+
+// Initial load (static banners)
+initializeBrandingSwiper();
+
+// Called by widgets-core.js after Flutter replaces the banners
+window.onBannerImagesLoaded = function () {
+  initializeBrandingSwiper();
+};
 
 
 // services 
