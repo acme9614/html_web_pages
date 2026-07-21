@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sheelvantandsons jwls</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <div>
+    <header class="bg-white text-gray-900 relative flex items-center justify-center px-4 md:px-10 py-3"
+      data-aos="fade-down">
+      <!-- Hamburger Icon using Image -->
+      <button id="menu-toggle" class="absolute left-4 top-1/2 -translate-y-1/2 focus:outline-none"
+        aria-label="Open Menu">
+        <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu" class="w-10 h-10"
+          loading="lazy" />
+      </button>
+
+      <!-- Centered Logo -->
+      <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+        <img src="assets/logo.png" alt="Logo" class="h-16" />
+        <h1 class="text-lg md:text-2xl">
+          Sheelvant & Son's <br class="md:hidden" />
+          Jewels Pvt. Ltd
+        </h1>
+      </div>
+
+      <!-- Right Actions -->
+      <div class="absolute right-3 md:right-6 flex items-center gap-2 md:gap-3">
+
+        <button aria-label="Notifications" onclick="navigateToNotification()"
+          class="p-2 rounded-full hover:bg-gray-100 transition">
+
+          <img src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png" alt="Notifications"
+            class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+
+        </button>
+
+        <!-- Logout Button (Optional)
+    <button
+      aria-label="Logout"
+      onclick="navigateToLogout()"
+      class="p-2 rounded-full hover:bg-gray-100 transition">
+
+      <img
+        src="https://cdn-icons-png.flaticon.com/128/9208/9208320.png"
+        alt="Logout"
+        class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+
+    </button>
+    -->
+
+      </div>
+    </header>
+
+    <!-- Drawer -->
+    <div id="drawer"
+      class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+      <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+        <!-- Drawer Logo -->
+        <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+          <img src="assets/logo.png" alt="Logo" class="h-16" />
+        </div>
+        <!-- Close Drawer Button -->
+        <button id="close-drawer" class="text-black rounded text-2xl font-bold" aria-label="Close Menu">
+          ✕
+        </button>
+      </div>
+
+      <!-- Drawer Navigation Links -->
+      <nav id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-[#133235]">
+      </nav>
+
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  </div>
+
+  <!-- Swiper Slider Section -->
+  <section class="relative w-full">
+    <div class="swiper brandingSwiper">
+      <div class="swiper-wrapper">
+        <!-- Slide 1 -->
+        <div class="swiper-slide relative h-[80vh]">
+          <div class="absolute inset-0 bg-cover bg-center hidden md:block"
+            style="background-image: url('assets/slide1.jpg')"></div>
+          <div class="absolute inset-0 bg-cover bg-center md:hidden mobile-blur"
+            style="background-image: url('assets/slide1_mobile.jpg')"></div>
+
+          <div class="relative z-10 flex items-center justify-start h-full">
+            <div class="text-left text-black p-6 rounded-md max-w-xl ml-6 md:ml-32">
+              <h2 class="text-4xl md:text-5xl font-bold mb-2" data-aos="fade-up">
+                Family Jewellery
+                <span class="text-[#C29958]">Collections</span>
+              </h2>
+              <h4 class="text-lg md:text-xl text-[#222222] mb-4" data-aos="fade-up" data-aos-delay="200">
+                Necklaces, Bracelets, Earrings & More.
+              </h4>
+              <a href="#"
+                class="inline-block bg-[#C29958] hover:bg-[#151328] text-white font-semibold px-6 py-3 rounded-full transition-all duration-300"
+                data-aos="fade-up" data-aos-delay="400">
+                Explore Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="swiper-slide relative h-[80vh]">
+          <div class="absolute inset-0 bg-cover bg-center hidden md:block"
+            style="background-image: url('assets/slide3.jpg')"></div>
+          <div class="absolute inset-0 bg-cover bg-center md:hidden mobile-blur"
+            style="background-image: url('assets/slide3_mobile.jpg')"></div>
+
+          <div class="relative z-10 flex items-center justify-start h-full">
+            <div class="text-left text-black p-6 rounded-md max-w-xl ml-6 md:ml-32">
+              <h2 class="text-4xl md:text-5xl font-bold mb-2" data-aos="fade-up">
+                Grace Designer <span class="text-[#C29958]">Jewellery</span>
+              </h2>
+              <h4 class="text-lg md:text-xl text-[#222222] mb-4" data-aos="fade-up" data-aos-delay="200">
+                Rings, Occasion Pieces, Pandora &amp; More.
+              </h4>
+              <a href="#"
+                class="inline-block bg-[#C29958] hover:bg-[#151328] text-white font-semibold px-6 py-3 rounded-full transition-all duration-300"
+                data-aos="fade-up" data-aos-delay="400">
+                Read More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="swiper-slide relative h-[80vh]">
+          <div class="absolute inset-0 bg-cover bg-center hidden md:block"
+            style="background-image: url('assets/slide2.jpg')"></div>
+          <div class="absolute inset-0 bg-cover bg-center md:hidden mobile-blur"
+            style="background-image: url('assets/slide2_mobile.jpg')"></div>
+
+          <div class="relative z-10 flex items-center justify-end h-full md:pr-40">
+            <div class="text-left text-black p-6 rounded-md max-w-xl ml-6 md:ml-16">
+              <h2 class="text-4xl md:text-5xl font-bold mb-2" data-aos="fade-left">
+                Jewellery <br /><span class="text-[#C29958]">Collections</span>
+              </h2>
+              <h4 class="text-lg md:text-xl text-[#222222] mb-4" data-aos="fade-left" data-aos-delay="200">
+                Shukra Yogam & Silver Power Silver Saving Schemes.
+              </h4>
+              <a href="#"
+                class="inline-block bg-[#C29958] hover:bg-[#151328] text-white font-semibold px-6 py-3 rounded-full transition-all duration-300"
+                data-aos="fade-left" data-aos-delay="400">
+                Explore Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swiper Navigation & Pagination -->
+      <div class="hidden md:flex swiper-button-next"></div>
+      <div class="hidden md:flex swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- services  -->
+  <section class="flex flex-col items-center justify-center px-4 py-6">
+    <div id="widgetsContainer" class="grid grid-cols-3 md:grid-cols-5 gap-8 w-full max-w-2xl
+            max-h-[18rem]
+            overflow-hidden
+            transition-all duration-300">
+      <!-- widgets display from flutter response -->
+    </div>
+
+    <!-- Show More / Show Less Button (mobile only) -->
+   <button
+  id="toggle-button"
+  onclick="toggleWidgets()"
+  class="mt-4 text-[#a1883c] font-medium text-3xl md:hidden servicesBtn">
+  ▼ <br>
+  <span class="text-sm text-black">Show More</span>
+</button>
+  </section>
+
+  <!-- About Section -->
+
+  <section class="md:py-20" id="about">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- About Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-0 items-center">
+        <!-- Image -->
+        <div data-aos="fade-right" data-aos-duration="1000">
+          <img src="assets/about.jpg" alt="About" class=" shadow-xl w-full " />
+        </div>
+
+        <!-- Content -->
+        <div class="space-y-6 md:ml-12" data-aos="fade-left" data-aos-duration="1000">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c29958] via-black to-[#c29958]">
+            Sheelvant &amp; Son's Jewels Pvt. Ltd
+          </h2>
+          <p class="text-lg text-gray-600 font-medium">
+            We are the top jewelers across the Uttar Karnataka
+          </p>
+          <p class="text-[#c29958] uppercase tracking-widest font-semibold">
+            About Us
+          </p>
+
+          <strong class="text-gray-700 text-base leading-relaxed">
+            Sheelvant &amp; Sons Jewels Private Limited is a Private
+            incorporated on 31 December 2010. It is classified as Non-govt
+            company and is registered at Registrar of Companies.
+          </strong>
+          <p class="text-gray-700">
+            Directors: Mallikarjun Veeranna Sheelavant, Naveenkumar
+            Channaveerappa Sheelavantar, Rajashekar Veerappa Sheelavant, Deepa
+            Mallikarjun Sheelavanth, and Shilpa Rajashekar Sheelvant.
+          </p>
+          <p class="text-gray-700">
+            Sheelvant & Sons Jewels Private Limited's Corporate Identification Number is (CIN)
+            <strong>CIN:</strong> U74990KA2010PTC056445 &nbsp; | &nbsp;
+            <strong>Reg. No.:</strong> 56445
+          </p>
+        </div>
+      </div>
+
+      <!-- Vision & Mission Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-0 items-center ">
+        <!-- Vision and Mission Content -->
+        <div class="space-y-12 md:mr-12 mt-10 md:mt-0" data-aos="fade-up" data-aos-duration="1000">
+          <!-- Vision -->
+          <div>
+            <h3
+              class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c29958] via-black to-[#c29958]">
+              Vision
+            </h3>
+            <p class="mt-2 text-gray-700">
+              Our Vision is our framework that guides our business and
+              everything about it. <br><br>
+            </p>
+            <p class="text-gray-700">
+              To understand and delight the world, translating everyone’s
+              dream and personality into jewellery, and spread the happiness
+              from it to all.
+            </p>
+          </div>
+
+          <!-- Mission -->
+          <div>
+            <h3
+              class="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c29958] via-black to-[#c29958]">
+              Mission
+            </h3>
+            <p class="mt-2 text-gray-700">
+              Our mission declares our purpose of existence as a company and
+              our objectives. <br> <br>
+            </p>
+            <p class="text-gray-700">
+              To give every customer much more than what he asks for in terms
+              of quality, selection, value for money and customer service, by
+              understanding local tastes and preferences and innovating
+              constantly to eventually provide an unmatched experience in
+              jewellery shopping.
+            </p>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div data-aos="zoom-in" data-aos-duration="1000">
+          <img src="assets/about.jpg" alt="Vision and Mission" class=" shadow-xl w-full" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Title -->
+      <div class="text-center mb-12" data-aos="fade-down" data-aos-duration="1000">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#c29958] via-black to-[#c29958]">
+          Sheelvant &amp; Son's Jewels Pvt. Ltd
+        </h2>
+        <p class="text-lg text-gray-600 mt-2">
+          We are the top jewelers across the Uttar Karnataka
+        </p>
+      </div>
+
+      <!-- Service Policies -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up" data-aos-duration="1000">
+        <!-- Item 1 - Free Shipping -->
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300">
+          <div class="text-4xl text-[#c29958] mb-4">
+            <i class="fas fa-plane-departure"></i>
+          </div>
+          <h6 class="text-lg font-semibold mb-2">
+            FREE SHIPPING &amp; DELIVERY
+          </h6>
+          <p class="text-gray-600 text-sm">
+            We’re one of the jewellery retailers offering free delivery to
+            your doorstep.
+          </p>
+        </div>
+
+        <!-- Item 2 - 24/7 Support -->
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300">
+          <div class="text-4xl text-[#c29958] mb-4">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h6 class="text-lg font-semibold mb-2">SUPPORT 24/7</h6>
+          <p class="text-gray-600 text-sm">
+            Always available for your queries and assistance anytime.
+          </p>
+        </div>
+
+        <!-- Item 3 - 365-Day Trial -->
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300">
+          <div class="text-4xl text-[#c29958] mb-4">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h6 class="text-lg font-semibold mb-2">365-DAY HOME TRIAL</h6>
+          <p class="text-gray-600 text-sm">
+            Our unique policy allows extended returns for almost a year.
+          </p>
+        </div>
+
+        <!-- Item 4 - Lifetime Warranty -->
+        <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-2xl transition-all duration-300">
+          <div class="text-4xl text-[#c29958] mb-4">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h6 class="text-lg font-semibold mb-2">LIFETIME WARRANTY</h6>
+          <p class="text-gray-600 text-sm">
+            Purchase with confidence – we offer unmatched lifetime warranty.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn"
+    class="hidden fixed bottom-6 right-6 z-50 bg-[linear-gradient(310deg,_#87600d_4%,_#fce79d_54%,_#b68f35_97%)] text-black p-3 rounded-full shadow-lg transition-opacity duration-300 ">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+      class="size-6 font-bold">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+    </svg>
+  </button>
+
+
+
+  <footer class="font-[Inter]">
+    <!-- Footer Contact Section -->
+    <div class="w-full px-4 py-6 md:py-10 bg-[#F7F7F7]">
+      <div class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-2 items-start">
+        <!-- Social Icons -->
+        <div class="flex flex-col items-center justify-center h-full gap-4 mt-4 md:mt-0 md:mb-10">
+          <!-- Center: Logo -->
+          <div class="w-full md:w-2/3 text-start md:text-center mb-5 md:mb-0">
+            <a href="#" class="flex items-center justify-start md:justify-center space-x-2">
+              <img src="assets/logo.png" alt="Logo" class="h-16  md:w-[300px] object-contain" />
+            </a>
+            <p class="text-2xl md:text-3xl text-black mt-2 md:my-4">Sheelvant & Son's <br> Jewels Pvt. Ltd</p>
+
+          </div>
+        </div>
+
+        <!-- Contact Details -->
+        <div class="space-y-3 text-black">
+          <p class="font-semibold text-xl mb-6">Contact Us</p>
+          <p>
+            <span class="text-xl"> 🏚️ Ward no 1, Saraff bazar, M G Road Guledagudd 587203 </span><br> <br>
+            <span class="text-xl"> 📧 sheelvantandsons@gmail.com</span> <br> <br>
+            <span class="text-xl"> 📞 +91-9448144800 </span>
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+
+  <script>
+    window.renderDrawerItem = function (widget) {
+      return `
+        <a href="#"
+           onclick="${widget.action}()" class="hover:text-[#a7704a]">
+            ${widget.name}
+        </a>
+    `;
+    }
+
+
+    window.renderWidget = function (widget, index) {
+
+      const isVirtualTryOn = Number(widget.id) === 23;
+
+      return `
+    <div
+      class="flex flex-col items-center"
+      data-aos="zoom-in-up"
+      data-aos-delay="${index * 100}"
+    >
+
+      <div
+        onclick="${widget.action}()"
+        class="relative w-[100px] h-[95px] rounded-full cursor-pointer"
+      >
+
+        <svg viewBox="0 0 100 100" class="w-full h-full">
+
+          <defs>
+            <linearGradient id="grad-${index}" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="100%" stop-color="#000000" />
+            </linearGradient>
+          </defs>
+
+          <!-- Outer Shape -->
+          <path
+            d="M30,5 h40 a5,5 0 0 1 4.33,2.5 l20,35 a5,5 0 0 1 0,5 l-20,35 a5,5 0 0 1 -4.33,2.5 h-40 a5,5 0 0 1 -4.33,-2.5 l-20,-35 a5,5 0 0 1 0,-5 l20,-35 a5,5 0 0 1 4.33,-2.5 z"
+            fill="#DEBACE"
+            stroke="#000000"
+            stroke-width="2"
+          />
+
+          <!-- Inner Shape -->
+          <path
+            d="M32,10 h36 a4,4 0 0 1 3.5,2 l18,31 a4,4 0 0 1 0,4 l-18,31 a4,4 0 0 1 -3.5,2 h-36 a4,4 0 0 1 -3.5,-2 l-18,-31 a4,4 0 0 1 0,-4 l18,-31 a4,4 0 0 1 3.5,-2 z"
+            fill="#a1883c"
+            stroke="url(#grad-${index})"
+            stroke-width="2"
+          />
+
+        </svg>
+
+        <img
+          src="${widget.icon}"
+          alt="${widget.name}"
+          class="absolute top-[25px] left-[30px] w-10 h-10 object-contain z-10 ${isVirtualTryOn ? "" : "invert"}"
+        />
+
+      </div>
+
+      <div class="text-sm font-semibold uppercase mt-1 text-center">
+        ${widget.name}
+      </div>
+
+    </div>
+  `;
+    };
+
+  </script>
+
+  <script>
+    AOS.init({
+      once: true,
+      duration: 1000,
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
