@@ -54,15 +54,21 @@ initializeBrandingSwiper();
 
 // Called by widgets-core.js after Flutter replaces the banners
 window.onBannerImagesLoaded = function () {
-  // Hide mobile images
-  document.querySelectorAll(".brandingSwiper img.block.md\\:hidden").forEach(img => {
-    img.style.display = "none";
+
+  // Flutter sends only desktop banner images.
+  // Remove the fixed height from every slide.
+  document.querySelectorAll(".brandingSwiper .swiper-slide").forEach(slide => {
+    slide.classList.remove("h-[80vh]");
+    slide.style.height = "auto";
   });
 
-  // Show desktop images
-  document.querySelectorAll(".brandingSwiper img.hidden.md\\:block").forEach(img => {
+  // Make Flutter banner images responsive.
+  document.querySelectorAll(".brandingSwiper .swiper-slide img").forEach(img => {
+    img.classList.remove("md:hidden", "hidden", "md:block", "block");
+    img.classList.add("w-full", "h-auto", "object-cover");
     img.style.display = "block";
   });
+
   initializeBrandingSwiper();
 };
 
