@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silver Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="bg-white text-gray-900 relative flex items-center justify-center px-4 md:px-10 py-4 shadow-lg">
+
+    <!-- Left: Drawer -->
+    <button id="menu-toggle" class="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 focus:outline-none"
+      aria-label="Open Menu">
+
+      <svg class="w-8 h-8 md:w-10 md:h-10 text-[#133235]" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+
+    </button>
+
+    <!-- Center: Logo -->
+    <div class="flex items-center justify-center">
+      <img src="assets/header-logo.jpg" alt="Logo" class="h-10 md:h-14 object-contain" />
+    </div>
+
+    <!-- Right: Notification -->
+    <div class="absolute right-4 md:right-6 top-1/2 -translate-y-1/2">
+
+      <button aria-label="Notifications" onclick="navigateToNotification()"
+        class="p-2 rounded-full hover:bg-gray-100 transition">
+
+        <img src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png" alt="Notifications"
+          class="w-6 h-6 md:w-7 md:h-7" />
+
+      </button>
+
+    </div>
+
+  </header>
+
+  <!-- Left Drawer -->
+  <div id="drawer"
+    class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+    <div class="flex justify-between items-center px-4 py-4 border-b">
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+        <img src="assets/header-logo.jpg" alt="Logo" class="h-10" />
+      </div>
+      <button id="close-drawer" class="text-gray-500 hover:text-black" aria-label="Close Menu">
+        ✕
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Links -->
+    <nav id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-[#133235]">
+    </nav>
+
+
+  </div>
+
+  <!-- Overlay -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+  <!-- swiper slider  -->
+  <div class="swiper brandingSwiper w-full h-full md:h-[80vh] overflow-hidden">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <img src="assets/slider1.jpg" alt="Image 1" class="w-full h-full object-cover" />
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/slider2.jpg" alt="Image 2" class="w-full h-full object-cover" />
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/slider3.jpg" alt="Image 3" class="w-full h-full object-cover" />
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/slider4.jpg" alt="Image 4" class="w-full h-full object-cover" />
+      </div>
+      <div class="swiper-slide">
+        <img src="assets/slider5.jpg" alt="Image 5" class="w-full h-full object-cover" />
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Navigation -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+
+    <!-- Autoplay Progress Circle -->
+    <div
+      class="autoplay-progress absolute right-6 bottom-6 w-8 h-8 md:w-12 md:h-12 flex items-center justify-center font-bold text-yellow-400 z-10">
+      <svg viewBox="0 0 48 48"
+        class="absolute left-0 top-0 w-full h-full stroke-yellow-400 stroke-[4] fill-none z-[-1]">
+        <circle cx="24" cy="24" r="20" />
+      </svg>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- services  -->
+  <div class="flex flex-col items-center justify-center p-4 md:p-6">
+    <div class="max-w-5xl mx-auto">
+      <!-- widgetContainer -->
+      <div
+    id="widgetsContainer"
+    class="flex flex-wrap justify-center gap-3 md:gap-8
+           max-h-[7rem] md:max-h-none
+           overflow-hidden md:overflow-visible
+           transition-all duration-300"
+    data-aos="zoom-in">
+</div>
+    </div>
+    <!-- Toggle Button for Mobile -->
+    <div id="showMoreContainer" class="md:hidden mt-4">
+      <button onclick="toggleBoxes()" class="animate-bounce text-gray-600">
+        <svg id="arrowIcon" class="w-8 h-8 mx-auto transition-transform duration-300" fill="none" stroke="currentColor"
+          stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div class="max-w-7xl mx-auto px-4 py-10 pb-10">
+    <h1 class="text-4xl font-playfair text-center mb-8" data-aos="fade-down">
+      ABOUT US
+    </h1>
+
+    <div class="space-y-6">
+      <div class="flex flex-col md:flex-row items-center gap-4">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0802/5941/6385/files/WhatsApp_Image_2023-08-04_at_10.53.04_PM_1_480x480.jpg?v=1691169922"
+          alt="About Us Image 1" class="w-full md:w-1/2 h-auto rounded-md shadow" data-aos="fade-right"
+          data-aos-delay="100" />
+        <img
+          src="https://cdn.shopify.com/s/files/1/0802/5941/6385/files/WhatsApp_Image_2023-08-04_at_10.53.04_PM_480x480.jpg?v=1691169923"
+          alt="About Us Image 2" class="w-full md:w-1/2 h-auto rounded-md shadow" data-aos="fade-left"
+          data-aos-delay="200" />
+      </div>
+
+      <p class="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="300">
+        As pioneers in the jewellery industry with
+        <strong>88 years</strong> of experience and customer relationships, we
+        offer a wide variety of <strong>22-carat jewellery</strong> and
+        <strong>22-karat 916KDM jewellery</strong> at comparatively lower
+        wastage rates than other market players.
+      </p>
+
+      <p class="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="400">
+        Our team of esteemed gold and silver smiths allows us to customize any
+        piece to your liking. We provide a broad selection of silver items
+        across all categories, including chains, bracelets, silver glasses,
+        kuthu vilakku, kamatchi vilakku, and many more.
+      </p>
+
+      <p class="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="500">
+        With <strong>88 years of expertise</strong> and a
+        <strong>100k+ active customer base</strong>, we stand out among the
+        authentic jewellers in Chennai. Our three gold jewellery stores in
+        different locations have earned the deep trust of our customers.
+      </p>
+
+      <p class="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="600">
+        We are committed to continuing this journey, winning hearts and
+        earning the trust of customers all over India. 💕
+      </p>
+
+      <p class="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="700">
+        Carrying forward the legacy under the name
+        <strong>SILVER STORE CHENNAI</strong>, we deal in exclusive imported
+        silver jewellery crafted with the finest workmanship under our
+        supervision, and we also offer custom silver jewellery.
+      </p>
+
+      <p class="text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="800">
+        The business operates under the name
+        <strong>SRI GANDHI THANGAMALIGAI</strong>, and the GST registration
+        will also be in the same name.
+      </p>
+    </div>
+  </div>
+
+  <!-- banner -->
+  <div class="w-full" data-aos="fade-right">
+    <!-- Mobile Image -->
+    <img src="assets/banner_mobile.png" alt="Mobile Banner" class="w-full h-auto object-cover block md:hidden" />
+
+    <!-- Desktop Image -->
+    <img src="assets/banner.jpg" alt="Desktop Banner" class="w-full h-auto object-cover hidden md:block" />
+  </div>
+
+  <!-- New Arrivals Section -->
+  <section class="py-14 px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10" data-aos="zoom-in">
+        <h2 class="text-3xl font-playfair text-gray-800 sm:text-4xl">
+          New Arrivals
+        </h2>
+        <p class="text-lg mt-2 leading-relaxed">Fresh picks curated just for you</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- Product Card 1 -->
+        <div class="relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+          data-aos="fade-up" data-aos-delay="100">
+          <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+          <img src="https://i.pinimg.com/1200x/d5/ed/84/d5ed84383d22e948727b0f951d9d224c.jpg" alt="Ring"
+            class="w-full h-56 object-fill" />
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800 text-xl">
+              Sterling Silver Band
+            </h3>
+            <p class=" text-gray-500 text-base leading-relaxed">Elegant handcrafted design</p>
+            <div class="mt-2 text-gray-900 font-bold">₹2,799</div>
+          </div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+          data-aos="fade-up" data-aos-delay="200">
+          <span class="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">JUST IN</span>
+          <img src="https://i.pinimg.com/736x/9e/b1/72/9eb17245c6fcf747def120c7fb043d5b.jpg" alt="Necklace"
+            class="w-full h-56 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800 text-xl">
+              Silver Leaf Necklace
+            </h3>
+            <p class="text-base leading-relaxed text-gray-500">Lightweight, everyday wear</p>
+            <div class="mt-2 text-gray-900 font-bold">₹3,299</div>
+          </div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+          data-aos="fade-up" data-aos-delay="300">
+          <span class="absolute top-2 left-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">HOT</span>
+          <img src="https://i.pinimg.com/1200x/52/ec/36/52ec36fb7cc2e9b27864aa37ae38f90f.jpg" alt="Earrings"
+            class="w-full h-56 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800 text-xl">
+              Twist Hoop Earrings
+            </h3>
+            <p class="text-base leading-relaxed text-gray-500">Stylish and durable</p>
+            <div class="mt-2 text-gray-900 font-bold">₹1,999</div>
+          </div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="relative bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition duration-300"
+          data-aos="fade-up" data-aos-delay="400">
+          <span class="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+          <img src="https://i.pinimg.com/736x/67/d0/b8/67d0b89270ae974ce6179ebf45d92c58.jpg" alt="Bangle"
+            class="w-full h-56 object-cover" />
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800 text-xl">
+              Polished Silver Bangle
+            </h3>
+            <p class="text-base leading-relaxed text-gray-500">Classic with a modern twist</p>
+            <div class="mt-2 text-gray-900 font-bold">₹2,599</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- footer  -->
+  <footer>
+    <div class="w-full px-4 py-6 md:py-10 bg-[#BD9C55] ">
+      <div class="max-w-6xl mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-2 items-center">
+        <div class="flex flex-col gap-4 mt-4 md:mt-0 md:mb-10">
+          <!-- Center: Logo -->
+          <div class="">
+            <a href="#" class="flex items-center space-x-2">
+              <img src="assets/header-logo.jpg" alt="Silver store" class="h-20 w-auto" />
+            </a>
+          </div>
+
+
+        </div>
+
+        <!-- Contact Details -->
+        <div class="text-black space-y-3">
+          <p class="font-playfair font-semibold text-xl">Contact us</p>
+          <p>
+            Silver Store Chennai Sri Gandhi Thangamaligai,<br> 486, Thiruvottiyur
+            High Rd,<br> Old Washermanpet, Chennai-600021
+            <br /><br />
+            <span class="block">
+              Corporate office: 0452-2565553
+              <br />
+              Customer queries : Silverstorechennai@gmail.com
+            </span>
+
+            <span class="block mt-1">
+              +91 6381765861 (10:30 am to 9:30 pm)
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    window.renderDrawerItem = function (widget) {
+      return `
+        <a href="#"
+           onclick="${widget.action}()"  class="hover:text-[#a7704a] font-semibold font-marcellus">
+            ${widget.name}
+        </a>
+    `;
+    }
+
+
+
+    // widget tabs display
+    window.renderWidget = function (widget, index) {
+      const isVirtualTryOn = Number(widget.id) === 23;
+
+      return `
+    <div onclick="${widget.action}()"
+         class="w-24 h-28 md:w-28 md:h-28 rounded-tr-[50px] rounded-bl-[50px] bg-[#D7C4BE] flex flex-col items-center justify-center text-center shadow-md text-white hover:bg-[#DAB3A7] cursor-pointer"
+        data-aos="zoom-in" data-aos-delay="100">
+
+        <!-- Content over image -->
+        <div class="absolute top-2 flex flex-col items-center">
+
+            <img class="w-8 h-8 md:w-10 md:h-10 my-3
+                ${isVirtualTryOn ? "" : "invert"}"
+                src="${widget.icon}"
+                alt="${widget.name}" />
+
+            <p class="text-white text-xs md:text-sm font-semibold text-center w-[70px]">
+                ${widget.name}
+            </p>
+
+        </div>
+    </div>
+    `;
+    };
+
+  </script>
+</body>
+
+</html>

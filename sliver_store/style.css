@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Marcellus", serif;
+}
+
+
+/* slider  */
+
+
+ .autoplay-progress {
+        background-color: rgba(0, 0, 0, 0.6); /* translucent black background */
+        border-radius: 50%;
+      }
+
+      .autoplay-progress span {
+        color: white;
+        font-weight: bold;
+        font-size: 0.7rem;
+      }
+
+      .autoplay-progress svg {
+        --progress: 0;
+        stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
+        stroke-dasharray: 125.6;
+        transform: rotate(-90deg);
+      }
+
+      .autoplay-progress svg circle {
+        stroke: #2D4654; /* Tailwind yellow-400 */
+        fill: transparent;
+      }
+
+      /* Custom arrow styles */
+      .swiper-button-next,
+      .swiper-button-prev {
+        color: white;
+        background-color: black;
+        padding: 12px;
+        border-radius: 50%;
+      }
+
+      .swiper-button-next::after,
+      .swiper-button-prev::after {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+      }
