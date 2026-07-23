@@ -1,38 +1,49 @@
- const drawer = document.getElementById("drawer");
-    const overlay = document.getElementById("overlay");
-    const menuToggle = document.getElementById("menu-toggle");
-    const closeDrawer = document.getElementById("close-drawer");
+const drawer = document.getElementById("drawer");
+const overlay = document.getElementById("overlay");
+const menuToggle = document.getElementById("menu-toggle");
+const closeDrawer = document.getElementById("close-drawer");
 
-    menuToggle.addEventListener("click", () => {
-      drawer.classList.remove("drawer-close");
-      drawer.classList.add("drawer-open");
-      overlay.classList.remove("hidden");
-      overlay.classList.add("show");
-    });
+if (drawer && overlay && menuToggle && closeDrawer) {
+  menuToggle.addEventListener("click", () => {
+    drawer.classList.remove("drawer-close");
+    drawer.classList.add("drawer-open");
 
-    closeDrawer.addEventListener("click", () => {
-      drawer.classList.remove("drawer-open");
-      drawer.classList.add("drawer-close");
-      overlay.classList.remove("show");
-      setTimeout(() => {
-        overlay.classList.add("hidden");
-      }, 300);
-    });
+    overlay.classList.remove("hidden");
+    overlay.classList.add("show");
+  });
 
-    overlay.addEventListener("click", () => {
-      closeDrawer.click();
-    });
+  closeDrawer.addEventListener("click", () => {
+    drawer.classList.remove("drawer-open");
+    drawer.classList.add("drawer-close");
 
-//this change for use dynamic banners if flutter sends
+    overlay.classList.remove("show");
 
+    setTimeout(() => {
+      overlay.classList.add("hidden");
+    }, 300);
+  });
+
+  overlay.addEventListener("click", () => {
+    closeDrawer.click();
+  });
+}
+
+/*
+ * Dynamic banners
+ * Flutter banner rendering remains handled by the common widgets-core.js file.
+ */
 function initializeBrandingSwiper() {
+  const brandingSwiperElement = document.querySelector(".brandingSwiper");
 
-  // Destroy previous instance if already exists
+  if (!brandingSwiperElement || typeof Swiper === "undefined") {
+    return;
+  }
+
+  // Destroy the previous Swiper instance before reinitializing.
   if (window.brandingSwiperInstance) {
     window.brandingSwiperInstance.destroy(true, true);
   }
 
-  // Initialize Swiper for this page
   window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
     loop: true,
     autoplay: {
@@ -50,88 +61,205 @@ function initializeBrandingSwiper() {
   });
 }
 
-// Initial load (static banners)
+// Initial load for static banners.
 initializeBrandingSwiper();
 
-// Called by widgets-core.js after Flutter replaces the banners
+// Called by widgets-core.js after Flutter replaces the banner images.
 window.onBannerImagesLoaded = function () {
   initializeBrandingSwiper();
 };
 
+/*
+ * Dynamic service widgets
+ *
+ * widgets-core.js remains unchanged.
+ * This script watches widgetsContainer and automatically updates the
+ * mobile Show More button whenever Flutter widgets are rendered.
+ */
+document.addEventListener("DOMContentLoaded", function () {
+  const widgetsContainer = document.getElementById("widgetsContainer");
+  const showMoreContainer = document.getElementById("showMoreBtn");
 
+  if (!widgetsContainer || !showMoreContainer) {
+    return;
+  }
 
+  const MOBILE_WIDGET_LIMIT = 6;
+  let widgetsExpanded = false;
 
-// service 
+  function setShowMoreButtonContent() {
+    const button = showMoreContainer.querySelector("button");
 
-
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabsContainer = document.getElementById("widgetsContainer");
-    const showMoreBtn = document.getElementById("showMoreBtn");
-
-    function applyMobileView() {
-      const isMobile = window.innerWidth < 768;
-      const tabs = tabsContainer.children;
-
-      if (isMobile) {
-        for (let i = 6; i < tabs.length; i++) {
-          tabs[i].classList.add("hidden");
-        }
-        showMoreBtn.style.display = "block";
-      } else {
-        for (let i = 0; i < tabs.length; i++) {
-          tabs[i].classList.remove("hidden");
-        }
-        showMoreBtn.style.display = "none";
-      }
+    if (!button) {
+      return;
     }
 
-    showMoreBtn.addEventListener("click", function () {
-      const tabs = tabsContainer.children;
-      const isHidden = tabs[6].classList.contains("hidden");
-      if (isHidden) {
-        for (let i = 6; i < tabs.length; i++) {
-          tabs[i].classList.remove("hidden");
-        }
-        showMoreBtn.querySelector("button").innerHTML = `
-         
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-          </svg>
-           Show Less
-        `;
-      } else {
-        for (let i = 6; i < tabs.length; i++) {
-          tabs[i].classList.add("hidden");
-        }
-        showMoreBtn.querySelector("button").innerHTML = `
-    
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-            Show More
-        `;
-      }
+    if (widgetsExpanded) {
+      button.innerHTML = `
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 15l7-7 7 7">
+          </path>
+        </svg>
+        Show Less
+      `;
+    } else {
+      button.innerHTML = `
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-8 w-8"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7">
+          </path>
+        </svg>
+        Show More
+      `;
+    }
+  }
+
+  function updateServiceWidgetsView() {
+    const isMobileView = window.innerWidth < 768;
+    const widgets = Array.from(widgetsContainer.children);
+    const hasMoreThanSixWidgets =
+      widgets.length > MOBILE_WIDGET_LIMIT;
+
+    /*
+     * Desktop/tablet view:
+     * Show all widgets and hide the Show More button.
+     */
+    if (!isMobileView) {
+      widgets.forEach((widget) => {
+        widget.classList.remove("hidden");
+      });
+
+      showMoreContainer.style.display = "none";
+      return;
+    }
+
+    /*
+     * Mobile view with six or fewer widgets:
+     * Show all widgets and do not display the Show More button.
+     */
+    if (!hasMoreThanSixWidgets) {
+      widgetsExpanded = false;
+
+      widgets.forEach((widget) => {
+        widget.classList.remove("hidden");
+      });
+
+      showMoreContainer.style.display = "none";
+      setShowMoreButtonContent();
+
+      return;
+    }
+
+    /*
+     * Mobile view with more than six widgets:
+     * Initially display only the first six widgets.
+     */
+    widgets.forEach((widget, index) => {
+      const shouldHide =
+        !widgetsExpanded && index >= MOBILE_WIDGET_LIMIT;
+
+      widget.classList.toggle("hidden", shouldHide);
     });
 
-    applyMobileView();
-    window.addEventListener("resize", applyMobileView);
+    showMoreContainer.style.display = "block";
+    setShowMoreButtonContent();
+  }
+
+  showMoreContainer.addEventListener("click", function () {
+    const widgets = widgetsContainer.children;
+    const isMobileView = window.innerWidth < 768;
+
+    /*
+     * Do nothing when:
+     * - It is not mobile view
+     * - There are six or fewer widgets
+     */
+    if (
+      !isMobileView ||
+      widgets.length <= MOBILE_WIDGET_LIMIT
+    ) {
+      return;
+    }
+
+    widgetsExpanded = !widgetsExpanded;
+    updateServiceWidgetsView();
   });
 
+  /*
+   * Observe widgetsContainer because widgets-core.js adds Flutter widgets
+   * dynamically after this page has already loaded.
+   */
+  const widgetsObserver = new MutationObserver(function (mutations) {
+    const widgetsChanged = mutations.some(
+      (mutation) => mutation.type === "childList"
+    );
 
+    if (!widgetsChanged) {
+      return;
+    }
 
+    // Collapse the newly received widget list on mobile.
+    widgetsExpanded = false;
 
-    // back to top
-const btn = document.getElementById("backToTopBtn");
+    requestAnimationFrame(() => {
+      updateServiceWidgetsView();
 
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    btn.classList.remove("hidden");
-  } else {
-    btn.classList.add("hidden");
-  }
+      // Refresh animations for dynamically added Flutter widgets.
+      if (typeof AOS !== "undefined") {
+        AOS.refreshHard();
+      }
+    });
+  });
+
+  widgetsObserver.observe(widgetsContainer, {
+    childList: true,
+  });
+
+  /*
+   * Apply the correct view for widgets that may already be rendered.
+   */
+  updateServiceWidgetsView();
+
+  window.addEventListener("resize", function () {
+    updateServiceWidgetsView();
+  });
 });
 
-// Scroll to top smoothly
-btn.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+/*
+ * Back to top
+ */
+const backToTopButton = document.getElementById("backToTopBtn");
+
+if (backToTopButton) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      backToTopButton.classList.remove("hidden");
+    } else {
+      backToTopButton.classList.add("hidden");
+    }
+  });
+
+  backToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}

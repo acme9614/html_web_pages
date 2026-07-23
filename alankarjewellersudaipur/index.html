@@ -61,47 +61,31 @@
 <body>
   <!-- Header -->
   <div>
-   <header
-  class="bg-white text-gray-900 relative flex items-center justify-center h-16 sm:h-20 md:h-24 px-3 sm:px-4 md:px-8 mt-8 md:mt-0 shadow"
-  data-aos="zoom-in"
-  data-aos-delay="100"
-  data-aos-duration="1000">
+    <header
+      class="bg-white text-gray-900 relative flex items-center justify-center h-16 sm:h-20 md:h-24 px-3 sm:px-4 md:px-8 mt-8 md:mt-0 shadow"
+      data-aos="zoom-in" data-aos-delay="100" data-aos-duration="1000">
 
-  <!-- Hamburger -->
-  <button
-    id="menu-toggle"
-    aria-label="Open Menu"
-    class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1 rounded-lg hover:bg-gray-100 transition">
-    <img
-      src="assets/drawer.png"
-      alt="Menu"
-      class="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
-      loading="lazy">
-  </button>
+      <!-- Hamburger -->
+      <button id="menu-toggle" aria-label="Open Menu"
+        class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1 rounded-lg hover:bg-gray-100 transition">
+        <img src="assets/drawer.png" alt="Menu" class="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10" loading="lazy">
+      </button>
 
-  <!-- Center Logo -->
-  <div class="flex items-center justify-center">
-    <img
-      src="assets/logo.jpg"
-      alt="Logo"
-      class="h-10 sm:h-12 md:h-16 w-auto">
-  </div>
+      <!-- Center Logo -->
+      <div class="flex items-center justify-center">
+        <img src="assets/logo.jpg" alt="Logo" class="h-10 sm:h-12 md:h-16 w-auto">
+      </div>
 
-  <!-- Right Actions -->
-  <div
-    class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-0.5 sm:gap-2 md:gap-3">
+      <!-- Right Actions -->
+      <div class="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 flex items-center gap-0.5 sm:gap-2 md:gap-3">
 
-    <button
-      aria-label="Notifications"
-      onclick="navigateToNotification()"
-      class="p-1 sm:p-2 rounded-full hover:bg-gray-100 transition">
-      <img
-        src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png"
-        alt="Notifications"
-        class="w-5 h-5 sm:w-6 sm:h-6">
-    </button>
+        <button aria-label="Notifications" onclick="navigateToNotification()"
+          class="p-1 sm:p-2 rounded-full hover:bg-gray-100 transition">
+          <img src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png" alt="Notifications"
+            class="w-5 h-5 sm:w-6 sm:h-6">
+        </button>
 
-    <!-- <button
+        <!-- <button
       aria-label="Logout"
       onclick="navigateToLogout()"
       class="p-1 sm:p-2 rounded-full hover:bg-gray-100 transition">
@@ -111,9 +95,9 @@
         class="w-5 h-5 sm:w-6 sm:h-6">
     </button> -->
 
-  </div>
+      </div>
 
-</header>
+    </header>
 
     <!-- Drawer -->
     <div id="drawer"
@@ -205,14 +189,16 @@
       <!-- widgets display from dynamically flutter response -->
     </div>
 
-    <!-- Show More Button (mobile only) -->
-    <div id="showMoreBtn" class="mt-4 text-center md:hidden">
-      <button class="flex flex-col items-center mx-auto text-[#8B2D3A] font-semibold text-lg">
+    <!-- Show More Button: displayed only on mobile when widgets exceed 6 -->
+    <div id="showMoreBtn" class="hidden mt-4 text-center md:hidden">
+      <button type="button" class="flex flex-col items-center mx-auto text-[#8B2D3A] font-semibold text-lg">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mt-1" fill="none" viewBox="0 0 24 24"
           stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+          </path>
         </svg>
-        Show More
+
+        <span>Show More</span>
       </button>
     </div>
   </section>
