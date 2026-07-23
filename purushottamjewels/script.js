@@ -4,7 +4,7 @@ const drawer = document.getElementById('drawer');
 
 menuBtn.addEventListener('click', () => {
   // Add Notification before Settings
-  addNotificationMenu();
+  // addNotificationMenu();
 
   drawer.classList.remove('translate-x-full');
   document.body.style.overflow = "hidden"; //  FIX

@@ -54,7 +54,7 @@ const drawerLinks = document.querySelectorAll(".drawer-link");
 // Open Drawer
 menuBtn.addEventListener("click", () => {
     // Add Notification before Settings
-    addNotificationMenu();
+    // addNotificationMenu();
 
     mobileDrawer.classList.remove("left-[-100%]");
     mobileDrawer.classList.add("left-0");
