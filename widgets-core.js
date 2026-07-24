@@ -120,6 +120,37 @@ function getIcon(code) {
 function getDisplayName(code) {
     return NAME_MAP?.[code] || "Unknown";
 }
+//added for in pngadgilandsons webpage
+//show the Pay Online Monthly Advance 
+function isPngadgilAndSonsPage() {
+    return window.location.pathname
+        .toLowerCase()
+        .split("/")
+        .includes("pngadgilandsons");
+}
+
+function resolveWidgetDisplayName(widget) {
+    const originalName = String(widget?.name || "").trim();
+    const normalizedName = originalName.toLowerCase();
+
+    const schemeNames = [
+        "scheme",
+        "saving scheme",
+        "savings scheme"
+    ];
+
+    if (
+        isPngadgilAndSonsPage() &&
+        (
+            Number(widget?.id) === 1 ||
+            schemeNames.includes(normalizedName)
+        )
+    ) {
+        return "Pay Online Monthly Advance";
+    }
+
+    return originalName || getDisplayName(widget?.id);
+}
 
 // Fallback icon if mapping not found
 function getDefaultIcon() {
@@ -158,6 +189,12 @@ async function loadWidgets() {
 
             widgets = data.widgets || [];
         }
+
+        // Change Scheme name only for pngadgilandsons page
+        widgets = widgets.map(widget => ({
+            ...widget,
+            name: resolveWidgetDisplayName(widget)
+        }));
 
         const gridContainer = document.getElementById("widgetsContainer");
         const drawerContainer = document.getElementById("drawerContainer");
