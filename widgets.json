@@ -20,7 +20,7 @@
         },
         {
             "id": 3,
-            "name": "Rate",
+            "name": "Todays Rate",
             "icon": "https://cdn-icons-png.flaticon.com/128/592/592015.png",
             "action": "navigateToRate"
         },
