@@ -171,49 +171,124 @@
         </div>
     </section>
 
+    <!-- MONTHLY ADVANCE PAYMENT SECTION -->
     <section class="py-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-5xl mx-auto px-4">
 
-            <div
-                class="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center bg-white rounded-[50px] overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.08)]">
+            <div class="group grid lg:grid-cols-[1fr_1fr]
+                    bg-white rounded-[22px]
+                    overflow-hidden border border-red-100
+                    shadow-[0_12px_35px_rgba(127,29,29,0.10)]
+                    transition-all duration-300
+                    hover:-translate-y-1
+                    hover:shadow-[0_18px_45px_rgba(127,29,29,0.16)]">
 
-                <!-- Image -->
-                <div class="relative h-[650px]">
-                    <img src="./assets/scheme.jpg" class="w-full h-full object-cover">
+                <!-- TEXT: FIRST ON MOBILE -->
+                <div class="order-1 lg:order-2
+                        relative flex items-center
+                        p-6 sm:p-7 lg:p-8">
 
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent">
+                    <i class="fas fa-coins absolute top-5 right-5
+                          text-4xl text-brand-100
+                          transition-transform duration-300
+                          group-hover:rotate-12">
+                    </i>
+
+                    <div class="relative z-10">
+
+                        <p class="text-brand-700 uppercase
+                              tracking-[0.16em]
+                              text-[11px] font-semibold">
+                            Monthly Advance Payment
+                        </p>
+
+                        <h2 class="font-cinzel text-2xl sm:text-3xl
+                               text-gray-900 font-semibold
+                               mt-2 leading-tight">
+                            Pay Every Month
+                            <span class="block text-brand-700">
+                                For Your Jewellery
+                            </span>
+                        </h2>
+
+                        <p class="text-gray-600 text-sm
+                              leading-6 mt-4 max-w-md">
+                            Pay your monthly instalment online in a simple and secure
+                            way. Regular payments help you plan your future jewellery
+                            purchase.
+                        </p>
+
+                        <!-- Small Benefits -->
+                        <div class="flex flex-wrap gap-2 mt-5">
+
+                            <span class="inline-flex items-center gap-1.5
+                                     px-3 py-1.5 rounded-full
+                                     bg-red-50 text-gray-700
+                                     text-xs font-medium
+                                     transition duration-300
+                                     hover:bg-brand-700 hover:text-white">
+                                <i class="fas fa-calendar-check"></i>
+                                Monthly Payment
+                            </span>
+
+                            <span class="inline-flex items-center gap-1.5
+                                     px-3 py-1.5 rounded-full
+                                     bg-red-50 text-gray-700
+                                     text-xs font-medium
+                                     transition duration-300
+                                     hover:bg-brand-700 hover:text-white">
+                                <i class="fas fa-mobile-alt"></i>
+                                Pay Online
+                            </span>
+
+                            <span class="inline-flex items-center gap-1.5
+                                     px-3 py-1.5 rounded-full
+                                     bg-red-50 text-gray-700
+                                     text-xs font-medium
+                                     transition duration-300
+                                     hover:bg-brand-700 hover:text-white">
+                                <i class="fas fa-shield-alt"></i>
+                                Safe Payment
+                            </span>
+
+                        </div>
+
+                        <!-- Action Button -->
+                        <button type="button" onclick="navigateToScheme()" class="group/button mt-5
+                               inline-flex items-center justify-center gap-2
+                               px-6 py-3 rounded-full
+                               bg-brand-700 text-white
+                               text-sm font-semibold
+                               shadow-[0_8px_20px_rgba(185,28,28,0.22)]
+                               transition-all duration-300
+                               hover:bg-brand-800
+                               hover:-translate-y-0.5
+                               active:translate-y-0">
+
+                            <span>Pay Monthly Advance</span>
+
+                            <i class="fas fa-arrow-right text-xs
+                                  transition-transform duration-300
+                                  group-hover/button:translate-x-1">
+                            </i>
+                        </button>
+
                     </div>
-
                 </div>
 
-                <!-- Content -->
-                <div class="p-10 lg:p-16">
+                <!-- IMAGE: SECOND ON MOBILE -->
+                <div class="order-2 lg:order-1
+            relative min-h-[220px] sm:min-h-[260px] lg:min-h-[300px]
+            flex items-center justify-center
+            overflow-hidden bg-white rounded-[20px]">
 
-                    <p class="text-brand-600 uppercase tracking-[5px] font-semibold">
-                        Jewellery Savings Plan
-                    </p>
-
-                    <h2 class="font-cinzel text-5xl lg:text-6xl text-gray-900 mt-5 leading-tight">
-                        Save Today.
-                        Wear Tomorrow.
-                    </h2>
-
-                    <p class="text-gray-600 text-lg leading-9 mt-8">
-                        Begin your jewellery journey with flexible monthly
-                        savings and unlock exclusive rewards and benefits.
-                    </p>
-
-                    <button class="mt-12 px-10 py-4 rounded-full
-                           bg-brand-700 text-white
-                           hover:bg-brand-800
-                           transition">
-                        Explore Schemes
-                    </button>
+                    <img src="./assets/scheme.jpg" alt="Monthly jewellery advance payment" class="w-full h-full object-contain
+               transition-transform duration-700
+               group-hover:scale-[1.02]" />
 
                 </div>
 
             </div>
-
         </div>
     </section>
 
@@ -503,22 +578,22 @@
 
     <script>
         // Drawer Items Display
-     window.renderDrawerItem = function (widget) {
+        window.renderDrawerItem = function (widget) {
 
-  let html = "";
+            let html = "";
 
-  // Add Notification before Settings
-  if (widget.name === "Settings") {
-    html += `
+            // Add Notification before Settings
+            if (widget.name === "Settings") {
+                html += `
       <a href="#"
          onclick="navigateToNotification()"
          class="block py-2 text-gray-700 hover:text-brand-700 font-medium">
          Notification
       </a>
     `;
-  }
+            }
 
-  html += `
+            html += `
     <a href="#"
        onclick="${widget.action}()"
        class="block py-2 text-gray-700 hover:text-brand-700 font-medium">
@@ -526,24 +601,23 @@
     </a>
   `;
 
-  return html;
-};
+            return html;
+        };
 
 
-window.renderWidget = function (widget, index) {
-    const isVirtualTryOn = Number(widget.id) === 23;
+        window.renderWidget = function (widget, index) {
+            const isVirtualTryOn = Number(widget.id) === 23;
 
-    // The name is already changed by widgets-core.js only for this page
-    const isPayOnlineMonthlyAdvance =
-        widget.name === "Pay Online Monthly Advance";
+            // The name is already changed by widgets-core.js only for this page
+            const isPayOnlineMonthlyAdvance =
+                widget.name === "Pay Online Monthly Advance";
 
-    const animation = index % 2 === 0 ? "fade-up" : "fade-down";
+            const animation = index % 2 === 0 ? "fade-up" : "fade-down";
 
-    return `
+            return `
         <div
-            class="service-item ${
-                isPayOnlineMonthlyAdvance ? "w-28" : "w-20"
-            }"
+            class="service-item ${isPayOnlineMonthlyAdvance ? "w-28" : "w-20"
+                }"
             data-aos="${animation}"
         >
             <div
@@ -569,7 +643,7 @@ window.renderWidget = function (widget, index) {
             </p>
         </div>
     `;
-};
+        };
     </script>
 
     <script>
