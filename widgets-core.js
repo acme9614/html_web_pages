@@ -139,6 +139,13 @@ function resolveWidgetDisplayName(widget) {
         "savings scheme"
     ];
 
+    const bankNames = [
+        "bank",
+        "bank details",
+        "bank detail"
+    ];
+
+    // Scheme widgetName Change 
     if (
         isPngadgilAndSonsPage() &&
         (
@@ -147,6 +154,17 @@ function resolveWidgetDisplayName(widget) {
         )
     ) {
         return "Pay Online Monthly Advance";
+    }
+
+    // Bank widgetName Change 
+    if (
+        isPngadgilAndSonsPage() &&
+        (
+            Number(widget?.id) === 2 ||
+            bankNames.includes(normalizedName)
+        )
+    ) {
+        return "Add Your Bank";
     }
 
     return originalName || getDisplayName(widget?.id);

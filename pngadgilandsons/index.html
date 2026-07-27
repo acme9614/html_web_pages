@@ -608,15 +608,16 @@
         window.renderWidget = function (widget, index) {
             const isVirtualTryOn = Number(widget.id) === 23;
 
-            // The name is already changed by widgets-core.js only for this page
-            const isPayOnlineMonthlyAdvance =
-                widget.name === "Pay Online Monthly Advance";
+            // Increase width for long widget names
+            const isWideWidget =
+                widget.name === "Pay Online Monthly Advance" ||
+                widget.name === "Add Your Bank";
 
             const animation = index % 2 === 0 ? "fade-up" : "fade-down";
 
             return `
         <div
-            class="service-item ${isPayOnlineMonthlyAdvance ? "w-28" : "w-20"
+            class="service-item ${isWideWidget ? "w-28" : "w-20"
                 }"
             data-aos="${animation}"
         >
