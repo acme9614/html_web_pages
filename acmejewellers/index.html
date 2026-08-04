@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme Jewellers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400;1,600&family=Josefin+Sans:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet" />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div>
+        <header class="bg-white text-gray-900 relative flex items-center justify-between px-4 md:px-10 py-8"
+            data-aos="fade-down">
+
+            <!-- LEFT SIDE -->
+            <div class="flex items-center">
+                <button id="menu-toggle" class="focus:outline-none" aria-label="Open Menu">
+                    <img src="https://cdn-icons-png.flaticon.com/128/6995/6995971.png" alt="menu"
+                        class="w-8 h-8 md:w-10 md:h-10" loading="lazy" />
+                </button>
+            </div>
+
+            <!-- CENTER LOGO -->
+            <div class="absolute left-1/2 transform -translate-x-1/2">
+                <img src="assets/padm_logo.png" alt="Logo" class="h-14 md:h-20" />
+            </div>
+
+            <!-- RIGHT SIDE ICONS -->
+            <div class="flex items-center gap-4">
+
+                <!-- Notification Icon -->
+                <button class="relative" onclick="navigateToNotification()">
+                    <img src="assets/notification.png" alt="notification" class="w-7 h-7 md:w-8 md:h-8" />
+                </button>
+
+                <!-- Logout Icon -->
+                <!-- <button onclick="navigateToLogout()">
+                    <img src="assets/logout.png" alt="logout" class="w-7 h-7 md:w-8 md:h-8" />
+                </button> -->
+
+            </div>
+
+        </header>
+
+        <!-- Drawer -->
+        <div id="drawer"
+            class="fixed top-0 left-0 w-1/2 max-w-sm h-full bg-white shadow-lg z-50 transform -translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto">
+            <div class="flex justify-between items-center gap-4 px-4 py-4 border-b">
+                <!-- Drawer Logo -->
+                <div class="text-2xl font-bold text-[#133235] flex items-center gap-2">
+                    <img src="assets/padm_logo.png" alt="Logo" class="h-16" />
+                </div>
+                <!-- Close Drawer Button -->
+                <button id="close-drawer" class="text-black rounded text-2xl font-bold" aria-label="Close Menu">
+                    ✕
+                </button>
+            </div>
+            <!-- Drawer Navigation Links -->
+            <div id="drawerContainer" class="flex flex-col gap-4 px-6 py-6 text-black">
+                <!-- drawer items display dynamically -->
+            </div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+    </div>
+
+    <!-- slider  -->
+    <div class="swiper brandingSwiper w-full h-auto">
+        <div class="swiper-wrapper">
+
+            <!-- Slide 3 -->
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <!-- Desktop Image -->
+                    <img src="assets/banner3.png" alt="Desktop Image 4"
+                        class="w-full h-[220px] md:h-[350px] lg:h-auto object-fill" />
+                </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <!-- Desktop Image -->
+                    <img src="assets/banner4.jpg" alt="Desktop Image 4"
+                        class="w-full h-[220px] md:h-[350px] lg:h-auto object-fill" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="swiper-pagination absolute bottom-4 left-0 right-0 mx-auto text-center z-10"></div>
+
+        <!-- Navigation Buttons -->
+        <div
+            class="swiper-button-next hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+        </div>
+        <div
+            class="swiper-button-prev hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section class="">
+        <!-- Services Grid -->
+        <div id="widgetsContainer"
+            class="flex flex-wrap justify-center mx-auto gap-4 md:gap-4 lg:gap-4 w-full sm:w-[60%]  md:w-[80%] lg:w-[60%] py-5">
+
+            <!-- widgets display dynamically from flutter response -->
+        </div>
+    </section>
+
+
+    <!-- about  -->
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8  space-y-12">
+        <!-- Iconic Section -->
+        <div class="flex flex-col items-center text-center" data-aos="fade-down">
+            <img src="assets/logo.png" alt="Iconic Jeweller" class="w-auto h-16 md:h-28 mb-4" />
+            <p class="max-w-4xl text-xl font-[didot]">
+                Acme Infovision System Pvt. Ltd. Is software product company. We have software products Acme Insight
+                Software for Retails, Wholesalers, Distributors and Acme Infinity Software for Jewellery Business.
+                <br>
+                We have developed Technology Platform Acme PADM which is specially designed for Cloud.
+                <br>
+                Reach domain expertise in respective trade makes Acme’s products useful in day to day operation, as well
+                as in decision making. We are serving more than <Strong>6000+ customers</Strong> for adopting technology
+                and progress in
+                their business with our software products.
+            </p>
+        </div>
+
+
+        <!-- Products Section -->
+        <section class="py-8" data-aos="fade-up">
+
+            <!-- Heading -->
+            <div class="text-center mb-8">
+                <h2 class="text-4xl md:text-5xl font-bold text-[#19243a]">
+                    Products
+                </h2>
+                <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Products -->
+            <div class="flex flex-wrap justify-center items-stretch gap-8 max-w-7xl mx-auto">
+
+                <!-- Acme Insight -->
+                <div
+                    class="group relative w-full sm:w-[320px] lg:w-[340px] overflow-hidden rounded-2xl border border-gray-200 shadow-lg bg-white">
+
+                    <div class="h-60 flex items-center justify-center p-8 bg-white">
+                        <img src="assets/brand_insight_logo.jpg"
+                            class="max-w-full max-h-full object-contain transition duration-500 group-hover:scale-105"
+                            alt="Acme Insight">
+                    </div>
+
+                    <div class="py-5 bg-gray-100 text-center">
+                        <h3 class="text-2xl font-semibold text-gray-900">
+                            Acme Insight
+                        </h3>
+                    </div>
+
+                    <div
+                        class="absolute inset-0 bg-[#1e2b45]/95 text-white flex flex-col justify-center items-center text-center px-8 translate-y-full group-hover:translate-y-0 transition-all duration-500">
+
+                        <h3 class="text-3xl font-semibold mb-6">
+                            Acme Insight
+                        </h3>
+
+                        <p class="leading-7 text-sm">
+                            Acme Insight is a Business Management Software for retailers,
+                            wholesales, Distributors and small manufacturer…
+                        </p>
+
+                        <a href="https://acmeinsight.com/"
+                            class="mt-8 px-6 py-3 border border-white rounded-full hover:bg-white hover:text-[#1e2b45] transition">
+                            READ MORE →
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Acme Infinity -->
+                <div
+                    class="group relative w-full sm:w-[320px] lg:w-[340px] overflow-hidden rounded-2xl border border-gray-200 shadow-lg bg-white">
+
+                    <div class="h-60 flex items-center justify-center p-8 bg-white">
+                        <img src="assets/brand_infinity_logo.jpg"
+                            class="max-w-full max-h-full object-contain transition duration-500 group-hover:scale-105"
+                            alt="Acme Infinity">
+                    </div>
+
+                    <div class="py-5 bg-gray-100 text-center">
+                        <h3 class="text-2xl font-semibold text-gray-900">
+                            Acme Infinity
+                        </h3>
+                    </div>
+
+                    <div
+                        class="absolute inset-0 bg-[#1e2b45]/95 text-white flex flex-col justify-center items-center text-center px-8 translate-y-full group-hover:translate-y-0 transition-all duration-500">
+
+                        <h3 class="text-3xl font-semibold mb-6">
+                            Acme Infinity
+                        </h3>
+
+                        <p class="leading-7 text-sm">
+                            Acme Infinity is ERP (Enterprise Resources Planning) software
+                            for Jewellery retail, wholesale, Manufacturing. It…
+                        </p>
+
+                        <a href="https://acmeinfinity.com/"
+                            class="mt-8 px-6 py-3 border border-white rounded-full hover:bg-white hover:text-[#1e2b45] transition">
+                            READ MORE →
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Acme PADM -->
+                <div
+                    class="group relative w-full sm:w-[320px] lg:w-[340px] overflow-hidden rounded-2xl border border-gray-200 shadow-lg bg-white">
+
+                    <div class="h-60 flex items-center justify-center p-8 bg-white">
+                        <img src="assets/brand_padm_logo.jpg"
+                            class="max-w-full max-h-full object-contain transition duration-500 group-hover:scale-105"
+                            alt="Acme PADM">
+                    </div>
+
+                    <div class="py-5 bg-gray-100 text-center">
+                        <h3 class="text-2xl font-semibold text-gray-900">
+                            Acme PADM
+                        </h3>
+                    </div>
+
+                    <div
+                        class="absolute inset-0 bg-[#1e2b45]/95 text-white flex flex-col justify-center items-center text-center px-8 translate-y-full group-hover:translate-y-0 transition-all duration-500">
+
+                        <h3 class="text-3xl font-semibold mb-6">
+                            Acme PADM
+                        </h3>
+
+                        <p class="leading-7 text-sm">
+                            Acme PADM is web based technology platform, used for developing
+                            business applications and ERP…
+                        </p>
+
+                        <a href="https://acmeinfinity.com/"
+                            class="mt-8 px-6 py-3 border border-white rounded-full hover:bg-white hover:text-[#1e2b45] transition">
+                            READ MORE →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- History Text Block -->
+        <div class="text-center text-xl max-w-5xl mx-auto font-[didot] pb-8 italic" data-aos="fade-up">
+            The sojourn of technology begins at Satara, Maharashtra..
+            Celebrating of 22 Years…
+            <br>
+            22 years, working with small as well as large retailers, wholesalers, distributors and Jewelers we gathered
+            vast amount of domain experience and best practices.
+            <br>
+            We have developed software products:
+            Acme Insight Software for Retails, Wholesalers, Distributors and
+            Acme Infinity Software for Jewellery Business.
+            <br>
+            We have innovated updated hi-tech service trough:
+            Cloud based Acme PADM platform
+        </div>
+
+    </div>
+
+
+    <div class="carousel-inner animatearea fadeInLeft hidden-scroll visible animated flex justify-center">
+        <div class="carousel-item active">
+            <img src="assets/company.png" class="d-block w-100 px-4 md:px-44 pb-8" alt="acmeinfovision"
+                title="Acme Jewellers" />
+        </div>
+    </div>
+
+
+    <!-- footer  -->
+    <footer id="store" class="pt-10 pb-6 px-4 bg-[#ECEADE] text-black">
+        <!-- Logo -->
+        <div class="flex justify-center">
+            <img src="assets/padm_logo.png" alt="Acme Jewellers Logo" class="h-16 md:h-24 " />
+        </div>
+
+        <div class="max-w-6xl mx-auto">
+            <!-- Store Address Tagline -->
+            <div class="text-center text-lg md:text-xl font-semibold mb-8">
+                <!-- Most trusted jeweller of Himachal Pradesh -->
+            </div>
+            <!-- Footer Box Section -->
+            <div class="flex flex-col md:flex-row items-center justify-center mb-10">
+                <!-- Address Info -->
+                <div class="bg-white text-black px-6 py-6 rounded-md shadow-lg w-full max-w-2xl text-center">
+                    <p class="text-base leading-relaxed">
+                        P4/4, IT Park, Old MIDC Satara, Mahindra Automobiles, Satara - 415 004 <br>
+                        State: Maharashtra Country: India
+
+                        <br />
+
+
+                        <strong>Phone:</strong> 02162 – 248901 <br />
+                        <strong>Mail:</strong> Info@acmeinfovision.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- 
+     This file dynamically renders service tabs and drawer items
+     based on widgets.json config, so no need to manually update each page -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        window.renderDrawerItem = function (widget) {
+            return `
+    <a href="#"
+       onclick="${widget.action}()"
+       class="hover:text-[#701e3e] font-medium transition">
+       ${widget.name}
+    </a>
+  `;
+        };
+
+
+        window.renderWidget = function (widget, index) {
+
+            const isVirtualTryOn = Number(widget.id) === 23;
+            const animation = index % 2 === 0 ? "fade-up" : "fade-down";
+
+            return `
+    <div onclick="${widget.action}()"
+         class="flex flex-col items-center cursor-pointer pb-4"
+         data-aos="${animation}">
+
+      <div class="w-[100px] h-[22px] md:w-[120px] md:h-[25px] bg-[#E7BA5C] rounded-t-full shadow-lg"></div>
+
+      <div  class="w-[90px]  h-[120px] md:w-[100px]  md:h-[110px] bg-[#19243a] clip-banner shadow-lg flex flex-col items-center">
+
+        <img class="w-10 h-10 my-3 md:my-2 ${isVirtualTryOn ? '' : 'invert'}" src="${widget.icon}" />
+
+        <p class="text-white font-semibold text-center text-sm w-16">
+          ${widget.name}
+        </p>
+
+      </div>
+
+    </div>
+  `;
+        };
+
+    </script>
+</body>
+
+</html>
