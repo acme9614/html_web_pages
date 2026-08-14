@@ -2,11 +2,17 @@
     --peacock: #004D40;
     --peacock-light: #00695C;
     --peacock-dark: #003832;
+
     --gold: #C9A84C;
     --gold-light: #E8D3A3;
     --gold-pale: #F5EDD8;
+
     --cream: #FAF8F5;
+
     --border: #E5E7EB;
+    --card-border: 1px solid #E5E7EB;
+    --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
     --text: #18201E;
     --muted: #6F7774;
 }
@@ -96,28 +102,37 @@ button:focus-visible {
 .action-card {
     min-height: 112px;
     padding: 10px;
-    border: 1px solid var(--border);
+
+    /* REQUIRED DESIGN */
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+
     border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    background: #FFFFFF;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     text-align: center;
     cursor: pointer;
-    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+
+    transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease;
 }
 
 .action-card:hover {
     transform: translateY(-2px);
-    border-color: #D7DCDA;
-    box-shadow: 0 5px 16px rgba(0,0,0,.09);
+
+    /* Keep required card style */
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
-.action-card:active,
-.more-card:active {
-    transform: scale(.985);
+.action-card:active {
+    transform: scale(0.985);
 }
 
 .action-icon,
@@ -162,20 +177,34 @@ button:focus-visible {
 .more-card {
     min-height: 64px;
     padding: 8px 11px;
-    border: 1px solid var(--border);
+
+    /* REQUIRED DESIGN */
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+
     border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 1px 6px rgba(0,0,0,.055);
+    background: #FFFFFF;
+
     display: flex;
     align-items: center;
+
     cursor: pointer;
-    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+
+    transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease;
 }
 
 .more-card:hover {
     transform: translateY(-1px);
-    border-color: #DADDDC;
-    box-shadow: 0 4px 12px rgba(0,0,0,.08);
+
+    /* Keep required card style */
+    border: var(--card-border);
+    box-shadow: var(--card-shadow);
+}
+
+.more-card:active {
+    transform: scale(0.985);
 }
 
 .more-icon {
