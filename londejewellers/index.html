@@ -89,13 +89,13 @@
             <section>
                 <div class="mb-4">
                     <h1 class="text-[20px] font-bold leading-6 text-[#18201E] sm:text-2xl">Welcome back!</h1>
-                    <p class="mt-0.5 text-[10px] text-[#6F7774] sm:text-xs">Here is what is new today</p>
+                    <p class="mt-0.5 text-[12px] text-[#6F7774] sm:text-sm">Here is what is new today</p>
                 </div>
 
-                <section class="relative mb-5 overflow-hidden rounded-xl bg-[#00695C] p-4 text-white shadow-sm sm:p-5">
+                <section class="relative mb-5 overflow-hidden rounded-xl bg-[#00695C] p-8 text-white shadow-sm sm:p-8">
                     <div class="absolute -right-10 -top-8 h-32 w-40 rounded-full bg-[#C9A84C]/15"></div>
                     <div class="relative z-10">
-                        <div class="text-[8px] font-bold uppercase tracking-[1px] text-white/90 sm:text-[10px]">
+                        <div class="text-[12px] font-bold uppercase tracking-[1px] text-white/90 sm:text-[10px]">
                             Today's Gold Rate
                         </div>
                         <div class="mt-1 font-display text-[23px] font-bold leading-7 sm:text-[28px]">
@@ -104,19 +104,19 @@
                         </div>
                     </div>
                     <div
-                        class="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-right text-[7px] leading-3 text-white/90 sm:right-6 sm:text-[9px] sm:leading-4">
+                        class="absolute right-4 top-1/2 z-10 -translate-y-1/2 text-right text-[9px] leading-3 text-white/90 sm:right-6 sm:text-[9px] sm:leading-4">
                         24K | 99.50 Purity<br />
                         Updated 10:00 AM
                     </div>
                 </section>
 
                 <section class="mb-5">
-                    <div class="section-label">Quick Actions</div>
+                    <div class="section-label text-[12px]">Quick Actions</div>
                     <div id="quickActionsContainer" class="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-4"></div>
                 </section>
 
                 <section id="moreSection" class="hidden">
-                    <div class="section-label">More</div>
+                    <div class="section-label text-[12px]">More</div>
                     <div id="moreActionsContainer" class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 sm:gap-4"></div>
                 </section>
 
@@ -124,56 +124,63 @@
                 <div id="widgetsContainer" class="hidden" aria-hidden="true"></div>
             </section>
             <!-- Social -->
-            <div class="social-section flex justify-center gap-2.5">
-
-                <!-- Website -->
-                <button class="social bg-[#004D40]" aria-label="Website" type="button">
-                    <svg class="h-[14px] w-[14px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
-                        <path
-                            d="M3 12H21M12 3C14.5 5.5 15.5 8.5 15.5 12C15.5 15.5 14.5 18.5 12 21M12 3C9.5 5.5 8.5 8.5 8.5 12C8.5 15.5 9.5 18.5 12 21"
-                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                    </svg>
-                </button>
-
+            <div class="social-section flex justify-center gap-3.5">
 
                 <!-- Facebook -->
-                <button class="social bg-[#1877F2]" aria-label="Facebook" type="button">
-                    <svg class="h-[15px] w-[15px]" viewBox="0 0 24 24" fill="currentColor"
+                <a href="https://www.facebook.com/LondeJewellers/" target="_blank" rel="noopener noreferrer"
+                    class="social bg-[#1877F2]" aria-label="Facebook">
+
+                    <svg class="h-[16px] w-[16px]" viewBox="0 0 24 24" fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
                         <path
                             d="M14 8H16V4H14C10.7 4 9 5.9 9 9.2V11H6V15H9V21H13V15H16L17 11H13V9.5C13 8.6 13.3 8 14 8Z" />
                     </svg>
-                </button>
+                </a>
 
 
                 <!-- Instagram -->
-                <button class="social bg-[#E94078]" aria-label="Instagram" type="button">
-                    <svg class="h-[15px] w-[15px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                <a href="https://www.instagram.com/londejewellers/" target="_blank" rel="noopener noreferrer"
+                    class="social bg-[#E94078]" aria-label="Instagram">
+
+                    <svg class="h-[16px] w-[16px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
+
                         <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
+
                         <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+
                         <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
                     </svg>
-                </button>
+                </a>
+
+
+                <!-- LinkedIn -->
+                <a href="https://in.linkedin.com/company/londejewellers" target="_blank" rel="noopener noreferrer"
+                    class="social bg-[#0A66C2]" aria-label="LinkedIn">
+
+                    <svg class="h-[16px] w-[16px]" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+
+                        <path
+                            d="M6.5 8.5H3.5V20.5H6.5V8.5ZM5 3.5C4.03 3.5 3.25 4.28 3.25 5.25C3.25 6.22 4.03 7 5 7C5.97 7 6.75 6.22 6.75 5.25C6.75 4.28 5.97 3.5 5 3.5ZM20.5 13.6C20.5 10 18.58 8.3 16.02 8.3C13.95 8.3 13.02 9.44 12.5 10.24V8.5H9.5V20.5H12.5V14.56C12.5 12.99 12.8 11.47 14.75 11.47C16.67 11.47 16.7 13.26 16.7 14.67V20.5H20.5V13.6Z" />
+                    </svg>
+                </a>
 
 
                 <!-- YouTube -->
-                <button class="social bg-[#EF2020]" aria-label="YouTube" type="button">
+                <a href="https://www.youtube.com/channel/UC93XKBZxBtljrjuwTbUQ1WQ" target="_blank"
+                    rel="noopener noreferrer" class="social bg-[#EF2020]" aria-label="YouTube">
 
-                    <svg class="h-[14px] w-[14px]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                    <svg class="h-[16px] w-[16px]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
 
-                        <!-- YouTube rounded rectangle -->
                         <path fill="white"
                             d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8Z" />
 
-                        <!-- Play triangle -->
                         <path fill="#EF2020" d="M9.5 8.2v7.6l6.5-3.8-6.5-3.8Z" />
                     </svg>
-
-                </button>
+                </a>
 
             </div>
 

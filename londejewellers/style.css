@@ -397,7 +397,7 @@ button:focus-visible {
 
 @media (max-width: 639px) {
     main {
-        padding-bottom: 60px !important;
+        padding-bottom: 55px !important;
     }
 
     .social-section {

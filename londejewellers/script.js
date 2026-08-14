@@ -79,8 +79,8 @@ window.renderWidget = function renderWidget(widget, index) {
                 data-widget-id="${widgetId}"
                 data-widget-action="${action}">
                 <span class="action-icon icon-tone-${tone}" aria-hidden="true">${icon}</span>
-                <span class="action-title">${title}</span>
-                <span class="action-subtitle">${subtitle}</span>
+                <span class="action-title text-[12px]">${title}</span>
+                <span class="action-subtitle text-[9px]">${subtitle}</span>
             </button>
         `;
     }
@@ -94,8 +94,8 @@ window.renderWidget = function renderWidget(widget, index) {
             data-widget-action="${action}">
             <span class="more-icon icon-tone-${tone}" aria-hidden="true">${icon}</span>
             <span class="more-copy">
-                <span class="more-title">${title}</span>
-                <span class="more-subtitle">${subtitle}</span>
+                <span class="more-title text-[12px]">${title}</span>
+                <span class="more-subtitle text-[9px]">${subtitle}</span> 
             </span>
             <span class="more-arrow" aria-hidden="true">›</span>
         </button>
