@@ -10,10 +10,11 @@ const LONDE_WIDGET_UI = {
     3:  { icon: "📈", subtitle: "Check today's rate", tone: "gold" },
     4:  { icon: "📄", subtitle: "Submit your documents", tone: "peacock" },
     5:  { icon: "💳", subtitle: "View your customer card", tone: "gold" },
-    6:  { icon: "🧾", subtitle: "View scheme records", tone: "peacock" },
+    6:  { icon: "🧾", subtitle: "View orders records", tone: "peacock" },
     7:  { icon: "🛍️", subtitle: "Track your orders", tone: "gold" },
     8:  { icon: "💻", subtitle: "View payment history", tone: "peacock" },
     9:  { icon: "🪙", subtitle: "Manage digital gold", tone: "gold" },
+    10: { icon: "👤", subtitle: "Open your profile", tone: "peacock" },
     11: { icon: "📅", subtitle: "View Panchang", tone: "gold" },
     18: { icon: "📰", subtitle: "Browse collections", tone: "peacock" },
     19: { icon: "🛒", subtitle: "Buy instantly", tone: "gold" },
@@ -61,21 +62,8 @@ function getWidgetUi(widget) {
  * Remaining widgets -> More.
  */
 window.renderWidget = function renderWidget(widget, index) {
-    const widgetId = Number(widget?.id) || 0;
-    const widgetName = String(widget?.name || "").trim().toLowerCase();
-    const widgetAction = String(widget?.action || "").trim();
-
-    // Profile is already available in the bottom navigation.
-    // Do not show it again in Quick Actions or More.
-    if (
-        widgetId === 10 ||
-        widgetName === "profile" ||
-        widgetAction === "navigateToUserProfile"
-    ) {
-        return "";
-    }
-
     const ui = getWidgetUi(widget);
+    const widgetId = Number(widget?.id) || 0;
     const action = escapeHtml(widget?.action || "navigateToHomePage");
     const title = escapeHtml(ui.title);
     const subtitle = escapeHtml(ui.subtitle);
