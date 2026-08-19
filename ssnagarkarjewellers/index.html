@@ -729,36 +729,44 @@
             `;
         };
 
-
         window.renderWidget = function (widget, index) {
 
             const isVirtualTryOn = Number(widget.id) === 23;
             const animation = index % 2 === 0 ? "fade-up" : "fade-down";
 
+            // Only break arVirtualTryOn into 2 lines
+            const displayName =
+                widget.name === "arVirtualTryOn"
+                    ? "arVirtual<br>TryOn"
+                    : widget.name;
+
             return `
-    <div onclick="${widget.action}()"
-         class="flex flex-col items-center cursor-pointer pb-4"
-         data-aos="${animation}">
+        <div onclick="${widget.action}()"
+             class="flex flex-col items-center cursor-pointer pb-4"
+             data-aos="${animation}">
 
+            <div class="h-28 w-24 md:w-28 md:h-28
+                 rounded-tr-[50px] rounded-bl-[50px]
+                 flex flex-col items-center justify-center
+                 text-center shadow-md cursor-pointer
+                 border-2 border-[#9f7f3a]
+                 bg-[#faf8f3]"
+                 data-aos="zoom-in"
+                 data-aos-delay="100">
 
-      <div class="h-28 w-24 md:w-28 md:h-28
-           rounded-tr-[50px] rounded-bl-[50px]
-           flex flex-col items-center justify-center
-           text-center shadow-md cursor-pointer
-           border-2 border-[#9f7f3a]
-           bg-[#faf8f3]" data-aos="zoom-in" data-aos-delay="100">
+                <img
+                    class="w-10 h-10 my-1 ${isVirtualTryOn ? 'invert' : ''}"
+                    src="${widget.icon}"
+                />
 
-        <img class="w-10 h-10 my-1 ${isVirtualTryOn ? 'invert' : ''}" src="${widget.icon}"/>
+                <span class="mt-2 text-sm font-semibold text-[#8b6b32] w-16">
+                    ${displayName}
+                </span>
 
+            </div>
 
-         <span class="mt-2 text-sm font-semibold text-[#8b6b32] w-16">
-                         ${widget.name}
-        </span>
-
-      </div>
-
-    </div>
-  `;
+        </div>
+    `;
         };
 
     </script>
