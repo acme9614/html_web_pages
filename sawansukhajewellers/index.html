@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#D32629" />
+    <meta name="description" content="Sawansukha Jewellers customer web application" />
+    <title>SAWANSUKHA JEWELLERS</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        peacock: {
+                            DEFAULT: "#D32629",
+                            light: "#E34B4E",
+                            dark: "#A9181B"
+                        },
+                        gold: {
+                            DEFAULT: "#C9A84C",
+                            light: "#E8D3A3",
+                            pale: "#F5EDD8"
+                        },
+                        cream: "#FAF8F5"
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "Georgia", "serif"],
+                        inter: ["Inter", "Arial", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+
+<body class="bg-[#FAF8F5] text-[#18201E] font-inter">
+    <div id="app" class="min-h-screen bg-[#FAF8F5]">
+
+        <header class="sticky top-0 z-50 bg-[#D32629] text-white shadow-sm">
+            <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-7 items-center justify-between sm:hidden"></div>
+
+                <div class="flex h-[62px] items-center gap-3">
+
+                    <!-- Drawer button -->
+                    <button id="drawerToggleButton" class="drawer-toggle-button" type="button" aria-label="Open menu"
+                        aria-controls="appDrawer" aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <button id="brandButton" class="brand-logo text-xl" type="button" aria-label="SAWANSUKHA home">
+                        S
+                    </button>
+
+                    <div class="min-w-0 flex-1">
+                        <div class="font-display text-[17px] font-bold leading-5 sm:text-[19px] mb-1">
+                            SAWANSUKHA
+                        </div>
+                        <div class="text-[10px] text-white/75 sm:text-[10px]">
+                            Premium Jewellery Experience
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <button id="notificationButton" class="header-icon-button" type="button"
+                            aria-label="Notifications">
+                            <span class="notification-bell">🔔</span>
+                        </button>
+
+                        <button id="settingsButton" class="header-icon-button" type="button" aria-label="Settings">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.1A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.1A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.18.37.48.7.85.9.34.19.72.3 1.11.3H21v4h-.1a1.7 1.7 0 0 0-1.5.8Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Drawer backdrop -->
+        <div id="drawerBackdrop" class="drawer-backdrop" aria-hidden="true"></div>
+
+        <!-- Left drawer -->
+        <aside id="appDrawer" class="app-drawer" aria-hidden="true">
+            <div class="drawer-header">
+                <div>
+                    <div class="drawer-title">Menu</div>
+                    <div class="drawer-subtitle">Services</div>
+                </div>
+
+                <button id="drawerCloseButton" class="drawer-close-button" type="button" aria-label="Close menu">
+                    ×
+                </button>
+            </div>
+
+            <div class="drawer-content">
+                <section>
+                    <div class="drawer-section-label">Quick Actions</div>
+                    <div id="quickActionsContainer" class="drawer-menu-list"></div>
+                </section>
+
+                <section id="moreSection" class="hidden drawer-more-section">
+                    <div class="drawer-section-label">More</div>
+                    <div id="moreActionsContainer" class="drawer-menu-list"></div>
+                </section>
+            </div>
+        </aside>
+
+        <main class="mx-auto w-full max-w-6xl px-3 pb-24 pt-5 sm:px-6 sm:pb-12 lg:px-8">
+            <section>
+                <div class="mb-4">
+                    <h1 class="text-[20px] font-bold leading-6 text-[#18201E] sm:text-2xl">Welcome back!</h1>
+                    <p class="mt-0.5 text-[12px] text-[#6F7774] sm:text-sm">Here is what is new today</p>
+                </div>
+
+                <!-- Hidden staging container used by the unchanged common widget loader. -->
+                <div id="widgetsContainer" class="hidden" aria-hidden="true"></div>
+            </section>
+
+
+            <!--  HERO SECTION (from Design 1)  -->
+            <section class="relative overflow-hidden lg:min-h-[90vh] flex items-center bg-transparent">
+
+                <!-- Branding Banner Slider -->
+                <div class="swiper brandingSwiper w-full bg-transparent">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide bg-transparent">
+                            <img src="./assets/banner1.png" alt="Banner 1" class="w-full h-auto object-cover" />
+                        </div>
+
+                        <div class="swiper-slide bg-transparent">
+                            <img src="./assets/banner2.png" alt="Banner 2" class="w-full md:h-auto object-cover" />
+                        </div>
+
+                        <div class="swiper-slide bg-transparent">
+                            <img src="./assets/banner3.png" alt="Banner 3" class="w-full h-auto object-cover" />
+                        </div>
+
+                        <div class="swiper-slide bg-transparent">
+                            <img src="./assets/banner4.png" alt="Banner 4" class="w-full h-auto object-cover" />
+                        </div>
+
+                        <div class="swiper-slide bg-transparent">
+                            <img src="./assets/plan your wedding (1).jpg" alt="Wedding Banner"
+                                class="w-full h-auto object-cover" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Wave Divider -->
+                <div class="absolute bottom-0 left-0 right-0 z-20">
+                    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+                            fill="transparent" />
+                    </svg>
+                </div>
+
+            </section>
+
+            <!--   FEATURED SERVICES -->
+            <section class="featured-services-section mt-4">
+
+                <div class="featured-services-container">
+
+                    <!-- Sanduk Plan -->
+                    <button class="featured-image-card" type="button" onclick="navigateToScheme()">
+
+                        <img src="./assets/Sanduk_Plan.png" alt="Sanduk Plan" class="featured-card-image" />
+
+                        <div class="featured-image-title">
+                            Sanduk<br>
+                            Plan
+                        </div>
+
+                    </button>
+
+
+                    <!-- E-Gift Card -->
+                    <button class="featured-image-card" type="button">
+
+                        <img src="./assets/E_Gift_Card.png" alt="E-Gift Card" class="featured-card-image" />
+
+                        <div class="featured-image-title">
+                            E-Gift<br>
+                            Card
+                        </div>
+
+                    </button>
+
+
+                    <!-- Book My Gold -->
+                    <button class="featured-image-card" type="button" onclick="navigateToScheme()">
+
+                        <img src="./assets/Book_My_Gold.png" alt="Book My Gold" class="featured-card-image" />
+
+                        <div class="featured-image-title">
+                            Book My<br>
+                            Gold
+                        </div>
+
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!-- Banner Section -->
+            <section class="w-full bg-transparent  pt-4 ">
+
+                <div class="mx-auto w-full max-w-6xl overflow-hidden rounded-2xl shadow-sm">
+
+                    <img src="./assets/why sanduk (1).jpg" alt="Sawansukha Jewellers Banner"
+                        class="block w-full h-auto object-cover" />
+
+                </div>
+
+            </section>
+
+            <!-- social icons-->
+            <div class="social-section flex justify-center gap-3.5">
+
+                <a href="https://www.facebook.com/sawansukhajewellers" target="_blank" rel="noopener noreferrer"
+                    class="social bg-[#1877F2]" aria-label="Facebook">
+                    <svg class="h-[20px] w-[20px]" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                            d="M14 8H16V4H14C10.7 4 9 5.9 9 9.2V11H6V15H9V21H13V15H16L17 11H13V9.5C13 8.6 13.3 8 14 8Z" />
+                    </svg>
+                </a>
+
+                <a href="https://www.instagram.com/sawansukhaindia/" target="_blank" rel="noopener noreferrer"
+                    class="social bg-[#E94078]" aria-label="Instagram">
+                    <svg class="h-[20px] w-[20px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2" />
+                        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                    </svg>
+                </a>
+
+                <a href="https://yourwebsite.com" target="_blank" rel="noopener noreferrer" class="social bg-[#D32629]"
+                    aria-label="Website">
+
+                    <svg class="h-[20px] w-[20px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+
+                        <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+
+                        <path d="M12 3C14.5 5.5 15.8 8.5 15.8 12C15.8 15.5 14.5 18.5 12 21" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" />
+
+                        <path d="M12 3C9.5 5.5 8.2 8.5 8.2 12C8.2 15.5 9.5 18.5 12 21" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" />
+
+                    </svg>
+
+                </a>
+
+                <a href="https://www.youtube.com/@sawansukhaindia" target="_blank" rel="noopener noreferrer"
+                    class="social bg-[#EF2020]" aria-label="YouTube">
+                    <svg class="h-[20px] w-[20px]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path fill="white"
+                            d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8Z" />
+                        <path fill="#EF2020" d="M9.5 8.2v7.6l6.5-3.8-6.5-3.8Z" />
+                    </svg>
+                </a>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
