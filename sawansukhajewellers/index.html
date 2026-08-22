@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#D32629" />
+    <meta name="theme-color" content="#d71920" />
     <meta name="description" content="Sawansukha Jewellers customer web application" />
     <title>SAWANSUKHA JEWELLERS</title>
 
@@ -26,7 +26,7 @@
                 extend: {
                     colors: {
                         peacock: {
-                            DEFAULT: "#D32629",
+                            DEFAULT: "#d71920",
                             light: "#E34B4E",
                             dark: "#A9181B"
                         },
@@ -35,7 +35,7 @@
                             light: "#E8D3A3",
                             pale: "#F5EDD8"
                         },
-                        cream: "#FAF8F5"
+                        cream: "#fff"
                     },
                     fontFamily: {
                         display: ["Playfair Display", "Georgia", "serif"],
@@ -47,16 +47,14 @@
     </script>
 </head>
 
-<body class="bg-[#FAF8F5] text-[#18201E] font-inter">
-    <div id="app" class="min-h-screen bg-[#FAF8F5]">
-
-        <header class="sticky top-0 z-50 bg-[#D32629] text-white shadow-sm">
+<body class="bg-[#fff] text-[#18201E] font-inter">
+    <div id="app" class="min-h-screen bg-[#fff]">
+        <header class="sticky top-0 z-50 bg-[#d71920] text-white shadow-sm">
             <div class="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-                <div class="flex h-7 items-center justify-between sm:hidden"></div>
 
-                <div class="flex h-[62px] items-center gap-3">
+                <div class="relative flex h-[76px] items-center justify-between">
 
-                    <!-- Drawer button -->
+                    <!-- Left: Drawer button -->
                     <button id="drawerToggleButton" class="drawer-toggle-button" type="button" aria-label="Open menu"
                         aria-controls="appDrawer" aria-expanded="false">
                         <span></span>
@@ -64,33 +62,40 @@
                         <span></span>
                     </button>
 
-                    <button id="brandButton" class="brand-logo text-xl" type="button" aria-label="SAWANSUKHA home">
-                        S
+
+                    <!-- Center: Logo + Trust Text -->
+                    <button id="brandButton" type="button" aria-label="SAWANSUKHA home"
+                        class="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center">
+
+                        <!-- Replace this path with your actual logo -->
+                        <img src="assets/logo.jpeg" alt="SAWANSUKHA" class="h-[60px] w-auto object-contain pt-2" />
+
+                        <div class="mt-1 whitespace-nowrap text-[10px] leading-none text-white/80">
+                            250 years of trust
+                        </div>
                     </button>
 
-                    <div class="min-w-0 flex-1">
-                        <div class="font-display text-[17px] font-bold leading-5 sm:text-[19px] mb-1">
-                            SAWANSUKHA
-                        </div>
-                        <div class="text-[10px] text-white/75 sm:text-[10px]">
-                            Premium Jewellery Experience
-                        </div>
-                    </div>
 
-                    <div class="flex items-center gap-2">
+                    <!-- Right: Notification + Settings -->
+                    <div class="ml-auto flex items-center gap-2">
+
                         <button id="notificationButton" class="header-icon-button" type="button"
                             aria-label="Notifications">
                             <span class="notification-bell">🔔</span>
                         </button>
 
                         <button id="settingsButton" class="header-icon-button" type="button" aria-label="Settings">
+
                             <svg viewBox="0 0 24 24" aria-hidden="true">
                                 <circle cx="12" cy="12" r="3" />
                                 <path
                                     d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21h-4v-.1A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3v-4h.1A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3h4v.1A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 9c.18.37.48.7.85.9.34.19.72.3 1.11.3H21v4h-.1a1.7 1.7 0 0 0-1.5.8Z" />
                             </svg>
+
                         </button>
+
                     </div>
+
                 </div>
             </div>
         </header>
@@ -126,10 +131,6 @@
 
         <main class="mx-auto w-full max-w-6xl px-3 pb-24 pt-5 sm:px-6 sm:pb-12 lg:px-8">
             <section>
-                <div class="mb-4">
-                    <h1 class="text-[20px] font-bold leading-6 text-[#18201E] sm:text-2xl">Welcome back!</h1>
-                    <p class="mt-0.5 text-[12px] text-[#6F7774] sm:text-sm">Here is what is new today</p>
-                </div>
 
                 <!-- Hidden staging container used by the unchanged common widget loader. -->
                 <div id="widgetsContainer" class="hidden" aria-hidden="true"></div>
@@ -260,7 +261,7 @@
                 </a>
 
                 <a href="https://www.sawansukha.com/" target="_blank" rel="noopener noreferrer"
-                    class="social bg-[#D32629]" aria-label="Website">
+                    class="social bg-[#d71920]" aria-label="Website">
 
                     <svg class="h-[20px] w-[20px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
