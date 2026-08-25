@@ -4,13 +4,13 @@
     box-sizing: border-box;
 }
 
-html, body {
-  overflow-x: hidden;
-  overflow-y: auto;
+html,
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-/* branding slider  */
-
+/* Branding slider */
 .autoplay-progress svg {
     --progress: 0;
     stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
@@ -21,15 +21,11 @@ html, body {
 .swiper-button-next::after,
 .swiper-button-prev::after {
     font-size: 1.5rem;
-    /* Tailwind: text-2xl */
     color: black;
     font-weight: bolder;
 }
 
-
 /* Pagination */
-
-/* Pagination container */
 .swiper-pagination {
     display: flex;
     justify-content: center;
@@ -37,7 +33,6 @@ html, body {
     gap: 6px;
 }
 
-/* Default dots */
 .swiper-pagination-bullet {
     width: 6px;
     height: 6px;
@@ -45,15 +40,6 @@ html, body {
     opacity: 1;
     border-radius: 50%;
     transition: all 0.3s ease;
-}
-
-/* Active bullet (pill style) */
-.swiper-pagination-bullet-active {
-    width: 22px;
-    height: 6px;
-    border-radius: 999px;
-    background: #caa25d;
-    /* gold color */
 }
 
 .swiper-pagination-bullet-active {
@@ -64,3 +50,10 @@ html, body {
     transition: all 0.4s ease;
 }
 
+/* Icons color in services */
+.widget-icon {
+    filter: brightness(0) saturate(100%)
+        invert(81%) sepia(72%)
+        saturate(747%) hue-rotate(340deg)
+        brightness(102%) contrast(91%);
+}

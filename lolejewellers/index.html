@@ -5,311 +5,415 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lole Jewellers</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <link rel="stylesheet" href="style.css">
+
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;500;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+
+    <style>
+        :root {
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Nunito', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .font-heading {
+            font-family: var(--font-heading);
+        }
+
+        .font-body {
+            font-family: var(--font-body);
+        }
+
+        button,
+        input,
+        textarea,
+        select,
+        a,
+        p,
+        span,
+        li {
+            font-family: inherit;
+        }
+    </style>
 </head>
 
-<body class="font-sans">
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 w-full bg-[#B78373] shadow-md z-50 pt-6 md:pt-0">
+<body>
 
-        <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-2">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-[#B78373] shadow-md z-50 pt-2 md:pt-0">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
 
-            <div class="flex items-center justify-between gap-2">
+            <!-- Mobile action icons -->
+            <div class="flex md:hidden items-center justify-end h-8">
+                <div class="flex items-center gap-1">
 
-                <!-- Left : Menu -->
-                <div class="flex-shrink-0">
-                    <button id="menuBtn" onclick="openDrawer()"
-                        class="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 flex items-center justify-center rounded-full hover:bg-white/10 transition">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 sm:w-7 sm:h-7 text-[#fff4eb]" fill="none"
+                    <!-- Notification -->
+                    <button type="button" aria-label="Notifications" onclick="navigateToNotification()"
+                        class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z" />
+                        </svg>
+                    </button>
 
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    <!-- Settings -->
+                    <button type="button" aria-label="Settings" onclick="navigateToSetting()"
+                        class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M12 15.5A3.5 3.5 0 1012 8a3.5 3.5 0 000 7.5z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1.08-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6h.08A1.65 1.65 0 0010 3.09V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9v.08A1.65 1.65 0 0020.91 10H21a2 2 0 110 4h-.09A1.65 1.65 0 0019.4 15z" />
+                        </svg>
+                    </button>
+
+                    <!-- Menu -->
+                    <button id="menuBtnMobile" type="button" aria-label="Open Menu" onclick="openDrawer()"
+                        class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
                                 d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-
                     </button>
+
+                </div>
+            </div>
+
+            <!-- Brand row -->
+            <div
+                class="flex justify-evenly gap-4 items-center pb-1 md:grid md:grid-cols-[1fr_2fr_1fr] md:gap-0 md:py-2 lg:py-3">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 md:justify-self-start">
+                    <img src="assets/logo.png" alt="Lole Jewellers Logo"
+                        class="w-[82px] h-[82px] sm:w-[90px] sm:h-[90px] md:w-[90px] md:h-[90px] lg:w-[105px] lg:h-[105px] object-contain">
                 </div>
 
-                <!-- Center : Logo + Title -->
-                <div class="flex-1 flex items-center justify-center min-w-0 px-2">
-
-                    <img src="assets/Logo.jpeg" alt="Logo"
-                        class="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain flex-shrink-0">
+                <!-- Brand information -->
+                <div class="min-w-0 md:justify-self-center md:text-center">
 
                     <h1
-                        class="ml-2 sm:ml-3 text-base sm:text-xl md:text-2xl lg:text-3xl font-semibold text-white tracking-wide md:tracking-[2px] truncate">
+                        class="font-heading text-lg sm:text-xl md:text-2xl lg:text-[28px] font-bold tracking-[1px] md:tracking-[2px] text-white leading-tight">
                         LOLE JEWELLERS
                     </h1>
 
+                    <p class="font-body text-[13px] sm:text-sm md:text-base text-white leading-snug">
+                        Jawahar Nagar, Ichalkaranji.
+                    </p>
+
+                    <p class="font-body inline-flex items-center gap-2 text-[13px] sm:text-sm md:text-base text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 md:w-5 md:h-5 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.95.684l1.5 4.5a1 1 0 01-.502 1.21l-2.257 1.128a11.042 11.042 0 005.516 5.516l1.128-2.257a1 1 0 011.21-.502l4.5 1.5A1 1 0 0121 15.72V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <span>9604278086</span>
+                    </p>
                 </div>
 
-                <!-- Right : Actions -->
-                <div class="flex items-center gap-1 sm:gap-2 md:gap-3 flex-shrink-0">
+                <!-- Tablet and desktop action icons -->
+                <div class="hidden md:flex items-center gap-1 lg:gap-2 justify-self-end">
 
                     <!-- Notification -->
-                    <!-- <button aria-label="Notifications" onclick="navigateToNotification()"
-                        class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none"
+                    <button type="button" aria-label="Notifications" onclick="navigateToNotification()"
+                        class="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
-
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
                                 d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z" />
                         </svg>
+                    </button>
 
-                    </button> -->
-
-                    <!-- Logout -->
-                    <!-- <button aria-label="Logout" onclick="navigateToLogout()"
-                        class="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition">
-
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none"
+                    <!-- Settings -->
+                    <button type="button" aria-label="Settings" onclick="navigateToSetting()"
+                        class="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
-
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 17l5-5-5-5" />
-
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12H9" />
-
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 19H7a2 2 0 01-2-2V7a2 2 0 012-2h5" />
-
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M12 15.5A3.5 3.5 0 1012 8a3.5 3.5 0 000 7.5z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1.08-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6h.08A1.65 1.65 0 0010 3.09V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9v.08A1.65 1.65 0 0020.91 10H21a2 2 0 110 4h-.09A1.65 1.65 0 0019.4 15z" />
                         </svg>
+                    </button>
 
-                    </button> -->
+                    <!-- Menu -->
+                    <button id="menuBtnDesktop" type="button" aria-label="Open Menu" onclick="openDrawer()"
+                        class="w-9 h-9 lg:w-10 lg:h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
 
                 </div>
-
             </div>
-
         </div>
-
     </header>
 
-    <!-- DRAWER -->
-    <div id="drawer" class="fixed top-0 left-0 h-full 
-w-[90%] md:w-[50%] 
-bg-[#fff] transform -translate-x-full 
-transition-transform duration-300 z-50 shadow-xl
-overflow-y-auto">
+    <!-- Drawer -->
+    <div id="drawer"
+        class="fixed top-0 left-0 h-full w-[90%] md:w-[50%] bg-white transform -translate-x-full transition-transform duration-300 z-50 shadow-xl overflow-y-auto">
 
-        <!-- Drawer Header -->
-        <div class="relative flex items-center px-4 py-8 border-b border-[#B78373]/30">
-
-            <img src="assets/Logo.jpeg" alt="Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain">
+        <div class="relative flex items-center px-4 py-4 border-b border-[#B78373]/30">
+            <img src="assets/logo.png" alt="Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain">
 
             <button id="closeBtn"
                 class="absolute right-4 top-1/2 -translate-y-1/2 text-[#B78373] text-5xl font-bold cursor-pointer">
                 &times;
             </button>
-
         </div>
 
-        <!-- Drawer Content -->
-        <div id="drawerContainer" class="p-6 space-y-4"></div>
-
+        <div id="drawerContainer" class="font-body p-4 space-y-3"></div>
     </div>
 
     <!-- Swiper -->
-    <div class="swiper brandingSwiper w-full mt-[80px] md:mt-[72px]">
+    <div class="swiper brandingSwiper w-full mt-[123px] md:mt-[106px] lg:mt-[129px]">
+
         <div class="swiper-wrapper">
-            <!-- Slide 2 -->
-            <div class="swiper-slide flex flex-col items-center justify-start">
-                <div class="w-full">
-                    <img src="assets/banner.png" alt="Desktop Image 1"
-                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
-                </div>
-            </div>
-            <!-- Slide 3 -->
 
             <div class="swiper-slide flex flex-col items-center justify-start">
                 <div class="w-full">
-                    <img src="assets/banner3.png" alt="Desktop Image 1"
-                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                    <img src="assets/banner.png" alt="Banner"
+                        class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill">
                 </div>
             </div>
-            <!-- Slide 4 -->
-
-            <!-- <div class="swiper-slide flex flex-col items-center justify-start">
-                <div class="w-full">
-                    <img src="assets/Banner3.webp" alt="Desktop Image 1"
-                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
-                </div>
-            </div> -->
 
             <div class="swiper-slide flex flex-col items-center justify-start">
                 <div class="w-full">
-                    <img src="assets/banner4.png" alt="Desktop Image 1"
-                        class="w-full h-[200px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill" />
+                    <img src="assets/banner3.png" alt="Banner"
+                        class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill">
                 </div>
             </div>
+
+            <div class="swiper-slide flex flex-col items-center justify-start">
+                <div class="w-full">
+                    <img src="assets/banner4.png" alt="Banner"
+                        class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill">
+                </div>
+            </div>
+
         </div>
 
-        <!-- Navigation Buttons -->
         <div
-            class="swiper-button-next hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+            class="swiper-button-next hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur items-center justify-center hover:bg-black/30">
         </div>
+
         <div
-            class="swiper-button-prev hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur flex items-center justify-center hover:bg-black/30">
+            class="swiper-button-prev hidden md:flex !w-10 !h-10 bg-white/20 text-white rounded-full backdrop-blur items-center justify-center hover:bg-black/30">
         </div>
 
-        <!-- Pagination -->
-        <div class="swiper-pagination mt-10"></div>
-
+        <div class="swiper-pagination"></div>
     </div>
 
     <!-- Service Section -->
-    <section class="py-12 px-4 bg-white">
-
+    <section class="py-8 md:py-10 px-4 bg-white">
         <div class="max-w-5xl mx-auto">
-            <!-- widgetContainer -->
-            <div id="widgetsContainer" class="flex flex-wrap justify-center gap-1 md:gap-8" data-aos="zoom-in">
+
+            <div id="widgetsContainer" class="font-body flex flex-wrap justify-center gap-1 md:gap-6"
+                data-aos="zoom-in">
             </div>
-            <!-- Show More / Show Less -->
-            <div class="flex justify-center mt-6 md:hidden">
-                <button id="toggleBtn" class="px-6 py-2 bg-[#B78373] text-white rounded-full font-semibold shadow-md">
+
+            <div class="flex justify-center mt-4 md:hidden">
+                <button id="toggleBtn"
+                    class="font-body px-5 py-2 bg-[#B78373] text-white rounded-full font-semibold shadow-md">
                     Show More
                 </button>
             </div>
-        </div>
 
+        </div>
     </section>
 
     <!-- Our Story Section -->
-    <section class="bg-[#B78373] py-14 px-4 md:px-10">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    <section class="bg-[#B78373] py-10 md:py-12 px-4 md:px-10">
 
-            <!-- Left Content -->
-            <div data-aos="fade-right" class="order-2">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#fff] mb-4 relative inline-block">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+
+            <div data-aos="fade-right" class="order-1">
+
+                <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-3 relative inline-block">
                     Our Journey
                     <span class="block w-16 h-1 bg-gradient-to-r from-yellow-400 to-yellow-600 mt-2 rounded"></span>
                 </h2>
 
-                <p class="text-xl text-white mb-4 font-semibold leading-relaxed">
-                    A Legacy of <span class="font-semibold text-[#fff]">Trust Since 1996</span>
+                <p class="font-body text-base md:text-lg text-white mb-3 font-semibold leading-relaxed">
+                    A Legacy of
+                    <span class="font-semibold text-white">
+                        Trust Since 1996
+                    </span>
                 </p>
 
-                <p class="text-lg text-gray-200 mb-4 leading-relaxed">
-                    Lole Jewellers began its journey in 1996 with a humble 4-feet counter. With a strong commitment to
-                    customer trust, transparent dealings, and quality service, we have grown from a 150 sq.ft. jewellery
-                    shop to a 750 sq.ft. modern showroom.
-                    Today, Lole Jewellers offers an exquisite collection of Gold, Silver, Diamond, and Gemstone
-                    Jewellery,
-                    blending traditional craftsmanship with innovative and contemporary designs.
-                    For us, jewellery is not just an ornament; it is a part of our customers’ most precious moments.
-                    Therefore, we believe in providing every customer with purity, transparency, and a trustworthy
-                    experience.
+                <p class="font-body text-sm md:text-base text-gray-200 mb-0 leading-relaxed">
+                    Lole Jewellers began its journey in 1996 with a humble 5-feet counter. From a small 150 sq. ft. shop
+                    to a modern 1,550 sq. ft. showroom today, this journey is a reflection of the trust our customers
+                    have placed in us.
+                    <br><br>
+
+                    Over the past 30 years, we have built relationships with 35,000+ customers, and this is our greatest
+                    identity. At Lole Jewellers, we offer Gold, Silver, Diamond, and Gemstone Jewellery, bringing
+                    together traditional craftsmanship and modern designs.
+                    <br><br>
+
+                    We have always given priority to HUID Hallmark, purity, transparent dealings, and fair value.
+                    Whether it is the transparent evaluation of old gold or after-sales service, our aim is to provide
+                    the right guidance and a trustworthy service at every step.
+                    <br><br>
+
+                    For us, jewellery is not just an ornament; it is a part of special moments in life and memories
+                    cherished for generations. That is why we consider every customer not just a customer, but a part of
+                    the Lole Jewellers family.
+                    <br><br>
+
+                    Since 1996 — building trust, creating relationships, and moving forward with every generation.
+                    <br><br>
+
+                    Lole Jewellers — A Trustworthy Experience in Buying Gold.
                 </p>
+
             </div>
 
-            <!-- Right Side Design -->
+            <!-- Right: Two Images in Column -->
+            <div data-aos="fade-left" class="relative order-2 md:order-2 flex flex-col gap-4">
 
-            <!-- Image (Mobile First Top) -->
-            <div data-aos="fade-left" class="relative order-1 md:order-2">
+                <!-- Image 1 -->
                 <div class="overflow-hidden rounded-2xl">
-                    <img src="assets/about1.jpg" alt="Jewellery Story"
-                        class="w-full h-[300px] md:h-[550px] object-contain transform group-hover:scale-110 transition duration-700" />
+                    <img src="assets/about2.jpeg" alt="Lole Jewellers Journey"
+                        class="w-full h-[250px] md:h-auto  hover:scale-105 transition duration-700">
                 </div>
+
+                <!-- Image 2 -->
+                <div class="overflow-hidden rounded-2xl">
+                    <img src="assets/about3.jpeg" alt="Lole Jewellers Jewellery"
+                        class="w-full h-[250px] md:h-auto  hover:scale-105 transition duration-700">
+                </div>
+
             </div>
-
-
 
         </div>
     </section>
 
-    <section class="py-16 px-4 bg-[#fdf8f3]">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+    <section class="py-10 md:py-12 px-4 bg-[#fdf8f3]">
 
-            <!-- Why Choose Us Card -->
-            <div class="bg-[#B78373] rounded-3xl shadow-xl p-8" data-aos="fade-right">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
 
-                <h2 class="text-3xl font-bold text-white mb-6 relative inline-block">
+            <!-- Why Choose Us -->
+            <div class="bg-[#B78373] rounded-3xl shadow-xl p-6 md:p-7" data-aos="fade-right">
+
+                <h2 class="font-heading text-2xl md:text-3xl font-bold text-white mb-4 relative inline-block">
                     Why Choose Us
                     <span class="block w-14 h-1 bg-yellow-300 mt-2 rounded-full"></span>
                 </h2>
 
-                <ul class="space-y-5 mt-6">
+                <ul class="font-body text-sm md:text-base space-y-3 mt-3">
 
-                    <li class="flex items-start gap-4">
+                    <li class="flex items-start gap-3">
                         <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
                             ✓
                         </div>
-                        <span class="text-white leading-relaxed">HUID BIS Hallmarked Jewellery</span>
+                        <span class="text-white leading-relaxed">
+                            HUID BIS Hallmarked Jewellery
+                        </span>
                     </li>
 
-                    <li class="flex items-start gap-4">
+                    <li class="flex items-start gap-3">
                         <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
                             ✓
                         </div>
-                        <span class="text-white leading-relaxed">Transparent pricing according to carat purity</span>
+                        <span class="text-white leading-relaxed">
+                            Transparent pricing according to carat purity
+                        </span>
                     </li>
 
-                    <li class="flex items-start gap-4">
+                    <li class="flex items-start gap-3">
                         <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
                             ✓
                         </div>
-                        <span class="text-white leading-relaxed">Best value for old gold exchange</span>
+                        <span class="text-white leading-relaxed">
+                            Best value for old gold exchange
+                        </span>
                     </li>
 
-                    <li class="flex items-start gap-4">
+                    <li class="flex items-start gap-3">
                         <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
                             ✓
                         </div>
-                        <span class="text-white leading-relaxed">Customised jewellery designs</span>
+                        <span class="text-white leading-relaxed">
+                            Customised jewellery designs
+                        </span>
                     </li>
 
-                    <li class="flex items-start gap-4">
+                    <li class="flex items-start gap-3">
                         <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
                             ✓
                         </div>
-                        <span class="text-white leading-relaxed">Wide range from everyday jewellery to premium
-                            collections</span>
+                        <span class="text-white leading-relaxed">
+                            Wide range from everyday jewellery to premium collections
+                        </span>
                     </li>
 
-                    <li class="flex items-start gap-4">
+                    <li class="flex items-start gap-3">
                         <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-yellow-300">
                             ✓
                         </div>
-                        <span class="text-white leading-relaxed">Humble and personalised customer service</span>
+                        <span class="text-white leading-relaxed">
+                            Humble and personalised customer service
+                        </span>
                     </li>
 
                 </ul>
             </div>
 
-            <!-- Vision Card -->
-            <div class="bg-white rounded-3xl shadow-xl p-8 border border-[#e6d4cb]" data-aos="fade-left">
+            <!-- Our Vision -->
+            <div class="bg-white rounded-3xl shadow-xl p-6 md:p-7 border border-[#e6d4cb]" data-aos="fade-left">
 
-                <h2 class="text-3xl font-bold text-[#8D5A4B] mb-6 relative inline-block">
+                <h2 class="font-heading text-2xl md:text-3xl font-bold text-[#8D5A4B] mb-4 relative inline-block">
                     Our Vision
                     <span class="block w-14 h-1 bg-[#B78373] mt-2 rounded-full"></span>
                 </h2>
 
-                <p class="text-gray-600 leading-relaxed text-lg">
+                <p class="font-body text-sm md:text-base text-gray-600 leading-relaxed">
                     After successfully serving customers offline for years, we are now expanding into the digital world
                     with an online jewellery shopping experience.
                 </p>
 
-                <p class="text-gray-600 leading-relaxed text-lg mt-4">
+                <p class="font-body text-sm md:text-base text-gray-600 leading-relaxed mt-3">
                     Our vision is not just to build a big jewellery brand, but to create India’s most trusted and
                     admired
-                    jewellery brand and take <span class="font-semibold text-[#8D5A4B]">Lole Jewellers</span> towards
-                    the
-                    milestone of becoming an IPO-ready company in the future.
+                    jewellery brand and take
+                    <span class="font-semibold text-[#8D5A4B]">
+                        Lole Jewellers
+                    </span>
+                    towards the milestone of becoming an IPO-ready company in the future.
                 </p>
 
-                <div class="mt-6 p-4 rounded-xl bg-[#fdf3ef] border-l-4 border-[#B78373]">
-                    <p class="italic text-[#8D5A4B] font-medium">
+                <div class="mt-4 p-3 rounded-xl bg-[#fdf3ef] border-l-4 border-[#B78373]">
+                    <p class="font-body text-sm md:text-base italic text-[#8D5A4B] font-medium">
                         Trust is our legacy. Quality is our promise. Customer relationships are our greatest treasure.
                     </p>
                 </div>
@@ -319,58 +423,47 @@ overflow-y-auto">
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="bg-[#B78373] text-gray-300 py-12 px-4" data-aos="fade-in">
+    <!-- Footer -->
+    <footer class="bg-[#B78373] text-gray-300 py-8 px-4" data-aos="fade-in">
 
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-center">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
 
-            <!-- Company Info -->
             <div class="flex flex-col items-center text-center lg:items-start lg:text-left">
-
-                <!-- Logo -->
                 <div class="rounded-full flex items-center justify-center">
-                    <img src="assets/Logo.jpeg" alt="Logo" class="w-28 h-28 md:w-32 md:h-32 object-contain">
+                    <img src="assets/footer.png" alt="Logo" class="w-28 h-28 md:w-40 md:h-40 object-contain">
                 </div>
-
-                <!-- Company Name -->
-                <h2
-                    class="text-white text-lg md:text-xl font-semibold leading-snug tracking-wide md:tracking-[2px] mt-3">
-                    LOLE JEWELLERS
-                </h2>
-
             </div>
 
-            <!-- Empty Middle Space (for balanced layout) -->
             <div class="hidden lg:block"></div>
 
-            <!-- Contact Us -->
             <div class="text-center md:text-left">
-                <h3 class="text-lg font-semibold text-white mb-5 relative inline-block">
+
+                <h3 class="font-heading text-xl font-semibold text-white mb-3 relative inline-block">
                     CONTACT US
                 </h3>
 
-                <ul class="space-y-4 text-sm">
+                <ul class="font-body space-y-3 text-sm md:text-base">
 
-                    <!-- Address -->
                     <li class="flex items-start gap-3 justify-center md:justify-start">
                         <span class="text-white text-lg">📍</span>
-                        <p class="leading-relaxed text-white text-lg">
-                            Lole Jewellers (Mahalaxmi Jewellers)<br>
+                        <p class="leading-relaxed text-white">Mahalaxmi Jewellers (Lole Jewellers)<br>
                             Jawahar Nagar,<br>
                             Ichalkaranji 416115
                         </p>
                     </li>
 
-                    <!-- Phone -->
                     <li class="flex items-center gap-3 justify-center md:justify-start">
                         <span class="text-yellow-500 text-lg">📞</span>
-                        <p class="leading-relaxed text-white text-lg">8888702277</p>
+                        <p class="leading-relaxed text-white">
+                            7646046060
+                        </p>
                     </li>
 
-                    <!-- Email -->
                     <li class="flex items-center gap-3 justify-center md:justify-start">
                         <span class="text-yellow-500 text-lg">✉️</span>
-                        <p class="leading-relaxed text-white text-lg">lolejewellers@gmail.com</p>
+                        <p class="leading-relaxed text-white">
+                            lolejewellers@gmail.com
+                        </p>
                     </li>
 
                 </ul>
@@ -379,63 +472,56 @@ overflow-y-auto">
         </div>
     </footer>
 
-
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
-    <!-- SCRIPT -->
-    <script src="script.js">
-    </script>
+    <!-- Script -->
+    <script src="script.js"></script>
 
     <script>
-        // Drawer Items Display
+        // Drawer items
         window.renderDrawerItem = function (widget) {
             return `
-      <a href="#"
-         onclick="${widget.action}()"
-         class="block text-lg text-[#B78373] font-semibold">
-         ${widget.name}
-      </a>
-    `;
+                <a href="#"
+                   onclick="${widget.action}()"
+                   class="font-body block text-base text-[#B78373] font-semibold">
+                    ${widget.name}
+                </a>
+            `;
         };
 
-        // widget tabs display
+        // Widget tabs
         window.renderWidget = function (widget, index) {
-            const isVirtualTryOn = Number(widget.id) === 23;
-
             return `
-    <div onclick="${widget.action}()"
-         class="relative flex flex-col items-center cursor-pointer pb-4
-         ${index > 5 ? "hidden md:flex extra-tab" : "flex"}"
-         data-aos="fade-up">
+                <div onclick="${widget.action}()"
+                     class="relative flex flex-col items-center cursor-pointer pb-1
+                     ${index > 5 ? "hidden md:flex extra-tab" : "flex"}"
+                     data-aos="fade-up">
 
-        <!-- Background Shape -->
-        <img src="assets/shape.png"
-             class="w-[110px] md:w-[130px] object-contain"
-             alt="${widget.name}">
+                    <img src="assets/shape.jpeg"
+                         class="w-[130px] md:w-[130px] object-contain"
+                         alt="${widget.name}">
 
-        <!-- Content over image -->
-        <div class="absolute top-2 flex flex-col items-center">
+                    <div class="absolute top-6 flex flex-col items-center ">
 
-            <img class="w-8 h-8 md:w-10 md:h-10 my-3
-                ${isVirtualTryOn ? "" : "invert"}"
-                src="${widget.icon}"
-                alt="${widget.name}" />
+                        <img class="widget-icon w-8 h-8 md:w-8 md:h-8 my-2"
+                             src="${widget.icon}"
+                             alt="${widget.name}">
 
-            <p class="text-white text-xs md:text-sm font-semibold text-center w-[70px]">
-                ${widget.name}
-            </p>
+                        <p class="font-body text-[#F3C253] text-xs font-semibold text-center w-[70px]">
+                            ${widget.name}
+                        </p>
 
-        </div>
-    </div>
-    `;
+                    </div>
+                </div>
+            `;
         };
     </script>
-    <!-- 
-     This file dynamically renders service tabs and drawer items
-     based on widgets.json config, so no need to manually update each page -->
+
+    <!-- Dynamic widgets -->
     <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
 
 </body>

@@ -1,73 +1,76 @@
- const menuBtn = document.getElementById('menuBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const drawer = document.getElementById('drawer');
+const drawer = document.getElementById('drawer');
+const closeBtn = document.getElementById('closeBtn');
 
-    menuBtn.addEventListener('click', () => {
-      drawer.classList.remove('-translate-x-full');
-       document.body.style.overflow = "hidden"; //  FIX
-    });
+function openDrawer() {
+    if (!drawer) return;
 
-    closeBtn.addEventListener('click', () => {
-      drawer.classList.add('-translate-x-full');
-       document.body.style.overflow = "auto"; //  FIX
-    });
+    drawer.classList.remove('-translate-x-full');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+    if (!drawer) return;
+
+    drawer.classList.add('-translate-x-full');
+    document.body.style.overflow = 'auto';
+}
+
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeDrawer);
+}
 
 // Branding Swiper
-
 function initializeBrandingSwiper() {
+    if (window.brandingSwiperInstance) {
+        window.brandingSwiperInstance.destroy(true, true);
+    }
 
-  // Destroy previous instance
-  if (window.brandingSwiperInstance) {
-    window.brandingSwiperInstance.destroy(true, true);
-  }
-
-  // Initialize Swiper
-  window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
-     effect: "coverflow",
+    window.brandingSwiperInstance = new Swiper(".brandingSwiper", {
+        effect: "coverflow",
         spaceBetween: 30,
         centeredSlides: true,
         loop: true,
         autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
+            delay: 3000,
+            disableOnInteraction: false,
         },
         coverflowEffect: {
-          rotate: 30,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
+            rotate: 30,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
         },
         pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
+            el: ".swiper-pagination",
+            clickable: true,
         },
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
-  });
+    });
 }
 
-// Initial load (static banners)
 initializeBrandingSwiper();
 
-// Called by widgets-core.js after Flutter replaces the banners
 window.onBannerImagesLoaded = function () {
-  initializeBrandingSwiper();
+    initializeBrandingSwiper();
 };
 
-// animation 
- AOS.init({
+// Animation
+AOS.init({
     duration: 1000,
     once: false,
-
     easing: 'ease-in-out'
-  });
+});
 
-  // toggle button 
-  document.addEventListener("DOMContentLoaded", function () {
+// Toggle button
+document.addEventListener("DOMContentLoaded", function () {
     const toggleBtn = document.getElementById("toggleBtn");
+
+    if (!toggleBtn) return;
+
     let expanded = false;
 
     toggleBtn.addEventListener("click", function () {
@@ -75,10 +78,8 @@ window.onBannerImagesLoaded = function () {
 
         extraTabs.forEach(tab => {
             if (expanded) {
-                // Hide on mobile only
                 tab.classList.add("hidden");
             } else {
-                // Show on mobile
                 tab.classList.remove("hidden");
             }
         });
