@@ -4,13 +4,70 @@
     box-sizing: border-box;
 }
 
+/* Shared light-theme colors */
+:root {
+    --brand-primary: #8A5A44;
+    --brand-primary-dark: #5E3828;
+    --brand-gold: #C3943E;
+    --brand-gold-light: #E8CF9A;
+    --brand-blush: #F4E5DE;
+    --brand-cream: #FFF9F2;
+    --brand-white: #FFFFFF;
+    --brand-text: #3E2A22;
+    --brand-muted: #735F55;
+    --brand-border: #E8D4C7;
+}
+
 html,
 body {
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-/* Branding slider */
+body {
+    background: var(--brand-cream);
+    color: var(--brand-text);
+}
+
+/* Light champagne header */
+.brand-header {
+    /* background: linear-gradient(135deg, #FFF9F2 0%, #F6E7DF 55%, #EED7CC 100%); */
+    background: linear-gradient(135deg, #FFF9F2 0%, #F5E6DD 100%);
+    border-bottom: 1px solid var(--brand-border);
+    box-shadow: 0 3px 14px rgba(94, 56, 40, 0.12);
+}
+
+.header-title {
+    color: var(--brand-primary-dark);
+}
+
+.header-detail {
+    color: var(--brand-muted);
+}
+
+.header-icon {
+    color: var(--brand-primary);
+}
+
+.header-action:hover {
+    background: rgba(138, 90, 68, 0.10);
+}
+
+.drawer-header {
+    background: var(--brand-cream);
+    border-color: var(--brand-border);
+}
+
+.drawer-close,
+.drawer-link {
+    color: var(--brand-primary);
+}
+
+.drawer-link:hover {
+    color: var(--brand-gold);
+}
+
+/* Branding slider controls */
 .autoplay-progress svg {
     --progress: 0;
     stroke-dashoffset: calc(125.6px * (1 - var(--progress)));
@@ -18,14 +75,25 @@ body {
     transform: rotate(-90deg);
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+    background: rgba(255, 249, 242, 0.9) !important;
+    color: var(--brand-primary-dark) !important;
+    box-shadow: 0 3px 12px rgba(62, 42, 34, 0.18);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: var(--brand-white) !important;
+}
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
     font-size: 1.5rem;
-    color: black;
+    color: var(--brand-primary-dark);
     font-weight: bolder;
 }
 
-/* Pagination */
 .swiper-pagination {
     display: flex;
     justify-content: center;
@@ -36,7 +104,7 @@ body {
 .swiper-pagination-bullet {
     width: 6px;
     height: 6px;
-    background: #cfcfcf;
+    background: #DECFC5;
     opacity: 1;
     border-radius: 50%;
     transition: all 0.3s ease;
@@ -46,14 +114,102 @@ body {
     width: 22px;
     height: 6px;
     border-radius: 999px;
-    background: #B78373;
+    background: var(--brand-gold);
     transition: all 0.4s ease;
 }
 
-/* Icons color in services */
+/* Service shortcuts */
+.service-section {
+    background: var(--brand-white);
+}
+
+.theme-button {
+    background: #2f1508;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(94, 56, 40, 0.18);
+}
+
+.theme-button:hover {
+    background: var(--brand-primary-dark);
+}
+
+/* Brand journey section */
+.journey-section {
+    background: linear-gradient(135deg, #FFF9F2 0%, #F5E6DD 100%);
+}
+
+.section-title {
+    color: var(--brand-primary-dark);
+}
+
+.section-text {
+    color: var(--brand-muted);
+}
+
+.accent-line {
+    background: linear-gradient(to right, var(--brand-gold-light), var(--brand-gold));
+}
+
+/* Benefits and vision section */
+.information-section {
+    background: #FFFDF9;
+}
+
+.feature-card {
+    /* background: linear-gradient(145deg, #F3E2D9 0%, #EBD2C5 100%); */
+    background: linear-gradient(135deg, #FFF9F2 0%, #F5E6DD 100%);
+
+    border: 1px solid var(--brand-border);
+    box-shadow: 0 8px 24px rgba(94, 56, 40, 0.10);
+}
+
+.check-icon {
+    color: var(--brand-primary-dark);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid var(--brand-gold-light);
+}
+
+.vision-card {
+    background: var(--brand-white);
+    border: 1px solid var(--brand-border);
+    box-shadow: 0 8px 24px rgba(94, 56, 40, 0.08);
+}
+
+.vision-quote {
+    background: var(--brand-cream);
+    border-left-color: var(--brand-gold);
+}
+
+/* Light contact footer */
+.brand-footer {
+    /* background: linear-gradient(135deg, #F3E2D9 0%, #E8CFC2 100%); */
+    background: linear-gradient(135deg, #FFF9F2 0%, #F5E6DD 100%);
+    color: var(--brand-text);
+    border-top: 1px solid var(--brand-border);
+}
+
+.footer-icon {
+    color: var(--brand-gold);
+}
+
+
+/* Jewellery-gold icon without shadow */
+/* Bold jewellery-gold icon */
 .widget-icon {
     filter: brightness(0) saturate(100%)
-        invert(81%) sepia(72%)
-        saturate(747%) hue-rotate(340deg)
-        brightness(102%) contrast(91%);
+        invert(58%) sepia(42%)
+        saturate(1000%) hue-rotate(359deg)
+        brightness(90%) contrast(85%)
+        drop-shadow(0 0 0.35px #C3943E)
+        drop-shadow(0 0 0.35px #C3943E);
+
+    box-shadow: none !important;
+}
+
+/* Gold widget name without shadow */
+/* Jewellery-gold widget name without shadow */
+.widget-name {
+    color: #C3943E;
+    text-shadow: none !important;
+    box-shadow: none !important;
 }
