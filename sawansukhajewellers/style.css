@@ -2,19 +2,16 @@
     --peacock: #d71920;
     --peacock-light: #d71920;
     --peacock-dark: #d71920;
-
-    --gold: #C9A84C;
-    --gold-light: #E8D3A3;
-    --gold-pale: #F5EDD8;
-
-    --primary-soft: #FCEBEC;
-    --cream: #FAF8F5;
-    --border: #E5E7EB;
-    --card-border: 1px solid #E5E7EB;
+    --gold: #c9a84c;
+    --gold-light: #e8d3a3;
+    --gold-pale: #f5edd8;
+    --primary-soft: #fcebec;
+    --cream: #faf8f5;
+    --border: #e5e7eb;
+    --card-border: 1px solid #e5e7eb;
     --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-
-    --text: #18201E;
-    --muted: #6F7774;
+    --text: #18201e;
+    --muted: #6f7774;
 }
 
 * {
@@ -57,13 +54,15 @@ button:focus-visible {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.12);
     display: flex;
+    flex: 0 0 auto;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 4px;
-    flex: 0 0 auto;
     cursor: pointer;
-    transition: background .18s ease, transform .18s ease;
+    transition:
+        background 0.18s ease,
+        transform 0.18s ease;
 }
 
 .drawer-toggle-button:hover {
@@ -71,15 +70,15 @@ button:focus-visible {
 }
 
 .drawer-toggle-button:active {
-    transform: scale(.96);
+    transform: scale(0.96);
 }
 
 .drawer-toggle-button span {
+    display: block;
     width: 17px;
     height: 2px;
     border-radius: 999px;
-    background: #FFFFFF;
-    display: block;
+    background: #ffffff;
 }
 
 .brand-logo {
@@ -90,12 +89,12 @@ button:focus-visible {
     place-items: center;
     border: 1px solid var(--gold);
     border-radius: 50%;
-    background: rgba(255,255,255,.05);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--gold-light);
     font-family: "Playfair Display", Georgia, serif;
     font-size: 8px;
     font-weight: 700;
-    letter-spacing: .25px;
+    letter-spacing: 0.25px;
     cursor: pointer;
 }
 
@@ -107,18 +106,20 @@ button:focus-visible {
     border-radius: 50%;
     display: grid;
     place-items: center;
-    background: rgba(255,255,255,.10);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
     cursor: pointer;
-    transition: background .18s ease, transform .18s ease;
+    transition:
+        background 0.18s ease,
+        transform 0.18s ease;
 }
 
 .header-icon-button:hover {
-    background: rgba(255,255,255,.18);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .header-icon-button:active {
-    transform: scale(.96);
+    transform: scale(0.96);
 }
 
 .header-icon-button svg {
@@ -137,7 +138,6 @@ button:focus-visible {
     line-height: 1;
 }
 
-
 /* =========================
    DRAWER
 ========================= */
@@ -149,7 +149,9 @@ button:focus-visible {
     background: rgba(24, 32, 30, 0.46);
     opacity: 0;
     visibility: hidden;
-    transition: opacity .22s ease, visibility .22s ease;
+    transition:
+        opacity 0.22s ease,
+        visibility 0.22s ease;
 }
 
 .drawer-backdrop.open {
@@ -164,10 +166,10 @@ button:focus-visible {
     z-index: 70;
     width: min(84vw, 340px);
     height: 100dvh;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 12px 0 32px rgba(0, 0, 0, 0.16);
     transform: translateX(-102%);
-    transition: transform .24s ease;
+    transition: transform 0.24s ease;
     display: flex;
     flex-direction: column;
 }
@@ -180,7 +182,7 @@ button:focus-visible {
     min-height: 92px;
     padding: 20px 18px 16px;
     background: var(--peacock);
-    color: #FFFFFF;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -196,7 +198,7 @@ button:focus-visible {
 
 .drawer-subtitle {
     margin-top: 2px;
-    color: rgba(255, 255, 255, .72);
+    color: rgba(255, 255, 255, 0.72);
     font-size: 10px;
     font-weight: 500;
 }
@@ -207,8 +209,8 @@ button:focus-visible {
     padding: 0 0 2px;
     border: 0;
     border-radius: 50%;
-    background: rgba(255,255,255,.12);
-    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
     display: grid;
     place-items: center;
     font-size: 25px;
@@ -229,7 +231,7 @@ button:focus-visible {
 
 .drawer-section-label {
     margin: 0 6px 8px;
-    color: #8A5657;
+    color: #8a5657;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.1px;
@@ -242,7 +244,8 @@ button:focus-visible {
     gap: 5px;
 }
 
-/* Text-only widget entries. No widget icons. */
+/* Text-only widget entries */
+
 .drawer-menu-item {
     width: 100%;
     min-height: 54px;
@@ -257,23 +260,23 @@ button:focus-visible {
     justify-content: center;
     cursor: pointer;
     transition:
-        background .16s ease,
-        border-color .16s ease,
-        transform .16s ease;
+        background 0.16s ease,
+        border-color 0.16s ease,
+        transform 0.16s ease;
 }
 
 .drawer-menu-item:hover {
     background: var(--primary-soft);
-    border-color: #F4C7C8;
+    border-color: #f4c7c8;
 }
 
 .drawer-menu-item:active {
-    transform: scale(.992);
+    transform: scale(0.992);
 }
 
 .drawer-menu-title {
     display: block;
-    color: #2B2F2E;
+    color: #2b2f2e;
     font-size: 12px;
     font-weight: 700;
     line-height: 16px;
@@ -282,7 +285,7 @@ button:focus-visible {
 .drawer-menu-subtitle {
     display: block;
     margin-top: 2px;
-    color: #8B8F8E;
+    color: #8b8f8e;
     font-size: 9px;
     line-height: 13px;
 }
@@ -302,7 +305,7 @@ button:focus-visible {
     padding: 0;
     border: 0;
     border-radius: 50%;
-    color: #fff;
+    color: #ffffff;
     display: grid;
     place-items: center;
     cursor: pointer;
@@ -326,6 +329,132 @@ button:focus-visible {
     box-shadow: 0 5px 16px rgba(211, 38, 41, 0.28);
 }
 
+/* =========================
+   FEATURED SERVICES
+========================= */
+
+.featured-services-section {
+    width: 100%;
+    padding: 20px 10px;
+    background: transparent;
+}
+
+.featured-services-container {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 52px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Featured card */
+
+.featured-image-card {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 165px;
+    margin: 0 auto;
+    padding: 0;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    overflow: visible;
+    appearance: none;
+    -webkit-appearance: none;
+    transition:
+        transform 0.18s ease,
+        filter 0.18s ease;
+}
+
+.featured-image-card:hover {
+    transform: translateY(-3px);
+}
+
+.featured-image-card:active {
+    transform: scale(0.97);
+}
+
+/* Shadow behind the top white circle */
+
+.featured-image-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 11.5%;
+    z-index: 0;
+    width: 77%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 4px 14px rgba(180, 180, 180, 0.45);
+    pointer-events: none;
+}
+
+/* Card image */
+
+.featured-card-image {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Text inside the red area */
+
+.featured-image-title {
+    position: absolute;
+    left: 50%;
+    top: 68%;
+    z-index: 2;
+    width: 90%;
+    margin: 0;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+    pointer-events: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+    .featured-services-section {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+
+    .featured-services-container {
+        max-width: 500px;
+        gap: 40px;
+    }
+
+    .featured-image-card {
+        max-width: 145px;
+    }
+
+    .featured-image-title {
+        top: 68%;
+        font-size: 15px;
+        line-height: 1.25;
+    }
+}
+
 @media (max-width: 639px) {
     main {
         padding-bottom: 55px !important;
@@ -334,6 +463,45 @@ button:focus-visible {
     .social-section {
         padding-top: 20px;
         padding-bottom: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .featured-services-section {
+        padding: 15px 7px;
+    }
+
+    .featured-services-container {
+        max-width: 350px;
+        gap: 12px;
+    }
+
+    .featured-image-card {
+        max-width: 90px;
+    }
+
+    .featured-image-title {
+        top: 68%;
+        width: 92%;
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1.15;
+    }
+}
+
+@media (max-width: 360px) {
+    .featured-services-container {
+        gap: 10px;
+    }
+
+    .featured-image-card {
+        max-width: 88px;
+    }
+
+    .featured-image-title {
+        width: 94%;
+        font-size: 10px;
+        line-height: 1.15;
     }
 }
 
@@ -347,229 +515,6 @@ button:focus-visible {
     }
 
     .drawer-menu-subtitle {
-        font-size: 10px;
-    }
-}
-
-
-
-/* separate service section */
-/* 
-   FEATURED SERVICES
- */
-
-.featured-services-section {
-    width: 100%;
-
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-    background: transparent;
-}
-
-
-/* Container */
-
-.featured-services-container {
-    width: 100%;
-
-    max-width: 580px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 52px;
-
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* 
-   CARD
- */
-
-.featured-image-card {
-    position: relative;
-
-    width: 100%;
-    max-width: 165px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    padding: 0;
-
-    border: none;
-
-    background: transparent;
-
-    cursor: pointer;
-
-    overflow: hidden;
-
-    border-radius: 12px;
-
-    transition:
-        transform 0.18s ease,
-        filter 0.18s ease;
-}
-
-
-/* Hover */
-
-.featured-image-card:hover {
-    transform: translateY(-3px);
-}
-
-
-/* Click */
-
-.featured-image-card:active {
-    transform: scale(0.97);
-}
-
-
-/* 
-   CARD IMAGE
- */
-
-.featured-card-image {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    object-fit: contain;
-
-    pointer-events: none;
-}
-
-
-/* 
-   TEXT INSIDE RED AREA
- */
-
-.featured-image-title {
-    position: absolute;
-
-    left: 50%;
-    top: 68%;
-
-    transform: translate(-50%, -50%);
-
-    width: 90%;
-
-    color: #FFFFFF;
-
-    font-family: "Inter", Arial, sans-serif;
-
-    font-size: 17px;
-
-    font-weight: 500;
-
-    line-height: 1.35;
-  margin-top: 10px;
-    text-align: center;
-
-    pointer-events: none;
-}
-
-
-/* 
-   TABLET
- */
-
-@media (max-width: 768px) {
-
-    .featured-services-section {
-        padding-top: 18px;
-        padding-bottom: 18px;
-    }
-
-
-    .featured-services-container {
-        max-width: 500px;
-
-        gap: 40px;
-    }
-
-
-    .featured-image-card {
-        max-width: 145px;
-    }
-
-
-    .featured-image-title {
-        top: 68%;
-  margin-top: 10px; 
-        font-size: 15px;
-
-        line-height: 1.3;
-    }
-}
-
-
-/* 
-   MOBILE
- */
-
-@media (max-width: 480px) {
-
-    .featured-services-section {
-        padding-top: 15px;
-        padding-bottom: 15px;
-
-        padding-left: 7px;
-        padding-right: 7px;
-    }
-
-
-    .featured-services-container {
-        max-width: 350px;
-        gap: 12px;
-    }
-
-
-    .featured-image-card {
-        max-width: 90px;
-    }
-
-
-    .featured-image-title {
-        top: 68%;
-        width: 92%;
-        font-size: 11px;
-        font-weight: 500;
-        margin-top: 10px;
-        /* line-height: 1; */
-    }
-}
-
-
-/* 
-   VERY SMALL MOBILE
- */
-
-@media (max-width: 360px) {
-
-    .featured-services-container {
-        gap: 24px;
-    }
-
-
-    .featured-image-card {
-        max-width: 95px;
-    }
-
-
-    .featured-image-title {
         font-size: 10px;
     }
 }
