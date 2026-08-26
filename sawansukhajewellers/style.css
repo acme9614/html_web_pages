@@ -391,8 +391,8 @@ button:focus-visible {
     width: 77%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: #ffffff;
-    box-shadow: 0 4px 14px rgba(180, 180, 180, 0.45);
+    background: #EBEDEC;
+    box-shadow: 0 4px 24px rgba(180, 180, 180, 0.45);
     pointer-events: none;
 }
 
