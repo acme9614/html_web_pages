@@ -164,7 +164,7 @@
 
         // Builds one service widget without changing its action.
         window.renderWidget = function (widget, index) {
-            return `<div onclick="${widget.action}()" class="relative flex flex-col items-center cursor-pointer pb-1 ${index > 5 ? 'hidden md:flex extra-tab' : 'flex'}" data-aos="fade-up">
+            return `<div onclick="${widget.action}()" class="relative flex flex-col items-center cursor-pointer pb-1 ${index > 5 ? 'hidden md:flex extra-tab' : 'flex'}">
                 <img src="assets/shape.jpeg" class="w-[130px] md:w-[130px] object-contain" alt="${widget.name}">
                 <div class="absolute top-6 flex flex-col items-center">
                     <img class="widget-icon w-8 h-8 md:w-8 md:h-8 my-2" src="${widget.icon}" alt="${widget.name}">
