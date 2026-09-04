@@ -405,7 +405,7 @@ function requestWidgetsAgain() {
         Toaster.postMessage("requestWidgets");
     } else {
         window.clearTimeout(widgetResponseTimeoutId);
-        showWidgetErrorState("Unable to request services from the application.");
+        showWidgetErrorState("Unable to request widgets from the application.");
         console.error("Toaster is not available to request widgets again.");
     }
 }
