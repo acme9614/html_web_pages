@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lole Jewellers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --font-heading: 'Cinzel', serif; --font-body: 'Nunito', sans-serif; }
+        body { font-family: var(--font-body); }
+        h1, h2, h3, h4, h5, h6, .font-heading { font-family: var(--font-heading); }
+        .font-body { font-family: var(--font-body); }
+        button, input, textarea, select, a, p, span, li { font-family: inherit; }
+    </style>
+</head>
+<body>
+    <!-- Fixed branding header -->
+    <header class="brand-header fixed top-0 left-0 w-full z-50 pt-8 md:pt-0">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+            <!-- Mobile header actions -->
+            <div class="flex md:hidden items-center justify-end h-8 pb-2">
+                <div class="flex items-center gap-1">
+                    <button type="button" aria-label="Notifications" onclick="navigateToNotification()" class="header-action w-8 h-8 flex items-center justify-center rounded-full transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="header-icon w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0h6z"/></svg>
+                    </button>
+                    <button type="button" aria-label="Settings" onclick="navigateToSetting()" class="header-action w-8 h-8 flex items-center justify-center rounded-full transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="header-icon w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15.5A3.5 3.5 0 1012 8a3.5 3.5 0 000 7.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1.08-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.6 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.6h.08A1.65 1.65 0 0010 3.09V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9v.08A1.65 1.65 0 0020.91 10H21a2 2 0 110 4h-.09A1.65 1.65 0 0019.4 15z"/></svg>
+                    </button>
+                    <button id="menuBtnMobile" type="button" aria-label="Open Menu" onclick="openDrawer()" class="header-action w-8 h-8 flex items-center justify-center rounded-full transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="header-icon w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Logo, brand details and desktop actions -->
+            <div class="flex justify-evenly gap-4 items-center pb-1 md:grid md:grid-cols-[1fr_2fr_1fr] md:gap-0 md:py-2 lg:py-3">
+                <div class="flex-shrink-0 md:justify-self-start"><img src="assets/logo.png" alt="Lole Jewellers Logo" class="w-[82px] h-[82px] sm:w-[90px] sm:h-[90px] md:w-[90px] md:h-[90px] lg:w-[105px] lg:h-[105px] object-contain"></div>
+                <div class="min-w-0 md:justify-self-center md:text-center">
+                    <h1 class="header-title font-heading text-lg sm:text-xl md:text-2xl lg:text-[28px] font-bold tracking-[1px] md:tracking-[2px] leading-tight">Mahalaxmi Jewellers</h1>
+                    <p class="header-detail font-body text-[13px] sm:text-sm md:text-base leading-snug">(LOLE JEWELLERS)<br>Jawahar Nagar, Ichalkaranji.</p>
+                    <p class="header-detail font-body inline-flex items-center gap-2 text-[13px] sm:text-sm md:text-base"><span>☎</span><span>9604278086</span></p>
+                </div>
+                <div class="hidden md:flex items-center gap-1 lg:gap-2 justify-self-end">
+                    <button type="button" aria-label="Notifications" onclick="navigateToNotification()" class="header-action w-10 h-10 rounded-full text-2xl">♢</button>
+                    <button type="button" aria-label="Settings" onclick="navigateToSetting()" class="header-action w-10 h-10 rounded-full text-2xl">⚙</button>
+                    <button id="menuBtnDesktop" type="button" aria-label="Open Menu" onclick="openDrawer()" class="header-action w-10 h-10 rounded-full text-2xl">☰</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation drawer populated by widgets-core.js -->
+    <div id="drawer" class="fixed top-0 left-0 h-full w-[90%] md:w-[50%] bg-white transform -translate-x-full transition-transform duration-300 z-50 shadow-xl overflow-y-auto">
+        <div class="drawer-header relative flex items-center px-4 py-4 border-b">
+            <img src="assets/logo.png" alt="Logo" class="w-16 h-16 md:w-20 md:h-20 object-contain">
+            <button id="closeBtn" type="button" aria-label="Close Menu" class="drawer-close absolute right-4 top-1/2 -translate-y-1/2 text-5xl font-bold cursor-pointer">&times;</button>
+        </div>
+        <div id="drawerContainer" class="font-body p-4 space-y-3"></div>
+    </div>
+
+    <!-- Promotional banner slider -->
+    <div class="swiper brandingSwiper w-full mt-[152px] md:mt-[106px] lg:mt-[129px]">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="assets/banner.png" alt="Banner" class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill"></div>
+            <div class="swiper-slide"><img src="assets/banner3.png" alt="Banner" class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill"></div>
+            <div class="swiper-slide"><img src="assets/banner4.png" alt="Banner" class="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-[700px] object-fill"></div>
+        </div>
+        <div class="swiper-button-next hidden md:flex !w-10 !h-10 rounded-full backdrop-blur items-center justify-center"></div>
+        <div class="swiper-button-prev hidden md:flex !w-10 !h-10 rounded-full backdrop-blur items-center justify-center"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Dynamic service shortcuts -->
+    <section class="service-section py-8 md:py-10 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div id="widgetsLoadingContainer" class="min-h-[170px] flex flex-col items-center justify-center gap-3" role="status" aria-live="polite">
+                <div class="w-10 h-10 rounded-full border-4 border-gray-200 border-t-yellow-600 animate-spin" aria-hidden="true"></div>
+                <p class="font-body text-sm font-semibold">Loading services...</p>
+            </div>
+            <div id="widgetsErrorContainer" class="hidden min-h-[170px] flex-col items-center justify-center gap-3 text-center" role="alert">
+                <p id="widgetsErrorMessage" class="font-body text-sm font-semibold">Unable to load services.</p>
+                <button type="button" onclick="requestWidgetsAgain()" class="theme-button font-body px-5 py-2 rounded-full font-semibold">Retry</button>
+            </div>
+            <div id="widgetsEmptyContainer" class="hidden min-h-[170px] flex-col items-center justify-center text-center" role="status">
+                <p class="font-body text-sm font-semibold">No services are available.</p>
+            </div>
+            <div id="widgetsContainer" class="hidden font-body flex-wrap justify-center gap-1 md:gap-6" data-aos="zoom-in"></div>
+            <div id="toggleButtonContainer" class="hidden justify-center mt-4 md:hidden">
+                <button id="toggleBtn" type="button" class="theme-button font-body px-5 py-2 rounded-full font-semibold">Show More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand journey -->
+    <section class="journey-section py-10 md:py-12 px-4 md:px-10">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+            <div data-aos="fade-right" class="order-1">
+                <h2 class="section-title font-heading text-2xl md:text-3xl font-bold mb-3 relative inline-block">Our Journey<span class="accent-line block w-16 h-1 mt-2 rounded"></span></h2>
+                <p class="section-title font-body text-base md:text-lg mb-3 font-semibold leading-relaxed">A Legacy of <span class="font-semibold">Trust Since 1996</span></p>
+                <p class="section-text font-body text-sm md:text-base mb-0 leading-relaxed">Lole Jewellers began its journey in 1996 with a humble 5-feet counter. From a small 150 sq. ft. shop to a modern 1,550 sq. ft. showroom today, this journey is a reflection of the trust our customers have placed in us.<br><br>Over the past 30 years, we have built relationships with 35,000+ customers, and this is our greatest identity. At Lole Jewellers, we offer Gold, Silver, Diamond, and Gemstone Jewellery, bringing together traditional craftsmanship and modern designs.<br><br>We have always given priority to HUID Hallmark, purity, transparent dealings, and fair value. Whether it is the transparent evaluation of old gold or after-sales service, our aim is to provide the right guidance and a trustworthy service at every step.<br><br>For us, jewellery is not just an ornament; it is a part of special moments in life and memories cherished for generations. That is why we consider every customer not just a customer, but a part of the Lole Jewellers family.<br><br>Since 1996 — building trust, creating relationships, and moving forward with every generation.<br><br>Lole Jewellers — A Trustworthy Experience in Buying Gold.</p>
+            </div>
+            <div data-aos="fade-left" class="relative order-2 flex flex-col gap-4">
+                <div class="overflow-hidden rounded-2xl"><img src="assets/about2.jpeg" alt="Lole Jewellers Journey" class="w-full h-[250px] md:h-auto hover:scale-105 transition duration-700"></div>
+                <div class="overflow-hidden rounded-2xl"><img src="assets/about3.jpeg" alt="Lole Jewellers Jewellery" class="w-full h-[250px] md:h-auto hover:scale-105 transition duration-700"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer benefits and company vision -->
+    <section class="information-section py-10 md:py-12 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+            <div class="feature-card rounded-3xl p-6 md:p-7" data-aos="fade-right">
+                <h2 class="section-title font-heading text-2xl md:text-3xl font-bold mb-4 relative inline-block">Why Choose Us<span class="accent-line block w-14 h-1 mt-2 rounded-full"></span></h2>
+                <ul class="font-body text-sm md:text-base space-y-3 mt-3">
+                    <li class="flex items-start gap-3"><div class="check-icon w-8 h-8 rounded-full flex items-center justify-center">✓</div><span class="section-text leading-relaxed">HUID BIS Hallmarked Jewellery</span></li>
+                    <li class="flex items-start gap-3"><div class="check-icon w-8 h-8 rounded-full flex items-center justify-center">✓</div><span class="section-text leading-relaxed">Transparent pricing according to carat purity</span></li>
+                    <li class="flex items-start gap-3"><div class="check-icon w-8 h-8 rounded-full flex items-center justify-center">✓</div><span class="section-text leading-relaxed">Best value for old gold exchange</span></li>
+                    <li class="flex items-start gap-3"><div class="check-icon w-8 h-8 rounded-full flex items-center justify-center">✓</div><span class="section-text leading-relaxed">Customised jewellery designs</span></li>
+                    <li class="flex items-start gap-3"><div class="check-icon w-8 h-8 rounded-full flex items-center justify-center">✓</div><span class="section-text leading-relaxed">Wide range from everyday jewellery to premium collections</span></li>
+                    <li class="flex items-start gap-3"><div class="check-icon w-8 h-8 rounded-full flex items-center justify-center">✓</div><span class="section-text leading-relaxed">Humble and personalised customer service</span></li>
+                </ul>
+            </div>
+            <div class="vision-card rounded-3xl p-6 md:p-7" data-aos="fade-left">
+                <h2 class="section-title font-heading text-2xl md:text-3xl font-bold mb-4 relative inline-block">Our Vision<span class="accent-line block w-14 h-1 mt-2 rounded-full"></span></h2>
+                <p class="section-text font-body text-sm md:text-base leading-relaxed">After successfully serving customers offline for years, we are now expanding into the digital world with an online jewellery shopping experience.</p>
+                <p class="section-text font-body text-sm md:text-base leading-relaxed mt-3">Our vision is not just to build a big jewellery brand, but to create India’s most trusted and admired jewellery brand and take <span class="section-title font-semibold">Lole Jewellers</span> towards the milestone of becoming an IPO-ready company in the future.</p>
+                <div class="vision-quote mt-4 p-3 rounded-xl border-l-4"><p class="section-title font-body text-sm md:text-base italic font-medium">Trust is our legacy. Quality is our promise. Customer relationships are our greatest treasure.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact footer -->
+    <footer class="brand-footer py-8 px-4" data-aos="fade-in">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+            <div class="flex flex-col items-center text-center lg:items-start lg:text-left"><img src="assets/footer.png" alt="Logo" class="w-28 h-28 md:w-40 md:h-40 object-contain"></div>
+            <div class="hidden lg:block"></div>
+            <div class="text-center md:text-left">
+                <h3 class="section-title font-heading text-xl font-semibold mb-3 relative inline-block">CONTACT US</h3>
+                <ul class="font-body space-y-3 text-sm md:text-base">
+                    <li class="flex items-start gap-3 justify-center md:justify-start"><span class="footer-icon text-lg">📍</span><p class="section-text leading-relaxed">Mahalaxmi Jewellers (Lole Jewellers)<br>Jawahar Nagar,<br>Ichalkaranji 416115</p></li>
+                    <li class="flex items-center gap-3 justify-center md:justify-start"><span class="footer-icon text-lg">📞</span><p class="section-text leading-relaxed">7646046060</p></li>
+                    <li class="flex items-center gap-3 justify-center md:justify-start"><span class="footer-icon text-lg">✉️</span><p class="section-text leading-relaxed">lolejewellers@gmail.com</p></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Third-party libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <!-- Page behavior -->
+    <script src="script.js"></script>
+    <script>
+        // Builds one navigation drawer item.
+        window.renderDrawerItem = function (widget) {
+            return `<a href="#" onclick="${widget.action}(); return false;" class="drawer-link font-body block text-base font-semibold">${widget.name}</a>`;
+        };
+
+        // Builds one service widget without changing its action.
+        window.renderWidget = function (widget, index) {
+            return `<div onclick="${widget.action}()" class="relative flex flex-col items-center cursor-pointer pb-1 ${index > 5 ? 'hidden md:flex extra-tab' : 'flex'}" data-aos="fade-up">
+                <img src="assets/shape.jpeg" class="w-[130px] md:w-[130px] object-contain" alt="${widget.name}">
+                <div class="absolute top-6 flex flex-col items-center">
+                    <img class="widget-icon w-8 h-8 md:w-8 md:h-8 my-2" src="${widget.icon}" alt="${widget.name}">
+                    <p class="widget-name font-body text-xs font-semibold text-center w-[70px]">${widget.name}</p>
+                </div>
+            </div>`;
+        };
+    </script>
+    <!-- Loads dynamic widget data and navigation actions -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core-fix.js"></script>
+</body>
+</html>
