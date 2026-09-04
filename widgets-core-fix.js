@@ -350,7 +350,7 @@ function startWidgetResponseTimeout() {
 
     widgetResponseTimeoutId = window.setTimeout(function () {
         if (!widgetResponseReceived) {
-            showWidgetErrorState("Services are taking longer than expected to load.");
+            showWidgetErrorState("Please close the application and open it again");
             console.error("Flutter widget response was not received within 30 seconds.");
         }
     }, WIDGET_RESPONSE_TIMEOUT_MS);
