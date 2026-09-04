@@ -88,7 +88,7 @@ const NAME_MAP = {
 };
 
 // Maximum time to wait for the Flutter widget response.
-const WIDGET_RESPONSE_TIMEOUT_MS = 10000;
+const WIDGET_RESPONSE_TIMEOUT_MS = 30000;
 
 let lastWidgetData = null;
 let widgetResponseReceived = false;
@@ -351,7 +351,7 @@ function startWidgetResponseTimeout() {
     widgetResponseTimeoutId = window.setTimeout(function () {
         if (!widgetResponseReceived) {
             showWidgetErrorState("Services are taking longer than expected to load.");
-            console.error("Flutter widget response was not received within 10 seconds.");
+            console.error("Flutter widget response was not received within 30 seconds.");
         }
     }, WIDGET_RESPONSE_TIMEOUT_MS);
 }
