@@ -59,11 +59,11 @@ window.onBannerImagesLoaded = function () {
 };
 
 // Animation
-AOS.init({
-    duration: 1000,
-    once: false,
-    easing: 'ease-in-out'
-});
+// AOS.init({
+//     duration: 1000,
+//     once: false,
+//     easing: 'ease-in-out'
+// });
 
 // Toggle button
 document.addEventListener("DOMContentLoaded", function () {
