@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bedre Bandhu Suvarnakar</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: "#071D37",
+                        gold: "#F2AA2C",
+                        cream: "#F7F6F1"
+                    },
+                    fontFamily: {
+                        heading: ["Georgia", "serif"],
+                        body: ["Arial", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Minimum custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="overflow-x-hidden bg-cream font-body text-navy">
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 border-b border-gray-100 bg-white shadow-sm">
+
+        <div class="relative mx-auto flex h-[72px] max-w-7xl
+               items-center px-3 sm:h-20 sm:px-6 lg:px-8">
+
+            <!-- Left: Drawer Button -->
+            <button id="mobileMenuButton" type="button" class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full text-[#061b35] transition
+                   hover:bg-[#061b35] hover:text-white
+                   sm:h-11 sm:w-11" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <!-- Menu Icon -->
+                <svg id="openMenuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+
+                <!-- Close Icon -->
+                <svg id="closeMenuIcon" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path d="M6 6l12 12M18 6 6 18" />
+                </svg>
+            </button>
+
+            <!-- Centre: Logo -->
+            <a href="#" class="absolute left-1/2 top-1/2
+                   -translate-x-1/2 -translate-y-1/2" aria-label="Bedre Bandhu Suvarnakar home">
+                <img src="assets/logo.webp" alt="Bedre Bandhu Suvarnakar" class="h-12 w-auto max-w-[155px] object-contain
+                       sm:h-16 sm:max-w-[210px]" />
+            </a>
+
+            <!-- Right: Notification -->
+            <button type="button" aria-label="Notifications" onclick="navigateToNotification()" class="relative ml-auto flex h-10 w-10 shrink-0
+                   items-center justify-center rounded-full
+                   text-[#061b35] transition hover:bg-gray-100
+                   sm:h-11 sm:w-11">
+                <img src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png" alt=""
+                    class="h-5 w-5 object-contain sm:h-6 sm:w-6" />
+            </button>
+
+        </div>
+
+        <!-- Drawer Navigation -->
+        <nav id="mobileMenu" class="hidden border-t border-gray-100 bg-white shadow-lg" aria-label="Main navigation">
+            <div id="drawerContainer" class="mx-auto flex max-w-7xl flex-col gap-4
+                   px-5 py-5 sm:px-6 lg:px-8">
+                <!-- Dynamic widgets display here -->
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- BANNER SWIPER -->
+    <section class="bg-cream px-3 py-4 sm:px-5 sm:py-6 lg:px-8 lg:py-8">
+
+        <div class="swiper brandingSwiper mx-auto
+               aspect-[16/9] w-full
+               overflow-hidden rounded-xl shadow-xl
+               sm:aspect-[2/1] sm:rounded-2xl
+               lg:aspect-[2.6/1]
+               2xl:max-h-[650px]">
+
+            <div class="swiper-wrapper">
+
+                <!-- Banner 1 -->
+                <div class="swiper-slide">
+                    <img src="assets/banner2.webp" alt="Jewellery collection banner"
+                        class="h-full w-full object-cover object-center" />
+                </div>
+
+                <!-- Banner 2 -->
+                <div class="swiper-slide">
+                    <img src="assets/banner-3.webp" alt="New jewellery collection banner"
+                        class="h-full w-full object-cover object-center" />
+                </div>
+
+            </div>
+            <!-- Previous Button -->
+            <button type="button" class="swiper-button-prev
+           !left-3 !hidden
+           !h-10 !w-10
+           !items-center !justify-center
+           !rounded-full
+           !border !border-white/70
+           !bg-[#061b35]/60
+           !backdrop-blur-sm
+           transition
+           hover:!bg-[#061b35]/90
+           sm:!flex
+           lg:!left-6 lg:!h-12 lg:!w-12" aria-label="Previous banner"></button>
+
+            <!-- Next Button -->
+            <button type="button" class="swiper-button-next
+           !right-3 !hidden
+           !h-10 !w-10
+           !items-center !justify-center
+           !rounded-full
+           !border !border-white/70
+           !bg-[#061b35]/60
+           !backdrop-blur-sm
+           transition
+           hover:!bg-[#061b35]/90
+           sm:!flex
+           lg:!right-6 lg:!h-12 lg:!w-12" aria-label="Next banner"></button>
+
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+
+    </section>
+
+
+<!-- SERVICES SECTION -->
+<section class="bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+    <div class="mx-auto max-w-5xl">
+
+        <!-- Dynamic Service Widgets -->
+        <div
+            id="widgetsContainer"
+            class="flex flex-wrap items-center justify-center gap-5 sm:gap-6 lg:gap-8"
+        ></div>
+
+        <!-- Mobile Show More Button -->
+      <div
+    id="serviceToggleWrapper"
+    class="mt-6 hidden justify-center sm:hidden"
+>
+    <button
+        id="serviceToggleButton"
+        type="button"
+        class="inline-flex items-center gap-2 rounded-full
+               border border-[#f2aa2c] bg-[#061b35]
+               px-5 py-2.5 text-sm font-semibold text-white
+               shadow-md transition active:scale-95"
+        aria-expanded="false"
+    >
+        <span id="serviceToggleText">Show More</span>
+
+        <svg
+            id="serviceToggleIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-4 w-4 transition-transform duration-300"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m6 9 6 6 6-6"
+            />
+        </svg>
+    </button>
+</div>
+
+    </div>
+</section>
+
+    <!-- WHY BEDRE BANDHU SUVARNAKAR SECTION -->
+    <section id="whyBedreSection"
+        class="overflow-hidden bg-[#061b35] px-4 py-12 text-white sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+
+        <div class="mx-auto max-w-[1500px]">
+
+            <!-- Section Heading -->
+            <div class="mb-10 text-center sm:mb-12">
+
+                <!-- Ribbon Heading -->
+                <div
+                    class="mx-auto flex min-h-[56px] w-[270px] items-center justify-center bg-[#f2aa2c] px-8 py-3 text-center text-base font-bold text-[#061b35] [clip-path:polygon(7%_0,100%_0,93%_50%,100%_100%,7%_100%,0_50%)] sm:w-[310px] sm:text-lg">
+                    बेदरे बंधू सुवर्णकारंच का?
+                </div>
+
+                <!-- English Heading -->
+                <p class="mt-3 text-sm font-medium text-blue-100 sm:text-base">
+                    (Why Bedre Bandhu Suvarnakar)
+                </p>
+
+            </div>
+
+            <!-- Infinite Benefits Slider -->
+            <div class="swiper promiseSwiper w-full overflow-hidden">
+                <div class="swiper-wrapper !ease-linear">
+
+                    <!-- Benefit 1 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-12.webp" alt="Loyalty points"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[185px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            वारंवार खरेदीसाठी लॉयल्टी पॉईंटसची सुविधा.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 2 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-13.webp" alt="Maharashtra Udyog Ratna award"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[185px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            महाराष्ट्र उद्योग रत्न प्राप्त ब्रँड.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 3 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-14.webp" alt="Gemstone guidance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[185px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            आपले भाग्य उजळविण्यासाठी मार्गदर्शन आणि राशी रत्न विभाग.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 4 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-01.webp" alt="Trusted since 1984"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[185px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            सोन्याने विश्वास १९८४ पासून.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 5 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-02.webp" alt="Hallmarked jewellery"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[185px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            शासनमान्य शुद्धतेचे हॉलमार्क दागिने.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 6 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-03.webp" alt="Jewellery collections"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[200px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            विविध महोत्सवातून सोने, चांदी, हीरे, टेम्पल, अंटीक, दागीन्यांचे शेकडो प्रकार.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 7 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-04.webp" alt="Jewellery insurance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[190px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            आपण खरेदी केलेल्या दागीन्यांचा एक वर्षाचा फ्री इशुरन्स.
+                        </p>
+
+                    </article>
+                    <!-- Benefit 8 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-05.webp" alt="Jewellery insurance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[190px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            मासिक सुवर्ण बचत योजना.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 9 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-06.webp" alt="Jewellery insurance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[190px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            हप्त्यांवर दागीणे खरेदीसाठी EMI.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 10 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-07.webp" alt="Jewellery insurance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[190px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            हीऱ्यांच्या दागीन्यांची विस्तृत शृंखला.
+                        </p>
+
+                    </article>
+                    <!-- Benefit 11 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-08.webp" alt="Jewellery insurance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[190px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            एक वर्षासाठी रिपेअरिंग लेबर नाही.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 12 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-09.webp" alt="Jewellery insurance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[190px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            घरबसल्या खरेदीसाठी Online Platform.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 13 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-10.webp" alt="Jewellery insurance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[190px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            कमीत कमी व्याजदराने दागीण्यांवर तात्काळ कर्जमंजुरी.
+                        </p>
+
+                    </article>
+
+                    <!-- Benefit 14 -->
+                    <article class="swiper-slide !flex !h-auto !w-[170px] shrink-0
+           flex-col items-center text-center
+           sm:!w-[190px] lg:!w-[210px]">
+
+                        <div class="flex h-[88px] w-[88px] items-center justify-center rounded-2xl
+           border-2 border-[#f2aa2c] bg-[#071d37] p-3
+           sm:h-[94px] sm:w-[94px]">
+                            <img src="assets/promise-11.webp" alt="Jewellery insurance"
+                                class="h-full w-full object-contain" />
+                        </div>
+
+                        <p class="mt-4 max-w-[190px] text-xs leading-6 text-gray-200 sm:text-sm">
+                            मोडीच्या दागीण्यांसाठी सर्वोत्तम भाव.
+                        </p>
+
+                    </article>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HANDPICKED BEST COLLECTION SECTION -->
+    <section class="bg-[#fffaf2] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+
+        <div class="mx-auto max-w-7xl">
+
+            <!-- Section Heading -->
+            <div class="mb-7 text-center sm:mb-9">
+
+                <p class="text-xs font-semibold uppercase tracking-[0.25em] text-[#c68b25]">
+                    Handpicked
+                </p>
+
+                <h2 class="mt-2 font-heading text-3xl font-semibold text-[#061b35]
+                       sm:text-4xl lg:text-5xl">
+                    Best Collection
+                </h2>
+
+                <div class="mx-auto mt-3 h-[2px] w-12 bg-[#f2aa2c]"></div>
+
+            </div>
+
+            <!-- Collection Grid -->
+            <div class="grid grid-cols-2 gap-3
+                   sm:gap-4
+                   lg:grid-cols-4 lg:gap-5">
+
+                <!-- Collection 1 -->
+                <a class="group relative block aspect-[4/5] overflow-hidden
+                       rounded-xl bg-gray-100 sm:rounded-2xl">
+                    <img src="assets/collection1.webp" alt="Gold Jewellery Collection" class="h-full w-full object-cover transition duration-500
+                           group-hover:scale-105" />
+
+                    <div class="absolute inset-0 bg-gradient-to-t
+                           from-black/75 via-black/10 to-transparent"></div>
+
+                    <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+
+                        <h3 class="mt-1 text-lg font-semibold text-white
+                               sm:text-xl">
+                            TEMPLE NECKLACE
+                        </h3>
+
+                    </div>
+                </a>
+
+                <!-- Collection 2 -->
+                <a class="group relative block aspect-[4/5] overflow-hidden
+                       rounded-xl bg-gray-100 sm:rounded-2xl">
+                    <img src="assets/collection2.webp" alt="Diamond Jewellery Collection" class="h-full w-full object-cover transition duration-500
+                           group-hover:scale-105" />
+
+                    <div class="absolute inset-0 bg-gradient-to-t
+                           from-black/75 via-black/10 to-transparent"></div>
+
+                    <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+
+                        <h3 class="mt-1 text-lg font-semibold text-white
+                               sm:text-xl">
+                            TEMPLE RANI HAAR
+                        </h3>
+
+                    </div>
+                </a>
+
+                <!-- Collection 3 -->
+                <a class="group relative block aspect-[4/5] overflow-hidden
+                       rounded-xl bg-gray-100 sm:rounded-2xl">
+                    <img src="assets/collection3.webp" alt="Bridal Jewellery Collection" class="h-full w-full object-cover transition duration-500
+                           group-hover:scale-105" />
+
+                    <div class="absolute inset-0 bg-gradient-to-t
+                           from-black/75 via-black/10 to-transparent"></div>
+
+                    <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+
+                        <h3 class="mt-1 text-lg font-semibold text-white
+                               sm:text-xl">
+                            SAVKAR LOCKET
+                        </h3>
+
+                    </div>
+                </a>
+
+                <!-- Collection 4 -->
+                <a class="group relative block aspect-[4/5] overflow-hidden
+                       rounded-xl bg-gray-100 sm:rounded-2xl">
+                    <img src="assets/collection4.webp" alt="Silver Jewellery Collection" class="h-full w-full object-cover transition duration-500
+                           group-hover:scale-105" />
+
+                    <div class="absolute inset-0 bg-gradient-to-t
+                           from-black/75 via-black/10 to-transparent"></div>
+
+                    <div class="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+
+                        <h3 class="mt-1 text-lg font-semibold text-white
+                               sm:text-xl">
+                            FANCY BANGLE
+                        </h3>
+
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- OUR PEOPLE SECTION -->
+    <section class="bg-[#061b35] px-4 py-8 text-white sm:px-6 sm:py-10 lg:px-8">
+
+        <div class="mx-auto max-w-6xl">
+
+            <!-- Section Heading -->
+            <div class="mb-7 text-center">
+
+                <h2 class="text-2xl font-bold text-[#f2aa2c] sm:text-3xl lg:text-4xl">
+                    बेदरे बंधू सुवर्णकार
+                </h2>
+
+                <p class="mt-1 text-lg font-semibold text-white sm:text-xl lg:text-2xl">
+                    आपली माणसं
+                </p>
+
+            </div>
+
+            <!--
+            Mobile and tablet: 2 columns
+            Desktop: 3 columns
+        -->
+            <div class="grid grid-cols-2 gap-x-4 gap-y-7
+                   sm:gap-x-8
+                   lg:grid-cols-3 lg:gap-x-10">
+
+                <!-- Person 1 -->
+                <article class="flex min-w-0 flex-col items-center text-center">
+
+                    <!-- Image -->
+                    <div class="aspect-square w-full max-w-[170px] overflow-hidden
+                           rounded-xl bg-[#0a2442]
+                           sm:max-w-[210px]">
+                        <img src="assets/founder1.webp" alt="कै. दत्तात्रय मोहनराव बेदरे"
+                            class="h-full w-full object-cover object-top" />
+                    </div>
+
+                    <!-- Details -->
+                    <div class="mt-3">
+
+                        <h3 class="text-sm font-bold leading-5 text-white
+                               sm:text-lg sm:leading-7 lg:text-xl">
+                            कै. दत्तात्रय मोहनराव बेदरे
+                        </h3>
+
+                        <p class="mt-1 text-xs font-medium leading-5
+                               text-[#f2aa2c] sm:text-sm lg:text-base">
+                            संस्थापक - बेदरे बंधू सुवर्णकार
+                        </p>
+
+                        <p class="mt-1 text-xs text-blue-100 sm:mt-2 sm:text-sm">
+                            कार्यकाळ 1984 - 2014
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <!-- Person 2 -->
+                <article class="flex min-w-0 flex-col items-center text-center">
+
+                    <!-- Image -->
+                    <div class="aspect-square w-full max-w-[170px] overflow-hidden
+                           rounded-xl bg-[#0a2442]
+                           sm:max-w-[210px]">
+                        <img src="assets/co-founder.webp" alt="श्री. पुरुषोत्तम दत्तात्रय बेदरे"
+                            class="h-full w-full object-cover object-top" />
+                    </div>
+
+                    <!-- Details -->
+                    <div class="mt-3">
+
+                        <h3 class="text-sm font-bold leading-5 text-white
+                               sm:text-lg sm:leading-7 lg:text-xl">
+                            श्री. पुरुषोत्तम दत्तात्रय बेदरे
+                        </h3>
+
+                        <p class="mt-1 text-xs font-medium leading-5
+                               text-[#f2aa2c] sm:text-sm lg:text-base">
+                            संचालक - बेदरे बंधू सुवर्णकार
+                        </p>
+
+                        <p class="mt-1 text-xs text-blue-100 sm:mt-2 sm:text-sm">
+                            2014 पासून
+                        </p>
+
+                        <span class="mt-2 inline-flex rounded-full border
+                               border-[#f2aa2c] px-3 py-1
+                               text-[10px] font-semibold text-[#f2aa2c]
+                               sm:text-xs">
+                            दुसरी पिढी
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <!--
+                Person 3:
+                col-span-2 centres it below on mobile/tablet.
+                lg:col-span-1 returns it to the third desktop column.
+            -->
+                <article class="col-span-2 mx-auto flex w-full max-w-[270px]
+                       flex-col items-center text-center
+                       lg:col-span-1 lg:max-w-none">
+
+                    <!-- Image -->
+                    <div class="aspect-square w-full max-w-[170px] overflow-hidden
+                           rounded-xl bg-[#0a2442]
+                           sm:max-w-[210px]">
+                        <img src="assets/founder-3.webp" alt="चि. सौरभ पुरुषोत्तम बेदरे"
+                            class="h-full w-full object-cover object-top" />
+                    </div>
+
+                    <!-- Details -->
+                    <div class="mt-3">
+
+                        <h3 class="text-sm font-bold leading-5 text-white
+                               sm:text-lg sm:leading-7 lg:text-xl">
+                            चि. सौरभ पुरुषोत्तम बेदरे
+                        </h3>
+
+                        <p class="mt-1 text-xs font-medium leading-5
+                               text-[#f2aa2c] sm:text-sm lg:text-base">
+                            सेल्स अँड मार्केटिंग हेड - बेदरे बंधू सुवर्णकार
+                        </p>
+
+                        <p class="mt-1 text-xs text-blue-100 sm:mt-2 sm:text-sm">
+                            2026 पासून
+                        </p>
+
+                        <span class="mt-2 inline-flex rounded-full border
+                               border-[#f2aa2c] px-3 py-1
+                               text-[10px] font-semibold text-[#f2aa2c]
+                               sm:text-xs">
+                            तिसरी पिढी
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-gray-200 bg-white text-[#061b35]">
+
+        <div class="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
+
+            <!-- Logo and Brand Information -->
+            <div class="text-center">
+
+                <a href="#" class="inline-flex justify-center">
+                    <img src="assets/logo.webp" alt="Bedre Bandhu Suvarnakar"
+                        class="h-auto w-[170px] object-contain sm:w-[195px]" />
+                </a>
+
+                <p class="mx-auto mt-2 max-w-xl text-xs leading-5 text-gray-600
+                       sm:text-sm sm:leading-6">
+                    विश्वास, शुद्धता आणि परंपरेचा सुवर्ण वारसा.
+                    १९८४ पासून आपल्या सेवेत बेदरे बंधू सुवर्णकार.
+                </p>
+
+                <!-- Decorative Divider -->
+                <div class="mx-auto mt-4 flex w-32 items-center gap-2">
+
+                    <span class="h-px flex-1 bg-gray-300"></span>
+
+                    <span class="block h-2.5 w-2.5 rotate-45
+                           border border-[#d78e11] bg-white"></span>
+
+                    <span class="h-px flex-1 bg-gray-300"></span>
+
+                </div>
+
+            </div>
+
+            <!-- Contact Information -->
+            <div class="mt-6">
+
+                <h2 class="mb-4 text-center text-lg font-bold sm:text-xl">
+                    Contact Us
+                </h2>
+
+                <!-- Always 2 columns × 2 rows -->
+                <div class="grid grid-cols-2 gap-2.5 sm:gap-3 lg:gap-4">
+
+                    <!-- Address -->
+                    <a href="https://www.google.com/maps/search/?api=1&query=Bajar+Road+Tirthpuri+Maharashtra+431209"
+                        target="_blank" rel="noopener noreferrer" class="group flex min-w-0 flex-col items-center justify-start
+                   rounded-xl border border-gray-200 bg-[#fffaf1]
+                   px-2 py-3 text-center transition
+                   hover:border-[#f2aa2c] hover:bg-[#fff3dc]
+                   sm:px-4 sm:py-4">
+
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center
+                       rounded-full bg-white text-[#d78e11] shadow-sm
+                       ring-1 ring-[#f2aa2c]/30
+                       transition group-hover:bg-[#f2aa2c]
+                       group-hover:text-[#061b35]
+                       sm:h-10 sm:w-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+                                <circle cx="12" cy="10" r="2.5" />
+                            </svg>
+                        </div>
+
+                        <h3 class="mt-2 text-xs font-bold sm:text-sm">
+                            Visit Us
+                        </h3>
+
+                        <p class="mt-1 text-[10px] leading-4 text-gray-600
+                       sm:text-xs sm:leading-5">
+                            Bajar Road, Tirthpuri,<br />
+                            Maharashtra 431209
+                        </p>
+
+                    </a>
+
+                    <!-- Phone -->
+                    <div class="group flex min-w-0 flex-col items-center justify-start
+                   rounded-xl border border-gray-200 bg-[#fffaf1]
+                   px-2 py-3 text-center transition
+                   hover:border-[#f2aa2c] hover:bg-[#fff3dc]
+                   sm:px-4 sm:py-4">
+
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center
+                       rounded-full bg-white text-[#d78e11] shadow-sm
+                       ring-1 ring-[#f2aa2c]/30
+                       transition group-hover:bg-[#f2aa2c]
+                       group-hover:text-[#061b35]
+                       sm:h-10 sm:w-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <path
+                                    d="M5 4h4l2 5-2.5 1.5a15 15 0 0 0 5 5L15 13l5 2v4c0 1.1-.9 2-2 2C9.7 21 3 14.3 3 6c0-1.1.9-2 2-2Z" />
+                            </svg>
+                        </div>
+
+                        <h3 class="mt-2 text-xs font-bold sm:text-sm">
+                            Call Us
+                        </h3>
+
+                        <div class="mt-1 flex flex-col">
+
+                            <a href="tel:+91757054168" class="text-[10px] leading-4 text-gray-600
+                           transition hover:text-[#d78e11]
+                           sm:text-xs sm:leading-5">
+                                +91 7570054168
+                            </a>
+
+                            <a href="tel:+918329419742" class="text-[10px] leading-4 text-gray-600
+                           transition hover:text-[#d78e11]
+                           sm:text-xs sm:leading-5">
+                                +91 8329419742
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Email -->
+                    <a href="mailto:bedrebandhusuvarnkar@gmail.com" class="group flex min-w-0 flex-col items-center justify-start
+                   rounded-xl border border-gray-200 bg-[#fffaf1]
+                   px-2 py-3 text-center transition
+                   hover:border-[#f2aa2c] hover:bg-[#fff3dc]
+                   sm:px-4 sm:py-4">
+
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center
+                       rounded-full bg-white text-[#d78e11] shadow-sm
+                       ring-1 ring-[#f2aa2c]/30
+                       transition group-hover:bg-[#f2aa2c]
+                       group-hover:text-[#061b35]
+                       sm:h-10 sm:w-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <rect x="3" y="5" width="18" height="14" rx="2" />
+                                <path d="m4 7 8 6 8-6" />
+                            </svg>
+                        </div>
+
+                        <h3 class="mt-2 text-xs font-bold sm:text-sm">
+                            Write Us
+                        </h3>
+
+                        <p class="mt-1 w-full overflow-hidden break-all
+                       text-[9px] leading-4 text-gray-600
+                       sm:text-xs sm:leading-5">
+                            bedrebandhusuvarnkar@gmail.com
+                        </p>
+
+                    </a>
+
+                    <!-- Business Hours -->
+                    <div class="group flex min-w-0 flex-col items-center justify-start
+                   rounded-xl border border-gray-200 bg-[#fffaf1]
+                   px-2 py-3 text-center transition
+                   hover:border-[#f2aa2c] hover:bg-[#fff3dc]
+                   sm:px-4 sm:py-4">
+
+                        <div class="flex h-9 w-9 shrink-0 items-center justify-center
+                       rounded-full bg-white text-[#d78e11] shadow-sm
+                       ring-1 ring-[#f2aa2c]/30
+                       transition group-hover:bg-[#f2aa2c]
+                       group-hover:text-[#061b35]
+                       sm:h-10 sm:w-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="9" />
+                                <path d="M12 7v5l3 2" />
+                            </svg>
+                        </div>
+
+                        <h3 class="mt-2 text-xs font-bold sm:text-sm">
+                            Business Hours
+                        </h3>
+
+                        <p class="mt-1 text-[10px] leading-4 text-gray-600
+                       sm:text-xs sm:leading-5">
+                            Monday–Sunday<br />
+                            10:00 AM–8:00 PM
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    
+    <!-- Swiper JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Define dynamic rendering functions BEFORE widgets-core.js -->
+<script>
+    /*
+     * Drawer item renderer
+     */
+    window.renderDrawerItem = function (widget) {
+        return `
+            <a
+                href="#"
+                onclick="${widget.action}(); return false;"
+                class="text-sm font-semibold text-navy
+                       transition hover:text-gold"
+            >
+                ${widget.name}
+            </a>
+        `;
+    };
+
+    /*
+     * Service widget renderer
+     */
+     // Widget tabs display
+window.renderWidget = function (widget) {
+    const isVirtualTryOn = Number(widget.id) === 23;
+
+    return `
+        <div
+            onclick="${widget.action}()"
+            class="flex h-28 w-24 cursor-pointer flex-col items-center justify-center
+                   rounded-tl-[50px] rounded-tr-[50px] rounded-bl-[50px]
+                   border-4 border-[#f2aa2c]
+                   bg-gradient-to-br from-[#0f3459] via-[#092542] to-[#061b35]
+                   text-center text-white shadow-md transition duration-300
+                   hover:-translate-y-1 hover:shadow-lg
+                   md:h-28 md:w-28"
+        >
+            <img
+                src="${widget.icon}"
+                alt="${widget.name}"
+                class="h-10 w-10 object-contain ${isVirtualTryOn ? '' : 'brightness-0 invert'}"
+            />
+
+            <span
+                class="mt-2 w-20 break-words text-xs font-medium leading-tight
+                       text-white md:text-sm md:font-semibold"
+            >
+                ${widget.name}
+            </span>
+        </div>
+    `;
+};
+</script>
+
+<!-- Load widgets-core only after renderer functions exist -->
+<script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+
+<!-- Your page JavaScript -->
+<script src="script.js"></script>
+</body>
+
+</html>
