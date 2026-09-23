@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.swiper-pagination {
+    bottom: 12px !important;
+}
+
+.swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+    background: white !important;
+    opacity: 0.65 !important;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    width: 24px;
+    border-radius: 999px;
+    background: #f2aa2c !important;
+    opacity: 1 !important;
+}
+
+@media (min-width: 768px) {
+    .swiper-pagination {
+        bottom: 18px !important;
+    }
+}
+
+/* arrow colors- */
+
+.brandingSwiper {
+    --swiper-navigation-color: #ffffff;
+}
+
+.brandingSwiper .swiper-button-prev,
+.brandingSwiper .swiper-button-next {
+    color: #ffffff !important;
+}
+
+.brandingSwiper .swiper-button-prev::after,
+.brandingSwiper .swiper-button-next::after {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 700;
+}
+
+
+/* Mobile: initially display only the first 6 service widgets */
+@media (max-width: 600px) {
+    #widgetsContainer:not(.show-all-services) > :nth-child(n + 7) {
+        display: none;
+    }
+}

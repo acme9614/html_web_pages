@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahendra Jewellers Kolhapur | Gold | Diamond | Platinum | Silver</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Minimum custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        html,
+        body,
+        button,
+        input,
+        select,
+        textarea {
+            font-family: "Montserrat", Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 border-b border-gray-100 bg-white shadow-sm">
+
+        <div class="relative mx-auto flex h-[72px] max-w-7xl
+               items-center px-3 sm:h-20 sm:px-6 lg:px-8">
+
+            <!-- Left: Drawer Button -->
+            <button id="mobileMenuButton" type="button" class="flex h-10 w-10 shrink-0 items-center justify-center
+                   rounded-full text-[#061b35] transition
+                   hover:bg-[#061b35] hover:text-white
+                   sm:h-11 sm:w-11" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <!-- Menu Icon -->
+                <svg id="openMenuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path d="M4 7h16M4 12h16M4 17h16" />
+                </svg>
+
+                <!-- Close Icon -->
+                <svg id="closeMenuIcon" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path d="M6 6l12 12M18 6 6 18" />
+                </svg>
+            </button>
+
+            <!-- Centre: Logo -->
+            <a href="#" class="absolute left-1/2 top-1/2
+                   -translate-x-1/2 -translate-y-1/2" aria-label="Mahendra Jewellers home">
+                <img src="assets/Mahendra-Logo.webp" alt="Mahendra Jewellers" class="h-12 w-auto max-w-[155px] object-contain
+                       sm:h-16 sm:max-w-[210px]" />
+            </a>
+
+            <!-- Right: Notification -->
+            <button type="button" aria-label="Notifications" onclick="navigateToNotification()" class="relative ml-auto flex h-10 w-10 shrink-0
+                   items-center justify-center rounded-full
+                   text-[#061b35] transition hover:bg-gray-100
+                   sm:h-11 sm:w-11">
+                <img src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png" alt=""
+                    class="h-5 w-5 object-contain sm:h-6 sm:w-6" />
+            </button>
+
+        </div>
+
+        <div id="menuBackdrop" class="invisible pointer-events-none fixed inset-0 z-[60]
+            bg-black/45 opacity-0 transition-opacity duration-300"></div>
+
+        <nav id="mobileMenu" class="invisible fixed inset-y-0 left-0 z-[70] w-1/2
+            -translate-x-full overflow-y-auto bg-white shadow-2xl
+            transition-transform duration-300" aria-label="Main navigation" aria-hidden="true">
+
+            <div class="flex items-center justify-between gap-2 border-b px-4 py-4">
+                <a href="#" aria-label="Mahendra Jewellers home" class="min-w-0">
+                    <img src="assets/Mahendra-Logo.webp" alt="Mahendra Jewellers"
+                        class="h-12 w-auto max-w-full object-contain sm:h-16" />
+                </a>
+
+                <button id="closeDrawerButton" type="button" aria-label="Close menu" class="shrink-0 text-2xl">
+                    ×
+                </button>
+            </div>
+
+            <div id="drawerContainer" class="flex flex-col gap-4 px-4 py-5">
+                <!-- Dynamic widgets display here -->
+            </div>
+        </nav>
+
+
+    </header>
+
+    <!-- BANNER SWIPER -->
+    <section class="bg-cream px-3 py-4 sm:px-5 sm:py-6 lg:px-8 lg:py-8">
+
+        <!-- Removed the fixed aspect-ratio classes -->
+        <div class="swiper brandingSwiper mx-auto w-full overflow-hidden
+                rounded-xl shadow-xl sm:rounded-2xl">
+
+            <div class="swiper-wrapper">
+
+                <!-- Banner 1 -->
+                <div class="swiper-slide relative">
+                    <img src="assets/banner1.jpg" alt="Gold bangles" class="block h-[170px] sm:h-auto w-full" />
+
+                    <div class="absolute left-[8%] top-1/2 w-[42%]
+                            -translate-y-1/2 text-[#202020]">
+                        <p class="text-[clamp(12px,2.1vw,36px)] leading-[1.35]">
+                            Your <span class="font-bold text-purple-800">Jewellery</span><br>
+                            introduces you before you<br>
+                            even speak
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Banner 2 -->
+                <div class="swiper-slide relative">
+                    <img src="assets/banner2.jpg" alt="Gold necklace" class="block h-[170px] sm:h-auto w-full" />
+
+                    <div class="absolute left-[8%] top-1/2 w-[42%]
+                            -translate-y-1/2 text-[#202020]">
+                        <p class="text-[clamp(12px,2.1vw,36px)] leading-[1.35]">
+                            <span class="font-bold text-purple-800">Jewellery</span><br>
+                            is a way of keeping<br>
+                            memories alive...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Banner 3 -->
+                <div class="swiper-slide relative">
+                    <img src="assets/banner3.jpg" alt="Couple rings" class="block h-[170px] sm:h-auto w-full" />
+
+                    <div class="absolute left-[8%] top-1/2 w-[42%]
+                            -translate-y-1/2 text-[#202020]">
+                        <p class="text-[clamp(12px,2.1vw,36px)] leading-[1.35]">
+                            your <span class="font-bold text-purple-800">Jewellery</span><br>
+                            also comes in couple<br>
+                            with token of love...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Banner 4 -->
+                <div class="swiper-slide relative">
+                    <img src="assets/banner4.jpg" alt="Wedding jewellery" class="block h-[170px] sm:h-auto w-full" />
+
+                    <div class="absolute left-[2%] top-1/2 w-[42%]
+                            -translate-y-1/2 text-center text-[#202020]">
+                        <p class="text-[clamp(12px,2.5vw,44px)] font-bold
+                              leading-[1.2] text-purple-800">
+                            Wedding<br>
+                            <span class="text-[.55em] font-normal text-[#202020]">
+                                collection
+                            </span><br>
+                            Jewellery
+                        </p>
+                        <p class="mt-[1%] text-[clamp(7px,1.2vw,18px)]">
+                            by Mahendra Jewellers
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Banner 5 -->
+                <div class="swiper-slide relative">
+                    <img src="assets/banner5.jpg" alt="Traditional jewellery"
+                        class="block h-[170px] sm:h-auto w-full" />
+
+                    <div class="absolute left-[8%] top-1/2 w-[42%]
+                            -translate-y-1/2 text-[#202020]">
+                        <p class="text-[clamp(12px,2.1vw,36px)] leading-[1.35]">
+                            Traditional
+                            <span class="font-bold text-purple-800">Jewellery</span><br>
+                            <span class="font-bold text-purple-800">Saaj</span>
+                            is beautiful...
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Keep your existing previous button, next button, and pagination here -->
+            <button type="button" class="swiper-button-prev !hidden sm:!flex" aria-label="Previous banner"></button>
+
+            <button type="button" class="swiper-button-next !hidden sm:!flex" aria-label="Next banner"></button>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="bg-white px-2 py-0 sm:px-4 sm:py-2 lg:px-6">
+        <div class="mx-auto max-w-5xl">
+
+            <!-- Dynamic Service Widgets -->
+            <div id="widgetsContainer" class="flex flex-wrap items-center justify-center gap-1 sm:gap-2 lg:gap-2"></div>
+
+            <!-- Mobile Show More Button -->
+            <div id="serviceToggleWrapper" class="mt-4 hidden justify-center sm:hidden">
+                <button id="serviceToggleButton" type="button" aria-expanded="false" aria-controls="widgetsContainer"
+                    class="group inline-flex min-h-11 items-center gap-3
+               rounded-full border border-[#c99a35]
+               bg-[#792887] px-6 py-2.5
+               text-xs font-semibold uppercase tracking-[0.12em]
+               text-white shadow-[0_5px_16px_rgba(80,20,85,0.18)]
+               transition duration-200
+               hover:bg-[#652071] active:scale-95">
+                    <span id="serviceToggleText">Show More</span>
+
+                    <span class="flex h-6 w-6 items-center justify-center
+                     rounded-full bg-white/15">
+                        <svg id="serviceToggleIcon" class="h-4 w-4 transition-transform duration-300" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- about us -->
+    <section id="about" class="bg-white px-5 py-10 sm:px-10 sm:py-10 lg:px-16 lg:py-10" aria-labelledby="about-heading">
+        <div class="mx-auto max-w-[1280px]">
+            <div class="mb-10 flex items-center justify-center gap-4 sm:mb-14"><span
+                    class="hidden h-px flex-1 bg-[#e6dfd4] sm:block"></span>
+                <h2 id="about-heading"
+                    class="text-center font-display text-3xl leading-tight sm:text-4xl lg:text-[42px]">Welcome to
+                    Mahendra Jewellers</h2><span class="hidden h-px flex-1 bg-[#e6dfd4] sm:block"></span>
+            </div>
+            <div class="grid items-center gap-10 lg:grid-cols-[.9fr_1.1fr] lg:gap-16">
+                <div class="max-w-[560px] text-[15px] leading-[1.95] text-[#35434c] sm:text-[17px]">
+                    <p>Founded In 1907, MAHENDRA JEWELLERS Is One Of The Oldest And Most Reputed Jewellers In The
+                        Country. It’s A Legacy Of Over Four Generations Which Is Built On Trust, Excellence And On Warm
+                        Relationship With Customers And Society.</p>
+                    <p class="mt-5">Mahendra Jewellers was the first hallmarked gold jeweller, the first ISO 9001 gold
+                        jeweller and the first IGI certified diamond jeweller in Southern Maharashtra. In 2005, it
+                        received India’s first hallmarking for silver jewellery.</p>
+                </div>
+                <div class="relative bg-[#eee5d5] p-2 sm:p-3"><img src="assets/welcome-image.jpg"
+                        alt="Mahendra Jewellers gold and diamond couple rings"
+                        class="aspect-[4/3] w-full object-cover object-right">
+                    <div class="pointer-events-none absolute inset-3 border border-white/90 sm:inset-5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-[#101d2b] text-white">
+        <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12
+                sm:px-8 sm:py-16 lg:grid-cols-2 lg:gap-20 lg:px-12">
+
+            <!-- Logo -->
+            <div class="flex flex-col justify-center">
+                <a href="#" class="w-fit" aria-label="Mahendra Jewellers home">
+                    <img src="assets/Mahendra-Logo.webp" alt="Mahendra Jewellers"
+                        class="h-20 w-auto max-w-[220px] object-contain sm:h-24" />
+                </a>
+
+                <p class="mt-5 max-w-sm text-sm leading-6 text-white/65">
+                    Celebrating precious moments with jewellery crafted
+                    to be treasured for generations.
+                </p>
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <p class="mb-2 text-xs font-semibold uppercase tracking-[0.25em]
+                      text-[#d6b47e]">
+                    We are here for you
+                </p>
+
+                <h2 class="mb-6 font-serif text-3xl sm:text-4xl">
+                    Contact Us
+                </h2>
+
+                <div class="border-l-2 border-[#d6b47e] pl-5 sm:pl-6">
+                    <h3 class="mb-4 text-base font-semibold text-[#f0d9b3]">
+                        Kolhapur Branch
+                    </h3>
+
+                    <address class="space-y-4 not-italic text-sm leading-7
+                                text-white/75 sm:text-base">
+                        <p>
+                            355, E Ward, Dhaval Realities,<br />
+                            Opp. Gokul Hotel, Station Road,<br />
+                            Kolhapur – 416001.
+                        </p>
+
+                        <p>
+                            <a href="tel:+912312542551" class="hover:text-white hover:underline">
+                                0231-2542551
+                            </a>,
+                            <a href="tel:+912312544551" class="hover:text-white hover:underline">
+                                2544551
+                            </a>
+                            <br />
+                            <a href="tel:+918888445551" class="hover:text-white hover:underline">
+                                +91 8888445551
+                            </a>
+                        </p>
+
+                        <p>
+                            <a href="mailto:mjk@mahendrajewellers.com"
+                                class="break-all hover:text-white hover:underline">
+                                mjk@mahendrajewellers.com
+                            </a>
+                        </p>
+
+                        <a href="https://wa.me/919922975551" target="_blank" rel="noopener noreferrer" class="inline-flex rounded-full border border-[#d6b47e]
+                              px-5 py-2 text-sm font-semibold text-[#f0d9b3]
+                              transition hover:bg-[#d6b47e] hover:text-[#101d2b]">
+                            WhatsApp: 9922975551
+                        </a>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        /*
+         * Drawer item renderer
+         */
+        window.renderDrawerItem = function (widget) {
+            return `
+            <a
+                href="#"
+                onclick="${widget.action}(); return false;"
+                class="text-sm font-semibold text-navy
+                       transition hover:text-gold"
+            >
+                ${widget.name}
+            </a>
+        `;
+        };
+
+        window.renderWidget = function (widget, index) {
+            const isVirtualTryOn = Number(widget.id) === 23;
+
+            return `
+    <div onclick="${widget.action}()"
+         class="tab-item cursor-pointer"
+         data-aos="fade-up">
+
+      <div class="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden 
+                  hover:scale-105 transition-all duration-300">
+
+        <!-- Background Shape -->
+        <img src="assets/shape.webp" 
+             alt="service bg"
+             class="w-full h-full object-cover" />
+
+        <!-- Transparent Overlay -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 p-2">
+          <!-- Icon -->
+          <img class="w-8 h-8 md:w-10 md:h-10 ${isVirtualTryOn ? '' : 'invert'}"
+               src="${widget.icon}" />
+
+          <!-- Name -->
+          <span class="px-1 text-xs md:text-sm text-white text-center leading-tight w-[70px]">
+            ${widget.name}
+          </span>
+        </div>
+
+      </div>
+    </div>
+  `;
+        };
+    </script>
+    <!-- Load widgets-core only after renderer functions exist -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
