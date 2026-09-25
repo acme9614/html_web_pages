@@ -106,80 +106,80 @@ const promiseSwiper = new Swiper(".promiseSwiper", {
 
 
 // show more 
-  document.addEventListener("DOMContentLoaded", function () {
-    const widgetsContainer =
-        document.getElementById("widgetsContainer");
+//   document.addEventListener("DOMContentLoaded", function () {
+//     const widgetsContainer =
+//         document.getElementById("widgetsContainer");
 
-    const toggleWrapper =
-        document.getElementById("serviceToggleWrapper");
+//     const toggleWrapper =
+//         document.getElementById("serviceToggleWrapper");
 
-    const toggleButton =
-        document.getElementById("serviceToggleButton");
+//     const toggleButton =
+//         document.getElementById("serviceToggleButton");
 
-    const toggleText =
-        document.getElementById("serviceToggleText");
+//     const toggleText =
+//         document.getElementById("serviceToggleText");
 
-    const toggleIcon =
-        document.getElementById("serviceToggleIcon");
+//     const toggleIcon =
+//         document.getElementById("serviceToggleIcon");
 
-    if (
-        !widgetsContainer ||
-        !toggleWrapper ||
-        !toggleButton ||
-        !toggleText ||
-        !toggleIcon
-    ) {
-        return;
-    }
+//     if (
+//         !widgetsContainer ||
+//         !toggleWrapper ||
+//         !toggleButton ||
+//         !toggleText ||
+//         !toggleIcon
+//     ) {
+//         return;
+//     }
 
-    function updateToggleButton() {
-        const isMobile = window.innerWidth < 600;
-        const hasMoreThanSix = widgetsContainer.children.length > 6;
-        const isExpanded =
-            widgetsContainer.classList.contains("show-all-services");
+//     function updateToggleButton() {
+//         const isMobile = window.innerWidth < 600;
+//         const hasMoreThanSix = widgetsContainer.children.length > 6;
+//         const isExpanded =
+//             widgetsContainer.classList.contains("show-all-services");
 
-        if (isMobile && hasMoreThanSix) {
-            toggleWrapper.classList.remove("hidden");
-            toggleWrapper.classList.add("flex");
-        } else {
-            toggleWrapper.classList.add("hidden");
-            toggleWrapper.classList.remove("flex");
-        }
+//         if (isMobile && hasMoreThanSix) {
+//             toggleWrapper.classList.remove("hidden");
+//             toggleWrapper.classList.add("flex");
+//         } else {
+//             toggleWrapper.classList.add("hidden");
+//             toggleWrapper.classList.remove("flex");
+//         }
 
-        toggleText.textContent =
-            isExpanded ? "Show Less" : "Show More";
+//         toggleText.textContent =
+//             isExpanded ? "Show Less" : "Show More";
 
-        toggleIcon.classList.toggle("rotate-180", isExpanded);
+//         toggleIcon.classList.toggle("rotate-180", isExpanded);
 
-        toggleButton.setAttribute(
-            "aria-expanded",
-            String(isExpanded)
-        );
-    }
+//         toggleButton.setAttribute(
+//             "aria-expanded",
+//             String(isExpanded)
+//         );
+//     }
 
-    toggleButton.addEventListener("click", function () {
-        const isExpanded =
-            widgetsContainer.classList.toggle("show-all-services");
+//     toggleButton.addEventListener("click", function () {
+//         const isExpanded =
+//             widgetsContainer.classList.toggle("show-all-services");
 
-        updateToggleButton();
+//         updateToggleButton();
 
-        // When Show Less is clicked, return to the section
-        if (!isExpanded) {
-            widgetsContainer.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        }
-    });
+//         // When Show Less is clicked, return to the section
+//         if (!isExpanded) {
+//             widgetsContainer.scrollIntoView({
+//                 behavior: "smooth",
+//                 block: "start"
+//             });
+//         }
+//     });
 
-    // Handles widgets added dynamically
-    const widgetObserver = new MutationObserver(updateToggleButton);
+//     // Handles widgets added dynamically
+//     const widgetObserver = new MutationObserver(updateToggleButton);
 
-    widgetObserver.observe(widgetsContainer, {
-        childList: true
-    });
+//     widgetObserver.observe(widgetsContainer, {
+//         childList: true
+//     });
 
-    window.addEventListener("resize", updateToggleButton);
+//     window.addEventListener("resize", updateToggleButton);
 
-    updateToggleButton();
-});
+//     updateToggleButton();
+// });

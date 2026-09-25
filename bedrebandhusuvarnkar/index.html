@@ -149,52 +149,31 @@
     </section>
 
 
-<!-- SERVICES SECTION -->
-<section class="bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-    <div class="mx-auto max-w-5xl">
+    <!-- SERVICES SECTION -->
+    <section class="bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+        <div class="mx-auto max-w-5xl">
 
-        <!-- Dynamic Service Widgets -->
-        <div
-            id="widgetsContainer"
-            class="flex flex-wrap items-center justify-center gap-5 sm:gap-6 lg:gap-8"
-        ></div>
+            <!-- Dynamic Service Widgets -->
+            <div id="widgetsContainer" class="flex flex-wrap items-center justify-center gap-5 sm:gap-6 lg:gap-8"></div>
 
-        <!-- Mobile Show More Button -->
-      <div
-    id="serviceToggleWrapper"
-    class="mt-6 hidden justify-center sm:hidden"
->
-    <button
-        id="serviceToggleButton"
-        type="button"
-        class="inline-flex items-center gap-2 rounded-full
+            <!-- Mobile Show More Button -->
+            <!-- <div id="serviceToggleWrapper" class="mt-6 hidden justify-center sm:hidden">
+                <button id="serviceToggleButton" type="button" class="inline-flex items-center gap-2 rounded-full
                border border-[#f2aa2c] bg-[#061b35]
                px-5 py-2.5 text-sm font-semibold text-white
-               shadow-md transition active:scale-95"
-        aria-expanded="false"
-    >
-        <span id="serviceToggleText">Show More</span>
+               shadow-md transition active:scale-95" aria-expanded="false">
+                    <span id="serviceToggleText">Show More</span>
 
-        <svg
-            id="serviceToggleIcon"
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-4 w-4 transition-transform duration-300"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-        >
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m6 9 6 6 6-6"
-            />
-        </svg>
-    </button>
-</div>
+                    <svg id="serviceToggleIcon" xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6" />
+                    </svg>
+                </button>
+            </div> -->
 
-    </div>
-</section>
+        </div>
+    </section>
 
     <!-- WHY BEDRE BANDHU SUVARNAKAR SECTION -->
     <section id="whyBedreSection"
@@ -923,17 +902,17 @@
         </div>
 
     </footer>
-    
-    <!-- Swiper JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<!-- Define dynamic rendering functions BEFORE widgets-core.js -->
-<script>
-    /*
-     * Drawer item renderer
-     */
-    window.renderDrawerItem = function (widget) {
-        return `
+    <!-- Swiper JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Define dynamic rendering functions BEFORE widgets-core.js -->
+    <script>
+        /*
+         * Drawer item renderer
+         */
+        window.renderDrawerItem = function (widget) {
+            return `
             <a
                 href="#"
                 onclick="${widget.action}(); return false;"
@@ -943,16 +922,16 @@
                 ${widget.name}
             </a>
         `;
-    };
+        };
 
-    /*
-     * Service widget renderer
-     */
-     // Widget tabs display
-window.renderWidget = function (widget) {
-    const isVirtualTryOn = Number(widget.id) === 23;
+        /*
+         * Service widget renderer
+         */
+        // Widget tabs display
+        window.renderWidget = function (widget) {
+            const isVirtualTryOn = Number(widget.id) === 23;
 
-    return `
+            return `
         <div
             onclick="${widget.action}()"
             class="flex h-28 w-24 cursor-pointer flex-col items-center justify-center
@@ -977,14 +956,14 @@ window.renderWidget = function (widget) {
             </span>
         </div>
     `;
-};
-</script>
+        };
+    </script>
 
-<!-- Load widgets-core only after renderer functions exist -->
-<script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+    <!-- Load widgets-core only after renderer functions exist -->
+    <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
 
-<!-- Your page JavaScript -->
-<script src="script.js"></script>
+    <!-- Your page JavaScript -->
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -71,8 +71,8 @@
 
 
 /* Mobile: initially display only the first 6 service widgets */
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     #widgetsContainer:not(.show-all-services) > :nth-child(n + 7) {
         display: none;
     }
-}
+} */
