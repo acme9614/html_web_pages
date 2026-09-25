@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Udapure Jewellers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+
+</head>
+
+<body>
+  <div class="splash" aria-label="Udapure Jewellers opening screen">
+    <img class="logo" src="assets/udapure-welcome-logo-removebg-preview.png" alt="Udapure Jewellers">
+    <img class="art" src="assets/welcomeImage.png" alt="Udapure welcome image">
+  </div>
+
+  <main id="home" class="home flex flex-col overflow-y-auto bg-white" aria-hidden="true">
+    <header class="shrink-0 bg-[#90052f] text-white pt-4 md:pt-0">
+      <div class="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+        <img src="assets/udapure-home-logo-removebg-preview.png" alt="Udapure Jewellers"
+          class="h-auto w-[min(48vw,150px)] sm:w-[200px]">
+
+        <div class="flex items-center gap-1 sm:gap-3">
+          <button type="button" aria-label="Call"
+            class="flex h-11 w-11 items-center justify-center rounded-full hover:bg-white/10">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24c1.12.37 2.32.57 3.56.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.57 21 3 13.43 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.44.57 3.56a1 1 0 0 1-.24 1L6.6 10.8Z" />
+            </svg>
+          </button>
+
+          <!-- Right: Notification -->
+          <button type="button" aria-label="Notifications" onclick="navigateToNotification()"
+            class="relative flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white transition hover:bg-white/10">
+            <img src="https://cdn-icons-png.flaticon.com/128/4991/4991422.png" alt="notification"
+              class="h-5 w-5 object-contain sm:h-6 sm:w-6 invert">
+          </button>
+
+          <button id="menuButton" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"
+            class="flex h-11 w-11 items-center justify-center rounded-full hover:bg-white/10">
+            <svg class="h-7 w-7" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"
+              aria-hidden="true">
+              <path stroke-linecap="round" d="M3 7h26M3 16h26M3 25h26" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- slider -->
+    <section class="w-full bg-[#90052f] px-4 pb-2 pt-2 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl">
+        <div class="swiper bannerSwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="assets/udapure-wedding-banner.png" alt="Banner1"
+                class="aspect-[478/262] w-full rounded-xl object-cover">
+            </div>
+            <div class="swiper-slide">
+              <img src="assets/udapure-digital-banner.png" alt="Banner2"
+                class="aspect-[478/262] w-full rounded-xl object-cover">
+            </div>
+
+            <div class="swiper-slide">
+              <img src="assets/udapure-wedding-banner.png" alt="Banner3"
+                class="aspect-[478/262] w-full rounded-xl object-cover">
+            </div>
+            <div class="swiper-slide">
+              <img src="assets/udapure-digital-banner.png" alt="Banner4"
+                class="aspect-[478/262] w-full rounded-xl object-cover">
+            </div>
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- services -->
+    <section class="flex w-full flex-1 flex-col bg-[#90052f]">
+      <div class="flex flex-1 flex-col rounded-t-[48px] bg-white px-4 py-12 sm:rounded-t-[64px] sm:px-6 lg:px-8">
+        <!-- Dynamic Service Widgets -->
+        <div id="widgetsContainer" class="flex flex-wrap items-center justify-center gap-4 sm:gap-2 lg:gap-4 px-0 md:px-12 lg:px-60"></div>
+      </div>
+
+    </section>
+    <!-- drawer -->
+    <div id="drawerOverlay" class="fixed inset-0 z-40 hidden bg-black/50" aria-hidden="true"></div>
+    <aside id="drawer" class="drawer fixed inset-y-0 left-0 z-50 w-[80%] md:w-1/2 bg-white shadow-2xl" aria-label="Navigation menu"
+      aria-hidden="true">
+      <div class="flex items-center justify-between border-b border-gray-200 px-4 py-4 sm:px-6">
+        <img src="assets/udapure-home-logo.png" alt="Udapure Jewellers"
+          class="h-auto w-[min(48vw,150px)] sm:w-[200px]">
+        <button id="closeDrawer" type="button" aria-label="Close menu"
+          class="flex h-10 w-10 items-center justify-center rounded-full text-gray-700 hover:bg-gray-100">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <path stroke-linecap="round" d="M5 5l14 14M19 5 5 19" />
+          </svg>
+        </button>
+      </div>
+
+      <nav id="drawerContainer" class="px-4 py-4 sm:px-6">
+        <!-- dynamic drawer menus -->
+      </nav>
+    </aside>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+  <script>
+
+     /*
+         * Drawer item renderer
+         */
+        window.renderDrawerItem = function (widget) {
+            return `
+            <a
+                href="#"
+                onclick="${widget.action}(); return false;"
+                class="block rounded-lg px-3 py-3 text-sm font-medium text-[#90052f] hover:bg-[#90052f]/5 sm:text-base"
+            >
+                ${widget.name}
+            </a>
+        `;
+        };
+
+    window.renderWidget = function (widget, index) {
+      const isVirtualTryOn = Number(widget.id) === 23;
+
+      return `
+    <div onclick="${widget.action}()"
+         class="tab-item cursor-pointer"
+         data-aos="fade-up">
+
+      <div class="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden 
+                  hover:scale-105 transition-all duration-300">
+
+        <!-- Background Shape -->
+        <img src="assets/shape.svg" 
+             alt="service bg"
+             class="w-full h-full object-cover" />
+
+        <!-- Transparent Overlay -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 p-2">
+          <!-- Icon -->
+          <img class="w-8 h-8 md:w-10 md:h-10 ${isVirtualTryOn ? '' : 'invert'}"
+               src="${widget.icon}" />
+
+          <!-- Name -->
+          <span class="px-1 text-xs md:text-sm text-white text-center leading-tight w-[70px]">
+            ${widget.name}
+          </span>
+        </div>
+
+      </div>
+    </div>
+  `;
+    };
+  </script>
+  <!-- Load widgets-core only after renderer functions exist -->
+  <script src="https://acme9614.github.io/html_web_pages/widgets-core.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

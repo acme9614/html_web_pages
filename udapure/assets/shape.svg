@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 235" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="maroon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8d002b"/>
+      <stop offset="1" stop-color="#b01445"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#maroon)" d="M180 2 C192 12 207 12 225 12 L236 19 H300 C311 19 319 25 320 32 C333 32 339 39 339 48 C351 53 356 69 356 91 V145 C356 165 351 177 339 184 C339 194 332 200 320 200 C319 207 311 213 299 213 H235 L225 221 C207 221 192 224 180 233 C168 224 153 221 135 221 L125 213 H61 C49 213 41 207 40 200 C28 200 21 194 21 184 C9 177 4 165 4 145 V91 C4 69 9 53 21 48 C21 39 27 32 40 32 C41 25 49 19 60 19 H124 L135 12 C153 12 168 12 180 2 Z"/>
+</svg>
