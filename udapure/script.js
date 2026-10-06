@@ -12,15 +12,21 @@ setTimeout(() => {
 function openDrawer() {
     drawer.classList.add('open');
     drawerOverlay.classList.remove('hidden');
+
     drawer.setAttribute('aria-hidden', 'false');
     menuButton.setAttribute('aria-expanded', 'true');
+
+    home.classList.add('drawer-open');
 }
 
 function closeDrawer() {
     drawer.classList.remove('open');
     drawerOverlay.classList.add('hidden');
+
     drawer.setAttribute('aria-hidden', 'true');
     menuButton.setAttribute('aria-expanded', 'false');
+
+    home.classList.remove('drawer-open');
 }
 
 menuButton.addEventListener('click', openDrawer);

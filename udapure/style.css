@@ -132,3 +132,7 @@
       width: min(48vw, 480px);
     }
   }
+
+  .home.drawer-open {
+    overflow: hidden !important;
+}
